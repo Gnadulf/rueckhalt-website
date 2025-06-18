@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rückhalt in Leichter Sprache - Beratung bei sexueller Gewalt">
+    
+    <title>Rückhalt - Leichte Sprache</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="/src/css/reset.css">
+    <link rel="stylesheet" href="/src/css/variables.css">
+    <link rel="stylesheet" href="/src/css/main.css">
+    <link rel="stylesheet" href="/src/css/leichte-sprache.css">
+    
+    <style>
+        /* Leichte Sprache spezifische Styles */
+        body {
+            font-size: 1.25rem;
+            line-height: 2;
+            background: white;
+        }
+        
+        .container-ls {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: var(--space-4);
+        }
+        
+        h1, h2, h3 {
+            font-weight: 700;
+            margin-bottom: var(--space-6);
+            color: var(--color-primary);
+        }
+        
+        h1 { font-size: 2rem; }
+        h2 { font-size: 1.75rem; }
+        h3 { font-size: 1.5rem; }
+        
+        p {
+            margin-bottom: var(--space-6);
+        }
+        
+        .wichtig {
+            background: rgba(232, 165, 165, 0.1);
+            border-left: 4px solid var(--color-primary);
+            padding: var(--space-4);
+            margin: var(--space-6) 0;
+        }
+        
+        .telefon-box {
+            background: rgba(125, 221, 215, 0.1);
+            border: 2px solid var(--color-secondary);
+            border-radius: var(--radius-lg);
+            padding: var(--space-6);
+            text-align: center;
+            margin: var(--space-8) 0;
+        }
+        
+        .telefon-box .nummer {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-secondary-dark);
+            margin: var(--space-4) 0;
+        }
+        
+        .icon-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .icon-list li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: var(--space-4);
+            gap: var(--space-4);
+        }
+        
+        .icon-list .icon {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            background: var(--color-primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+        
+        .nav-ls {
+            background: var(--color-background);
+            padding: var(--space-4) 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .nav-ls ul {
+            display: flex;
+            gap: var(--space-6);
+            list-style: none;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .nav-ls a {
+            color: var(--color-gray-700);
+            text-decoration: none;
+            font-weight: 600;
+            padding: var(--space-2) var(--space-4);
+            border-radius: var(--radius-md);
+            transition: all var(--transition-base);
+        }
+        
+        .nav-ls a:hover {
+            background: var(--color-primary);
+            color: white;
+        }
+        
+        .bilder {
+            display: flex;
+            gap: var(--space-4);
+            margin: var(--space-6) 0;
+            flex-wrap: wrap;
+        }
+        
+        .bilder img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: var(--radius-md);
+        }
+    </style>
+</head>
+<body>
+    <!-- Schnell weg Button -->
+    <button id="quick-exit" class="quick-exit" aria-label="Seite schnell verlassen">
+        <span style="font-size: 1.5rem; font-weight: 700;">Schnell weg!</span>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="nav-ls">
+        <div class="container-ls">
+            <ul>
+                <li><a href="/">Normale Sprache</a></li>
+                <li><a href="#was-wir-machen">Was wir machen</a></li>
+                <li><a href="#hilfe">Hilfe bekommen</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hauptinhalt -->
+    <main>
+        <div class="container-ls">
+            <!-- Logo -->
+            <div style="text-align: center; margin: var(--space-8) 0;">
+                <img src="/src/assets/images/logo.png" alt="Rückhalt Logo" style="width: 200px; height: auto;">
+            </div>
+
+            <h1>Willkommen bei Rückhalt</h1>
+            
+            <div class="wichtig">
+                <p><strong>Wichtig:</strong> Sie können jederzeit diese Seite schnell verlassen.<br>
+                Klicken Sie oben rechts auf "Schnell weg!"</p>
+            </div>
+
+            <p>Rückhalt ist eine Beratungs-Stelle.</p>
+            <p>Wir helfen Menschen bei sexueller Gewalt.</p>
+            <p>Sexuelle Gewalt ist verboten.</p>
+            <p>Niemand darf Sie anfassen, wenn Sie das nicht wollen.</p>
+
+            <!-- Was wir machen -->
+            <section id="was-wir-machen">
+                <h2>Was wir machen</h2>
+                
+                <p>Wir hören Ihnen zu.</p>
+                <p>Wir glauben Ihnen.</p>
+                <p>Wir helfen Ihnen.</p>
+                
+                <ul class="icon-list">
+                    <li>
+                        <span class="icon">1</span>
+                        <div>
+                            <strong>Wir beraten Sie</strong><br>
+                            Sie können mit uns reden.<br>
+                            Über alles was passiert ist.
+                        </div>
+                    </li>
+                    <li>
+                        <span class="icon">2</span>
+                        <div>
+                            <strong>Wir begleiten Sie</strong><br>
+                            Zum Beispiel zur Polizei.<br>
+                            Oder zum Gericht.
+                        </div>
+                    </li>
+                    <li>
+                        <span class="icon">3</span>
+                        <div>
+                            <strong>Wir helfen auch Familien</strong><br>
+                            Wenn jemand in der Familie betroffen ist.<br>
+                            Dann können auch andere Hilfe bekommen.
+                        </div>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Für wen -->
+            <section>
+                <h2>Für wen sind wir da?</h2>
+                
+                <p>Wir sind für alle Menschen da:</p>
+                <ul class="icon-list">
+                    <li>
+                        <span class="icon">F</span>
+                        <div>Frauen</div>
+                    </li>
+                    <li>
+                        <span class="icon">M</span>
+                        <div>Männer</div>
+                    </li>
+                    <li>
+                        <span class="icon">A</span>
+                        <div>Alle anderen Menschen</div>
+                    </li>
+                    <li>
+                        <span class="icon">K</span>
+                        <div>Kinder und Jugendliche</div>
+                    </li>
+                    <li>
+                        <span class="icon">E</span>
+                        <div>Erwachsene jeden Alters</div>
+                    </li>
+                </ul>
+                
+                <p>Egal woher Sie kommen.</p>
+                <p>Egal welche Sprache Sie sprechen.</p>
+                <p>Wir helfen allen.</p>
+            </section>
+
+            <!-- Hilfe bekommen -->
+            <section id="hilfe">
+                <h2>So bekommen Sie Hilfe</h2>
+                
+                <div class="telefon-box">
+                    <p><strong>Rufen Sie uns an:</strong></p>
+                    <p class="nummer">0241 - 542220</p>
+                    <p>Montag bis Freitag<br>
+                    9 Uhr bis 17 Uhr</p>
+                </div>
+                
+                <p>Oder schreiben Sie uns eine E-Mail.</p>
+                <p>Oder kommen Sie vorbei.</p>
+                
+                <div class="wichtig">
+                    <p><strong>Das kostet nichts!</strong><br>
+                    Unsere Hilfe ist kostenlos.</p>
+                </div>
+            </section>
+
+            <!-- Was ist wichtig -->
+            <section>
+                <h2>Was ist wichtig?</h2>
+                
+                <ul class="icon-list">
+                    <li>
+                        <span class="icon">!</span>
+                        <div>
+                            <strong>Wir erzählen nichts weiter</strong><br>
+                            Was Sie uns sagen, bleibt geheim.
+                        </div>
+                    </li>
+                    <li>
+                        <span class="icon">T</span>
+                        <div>
+                            <strong>Sie bestimmen das Tempo</strong><br>
+                            Wir haben Zeit für Sie.
+                        </div>
+                    </li>
+                    <li>
+                        <span class="icon">?</span>
+                        <div>
+                            <strong>Sie müssen nichts</strong><br>
+                            Sie entscheiden, was Sie möchten.
+                        </div>
+                    </li>
+                    <li>
+                        <span class="icon">✓</span>
+                        <div>
+                            <strong>Wir glauben Ihnen</strong><br>
+                            Egal was passiert ist.
+                        </div>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Kontakt -->
+            <section id="kontakt">
+                <h2>So finden Sie uns</h2>
+                
+                <div class="telefon-box">
+                    <p><strong>Telefon:</strong></p>
+                    <p class="nummer">0241 - 542220</p>
+                </div>
+                
+                <p><strong>Adresse:</strong><br>
+                Rückhalt e.V.<br>
+                [Straße einfügen]<br>
+                52062 Aachen</p>
+                
+                <p><strong>E-Mail:</strong><br>
+                info@rueckhalt-aachen.de</p>
+                
+                <div class="wichtig">
+                    <p><strong>In Gefahr?</strong><br>
+                    Rufen Sie die Polizei: <strong style="font-size: 1.5rem;">110</strong></p>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer style="margin-top: var(--space-16); padding: var(--space-8) 0; border-top: 2px solid var(--color-gray-200);">
+                <p style="text-align: center; color: var(--color-gray-600);">
+                    <a href="/" style="color: var(--color-primary);">Zurück zur normalen Sprache</a>
+                </p>
+            </footer>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script>
+        // Quick Exit für Leichte Sprache
+        document.getElementById('quick-exit').addEventListener('click', function() {
+            window.location.replace('https://www.google.de/search?q=wetter');
+        });
+    </script>
+</body>
+</html>

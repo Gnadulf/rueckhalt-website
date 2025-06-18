@@ -1,0 +1,320 @@
+/* Modernes Design mit Rosa & Türkis */
+
+/* Glassmorphismus Effekte */
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(232, 165, 165, 0.15);
+  border-radius: var(--radius-xl);
+  transition: all var(--transition-base);
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 12px 48px 0 rgba(232, 165, 165, 0.25);
+  transform: translateY(-2px);
+}
+
+/* Gradient Backgrounds */
+.gradient-primary {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+}
+
+.gradient-secondary {
+  background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-secondary-light) 100%);
+}
+
+.gradient-mixed {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+}
+
+/* Moderne Hero Section */
+.hero-modern {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.hero-modern::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 20% 50%, rgba(232, 165, 165, 0.2) 0%, transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(125, 221, 215, 0.2) 0%, transparent 50%);
+  animation: float 20s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(-30px, -50px) rotate(120deg); }
+  66% { transform: translate(50px, -30px) rotate(240deg); }
+}
+
+/* Moderne Service Cards */
+.service-modern {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-8);
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-base);
+  border: 2px solid transparent;
+}
+
+.service-modern::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-base);
+}
+
+.service-modern:hover::before {
+  transform: scaleX(1);
+}
+
+.service-modern:hover {
+  background: rgba(255, 255, 255, 1);
+  border-color: var(--color-primary-light);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(232, 165, 165, 0.2);
+}
+
+/* Moderne Buttons */
+.btn-modern {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: var(--color-white);
+  padding: var(--space-4) var(--space-8);
+  border-radius: var(--radius-full);
+  font-weight: var(--weight-medium);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(232, 165, 165, 0.3);
+}
+
+.btn-modern::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%) scale(0);
+  border-radius: 50%;
+  transition: transform var(--transition-slow);
+}
+
+.btn-modern:hover::before {
+  transform: translate(-50%, -50%) scale(2);
+}
+
+.btn-modern:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(232, 165, 165, 0.4);
+}
+
+.btn-modern-secondary {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+  box-shadow: none;
+}
+
+.btn-modern-secondary:hover {
+  background: var(--color-primary);
+  color: var(--color-white);
+  box-shadow: 0 8px 25px rgba(232, 165, 165, 0.4);
+}
+
+/* Floating Elements */
+.float-element {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.1;
+  animation: float-random 15s ease-in-out infinite;
+}
+
+.float-1 {
+  width: 300px;
+  height: 300px;
+  background: var(--color-primary);
+  top: -150px;
+  right: -100px;
+  animation-delay: 0s;
+}
+
+.float-2 {
+  width: 200px;
+  height: 200px;
+  background: var(--color-secondary);
+  bottom: -100px;
+  left: -50px;
+  animation-delay: 5s;
+}
+
+.float-3 {
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  top: 50%;
+  right: 10%;
+  animation-delay: 10s;
+}
+
+@keyframes float-random {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(-20px, 30px) scale(1.1); }
+  50% { transform: translate(30px, -20px) scale(0.9); }
+  75% { transform: translate(-30px, -30px) scale(1.05); }
+}
+
+/* Icon Styling */
+.icon-modern {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-secondary-light) 100%);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-4);
+  position: relative;
+  overflow: hidden;
+}
+
+.icon-modern::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.5) 50%, transparent 70%);
+  transform: rotate(45deg);
+  animation: shine 3s ease-in-out infinite;
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+.icon-modern svg {
+  width: 30px;
+  height: 30px;
+  color: var(--color-white);
+  position: relative;
+  z-index: 1;
+}
+
+/* Modern Process Steps */
+.process-modern {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+.process-step-modern {
+  flex: 1;
+  text-align: center;
+  position: relative;
+}
+
+.process-step-modern::after {
+  content: '';
+  position: absolute;
+  top: 30px;
+  left: 60%;
+  width: calc(100% - 60px);
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  opacity: 0.3;
+}
+
+.process-step-modern:last-child::after {
+  display: none;
+}
+
+.step-number-modern {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto var(--space-4);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  color: var(--color-white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--size-heading-3);
+  font-weight: var(--weight-bold);
+  box-shadow: 0 4px 20px rgba(232, 165, 165, 0.3);
+  position: relative;
+  z-index: 1;
+}
+
+/* Modern Contact Section */
+.contact-modern {
+  background: linear-gradient(135deg, rgba(232, 165, 165, 0.05) 0%, rgba(125, 221, 215, 0.05) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-form-modern {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(20px);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-10);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Input Styling */
+.input-modern {
+  width: 100%;
+  padding: var(--space-4);
+  border: 2px solid var(--color-gray-200);
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+  transition: all var(--transition-fast);
+  font-size: var(--size-body);
+}
+
+.input-modern:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px rgba(232, 165, 165, 0.1);
+  outline: none;
+}
+
+/* Responsive Modern Design */
+@media (max-width: 768px) {
+  .float-element {
+    display: none;
+  }
+  
+  .process-modern {
+    flex-direction: column;
+  }
+  
+  .process-step-modern::after {
+    display: none;
+  }
+}

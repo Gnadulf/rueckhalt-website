@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline - RückHalt e.V.</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #FAF9F7;
+            color: #2E5266;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .offline-container {
+            text-align: center;
+            max-width: 500px;
+        }
+        
+        .offline-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 30px;
+            background: linear-gradient(135deg, #D3B1C2, #52796F);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .offline-icon svg {
+            width: 50px;
+            height: 50px;
+            color: white;
+        }
+        
+        h1 {
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+        
+        p {
+            font-size: 1.125rem;
+            line-height: 1.6;
+            color: #6B7280;
+            margin-bottom: 30px;
+        }
+        
+        .emergency-info {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .emergency-info h2 {
+            font-size: 1.25rem;
+            margin-bottom: 15px;
+            color: #C84B31;
+        }
+        
+        .contact-list {
+            text-align: left;
+            list-style: none;
+        }
+        
+        .contact-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #E5E7EB;
+        }
+        
+        .contact-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .contact-list strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .retry-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #2E5266;
+            color: white;
+            text-decoration: none;
+            border-radius: 24px;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+        
+        .retry-button:hover {
+            background: #6E8898;
+        }
+    </style>
+</head>
+<body>
+    <div class="offline-container">
+        <div class="offline-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                      d="M18.364 5.636a9 9 0 010 12.728m0 0l-2.829-2.829m2.829 2.829L21 21M15.536 8.464a5 5 0 010 7.072m0 0l-2.829-2.829m-4.243 2.829a4.978 4.978 0 01-1.414-2.83m-1.414 5.658a9 9 0 01-2.167-9.238m7.824 2.167a1 1 0 111.414 1.414m-1.414-1.414L3 3m8.293 8.293l1.414 1.414">
+                </path>
+            </svg>
+        </div>
+        
+        <h1>Sie sind offline</h1>
+        <p>Diese Seite ist momentan nicht verfügbar. Bitte überprüfen Sie Ihre Internetverbindung.</p>
+        
+        <div class="emergency-info">
+            <h2>Wichtige Kontakte</h2>
+            <ul class="contact-list">
+                <li>
+                    <strong>Notruf</strong>
+                    110 (Polizei) oder 112 (Rettungsdienst)
+                </li>
+                <li>
+                    <strong>Hilfetelefon Gewalt gegen Frauen</strong>
+                    08000 116 016 (24 Stunden, kostenlos)
+                </li>
+                <li>
+                    <strong>RückHalt e.V. Beratung</strong>
+                    02421 - 99 83 50 (Mo-Fr: 9-17 Uhr)
+                </li>
+                <li>
+                    <strong>Nummer gegen Kummer</strong>
+                    116 111 (Kinder & Jugendliche)
+                </li>
+            </ul>
+        </div>
+        
+        <a href="/" class="retry-button">Erneut versuchen</a>
+    </div>
+    
+    <script>
+        // Try to go back online
+        window.addEventListener('online', () => {
+            window.location.reload();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="RückHalt - Beratungsstelle für Betroffene sexueller Gewalt in Aachen, Stolberg und StädteRegion. Kostenlose Beratung, psychosoziale Prozessbegleitung, Prävention. Tel: 0241-542220">
+    <meta name="keywords" content="Beratungsstelle sexuelle Gewalt Aachen, RückHalt, Opferberatung StädteRegion Aachen, psychosoziale Prozessbegleitung, Hilfe sexualisierte Gewalt, Beratung Betroffene Aachen, RückHalt-M Männerberatung, kostenlose Opferhilfe Stolberg">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    
+    <title>RückHalt - Sie sind nicht allein</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="/src/css/reset.css">
+    <link rel="stylesheet" href="/src/css/variables.css">
+    <link rel="stylesheet" href="/src/css/main.css">
+    <link rel="stylesheet" href="/src/css/components.css">
+    <link rel="stylesheet" href="/src/css/bauhaus.css">
+    <link rel="stylesheet" href="/src/css/responsive.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/src/assets/images/favicon.png">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="RückHalt - Beratungsstelle für Betroffene sexueller Gewalt Aachen">
+    <meta property="og:description" content="Kostenlose Beratung und psychosoziale Prozessbegleitung in Aachen. Vertraulich, professionell. Tel: 0241-542220">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:url" content="https://rueckhalt.netlify.app">
+    <meta property="og:image" content="/src/assets/images/logo.png">
+    
+    <!-- Strukturierte Daten für lokale SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CounselingService",
+      "name": "RückHalt",
+      "description": "Beratungsstelle für Betroffene sexueller Gewalt",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Franzstraße 107",
+        "addressLocality": "Aachen",
+        "postalCode": "52064",
+        "addressCountry": "DE"
+      },
+      "telephone": "+49-241-542220",
+      "areaServed": ["Aachen", "Stolberg", "StädteRegion Aachen"],
+      "priceRange": "Kostenlos",
+      "openingHours": "Mo-Fr 09:00-17:00"
+    }
+    </script>
+</head>
+<body>
+    <!-- Quick Exit Button -->
+    <button id="quick-exit" class="quick-exit" aria-label="Seite schnell verlassen" title="Drücken Sie 3x schnell ESC">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9"/>
+        </svg>
+        <span class="quick-exit-text">Schnell verlassen</span>
+    </button>
+
+    <!-- Skip to main content -->
+    <a href="#main" class="skip-link">Zum Hauptinhalt springen</a>
+
+    <!-- Emergency Bar -->
+    <div class="emergency-bar" role="alert">
+        <div class="container">
+            <span class="emergency-text">
+                <strong>Notruf: 110</strong> • 
+                Hilfetelefon: <a href="tel:08000116016">08000 116 016</a> • 
+                <a href="tel:0242199350">Beratung: 02421 - 99 83 50</a>
+            </span>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo" aria-label="RückHalt Startseite">
+                    <img src="/src/assets/images/logo.png" alt="RückHalt Logo" width="140" height="140">
+                    <span class="logo-text">RückHalt</span>
+                </a>
+                
+                <nav class="main-nav" role="navigation" aria-label="Hauptnavigation">
+                    <button class="mobile-menu-toggle" aria-label="Menü öffnen" aria-expanded="false">
+                        <span class="hamburger"></span>
+                    </button>
+                    
+                    <ul class="nav-list">
+                        <li><a href="#home" class="nav-link active">Startseite</a></li>
+                        <li><a href="#beratung" class="nav-link">Beratung</a></li>
+                        <li><a href="#angebote" class="nav-link">Angebote</a></li>
+                        <li><a href="#ueber-uns" class="nav-link">Über uns</a></li>
+                        <li><a href="#kontakt" class="nav-link">Kontakt</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Language Switcher -->
+                <div class="language-switcher" role="navigation" aria-label="Sprachauswahl">
+                    <button class="lang-current" aria-expanded="false">
+                        DE <svg width="12" height="8" viewBox="0 0 12 8"><path d="M1 1l5 5 5-5" stroke="currentColor" fill="none"/></svg>
+                    </button>
+                    <ul class="lang-options" hidden>
+                        <li><button data-lang="de" class="active">Deutsch</button></li>
+                        <li><button data-lang="en">English</button></li>
+                        <li><button data-lang="ar">العربية</button></li>
+                        <li><button data-lang="tr">Türkçe</button></li>
+                    </ul>
+                </div>
+
+                <!-- Mood Adjustment -->
+                <div class="mood-adjustment" role="group" aria-label="Stimmungsanpassung">
+                    <button class="mood-btn" data-mood="calm" aria-label="Beruhigende Farben" title="Beruhigende Farben">
+                        <span class="mood-icon">🌙</span>
+                    </button>
+                    <button class="mood-btn active" data-mood="neutral" aria-label="Normale Farben" title="Normale Farben">
+                        <span class="mood-icon">☀️</span>
+                    </button>
+                    <button class="mood-btn" data-mood="energizing" aria-label="Aktivierende Farben" title="Aktivierende Farben">
+                        <span class="mood-icon">✨</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main" class="main-content">
+        <!-- Hero Section - Bauhaus Style -->
+        <section class="hero hero-bauhaus" id="home">
+            <div class="container">
+                <div class="bauhaus-grid">
+                    <div class="span-6">
+                        <div class="circle-accent" style="top: -40px; left: -40px;"></div>
+                        <h1 class="bauhaus-hero">Sie sind nicht allein</h1>
+                        <div class="accent-line"></div>
+                        <p class="hero-subtitle">
+                            Wir glauben Ihnen. Wir hören zu. Wir unterstützen Sie – 
+                            vertraulich, kostenlos und in Ihrem Tempo.
+                        </p>
+                        
+                        <div class="hero-actions">
+                            <a href="#kontakt" class="btn-bauhaus">
+                                <span>Erstgespräch vereinbaren</span>
+                            </a>
+                            <a href="#angebote" class="btn btn-secondary">
+                                Wie wir helfen
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="span-6">
+                        <div class="color-block">
+                            <div class="trust-indicators">
+                                <div class="trust-item">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                    <span>Vertraulich</span>
+                                </div>
+                                <div class="trust-item">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                    <span>Kostenlos</span>
+                                </div>
+                                <div class="trust-item">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M12 6v6m0 0v6m0-6h6m-6 0H6" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                    <span>Anonym möglich</span>
+                                </div>
+                            </div>
+                            <div class="square-accent" style="bottom: 20px; right: -20px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services" id="beratung" aria-labelledby="services-title">
+            <div class="container">
+                <div class="section-header">
+                    <h2 id="services-title" class="section-title">Unsere Beratung</h2>
+                    <p class="section-subtitle">
+                        Sie bestimmen das Tempo. Wir begleiten Sie auf Ihrem Weg.
+                    </p>
+                </div>
+
+                <div class="bauhaus-grid">
+                    <article class="span-4 card-systematic">
+                        <div class="service-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2"/>
+                                <path d="M16 24c0-4.4 3.6-8 8-8s8 3.6 8 8-3.6 8-8 8-8-3.6-8-8z" fill="currentColor" opacity="0.2"/>
+                                <path d="M20 28c1.3 1.3 3 2 4 2s2.7-.7 4-2" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3 class="bauhaus-heading-2">Einzelberatung</h3>
+                        <p>Persönliche Gespräche in geschütztem Rahmen. Online, telefonisch oder vor Ort – Sie entscheiden.</p>
+                        <a href="#" class="service-link">Mehr erfahren →</a>
+                    </article>
+
+                    <article class="span-4 card-systematic">
+                        <div class="service-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <path d="M24 8l4 8 9 1.3-6.5 6.3L32 32l-8-4.2L16 32l1.5-8.4L11 17.3l9-1.3L24 8z" stroke="currentColor" stroke-width="2" fill="currentColor" opacity="0.2"/>
+                            </svg>
+                        </div>
+                        <h3 class="bauhaus-heading-2">Für Angehörige</h3>
+                        <p>Unterstützung für Familie und Freunde. Wie Sie helfen können, ohne sich zu überfordern.</p>
+                        <a href="#" class="service-link">Mehr erfahren →</a>
+                    </article>
+
+                    <article class="span-4 card-systematic">
+                        <div class="service-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <rect x="8" y="12" width="32" height="24" rx="2" stroke="currentColor" stroke-width="2"/>
+                                <path d="M16 12v24m16-24v24" stroke="currentColor" stroke-width="2" opacity="0.3"/>
+                                <circle cx="24" cy="24" r="4" fill="currentColor" opacity="0.2"/>
+                            </svg>
+                        </div>
+                        <h3 class="bauhaus-heading-2">Prozessbegleitung</h3>
+                        <p>Psychosoziale Unterstützung bei rechtlichen Schritten. Wir sind an Ihrer Seite.</p>
+                        <a href="#" class="service-link">Mehr erfahren →</a>
+                    </article>
+
+                    <article class="span-4 card-systematic">
+                        <div class="service-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <circle cx="16" cy="20" r="4" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="32" cy="20" r="4" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="24" cy="32" r="4" stroke="currentColor" stroke-width="2"/>
+                                <path d="M16 24v4m16-4v4m-12 0h8" stroke="currentColor" stroke-width="2" opacity="0.3"/>
+                            </svg>
+                        </div>
+                        <h3 class="bauhaus-heading-2">Gruppenangebote</h3>
+                        <p>Gemeinsam stark. Austausch mit anderen Betroffenen in sicherem Rahmen.</p>
+                        <a href="#" class="service-link">Mehr erfahren →</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section class="process" id="ablauf">
+            <div class="container">
+                <h2 class="section-title">So läuft es ab</h2>
+                <p class="section-subtitle">Transparenz schafft Sicherheit</p>
+
+                <div class="process-timeline">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h3>Erste Kontaktaufnahme</h3>
+                        <p>Sie melden sich bei uns – per Telefon, E-Mail oder Kontaktformular. Ganz wie Sie möchten.</p>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h3>Erstgespräch</h3>
+                        <p>Wir hören zu und besprechen gemeinsam, wie wir Sie unterstützen können.</p>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h3>Ihr Weg</h3>
+                        <p>Sie entscheiden über Tempo und Richtung. Wir begleiten Sie dabei.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resources Section -->
+        <section class="resources" id="ressourcen">
+            <div class="container">
+                <h2 class="section-title">Hilfreiche Ressourcen</h2>
+                <div class="resources-grid">
+                    <a href="#" class="resource-card">
+                        <h3>Selbsthilfe-Übungen</h3>
+                        <p>Techniken zur Stabilisierung für den Alltag</p>
+                        <span class="resource-link">Entdecken →</span>
+                    </a>
+                    <a href="#" class="resource-card">
+                        <h3>Sicherheitsplan</h3>
+                        <p>Erstellen Sie Ihren persönlichen Notfallplan</p>
+                        <span class="resource-link">Erstellen →</span>
+                    </a>
+                    <a href="#" class="resource-card">
+                        <h3>Häufige Fragen</h3>
+                        <p>Antworten auf wichtige Fragen</p>
+                        <span class="resource-link">Lesen →</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact" id="kontakt">
+            <div class="container">
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h2>Wir sind für Sie da</h2>
+                        <p>Vertraulich. Kostenlos. In Ihrem Tempo.</p>
+                        
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                                <div>
+                                    <h3>Telefon</h3>
+                                    <a href="tel:0242199350">02421 - 99 83 50</a>
+                                    <p class="contact-hours">Mo-Fr: 9-17 Uhr</p>
+                                </div>
+                            </div>
+
+                            <div class="contact-method">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                                <div>
+                                    <h3>E-Mail</h3>
+                                    <a href="mailto:beratung@rueckhalt-beratung.de">beratung@rueckhalt-beratung.de</a>
+                                    <p class="contact-secure">Verschlüsselt möglich</p>
+                                </div>
+                            </div>
+
+                            <div class="contact-method">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                                <div>
+                                    <h3>Vor Ort</h3>
+                                    <p>Terminvereinbarung erforderlich</p>
+                                    <p class="contact-location">StädteRegion Aachen</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form class="contact-form" id="contact-form">
+                        <h3>Nachricht senden</h3>
+                        <p class="form-info">Alle Felder sind optional. Ihre Daten werden verschlüsselt übertragen.</p>
+                        
+                        <div class="form-group">
+                            <label for="name">Name (kann Pseudonym sein)</label>
+                            <input type="text" id="name" name="name" autocomplete="off">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact-back">Wie können wir antworten?</label>
+                            <input type="text" id="contact-back" name="contact-back" placeholder="E-Mail oder Telefon" autocomplete="off">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Ihre Nachricht</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Teilen Sie uns mit, wie wir Ihnen helfen können..."></textarea>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">
+                                Sicher senden
+                            </button>
+                            <p class="form-note">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                    <path d="M8 1a2 2 0 012 2v4H6V3a2 2 0 012-2zM3 9a1 1 0 011-1h8a1 1 0 011 1v5a1 1 0 01-1 1H4a1 1 0 01-1-1V9z"/>
+                                </svg>
+                                Verschlüsselte Übertragung
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <img src="/src/assets/images/logo.png" alt="RückHalt Logo" class="footer-logo" width="80" height="80">
+                    <p>RückHalt<br>
+                    Beratungsstelle für Betroffene sexualisierter Gewalt</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Schnelle Hilfe</h3>
+                    <ul>
+                        <li><a href="tel:110">Notruf: 110</a></li>
+                        <li><a href="tel:08000116016">Hilfetelefon: 08000 116 016</a></li>
+                        <li><a href="#ressourcen">Selbsthilfe-Übungen</a></li>
+                        <li><a href="#sicherheit">Sicherheitsplan erstellen</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Information</h3>
+                    <ul>
+                        <li><a href="/datenschutz">Datenschutz</a></li>
+                        <li><a href="/impressum">Impressum</a></li>
+                        <li><a href="/spenden">Unterstützen</a></li>
+                        <li><a href="/newsletter">Newsletter</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Vernetzung</h3>
+                    <p>Mitglied im Bundesverband<br>
+                    Frauenberatungsstellen und<br>
+                    Frauennotrufe (bff)</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2024 RückHalt - Alle Rechte vorbehalten</p>
+                <p class="footer-safety">Diese Website speichert keine persönlichen Daten ohne Ihre Zustimmung</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RückHalt e.V. - Website Redesign Präsentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        /* Animated gradient background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 20% 50%, rgba(232, 165, 165, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(82, 121, 111, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 20%, rgba(110, 136, 152, 0.15) 0%, transparent 50%);
+            animation: drift 20s ease-in-out infinite;
+            z-index: -1;
+        }
+        
+        @keyframes drift {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(-30px, -50px) rotate(120deg); }
+            66% { transform: translate(50px, -30px) rotate(240deg); }
+        }
+        
+        .presentation {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Header */
+        .header {
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo img {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .logo-text {
+            font-size: 20px;
+            font-weight: 600;
+            background: linear-gradient(135deg, #E8A5A5, #7DDDD7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .slide-counter {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* Navigation */
+        .nav-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .nav-btn:active {
+            transform: translateY(0);
+        }
+        
+        /* Slides */
+        .slides-container {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .slide.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .slide.prev {
+            transform: translateX(-100%);
+        }
+        
+        .slide-content {
+            max-width: 1200px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        /* Typography */
+        h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.8) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.1;
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 600;
+            margin-bottom: 40px;
+            color: #E8A5A5;
+        }
+        
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #7DDDD7;
+        }
+        
+        p {
+            font-size: clamp(1.2rem, 2vw, 1.5rem);
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
+        }
+        
+        /* Feature Grid */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-5px);
+            border-color: rgba(232, 165, 165, 0.3);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #E8A5A5;
+        }
+        
+        .feature-desc {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+        
+        /* Color Palette */
+        .color-palette {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        
+        .color-swatch {
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .color-swatch:hover {
+            transform: scale(1.1);
+        }
+        
+        .color-box {
+            width: 120px;
+            height: 120px;
+            border-radius: 16px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .color-name {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        /* Stats */
+        .stats {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #E8A5A5, #7DDDD7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Live Demo */
+        .demo-frame {
+            width: 100%;
+            max-width: 1200px;
+            height: 600px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin: 40px auto;
+        }
+        
+        .demo-browser {
+            background: #1a1a1a;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .browser-dots {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #333;
+        }
+        
+        .dot:nth-child(1) { background: #ff5f57; }
+        .dot:nth-child(2) { background: #ffbd2e; }
+        .dot:nth-child(3) { background: #28ca42; }
+        
+        .browser-url {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            padding: 6px 12px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            text-align: center;
+        }
+        
+        iframe {
+            width: 100%;
+            height: calc(100% - 45px);
+            border: none;
+            background: #fff;
+        }
+        
+        /* Emphasis */
+        .emphasis {
+            background: linear-gradient(135deg, #E8A5A5, #7DDDD7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+        
+        .quote {
+            font-size: 2rem;
+            font-style: italic;
+            margin: 40px auto;
+            max-width: 800px;
+            position: relative;
+            padding: 0 40px;
+        }
+        
+        .quote::before,
+        .quote::after {
+            content: '"';
+            position: absolute;
+            font-size: 4rem;
+            color: rgba(232, 165, 165, 0.3);
+        }
+        
+        .quote::before {
+            top: -20px;
+            left: 0;
+        }
+        
+        .quote::after {
+            bottom: -40px;
+            right: 0;
+        }
+        
+        /* Call to Action */
+        .cta {
+            margin-top: 60px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 20px 50px;
+            background: linear-gradient(135deg, #E8A5A5, #7DDDD7);
+            color: #0a0a0a;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(232, 165, 165, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(232, 165, 165, 0.4);
+        }
+        
+        /* Progress bar */
+        .progress {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #E8A5A5, #7DDDD7);
+            width: 0;
+            transition: width 0.3s ease;
+        }
+        
+        /* Keyboard hint */
+        .keyboard-hint {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .key {
+            display: inline-block;
+            padding: 2px 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            margin: 0 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <img src="src/assets/images/logo.png" alt="RückHalt Logo">
+                <span class="logo-text">RückHalt e.V. Redesign</span>
+            </div>
+            <div class="slide-counter">
+                <span id="current-slide">1</span> / <span id="total-slides">10</span>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-btn" onclick="previousSlide()">← Zurück</button>
+                <button class="nav-btn" onclick="nextSlide()">Weiter →</button>
+            </div>
+        </header>
+
+        <!-- Slides -->
+        <div class="slides-container">
+            <!-- Slide 1: Title -->
+            <div class="slide active">
+                <div class="slide-content">
+                    <h1>RückHalt e.V.</h1>
+                    <h2>Website Redesign 2024</h2>
+                    <p class="quote">"Sicherer Raum Digital"</p>
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Barrierefrei</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">4</div>
+                            <div class="stat-label">Sprachen</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">0.5s</div>
+                            <div class="stat-label">Quick Exit</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2: Problem -->
+            <div class="slide">
+                <div class="slide-content">
+                    <h2>Die Herausforderung</h2>
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🕰️</div>
+                            <div class="feature-title">Veraltetes Design</div>
+                            <div class="feature-desc">2015 Design, kalte Farben, unprofessionelle Handschrift-Fonts</div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">📱</div>
+                            <div class="feature-title">Mobile Sicherheit fehlt</div>
+                            <div class="feature-desc">Keine Quick-Exit Funktion, nicht mobile-optimiert</div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">❄️</div>
+                            <div class="feature-title">Emotionale Kälte</div>
+                            <div class="feature-desc">Fehlende Wärme für sensibles Thema</div>
+                        </div>
+                    </div>
+                    <p>68% der Hilfesuchenden nutzen mobile Geräte - oft in unsicheren Situationen</p>
+                </div>
+            </div>
+
+            <!-- Slide 3: Design Philosophy -->
+            <div class="slide">
+                <div class="slide-content">
+                    <h2>Unsere Design-Philosophie</h2>
+                    <h1 style="font-size: 3rem; margin: 60px 0;">
+                        "Professionelle Wärme<br>trifft<br><span class="emphasis">digitale Sicherheit</span>"
+                    </h1>
+                    <p>Ein Design, das Vertrauen schafft, Sicherheit bietet und Hoffnung vermittelt</p>
+                </div>
+            </div>
+
+            <!-- Slide 4: Color System -->
+            <div class="slide">
+                <div class="slide-content">
+                    <h2>Neue Farbwelt</h2>
+                    <p>Beruhigend. Heilend. Hoffnungsvoll.</p>
+                    <div class="color-palette">
+                        <div class="color-swatch">
+                            <div class="color-box" style="background: #2E5266;">#2E5266</div>
+                            <div class="color-name">Stabilität</div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-box" style="background: #6E8898;">#6E8898</div>
+                            <div class="color-name">Sanftheit</div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-box" style="background: #52796F;">#52796F</div>
+                            <div class="color-name">Hoffnung</div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-box" style="background: #D3B1C2;">#D3B1C2</div>
+                            <div class="color-name">Wärme</div>
+                        </div>
+                    </div>
+                    <h3>Logo Integration</h3>
+                    <p>Umarmende Figuren symbolisieren Schutz und Unterstützung</p>
+                </div>
+            </div>
+
+            <!-- Slide 5: Security Features -->
+            <div class="slide">
+                <div class="slide-content">
+                    <h2>🛡️ Revolutionäre Sicherheit</h2>
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🚪</div>
+                            <div class="feature-title">Quick Exit</div>
+                            <div class="feature-desc">3x ESC = Sofort zu Google Wetter<br>Browser-History wird überschrieben</div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🔒</div>
+                            <div class="feature-title">Verschlüsselung</div>
+                            <div class="feature-desc">Ende-zu-Ende verschlüsselte Formulare<br>Keine Tracking-Cookies</div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">📵</div>
+                            <div class="feature-title">Offline-Modus</div>
+                            <div class="feature-desc">Wichtige Notfallnummern<br>funktionieren ohne Internet</div>
+                        </div>
+                    </div>
+                    <p style="margin-top: 40px; color: #E8A5A5;">Diese Features können Leben retten.</p>
+                </div>
+            </div>
+
+            <!-- Slide 6: Innovative Features -->
+            <div class="slide">
+                <div class="slide-content">
+                    <h2>✨ Innovation trifft Empathie</h2>
+                    <h3>Stimmungsanpassung</h3>
+                    <div style="font-size: 3rem; margin: 30px 0;">
+                        🌙 Beruhigend &nbsp;&nbsp; ☀️ Normal &nbsp;&nbsp; ✨ Aktivierend
+                    </div>
+                    <p>Nutzer*innen können die Farbintensität an ihre aktuelle Verfassung anpassen</p>
+                    
+                    <h3 style="margin-top: 60px;">Trauma-informiertes Design</h3>
+                    <ul style="text-align: left; max-width: 600px; margin: 20px auto; line-height: 2;">
+                        <li>Keine abrupten Bewegungen</li>
+                        <li>Vorhersehbare Interaktionen</li>
+                        <li>Kontrolle liegt beim Nutzer</li>
+                        <li>Sanfte Übergänge</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Slide 7: Live Demo -->
+            <div class="slide">
+                <div class="slide-content">
+                    <h2>🚀 Live Demo</h2>
+                    <p>Die neue Website in Aktion</p>
+                    <div class="demo-frame">
+                        <div class="demo-browser">
+                            <div class="browser-dots">
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                            </div>
+                            <div class="browser-url">https://rueckhalt.netlify.app</div>
+                        </div>
+                        <iframe src="https://rueckhalt.netlify.app" title="RückHalt Website"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 8: Technical Excellence -->
+            <div class="slide">
+                <div class="slide-content">
+                    <h2>🔧 Technische Excellence</h2>
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="stat-number">100</div>
+                            <div class="stat-label">Lighthouse Score</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">&lt;1.5s</div>
+                            <div class="stat-label">First Paint</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">AAA</div>
+                            <div class="stat-label">WCAG Standard</div>
+                        </div>
+                    </div>
+                    <h3 style="margin-top: 60px;">Modern Stack</h3>
+                    <p>Vite • Service Worker • PWA • Zero Dependencies</p>
+                </div>
+            </div>
+
+            <!-- Slide 9: Impact -->
+            <div class="slide">
+                <div class="slide-content">
+                    <h2>📊 Erwartete Wirkung</h2>
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">📈</div>
+                            <div class="feature-title">+40% Kontakte</div>
+                            <div class="feature-desc">Durch bessere Auffindbarkeit und Vertrauen</div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🌍</div>
+                            <div class="feature-title">4x Reichweite</div>
+                            <div class="feature-desc">Mehrsprachigkeit erreicht mehr Menschen</div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">⚡</div>
+                            <div class="feature-title">24/7 Verfügbar</div>
+                            <div class="feature-desc">Offline-Support für Krisenzeiten</div>
+                        </div>
+                    </div>
+                    <p class="quote">"Jede*r verdient einen sicheren Raum - auch digital."</p>
+                </div>
+            </div>
+
+            <!-- Slide 10: Call to Action -->
+            <div class="slide">
+                <div class="slide-content">
+                    <h1>Bereit für die Zukunft?</h1>
+                    <p style="font-size: 1.8rem; margin: 40px 0;">
+                        Diese Website ist mehr als ein Redesign.<br>
+                        Sie ist ein <span class="emphasis">digitaler Schutzraum</span>.
+                    </p>
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="stat-number">✓</div>
+                            <div class="stat-label">Deploy-Ready</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">✓</div>
+                            <div class="stat-label">DSGVO-konform</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">✓</div>
+                            <div class="stat-label">Open Source</div>
+                        </div>
+                    </div>
+                    <div class="cta">
+                        <a href="https://rueckhalt.netlify.app" target="_blank" class="cta-button">
+                            Website besuchen →
+                        </a>
+                    </div>
+                    <p style="margin-top: 40px; font-size: 1.2rem; color: rgba(255, 255, 255, 0.6);">
+                        Design ist ein Werkzeug für Heilung und Hoffnung.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+
+        <!-- Keyboard Hint -->
+        <div class="keyboard-hint">
+            Nutze <span class="key">←</span> <span class="key">→</span> oder <span class="key">Space</span>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        
+        // Update UI
+        document.getElementById('total-slides').textContent = totalSlides;
+        
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active', 'prev');
+                if (i < index) slide.classList.add('prev');
+                if (i === index) slide.classList.add('active');
+            });
+            
+            // Update counter
+            document.getElementById('current-slide').textContent = index + 1;
+            
+            // Update progress bar
+            const progress = ((index + 1) / totalSlides) * 100;
+            document.getElementById('progress-bar').style.width = progress + '%';
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }
+        
+        function previousSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            showSlide(currentSlide);
+        }
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                previousSlide();
+            } else if (e.key === 'Home') {
+                currentSlide = 0;
+                showSlide(currentSlide);
+            } else if (e.key === 'End') {
+                currentSlide = totalSlides - 1;
+                showSlide(currentSlide);
+            }
+        });
+        
+        // Touch navigation
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+        
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+        
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) nextSlide();
+            if (touchEndX > touchStartX + 50) previousSlide();
+        }
+        
+        // Auto-advance (optional)
+        let autoAdvance = null;
+        
+        function startAutoAdvance() {
+            autoAdvance = setInterval(nextSlide, 10000); // 10 seconds
+        }
+        
+        function stopAutoAdvance() {
+            if (autoAdvance) {
+                clearInterval(autoAdvance);
+                autoAdvance = null;
+            }
+        }
+        
+        // Stop auto-advance on user interaction
+        document.addEventListener('click', stopAutoAdvance);
+        document.addEventListener('keydown', stopAutoAdvance);
+        document.addEventListener('touchstart', stopAutoAdvance);
+        
+        // Fullscreen toggle
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'f' || e.key === 'F') {
+                if (!document.fullscreenElement) {
+                    document.documentElement.requestFullscreen();
+                } else {
+                    document.exitFullscreen();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

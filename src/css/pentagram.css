@@ -1,0 +1,284 @@
+/* Pentagram/Paula Scher inspired design system */
+
+/* Typography System - Bold and Clear */
+.hero-title-pentagram {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: var(--space-6);
+}
+
+.section-title-pentagram {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: var(--color-gray-900);
+    margin-bottom: var(--space-8);
+    position: relative;
+}
+
+.section-title-pentagram::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -20px;
+    width: 100px;
+    height: 8px;
+    background: var(--color-primary);
+    transform: skewX(-20deg);
+}
+
+/* Grid System - Asymmetric and Dynamic */
+.pentagram-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--space-6);
+    align-items: start;
+}
+
+.pentagram-grid > * {
+    grid-column: span 12;
+}
+
+@media (min-width: 768px) {
+    .pentagram-grid .span-7 { grid-column: span 7; }
+    .pentagram-grid .span-5 { grid-column: span 5; }
+    .pentagram-grid .span-8 { grid-column: span 8; }
+    .pentagram-grid .span-4 { grid-column: span 4; }
+}
+
+/* Cards with Strong Visual Impact */
+.card-pentagram {
+    background: white;
+    border: 3px solid var(--color-gray-900);
+    padding: var(--space-8);
+    position: relative;
+    transition: all var(--transition-base);
+    overflow: hidden;
+}
+
+.card-pentagram::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--color-primary);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: -1;
+}
+
+.card-pentagram:hover::before {
+    transform: translateX(0);
+}
+
+.card-pentagram:hover {
+    color: white;
+    transform: translateY(-5px);
+    box-shadow: 10px 10px 0 var(--color-secondary);
+}
+
+/* Buttons - Bold and Geometric */
+.btn-pentagram {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-5) var(--space-8);
+    background: var(--color-gray-900);
+    color: white;
+    font-weight: 700;
+    font-size: 1.125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    transition: all var(--transition-base);
+    overflow: hidden;
+}
+
+.btn-pentagram::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.btn-pentagram:hover::after {
+    transform: translateY(0);
+}
+
+.btn-pentagram span {
+    position: relative;
+    z-index: 1;
+}
+
+/* Diagonal Elements */
+.diagonal-block {
+    background: var(--color-primary);
+    transform: skewY(-3deg);
+    margin: var(--space-16) 0;
+    padding: var(--space-16) 0;
+}
+
+.diagonal-block > * {
+    transform: skewY(3deg);
+}
+
+/* Quote Style - Dramatic Typography */
+.quote-pentagram {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+    position: relative;
+    padding-left: var(--space-8);
+    color: var(--color-gray-900);
+}
+
+.quote-pentagram::before {
+    content: '"';
+    position: absolute;
+    left: 0;
+    top: -20px;
+    font-size: 6rem;
+    color: var(--color-primary);
+    font-family: Georgia, serif;
+}
+
+/* Navigation - Clean and Bold */
+.nav-pentagram {
+    display: flex;
+    gap: var(--space-6);
+    align-items: center;
+}
+
+.nav-pentagram a {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-gray-900);
+    text-decoration: none;
+    position: relative;
+    padding: var(--space-2) 0;
+}
+
+.nav-pentagram a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--color-primary);
+    transition: width 0.3s ease;
+}
+
+.nav-pentagram a:hover::after,
+.nav-pentagram a.active::after {
+    width: 100%;
+}
+
+/* Special Link Style for Leichte Sprache */
+.nav-link-special {
+    background: var(--color-secondary);
+    color: white !important;
+    padding: var(--space-2) var(--space-4) !important;
+    border-radius: var(--radius-md);
+    font-weight: 700;
+}
+
+.nav-link-special:hover {
+    background: var(--color-secondary-dark);
+    transform: translateY(-2px);
+}
+
+/* Mood Buttons - Text Based */
+.mood-btn {
+    background: transparent;
+    border: 2px solid var(--color-gray-300);
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: var(--color-gray-600);
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.mood-btn:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.mood-btn.active {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: white;
+}
+
+/* Hero Section Enhancements */
+.hero-pentagram {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-pentagram::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -30%;
+    width: 100%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(232, 165, 165, 0.2) 0%, transparent 70%);
+    animation: float 20s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(-30px, -30px) rotate(10deg); }
+}
+
+/* Service Icons - Geometric */
+.icon-geometric {
+    width: 80px;
+    height: 80px;
+    background: var(--color-gray-900);
+    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: var(--space-6);
+}
+
+/* Stat Numbers - Bold Display */
+.stat-number {
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 900;
+    line-height: 1;
+    color: var(--color-primary);
+    margin-bottom: var(--space-2);
+}
+
+.stat-label {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-gray-600);
+}
