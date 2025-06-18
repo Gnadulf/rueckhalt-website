@@ -116,31 +116,31 @@
             transform: rotate(180deg);
         }
         
-        /* Dark Mode Styles */
+        /* Dark Mode Styles - Verbesserte Kontraste */
         body.dark-mode {
             --color-background: #1a1a1a;
-            --color-warm: #1f1f1f;
-            --color-light: #252525;
+            --color-warm: #242424;
+            --color-light: #2a2a2a;
             --color-white: #2a2a2a;
-            --color-gray-900: #e0e0e0;
-            --color-gray-800: #d0d0d0;
-            --color-gray-700: #b0b0b0;
-            --color-gray-600: #909090;
-            --color-gray-500: #707070;
-            --color-gray-400: #505050;
-            --color-gray-300: #404040;
-            --color-gray-200: #303030;
-            --color-gray-100: #252525;
-            --color-gray-50: #1f1f1f;
-            --color-primary: #D49393;
-            --color-primary-light: #E0A0A0;
-            --color-primary-dark: #C08080;
-            --color-secondary: #5CC4BD;
-            --color-secondary-light: #7DD5D0;
-            --color-secondary-dark: #4BA39D;
-            --color-accent: #6B8B81;
+            --color-gray-900: #f5f5f5; /* Weißer Text für bessere Lesbarkeit */
+            --color-gray-800: #e0e0e0;
+            --color-gray-700: #d0d0d0;
+            --color-gray-600: #b0b0b0;
+            --color-gray-500: #909090;
+            --color-gray-400: #707070;
+            --color-gray-300: #505050;
+            --color-gray-200: #404040;
+            --color-gray-100: #303030;
+            --color-gray-50: #252525;
+            --color-primary: #F2B5B5; /* Helleres Rosa für besseren Kontrast */
+            --color-primary-light: #FFD0D0;
+            --color-primary-dark: #E8A5A5;
+            --color-secondary: #8DE8E2; /* Helleres Türkis */
+            --color-secondary-light: #ADFFF9;
+            --color-secondary-dark: #6BD6CF;
+            --color-accent: #88C2B1;
             background: #1a1a1a;
-            color: #e0e0e0;
+            color: #f5f5f5; /* Weißer Text statt grau */
         }
         
         body.dark-mode .hero-modern {
@@ -148,8 +148,9 @@
         }
         
         body.dark-mode .glass-card {
-            background: rgba(40, 40, 40, 0.8);
-            border-color: rgba(100, 100, 100, 0.2);
+            background: rgba(45, 45, 45, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #f5f5f5;
         }
         
         body.dark-mode .header {
@@ -162,8 +163,13 @@
         
         body.dark-mode .btn-modern-secondary {
             background: transparent;
-            border: 2px solid var(--color-gray-400);
-            color: var(--color-gray-900);
+            border: 2px solid var(--color-primary);
+            color: var(--color-primary);
+        }
+        
+        body.dark-mode .btn-modern-secondary:hover {
+            background: var(--color-primary);
+            color: #1a1a1a;
         }
         
         body.dark-mode .emergency-bar {
@@ -180,6 +186,36 @@
         
         body.dark-mode .footer {
             background: #0f0f0f;
+        }
+        
+        /* Dark Mode Text Kontrast Fixes */
+        body.dark-mode p,
+        body.dark-mode li,
+        body.dark-mode span {
+            color: #e0e0e0;
+        }
+        
+        body.dark-mode h1,
+        body.dark-mode h2,
+        body.dark-mode h3,
+        body.dark-mode h4 {
+            color: #f5f5f5;
+        }
+        
+        body.dark-mode .service-modern,
+        body.dark-mode .faq-item,
+        body.dark-mode .bg-soft {
+            background: rgba(45, 45, 45, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        body.dark-mode .nav-link {
+            color: #d0d0d0;
+        }
+        
+        body.dark-mode .nav-link:hover,
+        body.dark-mode .nav-link.active {
+            color: var(--color-primary);
         }
         
         body.dark-mode img[alt*="Logo"] {
@@ -199,9 +235,31 @@
             padding: var(--space-3) 0;
         }
         
+        /* Menü-Fixes für bessere Darstellung */
+        .nav-list {
+            gap: var(--space-4) !important; /* Weniger Abstand zwischen Links */
+        }
+        
+        .nav-link {
+            font-size: 0.9rem !important; /* Kleinere Schrift für Navigation */
+            white-space: nowrap;
+        }
+        
+        .header-content {
+            gap: var(--space-4) !important;
+        }
+        
         @media (max-width: 1200px) {
             .nav-link-special {
                 margin-left: 0 !important;
+            }
+            
+            .nav-list {
+                gap: var(--space-3) !important;
+            }
+            
+            .nav-link {
+                font-size: 0.85rem !important;
             }
         }
     </style>
@@ -253,8 +311,8 @@
                     </ul>
                 </nav>
 
-                <!-- Language & Mood -->
-                <div style="display: flex; gap: var(--space-4); align-items: center;">
+                <!-- Language & Dark Mode -->
+                <div style="display: flex; gap: var(--space-3); align-items: center;">
                     <div class="language-switcher">
                         <button class="lang-current" aria-expanded="false">
                             DE <svg width="12" height="8" viewBox="0 0 12 8"><path d="M1 1l5 5 5-5" stroke="currentColor" fill="none"/></svg>
@@ -267,11 +325,6 @@
                         </ul>
                     </div>
 
-                    <div class="mood-adjustment">
-                        <button class="mood-btn" data-mood="calm" aria-label="Beruhigende Farben">Ruhig</button>
-                        <button class="mood-btn active" data-mood="neutral" aria-label="Normale Farben">Normal</button>
-                        <button class="mood-btn" data-mood="energizing" aria-label="Aktivierende Farben">Aktiv</button>
-                    </div>
                     
                     <!-- Dark Mode Toggle -->
                     <button class="dark-mode-toggle" aria-label="Dark Mode umschalten" title="Dark Mode">
@@ -311,7 +364,7 @@
             <div class="container" style="position: relative; z-index: 20;">
                 <div class="bauhaus-grid" style="align-items: center; min-height: 80vh; padding-top: 120px;">
                     <div class="span-12" style="text-align: center;">
-                        <h1 class="hero-title-pentagram" data-i18n="hero.title">Wir sind für alle da</h1>
+                        <h1 class="hero-title-pentagram" data-i18n="hero.title">Wir sind für Sie da</h1>
                         <p class="hero-subtitle" style="font-size: 1.4rem; line-height: 1.8; max-width: 800px; margin: 0 auto var(--space-8);" data-i18n="hero.subtitle">
                             Jede*r sexuelle*r Übergriff stellt eine schwere Persönlichkeitsverletzung dar 
                             und kann eine emotionale Krise auslösen. <strong>Sie sind nicht allein.</strong>
@@ -363,9 +416,12 @@
                     
                     <div class="span-6">
                         <div class="glass-card" style="padding: var(--space-10);">
-                            <h2 style="font-size: 1.5rem; margin-bottom: var(--space-6); color: var(--color-primary);">
-                                Beratungsstelle gegen sexuelle Gewalt
-                            </h2>
+                            <div style="display: flex; align-items: center; gap: var(--space-4); margin-bottom: var(--space-6);">
+                                <img src="/src/assets/images/logo.png" alt="Rückhalt Logo" style="width: 80px; height: 80px; object-fit: contain;">
+                                <h2 style="font-size: 1.5rem; color: var(--color-primary); margin: 0;">
+                                    Beratungsstelle gegen sexuelle Gewalt
+                                </h2>
+                            </div>
                             <div style="display: flex; flex-direction: column; gap: var(--space-4);">
                                 <div class="trust-item">
                                     <svg width="24" height="24" fill="var(--color-secondary)">
@@ -666,14 +722,30 @@
                             </p>
                         </div>
                         
-                        <div class="glass-card" style="padding: var(--space-8); margin-top: var(--space-6); text-align: center;">
-                            <h3 style="color: var(--color-secondary); margin-bottom: var(--space-4);">Ressourcen-Bibliothek</h3>
-                            <ul style="list-style: none; text-align: left;">
-                                <li style="margin-bottom: var(--space-2);">📚 Empfohlene Bücher</li>
-                                <li style="margin-bottom: var(--space-2);">🎧 Meditations-Audios</li>
-                                <li style="margin-bottom: var(--space-2);">📱 Hilfreiche Apps</li>
-                                <li>🔗 Weiterführende Links</li>
-                            </ul>
+                        <div class="glass-card" style="padding: var(--space-8); margin-top: var(--space-6);">
+                            <h3 style="color: var(--color-secondary); margin-bottom: var(--space-4); text-align: center;">Ressourcen-Bibliothek</h3>
+                            <div style="text-align: left;">
+                                <h4 style="color: var(--color-primary); margin-bottom: var(--space-2); font-size: 0.95rem;">Empfohlene Bücher:</h4>
+                                <ul style="list-style: none; margin-bottom: var(--space-4); font-size: 0.9rem;">
+                                    <li style="margin-bottom: var(--space-1);">• "Der Körper vergisst nicht" - B. van der Kolk</li>
+                                    <li style="margin-bottom: var(--space-1);">• "Trauma verstehen und heilen" - J. Herman</li>
+                                    <li>• "Wieder ganz werden" - L. Reddemann</li>
+                                </ul>
+                                
+                                <h4 style="color: var(--color-primary); margin-bottom: var(--space-2); font-size: 0.95rem;">Hilfreiche Apps:</h4>
+                                <ul style="list-style: none; margin-bottom: var(--space-4); font-size: 0.9rem;">
+                                    <li style="margin-bottom: var(--space-1);">• PTSD Coach - Trauma-Unterstützung</li>
+                                    <li style="margin-bottom: var(--space-1);">• Calm - Meditation & Entspannung</li>
+                                    <li>• 7Mind - Achtsamkeitsübungen</li>
+                                </ul>
+                                
+                                <h4 style="color: var(--color-primary); margin-bottom: var(--space-2); font-size: 0.95rem;">Wichtige Links:</h4>
+                                <ul style="list-style: none; font-size: 0.9rem;">
+                                    <li style="margin-bottom: var(--space-1);">• <a href="https://www.hilfetelefon.de" target="_blank" rel="noopener" style="color: var(--color-secondary);">Hilfetelefon</a></li>
+                                    <li style="margin-bottom: var(--space-1);">• <a href="https://www.frauenberatungsstellen-nrw.de" target="_blank" rel="noopener" style="color: var(--color-secondary);">Frauenberatung NRW</a></li>
+                                    <li>• <a href="https://weisser-ring.de" target="_blank" rel="noopener" style="color: var(--color-secondary);">Weisser Ring e.V.</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1909,6 +1981,80 @@
                     this.style.boxShadow = 'none';
                 });
             }
+        })();
+    </script>
+    
+    <script>
+        // Language Switcher Functionality
+        (function() {
+            const langCurrent = document.querySelector('.lang-current');
+            const langOptions = document.querySelector('.lang-options');
+            const langButtons = document.querySelectorAll('[data-lang]');
+            
+            if (langCurrent && langOptions) {
+                langCurrent.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    langOptions.hidden = isExpanded;
+                });
+                
+                langButtons.forEach(button => {
+                    button.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const lang = this.dataset.lang;
+                        
+                        // Update active state
+                        langButtons.forEach(btn => btn.classList.remove('active'));
+                        this.classList.add('active');
+                        
+                        // Update current language display
+                        langCurrent.innerHTML = lang.toUpperCase() + ' <svg width="12" height="8" viewBox="0 0 12 8"><path d="M1 1l5 5 5-5" stroke="currentColor" fill="none"/></svg>';
+                        
+                        // Close dropdown
+                        langCurrent.setAttribute('aria-expanded', 'false');
+                        langOptions.hidden = true;
+                        
+                        // Here you would normally apply translations
+                        console.log('Language switched to:', lang);
+                    });
+                });
+                
+                // Close dropdown when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!e.target.closest('.language-switcher')) {
+                        langCurrent.setAttribute('aria-expanded', 'false');
+                        langOptions.hidden = true;
+                    }
+                });
+            }
+            
+            // Dark Mode Toggle
+            const darkModeToggle = document.querySelector('.dark-mode-toggle');
+            const body = document.body;
+            const sunIcon = darkModeToggle.querySelector('.sun-icon');
+            const moonIcon = darkModeToggle.querySelector('.moon-icon');
+            
+            // Check for saved dark mode preference
+            const darkMode = localStorage.getItem('darkMode') === 'true';
+            if (darkMode) {
+                body.classList.add('dark-mode');
+                sunIcon.style.display = 'none';
+                moonIcon.style.display = 'block';
+            }
+            
+            darkModeToggle.addEventListener('click', function() {
+                body.classList.toggle('dark-mode');
+                const isDark = body.classList.contains('dark-mode');
+                
+                // Update icons
+                sunIcon.style.display = isDark ? 'none' : 'block';
+                moonIcon.style.display = isDark ? 'block' : 'none';
+                
+                // Save preference
+                localStorage.setItem('darkMode', isDark);
+            });
         })();
     </script>
 </body>
