@@ -280,6 +280,57 @@
                 font-size: 0.85rem !important;
             }
         }
+        
+        /* Logo-Animationen und Styles */
+        @keyframes gentlePulse {
+            0%, 100% {
+                transform: scale(1);
+                filter: drop-shadow(0 4px 20px rgba(232, 165, 165, 0.3));
+            }
+            50% {
+                transform: scale(1.05);
+                filter: drop-shadow(0 6px 30px rgba(232, 165, 165, 0.4));
+            }
+        }
+        
+        /* Header Logo Hover */
+        .logo img {
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+        
+        .logo:hover img {
+            transform: scale(1.1) rotate(-5deg);
+            filter: drop-shadow(0 4px 12px rgba(125, 221, 215, 0.4));
+        }
+        
+        /* Hero Logo Container */
+        .logo-hero-prominent {
+            margin-top: var(--space-8);
+            margin-bottom: var(--space-6);
+        }
+        
+        /* Dark Mode Logo Anpassungen */
+        body.dark-mode .logo img,
+        body.dark-mode .logo-hero-prominent img {
+            filter: drop-shadow(0 4px 12px rgba(255, 255, 255, 0.2));
+        }
+        
+        /* Mobile Anpassungen für Logo */
+        @media (max-width: 768px) {
+            .logo img {
+                width: 100px !important;
+                height: 100px !important;
+            }
+            
+            .logo-hero-prominent img {
+                width: 200px !important;
+            }
+            
+            .logo-hero-prominent {
+                margin-top: var(--space-4);
+                margin-bottom: var(--space-4);
+            }
+        }
     </style>
 </head>
 <body>
@@ -310,7 +361,7 @@
         <div class="container">
             <div class="header-content">
                 <a href="/" class="logo" aria-label="Rückhalt Startseite">
-                    <img src="/assets/images/logo-transparent.svg" alt="Rückhalt Logo" width="120" height="120">
+                    <img src="/assets/images/logo-transparent.svg" alt="Rückhalt Logo" width="150" height="150" style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));">
                 </a>
                 
                 <nav class="main-nav" role="navigation" aria-label="Hauptnavigation">
@@ -381,14 +432,13 @@
             <div class="float-element float-1"></div>
             <div class="float-element float-2"></div>
             
-            <!-- Subtle Logo Display -->
-            <div class="logo-hero" style="position: absolute; top: 20%; right: 10%; z-index: 10; opacity: 0.15;">
-                <img src="/assets/images/logo-transparent.svg" alt="Rückhalt Logo" style="width: 200px; height: auto;">
-            </div>
-            
             <div class="container" style="position: relative; z-index: 20;">
-                <div class="bauhaus-grid" style="align-items: center; min-height: 80vh; padding-top: 120px;">
+                <div class="bauhaus-grid" style="align-items: center; min-height: 80vh; padding-top: 60px;">
                     <div class="span-12" style="text-align: center;">
+                        <!-- Prominent Logo Display -->
+                        <div class="logo-hero-prominent">
+                            <img src="/assets/images/logo-transparent.svg" alt="Rückhalt Logo" style="width: 300px; height: auto; filter: drop-shadow(0 4px 20px rgba(232, 165, 165, 0.3)); animation: gentlePulse 4s ease-in-out infinite;">
+                        </div>
                         <h1 class="hero-title-pentagram" data-i18n="hero.title" style="text-transform: none; font-size: clamp(2.5rem, 7vw, 5rem); font-weight: 800;">Wir sind für Sie da</h1>
                         <p class="hero-subtitle" style="font-size: 1.4rem; line-height: 1.8; max-width: 800px; margin: 0 auto var(--space-8);" data-i18n="hero.subtitle">
                             Jede*r sexuelle*r Übergriff stellt eine schwere Persönlichkeitsverletzung dar 
