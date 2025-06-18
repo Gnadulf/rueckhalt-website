@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <defs>
+    <!-- Weiche Schatten -->
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Gradient Definitions -->
+    <linearGradient id="rosaGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F0C4C4" />
+      <stop offset="100%" style="stop-color:#E8A5A5" />
+    </linearGradient>
+    
+    <linearGradient id="tuerkisGradient" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#A5E8E3" />
+      <stop offset="100%" style="stop-color:#7DDDD7" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Umarmende Arme als stilisierte Form -->
+  <g transform="translate(100,100)">
+    <!-- Türkiser Arm (rechts) -->
+    <path d="M 0,-50 
+             Q 40,-50 60,-30
+             Q 80,-10 80,20
+             Q 80,50 50,70
+             Q 20,90 -10,85
+             Q -15,82 -15,78
+             L -15,70
+             Q -10,65 0,65
+             Q 20,65 35,50
+             Q 50,35 50,10
+             Q 50,-15 35,-30
+             Q 20,-45 0,-50"
+          fill="url(#tuerkisGradient)" 
+          opacity="0.9"
+          filter="url(#softGlow)"/>
+    
+    <!-- Rosa Arm (links) -->
+    <path d="M 0,-50 
+             Q -40,-50 -60,-30
+             Q -80,-10 -80,20
+             Q -80,50 -50,70
+             Q -20,90 10,85
+             Q 15,82 15,78
+             L 15,70
+             Q 10,65 0,65
+             Q -20,65 -35,50
+             Q -50,35 -50,10
+             Q -50,-15 -35,-30
+             Q -20,-45 0,-50"
+          fill="url(#rosaGradient)" 
+          opacity="0.9"
+          filter="url(#softGlow)"/>
+    
+    <!-- Zentrale schützende Form -->
+    <circle cx="0" cy="-10" r="25" fill="#FFFFFF" opacity="0.95"/>
+    <ellipse cx="0" cy="20" rx="20" ry="30" fill="#FFFFFF" opacity="0.95"/>
+    
+    <!-- Herz-Symbol in der Mitte -->
+    <path d="M -8,-5 
+             C -8,-9 -5,-12 -2,-12 
+             C 1,-12 2,-10 2,-8
+             C 2,-10 3,-12 6,-12
+             C 9,-12 12,-9 12,-5
+             C 12,-2 2,8 2,8
+             C 2,8 -8,-2 -8,-5 Z"
+          fill="#E8A5A5" 
+          opacity="0.6"
+          transform="translate(-2,10) scale(0.8)"/>
+  </g>
+</svg>

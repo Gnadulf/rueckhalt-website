@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" fill="none">
+  <defs>
+    <!-- Gradient für Rosa Arm -->
+    <linearGradient id="pinkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F0C4C4;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#E8A5A5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D49393;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Gradient für Türkis Arm -->
+    <linearGradient id="turquoiseGrad" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#A5E8E3;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#7DDDD7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#5CC4BD;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Schatten Filter -->
+    <filter id="softShadow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="2" dy="2" result="offsetblur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.1"/>
+      <feComposite in2="offsetblur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Türkiser Arm (rechts) -->
+  <path d="M120 40 C150 40, 200 60, 200 120 C200 170, 170 200, 120 200 C100 200, 90 195, 85 190 L85 180 C85 170, 90 165, 100 165 L110 165 C130 165, 150 150, 150 120 C150 90, 140 80, 120 70 C115 67, 110 65, 105 65 L100 65 C95 65, 90 63, 88 60 C86 55, 88 48, 95 45 C100 42, 110 40, 120 40 Z" 
+        fill="url(#turquoiseGrad)" 
+        filter="url(#softShadow)"
+        opacity="0.95"/>
+  
+  <!-- Rosa Arm (links) -->
+  <path d="M120 40 C90 40, 40 60, 40 120 C40 170, 70 200, 120 200 C140 200, 150 195, 155 190 L155 180 C155 170, 150 165, 140 165 L130 165 C110 165, 90 150, 90 120 C90 90, 100 80, 120 70 C125 67, 130 65, 135 65 L140 65 C145 65, 150 63, 152 60 C154 55, 152 48, 145 45 C140 42, 130 40, 120 40 Z" 
+        fill="url(#pinkGrad)" 
+        filter="url(#softShadow)"
+        opacity="0.95"/>
+  
+  <!-- Zentrale Person -->
+  <g>
+    <!-- Kopf -->
+    <circle cx="120" cy="65" r="22" fill="#FFFFFF" stroke="#E8A5A5" stroke-width="2"/>
+    
+    <!-- Körper -->
+    <path d="M120 85 C105 85, 95 95, 95 110 L95 140 C95 155, 105 165, 120 165 C135 165, 145 155, 145 140 L145 110 C145 95, 135 85, 120 85 Z" 
+          fill="#FFFFFF" 
+          stroke="#7DDDD7" 
+          stroke-width="2"/>
+  </g>
+  
+  <!-- Dekorative Elemente -->
+  <circle cx="120" cy="120" r="3" fill="#E8A5A5" opacity="0.6"/>
+  <circle cx="105" cy="105" r="2" fill="#7DDDD7" opacity="0.4"/>
+  <circle cx="135" cy="105" r="2" fill="#7DDDD7" opacity="0.4"/>
+</svg>
