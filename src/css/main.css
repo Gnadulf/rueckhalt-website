@@ -193,7 +193,9 @@
   border: 1px solid var(--color-gray-200);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-lg);
-  min-width: 120px;
+  min-width: 150px;
+  max-height: 320px;
+  overflow-y: auto;
   opacity: 0;
   visibility: hidden;
   transform: translateY(-10px);
@@ -213,8 +215,9 @@
 
 .lang-options button {
   width: 100%;
-  padding: var(--space-3) var(--space-4);
+  padding: var(--space-2) var(--space-3);
   text-align: left;
+  font-size: 0.9rem;
   transition: background-color var(--transition-fast);
 }
 

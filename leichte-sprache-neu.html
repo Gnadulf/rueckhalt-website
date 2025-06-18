@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rückhalt in Leichter Sprache - Beratung bei sexueller Gewalt">
+    
+    <title>Rückhalt - Leichte Sprache</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="/src/css/reset.css">
+    <link rel="stylesheet" href="/src/css/variables.css">
+    
+    <style>
+        /* Leichte Sprache - Optimiert für maximale Lesbarkeit */
+        :root {
+            --ls-font-size: 1.375rem; /* 22px */
+            --ls-line-height: 1.8;
+            --ls-paragraph-spacing: 2rem;
+            --ls-max-width: 700px;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            font-size: var(--ls-font-size);
+            line-height: var(--ls-line-height);
+            background: #FFFCFA;
+            color: #1a1a1a;
+        }
+        
+        .ls-container {
+            max-width: var(--ls-max-width);
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+        
+        /* Überschriften */
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #E8A5A5;
+            margin-bottom: 2rem;
+            line-height: 1.3;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #E8A5A5;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+        
+        h3 {
+            font-size: 1.625rem;
+            font-weight: 600;
+            color: #52796F;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Absätze und Listen */
+        p {
+            margin-bottom: var(--ls-paragraph-spacing);
+        }
+        
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: var(--ls-paragraph-spacing);
+        }
+        
+        ul li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        ul li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #7DDDD7;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        /* Wichtige Info-Boxen */
+        .ls-wichtig {
+            background: rgba(232, 165, 165, 0.15);
+            border-left: 5px solid #E8A5A5;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .ls-wichtig strong {
+            color: #D49393;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Telefon-Box */
+        .ls-telefon {
+            background: rgba(125, 221, 215, 0.15);
+            border: 3px solid #7DDDD7;
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .ls-telefon-nummer {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #5CC4BD;
+            margin: 1rem 0;
+            letter-spacing: 0.05em;
+        }
+        
+        /* Navigation */
+        .ls-nav {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1rem 0;
+        }
+        
+        .ls-nav-list {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .ls-nav-list a {
+            color: #52796F;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            transition: all 0.2s;
+            font-size: 1.125rem;
+        }
+        
+        .ls-nav-list a:hover {
+            background: #E8A5A5;
+            color: white;
+        }
+        
+        /* Schnell-Weg Button */
+        .ls-schnell-weg {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #E85A5A;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(232, 90, 90, 0.3);
+            transition: all 0.2s;
+            z-index: 1000;
+        }
+        
+        .ls-schnell-weg:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(232, 90, 90, 0.4);
+        }
+        
+        /* Service-Boxen */
+        .ls-service {
+            background: white;
+            border: 2px solid #F0C4C4;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .ls-service h3 {
+            margin-top: 0;
+        }
+        
+        /* Stichpunkt-Listen mit Icons */
+        .ls-check-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .ls-check-list li {
+            padding-left: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        
+        .ls-check-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #5CC4BD;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        /* Dark Mode Support */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: #1a1a1a;
+                color: #f5f5f5;
+            }
+            
+            .ls-nav {
+                background: #252525;
+            }
+            
+            .ls-service {
+                background: #252525;
+                border-color: rgba(255, 184, 184, 0.3);
+            }
+            
+            h1, h2 {
+                color: #FFB8B8;
+            }
+            
+            h3 {
+                color: #88C2B1;
+            }
+        }
+        
+        /* Mobile Optimierung */
+        @media (max-width: 600px) {
+            :root {
+                --ls-font-size: 1.25rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.75rem;
+            }
+            
+            .ls-telefon-nummer {
+                font-size: 2rem;
+            }
+            
+            .ls-schnell-weg {
+                bottom: 1rem;
+                right: 1rem;
+                padding: 0.75rem 1.5rem;
+                font-size: 1.125rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Schnell-Weg Button -->
+    <button class="ls-schnell-weg" onclick="window.location.href='https://www.google.de'">
+        Schnell weg!
+    </button>
+
+    <!-- Navigation -->
+    <nav class="ls-nav">
+        <div class="ls-container">
+            <ul class="ls-nav-list">
+                <li><a href="/">Normale Sprache</a></li>
+                <li><a href="#start">Start</a></li>
+                <li><a href="#hilfe">Hilfe</a></li>
+                <li><a href="#angebote">Angebote</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hauptinhalt -->
+    <main>
+        <div class="ls-container">
+            <!-- Start -->
+            <section id="start">
+                <h1>Willkommen bei Rückhalt</h1>
+                
+                <div class="ls-wichtig">
+                    <strong>Wichtig:</strong>
+                    Diese Seite können Sie schnell verlassen.<br>
+                    Klicken Sie auf den roten Knopf "Schnell weg!"
+                </div>
+
+                <h2>Wir helfen bei sexueller Gewalt</h2>
+                
+                <p><strong>Was ist sexuelle Gewalt?</strong></p>
+                <ul>
+                    <li>Jemand fasst Sie an und Sie wollen das nicht</li>
+                    <li>Jemand zwingt Sie zu Sex</li>
+                    <li>Jemand zeigt Ihnen Nackt-Bilder und Sie wollen das nicht</li>
+                    <li>Jemand macht Fotos von Ihnen ohne zu fragen</li>
+                </ul>
+
+                <p><strong>Das ist wichtig:</strong></p>
+                <ul class="ls-check-list">
+                    <li>Sexuelle Gewalt ist verboten</li>
+                    <li>Es ist nicht Ihre Schuld</li>
+                    <li>Sie haben ein Recht auf Hilfe</li>
+                    <li>Wir glauben Ihnen</li>
+                </ul>
+            </section>
+
+            <!-- Hilfe bekommen -->
+            <section id="hilfe">
+                <h2>So bekommen Sie Hilfe</h2>
+                
+                <div class="ls-telefon">
+                    <p><strong>Rufen Sie uns an:</strong></p>
+                    <p class="ls-telefon-nummer">0241 - 542220</p>
+                    <p>Montag bis Freitag<br>9 bis 17 Uhr</p>
+                </div>
+
+                <h3>Was passiert beim ersten Gespräch?</h3>
+                <ul class="ls-check-list">
+                    <li>Wir hören Ihnen zu</li>
+                    <li>Sie erzählen nur was Sie wollen</li>
+                    <li>Wir glauben Ihnen</li>
+                    <li>Wir überlegen zusammen: Was hilft Ihnen?</li>
+                    <li>Sie entscheiden was passiert</li>
+                </ul>
+
+                <div class="ls-wichtig">
+                    <strong>Gut zu wissen:</strong>
+                    • Die Beratung kostet nichts<br>
+                    • Wir erzählen nichts weiter<br>
+                    • Sie müssen nicht zur Polizei<br>
+                    • Sie können anonym bleiben
+                </div>
+            </section>
+
+            <!-- Unsere Angebote -->
+            <section id="angebote">
+                <h2>Unsere Angebote</h2>
+                
+                <div class="ls-service">
+                    <h3>Einzel-Beratung</h3>
+                    <p>Sie sprechen mit einer Person alleine.</p>
+                    <ul>
+                        <li>Am Telefon</li>
+                        <li>Per Video</li>
+                        <li>Bei uns im Büro</li>
+                    </ul>
+                </div>
+
+                <div class="ls-service">
+                    <h3>Hilfe für Angehörige</h3>
+                    <p>Ihre Familie oder Freunde brauchen auch Hilfe?</p>
+                    <ul>
+                        <li>Wir beraten Eltern</li>
+                        <li>Wir beraten Partner und Partnerinnen</li>
+                        <li>Wir beraten Freunde</li>
+                    </ul>
+                </div>
+
+                <div class="ls-service">
+                    <h3>Begleitung zur Polizei oder zum Gericht</h3>
+                    <p>Wir gehen mit Ihnen:</p>
+                    <ul>
+                        <li>Zur Polizei</li>
+                        <li>Zum Anwalt oder zur Anwältin</li>
+                        <li>Zum Gericht</li>
+                    </ul>
+                </div>
+
+                <div class="ls-service">
+                    <h3>Gruppen-Angebote</h3>
+                    <p>Sie treffen andere Menschen mit ähnlichen Erfahrungen.</p>
+                    <ul>
+                        <li>In kleinen Gruppen</li>
+                        <li>Mit Betreuung</li>
+                        <li>Ganz vertraulich</li>
+                    </ul>
+                </div>
+
+                <div class="ls-service">
+                    <h3>Rückhalt-M</h3>
+                    <p>Speziell für Männer:</p>
+                    <ul>
+                        <li>Männliche Berater</li>
+                        <li>Geschützter Raum</li>
+                        <li>Keine Vorurteile</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Kontakt -->
+            <section id="kontakt">
+                <h2>So erreichen Sie uns</h2>
+                
+                <div class="ls-service">
+                    <h3>Telefon</h3>
+                    <p class="ls-telefon-nummer" style="text-align: left; font-size: 1.75rem;">0241 - 542220</p>
+                    <p>Montag bis Freitag: 9 bis 17 Uhr</p>
+                </div>
+
+                <div class="ls-service">
+                    <h3>E-Mail</h3>
+                    <p>info@rueckhalt-aachen.de</p>
+                    <p>Wir antworten schnell.</p>
+                </div>
+
+                <div class="ls-service">
+                    <h3>Adresse</h3>
+                    <p>
+                        Rückhalt e.V.<br>
+                        Musterstraße 123<br>
+                        52064 Aachen
+                    </p>
+                </div>
+
+                <div class="ls-wichtig">
+                    <strong>In Notfällen:</strong>
+                    Polizei: 110<br>
+                    Hilfe-Telefon: 08000 116 016<br>
+                    (Tag und Nacht)
+                </div>
+            </section>
+
+            <!-- Abschluss -->
+            <section style="margin-top: 4rem; text-align: center;">
+                <h2>Sie sind nicht allein</h2>
+                <p><strong>Wir sind für Sie da.</strong></p>
+                <p><strong>Wir helfen Ihnen.</strong></p>
+            </section>
+        </div>
+    </main>
+</body>
+</html>

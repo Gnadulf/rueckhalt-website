@@ -23,6 +23,9 @@
     <link rel="stylesheet" href="/src/css/responsive.css">
     <link rel="stylesheet" href="/src/css/pentagram.css">
     
+    <!-- Translation System -->
+    <script src="/src/js/translations-complete.js"></script>
+    
     <style>
         /* Überschreibungen für Rosa/Türkis Design */
         body {
@@ -116,31 +119,31 @@
             transform: rotate(180deg);
         }
         
-        /* Dark Mode Styles - Verbesserte Kontraste */
+        /* Dark Mode Styles - Maximaler Kontrast für Barrierefreiheit */
         body.dark-mode {
-            --color-background: #1a1a1a;
-            --color-warm: #242424;
-            --color-light: #2a2a2a;
-            --color-white: #2a2a2a;
-            --color-gray-900: #f5f5f5; /* Weißer Text für bessere Lesbarkeit */
-            --color-gray-800: #e0e0e0;
-            --color-gray-700: #d0d0d0;
-            --color-gray-600: #b0b0b0;
-            --color-gray-500: #909090;
-            --color-gray-400: #707070;
-            --color-gray-300: #505050;
+            --color-background: #0f0f0f; /* Dunklerer Hintergrund */
+            --color-warm: #1a1a1a;
+            --color-light: #1f1f1f;
+            --color-white: #1f1f1f;
+            --color-gray-900: #ffffff; /* Reines Weiß für maximalen Kontrast */
+            --color-gray-800: #f5f5f5;
+            --color-gray-700: #e8e8e8;
+            --color-gray-600: #d0d0d0;
+            --color-gray-500: #b0b0b0;
+            --color-gray-400: #808080;
+            --color-gray-300: #606060;
             --color-gray-200: #404040;
-            --color-gray-100: #303030;
-            --color-gray-50: #252525;
-            --color-primary: #F2B5B5; /* Helleres Rosa für besseren Kontrast */
-            --color-primary-light: #FFD0D0;
-            --color-primary-dark: #E8A5A5;
-            --color-secondary: #8DE8E2; /* Helleres Türkis */
-            --color-secondary-light: #ADFFF9;
-            --color-secondary-dark: #6BD6CF;
-            --color-accent: #88C2B1;
-            background: #1a1a1a;
-            color: #f5f5f5; /* Weißer Text statt grau */
+            --color-gray-100: #2a2a2a;
+            --color-gray-50: #1f1f1f;
+            --color-primary: #FFB8B8; /* Noch helleres Rosa */
+            --color-primary-light: #FFD5D5;
+            --color-primary-dark: #FFA0A0;
+            --color-secondary: #A0F5EE; /* Noch helleres Türkis */
+            --color-secondary-light: #C0FFFA;
+            --color-secondary-dark: #80E5DD;
+            --color-accent: #95D5C5;
+            background: #0f0f0f;
+            color: #ffffff; /* Reines Weiß für Text */
         }
         
         body.dark-mode .hero-modern {
@@ -148,9 +151,10 @@
         }
         
         body.dark-mode .glass-card {
-            background: rgba(45, 45, 45, 0.9);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: #f5f5f5;
+            background: rgba(30, 30, 30, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
         }
         
         body.dark-mode .header {
@@ -188,25 +192,39 @@
             background: #0f0f0f;
         }
         
-        /* Dark Mode Text Kontrast Fixes */
+        /* Dark Mode Text Kontrast Fixes - WCAG AAA Compliance */
         body.dark-mode p,
         body.dark-mode li,
         body.dark-mode span {
-            color: #e0e0e0;
+            color: #f0f0f0; /* Hellerer Text */
+            font-weight: 400; /* Etwas stärker für bessere Lesbarkeit */
         }
         
         body.dark-mode h1,
         body.dark-mode h2,
         body.dark-mode h3,
         body.dark-mode h4 {
-            color: #f5f5f5;
+            color: #ffffff;
+            font-weight: 600; /* Stärkere Gewichtung */
+        }
+        
+        body.dark-mode .hero-subtitle {
+            color: #f5f5f5 !important;
+            font-weight: 400;
         }
         
         body.dark-mode .service-modern,
         body.dark-mode .faq-item,
         body.dark-mode .bg-soft {
-            background: rgba(45, 45, 45, 0.9);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(25, 25, 25, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+        
+        body.dark-mode .service-modern p,
+        body.dark-mode .faq-answer p {
+            color: #e8e8e8;
+            line-height: 1.8;
         }
         
         body.dark-mode .nav-link {
@@ -270,7 +288,7 @@
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
             <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9"/>
         </svg>
-        <span class="quick-exit-text">Schnell verlassen</span>
+        <span class="quick-exit-text" data-i18n="quickexit.button">Schnell verlassen</span>
     </button>
 
     <!-- Skip to main content -->
@@ -280,9 +298,9 @@
     <div class="emergency-bar" style="background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-secondary) 100%);">
         <div class="container">
             <span class="emergency-text">
-                <strong>Notruf: 110</strong> • 
-                Hilfetelefon: <a href="tel:08000116016" style="color: white; text-decoration: underline;">08000 116 016</a> • 
-                <strong><a href="tel:0241542220" style="color: white; text-decoration: none; font-size: 1.1em;">Rückhalt: 0241 - 542220</a></strong>
+                <strong data-i18n="emergency.police">Notruf: 110</strong> • 
+                <span data-i18n="emergency.helpline">Hilfetelefon: <a href="tel:08000116016" style="color: white; text-decoration: underline;">08000 116 016</a></span> • 
+                <strong><a href="tel:0241542220" style="color: white; text-decoration: none; font-size: 1.1em;" data-i18n="emergency.rueckhalt">Rückhalt: 0241 - 542220</a></strong>
             </span>
         </div>
     </div>
@@ -301,13 +319,13 @@
                     </button>
                     
                     <ul class="nav-list">
-                        <li><a href="#" class="nav-link active">Startseite</a></li>
-                        <li><a href="#angebote" class="nav-link">Angebote</a></li>
-                        <li><a href="#rueckhalt-m" class="nav-link">Rückhalt-M</a></li>
-                        <li><a href="#ueber-uns" class="nav-link">Über uns</a></li>
-                        <li><a href="#wissen" class="nav-link">Wissen & Ressourcen</a></li>
-                        <li><a href="#kontakt" class="nav-link">Kontakt</a></li>
-                        <li style="margin-left: auto;"><a href="/leichte-sprache.html" class="nav-link nav-link-special">Leichte Sprache</a></li>
+                        <li><a href="#" class="nav-link active" data-i18n="nav.home">Startseite</a></li>
+                        <li><a href="#angebote" class="nav-link" data-i18n="nav.services">Angebote</a></li>
+                        <li><a href="#rueckhalt-m" class="nav-link" data-i18n="nav.rueckhalt-m">Rückhalt-M</a></li>
+                        <li><a href="#ueber-uns" class="nav-link" data-i18n="nav.about">Über uns</a></li>
+                        <li><a href="#wissen" class="nav-link" data-i18n="nav.knowledge">Wissen & Ressourcen</a></li>
+                        <li><a href="#kontakt" class="nav-link" data-i18n="nav.contact">Kontakt</a></li>
+                        <li style="margin-left: auto;"><a href="/leichte-sprache.html" class="nav-link nav-link-special" data-i18n="nav.easy-language">Leichte Sprache</a></li>
                     </ul>
                 </nav>
 
@@ -320,7 +338,14 @@
                         <ul class="lang-options" hidden>
                             <li><button data-lang="de" class="active">Deutsch</button></li>
                             <li><button data-lang="en">English</button></li>
+                            <li><button data-lang="pl">Polski</button></li>
+                            <li><button data-lang="uk">Українська</button></li>
+                            <li><button data-lang="ru">Русский</button></li>
+                            <li><button data-lang="ro">Română</button></li>
                             <li><button data-lang="ar">العربية</button></li>
+                            <li><button data-lang="sy">ܣܘܪܝܝܐ</button></li>
+                            <li><button data-lang="fr">Français</button></li>
+                            <li><button data-lang="nl">Nederlands</button></li>
                             <li><button data-lang="tr">Türkçe</button></li>
                         </ul>
                     </div>
@@ -364,7 +389,7 @@
             <div class="container" style="position: relative; z-index: 20;">
                 <div class="bauhaus-grid" style="align-items: center; min-height: 80vh; padding-top: 120px;">
                     <div class="span-12" style="text-align: center;">
-                        <h1 class="hero-title-pentagram" data-i18n="hero.title">Wir sind für Sie da</h1>
+                        <h1 class="hero-title-pentagram" data-i18n="hero.title" style="text-transform: none; font-size: clamp(2.5rem, 7vw, 5rem); font-weight: 800;">Wir sind für Sie da</h1>
                         <p class="hero-subtitle" style="font-size: 1.4rem; line-height: 1.8; max-width: 800px; margin: 0 auto var(--space-8);" data-i18n="hero.subtitle">
                             Jede*r sexuelle*r Übergriff stellt eine schwere Persönlichkeitsverletzung dar 
                             und kann eine emotionale Krise auslösen. <strong>Sie sind nicht allein.</strong>
@@ -2009,15 +2034,30 @@
                         langButtons.forEach(btn => btn.classList.remove('active'));
                         this.classList.add('active');
                         
-                        // Update current language display
-                        langCurrent.innerHTML = lang.toUpperCase() + ' <svg width="12" height="8" viewBox="0 0 12 8"><path d="M1 1l5 5 5-5" stroke="currentColor" fill="none"/></svg>';
+                        // Update current language display with proper codes
+                        const langCodes = {
+                            'de': 'DE',
+                            'en': 'EN',
+                            'pl': 'PL',
+                            'uk': 'UK',
+                            'ru': 'RU',
+                            'ro': 'RO',
+                            'ar': 'AR',
+                            'sy': 'SY',
+                            'fr': 'FR',
+                            'nl': 'NL',
+                            'tr': 'TR'
+                        };
+                        langCurrent.innerHTML = langCodes[lang] + ' <svg width="12" height="8" viewBox="0 0 12 8"><path d="M1 1l5 5 5-5" stroke="currentColor" fill="none"/></svg>';
                         
                         // Close dropdown
                         langCurrent.setAttribute('aria-expanded', 'false');
                         langOptions.hidden = true;
                         
-                        // Here you would normally apply translations
-                        console.log('Language switched to:', lang);
+                        // Apply translations
+                        if (window.RueckhaltTranslations) {
+                            window.RueckhaltTranslations.applyTranslations(lang);
+                        }
                     });
                 });
                 
@@ -2054,6 +2094,33 @@
                 
                 // Save preference
                 localStorage.setItem('darkMode', isDark);
+            });
+            
+            // Initialize translations on page load
+            document.addEventListener('DOMContentLoaded', function() {
+                if (window.RueckhaltTranslations) {
+                    const currentLang = window.RueckhaltTranslations.detectLanguage();
+                    window.RueckhaltTranslations.applyTranslations(currentLang);
+                    
+                    // Update language switcher display
+                    const langCodes = {
+                        'de': 'DE',
+                        'en': 'EN',
+                        'pl': 'PL',
+                        'uk': 'UK',
+                        'ru': 'RU',
+                        'ro': 'RO',
+                        'ar': 'AR',
+                        'sy': 'SY',
+                        'fr': 'FR',
+                        'nl': 'NL',
+                        'tr': 'TR'
+                    };
+                    const langCurrent = document.querySelector('.lang-current');
+                    if (langCurrent) {
+                        langCurrent.innerHTML = langCodes[currentLang] + ' <svg width="12" height="8" viewBox="0 0 12 8"><path d="M1 1l5 5 5-5" stroke="currentColor" fill="none"/></svg>';
+                    }
+                }
             });
         })();
     </script>
