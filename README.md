@@ -1,143 +1,124 @@
-# RückHalt e.V. - Moderne Website
+# Rückhalt e.V. Website
 
-Eine trauma-informierte, barrierefreie und sichere Website für die Beratungsstelle RückHalt e.V.
+Offizielle Website für Rückhalt e.V. - Beratungsstelle gegen sexuelle Gewalt in Aachen. Mehrsprachig, barrierefrei, traumasensibel.
 
-## 🎯 Features
+🌐 **Live:** https://rueckhalt.netlify.app
 
-### Sicherheit & Datenschutz
-- **Quick Exit Button**: Schnelles Verlassen der Seite (3x ESC oder Button)
-- **Verschlüsselte Kommunikation**: Sichere Kontaktformulare
-- **Keine Tracking-Cookies**: Datenschutz hat oberste Priorität
-- **Service Worker**: Offline-Verfügbarkeit wichtiger Informationen
+## Übersicht
 
-### Barrierefreiheit
-- **WCAG AAA Standard**: Vollständig barrierefrei
-- **Screen Reader optimiert**: Semantisches HTML und ARIA-Labels
-- **Keyboard Navigation**: Vollständige Tastatursteuerung
-- **Mehrsprachigkeit**: DE, EN, AR, TR vorbereitet
+Diese Website bietet Betroffenen von sexueller Gewalt und deren Angehörigen einen niedrigschwelligen Zugang zu Hilfe und Beratung. Die Website ist bewusst traumasensibel gestaltet und in 11 Sprachen verfügbar.
 
-### Design & UX
-- **Trauma-informiertes Design**: Beruhigende Farben und sanfte Animationen
-- **Stimmungsanpassung**: Nutzer können Farbintensität anpassen
-- **Mobile First**: Optimiert für alle Geräte
-- **Performance**: Schnelle Ladezeiten durch Vite Build-System
+## Features
 
-## 🚀 Deployment auf Netlify
+### 🌍 Mehrsprachigkeit
+- **11 Sprachen:** Deutsch, Englisch, Polnisch, Ukrainisch, Russisch, Rumänisch, Arabisch, Syrisch, Französisch, Niederländisch, Türkisch
+- RTL-Support für Arabisch und Syrisch
+- Automatische Spracherkennung
+- Sprachpräferenz wird gespeichert
 
-### Option 1: Deploy Button
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/yourusername/rueckhalt-website)
+### ♿ Barrierefreiheit
+- **Leichte Sprache** Version mit vereinfachter Navigation
+- WCAG AAA konformer Dark Mode
+- Keyboard-Navigation durchgehend möglich
+- Screen-Reader optimiert
+- Schnell-Verlassen-Funktion (3x ESC)
 
-### Option 2: Manuelles Deployment
+### 🎨 Design
+- Rosa/Türkis Farbschema aus dem Logo
+- Pentagram/Paula Scher inspirierte Typografie
+- Responsive Design (Mobile-First)
+- Glass-Morphism UI-Elemente
+- Sanfte Animationen (reduzierbar)
 
-1. **GitHub Repository erstellen**
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit"
-   git remote add origin https://github.com/yourusername/rueckhalt-website.git
-   git push -u origin main
-   ```
+### 🔧 Technische Features
+- Modal-System für Service-Details
+- FAQ mit Suchfunktion und Kategoriefilter
+- Notfall-Toolkit mit konkreten Übungen
+- Dark Mode mit optimalen Kontrasten
+- PWA-ready
+- Optimierte Performance
 
-2. **Netlify Account**
-   - Gehe zu [app.netlify.com](https://app.netlify.com)
-   - Klicke auf "New site from Git"
-   - Wähle GitHub und autorisiere Netlify
-   - Wähle dein Repository
-
-3. **Build Settings**
-   - Build command: `npm run build`
-   - Publish directory: `dist`
-   - Node version: 18 (wird automatisch aus netlify.toml gelesen)
-
-4. **Deploy**
-   - Klicke auf "Deploy site"
-   - Warte bis der Build abgeschlossen ist
-
-### Option 3: Netlify CLI
+## Installation
 
 ```bash
-# Netlify CLI installieren
-npm install -g netlify-cli
+# Repository klonen
+git clone https://github.com/Gnadulf/rueckhalt-website.git
+cd rueckhalt-website
 
-# Login
-netlify login
-
-# Deploy
-netlify deploy --prod
-```
-
-## 🛠️ Lokale Entwicklung
-
-```bash
 # Dependencies installieren
 npm install
 
-# Development Server starten
+# Entwicklungsserver starten
 npm run dev
 
 # Production Build
 npm run build
 
-# Preview Production Build
+# Deployment Preview
 npm run preview
 ```
 
-## 📁 Projektstruktur
+## Projektstruktur
 
 ```
 rueckhalt-website/
-├── public/
-│   ├── sw.js              # Service Worker
-│   └── offline.html       # Offline-Seite
+├── dist/                    # Build Output
 ├── src/
-│   ├── assets/
-│   │   └── images/        # Bilder und Logo
 │   ├── css/
-│   │   ├── reset.css      # CSS Reset
-│   │   ├── variables.css  # Design System Variablen
-│   │   ├── main.css       # Haupt-Styles
-│   │   ├── components.css # UI Komponenten
-│   │   └── responsive.css # Mobile Styles
-│   └── js/
-│       ├── main.js        # Haupt-JavaScript
-│       ├── translations.js # Übersetzungen
-│       └── vendor.js      # Third-party Scripts
-├── index.html             # Haupt-HTML
-├── netlify.toml          # Netlify Konfiguration
-├── vite.config.js        # Vite Konfiguration
-└── package.json          # NPM Dependencies
+│   │   ├── reset.css       # Browser Normalisierung
+│   │   ├── variables.css   # Design Tokens
+│   │   ├── main.css        # Haupt-Styles
+│   │   ├── components.css  # UI-Komponenten
+│   │   ├── bauhaus.css     # Grid System
+│   │   ├── modern.css      # Moderne UI Patterns
+│   │   ├── responsive.css  # Mobile Anpassungen
+│   │   └── pentagram.css   # Typografie System
+│   ├── js/
+│   │   └── translations-complete.js  # Übersetzungen (11 Sprachen)
+│   └── assets/
+│       └── images/
+│           └── logo.png    # Logo (benötigt transparente Version)
+├── index.html              # Hauptseite
+├── leichte-sprache.html    # Leichte Sprache Version
+├── netlify.toml            # Deployment Konfiguration
+├── package.json
+└── vite.config.js          # Build Konfiguration
 ```
 
-## 🔒 Sicherheitshinweise
+## Deployment
 
-- **HTTPS only**: Netlify aktiviert automatisch HTTPS
-- **Security Headers**: Bereits in netlify.toml konfiguriert
-- **Content Security Policy**: Strenge CSP-Regeln aktiv
-- **Keine Analytics**: Respektiert Privatsphäre der Nutzer
+Die Website wird automatisch über Netlify deployed:
+- Push zu `main` Branch triggert automatisches Deployment
+- Preview Deployments für Pull Requests
 
-## 🎨 Design System
+## Mitwirken
 
-### Farben
-- **Primär**: #2E5266 (Ruhiges Blaugrau)
-- **Sekundär**: #6E8898 (Helleres Blaugrau)
-- **Akzent**: #52796F (Gedämpftes Grün)
-- **Warm**: #D3B1C2 (Sanftes Rosa)
-- **Notfall**: #C84B31 (Wichtige Aktionen)
+Contributions sind willkommen! Bitte beachten:
 
-### Schriftarten
-- **Primär**: Inter (Sans-serif)
-- **Sekundär**: Lora (Serif für Zitate)
+1. **Traumasensibles Design** beibehalten
+2. **Barrierefreiheit** nicht beeinträchtigen
+3. **Alle 11 Sprachen** bei Textänderungen aktualisieren
+4. **Performance** im Blick behalten
+5. **Keine Tracking-Scripts** einbauen
 
-## 📞 Support
+## Sicherheit
 
-Bei Fragen zum Deployment oder zur Website:
-- Issue erstellen auf GitHub
-- E-Mail an: webmaster@rueckhalt-beratung.de
+- Quick-Exit Funktion (3x ESC oder Button)
+- Keine Cookies ohne Zustimmung
+- Verschlüsselte Formulare
+- Keine externe Analyse-Tools
 
-## 📄 Lizenz
+## Lizenz
 
-© 2024 RückHalt e.V. - Alle Rechte vorbehalten
+MIT License - siehe [LICENSE](LICENSE) für Details
+
+## Kontakt
+
+**Rückhalt e.V.**
+- Website: https://rueckhalt.netlify.app
+- Telefon: 0241 - 542220
+- E-Mail: info@rueckhalt-aachen.de
 
 ---
 
-**Wichtig**: Diese Website behandelt sensible Themen. Bitte respektieren Sie die Privatsphäre und Sicherheit der Nutzer bei allen Änderungen.
+🤖 Entwickelt mit Unterstützung von [Claude Code](https://claude.ai/code)
