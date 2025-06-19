@@ -39,6 +39,36 @@
   text-decoration: none;
 }
 
+/* Emergency Button - Prominent call-to-action */
+.emergency-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2) var(--space-4);
+  color: var(--color-white) !important;
+  text-decoration: none !important;
+  font-weight: var(--weight-semibold);
+  font-size: 1.1em;
+  transition: all var(--transition-fast);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.emergency-button:hover,
+.emergency-button:focus {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: var(--color-white);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.emergency-button-text {
+  font-family: var(--font-primary);
+  letter-spacing: 0.5px;
+}
+
 /* Header */
 .header {
   background: var(--color-white);
@@ -68,9 +98,14 @@
 }
 
 .logo img {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 90px;
   object-fit: contain;
+  /* ULTRATHINK: Trauma-informed logo optimization */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  transition: transform var(--transition-base);
+  border-radius: var(--radius-sm);
 }
 
 .logo-text {

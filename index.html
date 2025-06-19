@@ -303,10 +303,19 @@
             filter: drop-shadow(0 4px 12px rgba(125, 221, 215, 0.4));
         }
         
-        /* Hero Logo Container */
+        /* Hero Logo Container - ULTRATHINK: Trauma-informed prominence */
         .logo-hero-prominent {
             margin-top: var(--space-8);
             margin-bottom: var(--space-6);
+        }
+        
+        .logo-hero-prominent img {
+            /* Optimize high-res logo display */
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+            object-fit: contain;
+            max-width: 100%;
+            height: auto;
         }
         
         /* Dark Mode Logo Anpassungen */
@@ -315,15 +324,17 @@
             filter: drop-shadow(0 4px 12px rgba(255, 255, 255, 0.2));
         }
         
-        /* Mobile Anpassungen für Logo */
+        /* Mobile Anpassungen für Logo - ULTRATHINK: Accessibility on mobile */
         @media (max-width: 768px) {
             .logo img {
-                width: 100px !important;
-                height: 100px !important;
+                width: 50px !important;
+                height: 75px !important;
             }
             
             .logo-hero-prominent img {
                 width: 200px !important;
+                /* Maintain aspect ratio for trauma-informed design */
+                height: auto !important;
             }
             
             .logo-hero-prominent {
@@ -348,11 +359,13 @@
     <!-- Emergency Bar -->
     <div class="emergency-bar" style="background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-secondary) 100%);">
         <div class="container">
-            <span class="emergency-text">
+            <div class="emergency-text">
                 <strong data-i18n="emergency.police">Notruf: 110</strong> • 
                 <span data-i18n="emergency.helpline">Hilfetelefon: <a href="tel:08000116016" style="color: white; text-decoration: underline;">08000 116 016</a></span> • 
-                <strong><a href="tel:0241542220" style="color: white; text-decoration: none; font-size: 1.1em;" data-i18n="emergency.rueckhalt">Rückhalt: 0241 - 542220</a></strong>
-            </span>
+                <a href="tel:0241542220" class="emergency-button" aria-label="Rückhalt anrufen">
+                    <span class="emergency-button-text">0241 - 542220</span>
+                </a>
+            </div>
         </div>
     </div>
 
@@ -361,7 +374,7 @@
         <div class="container">
             <div class="header-content">
                 <a href="/" class="logo" aria-label="Rückhalt Startseite">
-                    <img src="/assets/images/logo-transparent.svg" alt="Rückhalt Logo" width="150" height="150" style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));">
+                    <img src="/src/assets/images/logo-new-high-res.png" alt="Rückhalt Logo - Abstrakte Umarmung symbolisiert Sicherheit und Unterstützung" width="60" height="90" style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); object-fit: contain;">
                 </a>
                 
                 <nav class="main-nav" role="navigation" aria-label="Hauptnavigation">
@@ -437,7 +450,7 @@
                     <div class="span-12" style="text-align: center;">
                         <!-- Prominent Logo Display -->
                         <div class="logo-hero-prominent">
-                            <img src="/assets/images/logo-transparent.svg" alt="Rückhalt Logo" style="width: 300px; height: auto; filter: drop-shadow(0 4px 20px rgba(232, 165, 165, 0.3)); animation: gentlePulse 4s ease-in-out infinite;">
+                            <img src="/src/assets/images/logo-new-high-res.png" alt="Rückhalt Logo - Sanfte abstrakte Umarmung in beruhigenden Farben" style="width: 300px; height: auto; filter: drop-shadow(0 4px 20px rgba(232, 165, 165, 0.3)); animation: gentlePulse 4s ease-in-out infinite; object-fit: contain;">
                         </div>
                         <h1 class="hero-title-pentagram" data-i18n="hero.title" style="text-transform: none; font-size: clamp(2.5rem, 7vw, 5rem); font-weight: 800;">Wir sind für Sie da</h1>
                         <p class="hero-subtitle" style="font-size: 1.4rem; line-height: 1.8; max-width: 800px; margin: 0 auto var(--space-8);" data-i18n="hero.subtitle">
