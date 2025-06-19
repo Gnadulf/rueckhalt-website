@@ -365,22 +365,26 @@ section {
   font-size: 16px;
 }
 
-/* Quick Exit Button */
+/* Quick Exit Button - ULTRATHINK: Sicherheitskritisch vergrößert */
 .quick-exit {
   position: fixed;
   bottom: var(--space-6);
   right: var(--space-6);
   background: var(--color-emergency);
   color: var(--color-white);
-  padding: var(--space-3) var(--space-4);
-  border-radius: var(--radius-full);
+  padding: var(--space-4) var(--space-6);
+  border-radius: var(--radius-lg);
   box-shadow: var(--shadow-xl);
   display: flex;
   align-items: center;
-  gap: var(--space-2);
-  font-weight: var(--weight-medium);
+  gap: var(--space-3);
+  font-weight: var(--weight-semibold);
+  font-size: 1.1rem;
   transition: all var(--transition-fast);
-  z-index: var(--z-fixed);
+  z-index: var(--z-emergency);
+  min-width: 60px;
+  min-height: 60px;
+  justify-content: center;
 }
 
 .quick-exit:hover {

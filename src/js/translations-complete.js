@@ -6,7 +6,7 @@ const translations = {
     // Header
     'nav.home': 'Startseite',
     'nav.services': 'Angebote',
-    'nav.rueckhalt-m': 'Rückhalt-M',
+    'nav.rueckhalt-m': 'Rückhalt (M)',
     'nav.about': 'Über uns',
     'nav.knowledge': 'Wissen & Ressourcen',
     'nav.contact': 'Kontakt',
@@ -48,7 +48,7 @@ const translations = {
   en: {
     'nav.home': 'Home',
     'nav.services': 'Services',
-    'nav.rueckhalt-m': 'Rückhalt-M',
+    'nav.rueckhalt-m': 'Rückhalt (M)',
     'nav.about': 'About Us',
     'nav.knowledge': 'Knowledge & Resources',
     'nav.contact': 'Contact',
@@ -85,7 +85,7 @@ const translations = {
   pl: {
     'nav.home': 'Strona główna',
     'nav.services': 'Usługi',
-    'nav.rueckhalt-m': 'Rückhalt-M',
+    'nav.rueckhalt-m': 'Rückhalt (M)',
     'nav.about': 'O nas',
     'nav.knowledge': 'Wiedza i zasoby',
     'nav.contact': 'Kontakt',
@@ -122,7 +122,7 @@ const translations = {
   uk: {
     'nav.home': 'Головна',
     'nav.services': 'Послуги',
-    'nav.rueckhalt-m': 'Rückhalt-M',
+    'nav.rueckhalt-m': 'Rückhalt (M)',
     'nav.about': 'Про нас',
     'nav.knowledge': 'Знання та ресурси',
     'nav.contact': 'Контакти',
@@ -159,7 +159,7 @@ const translations = {
   ru: {
     'nav.home': 'Главная',
     'nav.services': 'Услуги',
-    'nav.rueckhalt-m': 'Rückhalt-M',
+    'nav.rueckhalt-m': 'Rückhalt (M)',
     'nav.about': 'О нас',
     'nav.knowledge': 'Знания и ресурсы',
     'nav.contact': 'Контакт',
@@ -196,7 +196,7 @@ const translations = {
   ro: {
     'nav.home': 'Acasă',
     'nav.services': 'Servicii',
-    'nav.rueckhalt-m': 'Rückhalt-M',
+    'nav.rueckhalt-m': 'Rückhalt (M)',
     'nav.about': 'Despre noi',
     'nav.knowledge': 'Cunoștințe și resurse',
     'nav.contact': 'Contact',
@@ -233,7 +233,7 @@ const translations = {
   ar: {
     'nav.home': 'الصفحة الرئيسية',
     'nav.services': 'الخدمات',
-    'nav.rueckhalt-m': 'Rückhalt-M',
+    'nav.rueckhalt-m': 'Rückhalt (M)',
     'nav.about': 'من نحن',
     'nav.knowledge': 'المعرفة والموارد',
     'nav.contact': 'اتصل بنا',
@@ -270,7 +270,7 @@ const translations = {
   sy: {
     'nav.home': 'ܦܐܬܐ ܪܝܫܝܬܐ',
     'nav.services': 'ܬܫܡܫܬܐ',
-    'nav.rueckhalt-m': 'Rückhalt-M',
+    'nav.rueckhalt-m': 'Rückhalt (M)',
     'nav.about': 'ܥܠܝܢ',
     'nav.knowledge': 'ܝܕܥܬܐ ܘܡܘܪ̈ܕܐ',
     'nav.contact': 'ܐܬܩܫܪ ܥܡܢ',
@@ -295,7 +295,7 @@ const translations = {
   fr: {
     'nav.home': 'Accueil',
     'nav.services': 'Services',
-    'nav.rueckhalt-m': 'Rückhalt-M',
+    'nav.rueckhalt-m': 'Rückhalt (M)',
     'nav.about': 'À propos',
     'nav.knowledge': 'Connaissances et ressources',
     'nav.contact': 'Contact',
@@ -332,7 +332,7 @@ const translations = {
   nl: {
     'nav.home': 'Home',
     'nav.services': 'Diensten',
-    'nav.rueckhalt-m': 'Rückhalt-M',
+    'nav.rueckhalt-m': 'Rückhalt (M)',
     'nav.about': 'Over ons',
     'nav.knowledge': 'Kennis en bronnen',
     'nav.contact': 'Contact',
@@ -369,7 +369,7 @@ const translations = {
   tr: {
     'nav.home': 'Ana Sayfa',
     'nav.services': 'Hizmetler',
-    'nav.rueckhalt-m': 'Rückhalt-M',
+    'nav.rueckhalt-m': 'Rückhalt (M)',
     'nav.about': 'Hakkımızda',
     'nav.knowledge': 'Bilgi ve Kaynaklar',
     'nav.contact': 'İletişim',

@@ -200,11 +200,23 @@ class LanguageSwitcher {
       });
     });
     
-    // Close on outside click
+    // Close on outside click - ULTRATHINK: Delay to prevent hover conflicts
     document.addEventListener('click', (e) => {
       if (!this.current?.contains(e.target) && !this.options?.contains(e.target)) {
-        this.closeOptions();
+        // Delay closing to allow CSS hover to work
+        setTimeout(() => {
+          if (!this.options?.matches(':hover') && !this.current?.matches(':hover')) {
+            this.closeOptions();
+          }
+        }, 100);
       }
+    });
+    
+    // Close when mouse leaves entirely - ULTRATHINK: Better UX
+    document.querySelector('.language-switcher')?.addEventListener('mouseleave', () => {
+      setTimeout(() => {
+        this.closeOptions();
+      }, 200);
     });
   }
   
