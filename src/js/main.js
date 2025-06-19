@@ -302,8 +302,11 @@ class ContactForm {
       // Show success
       this.showSuccess();
       this.form.reset();
-    } catch (error) {
-      // Show error
+    } catch (submissionError) {
+      // Show error - Log for debugging but don't expose sensitive data
+      if (process.env.NODE_ENV !== 'production') {
+        console.warn('Form submission failed:', submissionError);
+      }
       this.showError();
     } finally {
       // Reset button
@@ -312,8 +315,12 @@ class ContactForm {
     }
   }
   
-  simulateSubmit(data) {
+  simulateSubmit(formData) {
     // In production, this would send to your secure endpoint
+    // Log sanitized data for debugging (never log sensitive info)
+    if (process.env.NODE_ENV !== 'production') {
+      console.info('Form submission initiated');
+    }
     return new Promise((resolve) => {
       setTimeout(resolve, 1500);
     });
@@ -432,18 +439,25 @@ document.addEventListener('DOMContentLoaded', () => {
   // Service Worker for offline support (if supported)
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/sw.js').catch(() => {
-      console.log('Service Worker registration failed');
+      // Silent fail for Service Worker - don't overwhelm users
     });
   }
   
-  // Print warning about browser history
-  console.log(
-    '%cSicherheitshinweis:',
-    'color: red; font-size: 20px; font-weight: bold;'
-  );
-  console.log(
-    '%cDiese Website kann Spuren in Ihrem Browserverlauf hinterlassen. ' +
-    'Nutzen Sie den Inkognito-/Privatmodus oder löschen Sie Ihren Verlauf nach dem Besuch.',
-    'color: red; font-size: 14px;'
-  );
+  // Security warning for development only
+  if (process.env.NODE_ENV !== 'production') {
+    console.warn(
+      '%cSicherheitshinweis:',
+      'color: red; font-size: 20px; font-weight: bold;'
+    );
+    console.warn(
+      '%cDiese Website kann Spuren in Ihrem Browserverlauf hinterlassen. ' +
+      'Nutzen Sie den Inkognito-/Privatmodus oder löschen Sie Ihren Verlauf nach dem Besuch.',
+      'color: red; font-size: 14px;'
+    );
+  }
 });
+
+// Export for module compatibility
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = {};
+}

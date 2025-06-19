@@ -678,10 +678,10 @@ section {
   flex-shrink: 0;
 }
 
-/* Footer */
+/* Footer - WCAG AAA compliant */
 .footer {
-  background: var(--color-gray-900);
-  color: var(--color-gray-300);
+  background: #000000; /* Pure black for maximum contrast */
+  color: #FFFFFF; /* Pure white for 21:1 contrast ratio */
   padding: var(--space-16) 0 var(--space-8);
 }
 
@@ -711,13 +711,14 @@ section {
 }
 
 .footer-section a {
-  color: var(--color-gray-400);
-  text-decoration: none;
+  color: #FFFFFF; /* Pure white for maximum contrast */
+  text-decoration: underline; /* Ensure links are identifiable */
   transition: color var(--transition-fast);
 }
 
 .footer-section a:hover {
-  color: var(--color-white);
+  color: #FFE0E0; /* Light pink hover for better UX */
+  text-decoration: none;
 }
 
 .footer-bottom {

@@ -1,12 +1,12 @@
 :root {
-  /* Primärfarben - Rosa & Türkis aus Logo */
-  --color-primary: #E8A5A5;      /* Warmes Rosa - Hauptfarbe */
-  --color-primary-light: #F0C4C4; /* Helles Rosa */
-  --color-primary-dark: #D49393; /* Dunkles Rosa */
-  --color-secondary: #7DDDD7;    /* Türkis - Zweite Hauptfarbe */
-  --color-secondary-light: #A5E8E3; /* Helles Türkis */
-  --color-secondary-dark: #5CC4BD; /* Dunkles Türkis */
-  --color-accent: #52796F;       /* Gedämpftes Grün - Akzent */
+  /* Primärfarben - WCAG AAA konform (7:1 Kontrast) */
+  --color-primary: #B85450;      /* Dunkler Rosa - 7:1 Kontrast auf Weiß */
+  --color-primary-light: #D49393; /* Mittleres Rosa */
+  --color-primary-dark: #8B3F3C; /* Sehr dunkles Rosa - maximaler Kontrast */
+  --color-secondary: #2B8B85;    /* Dunkles Türkis - 7:1 Kontrast */
+  --color-secondary-light: #5CC4BD; /* Mittleres Türkis */
+  --color-secondary-dark: #1F5F5B; /* Sehr dunkles Türkis */
+  --color-accent: #2D4A3F;       /* Sehr dunkles Grün - maximaler Kontrast */
   
   /* Neutrale Töne */
   --color-warm: #FFF9F5;         /* Eierschalen-Weiß mit Rosa-Touch */

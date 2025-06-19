@@ -56,10 +56,10 @@
             background: var(--color-primary);
         }
         
-        /* Spezial-Link für Leichte Sprache */
+        /* Spezial-Link für Leichte Sprache - WCAG AAA konform */
         .nav-link-special {
-            background: var(--color-secondary);
-            color: white !important;
+            background: var(--color-secondary-dark) !important;
+            color: #FFFFFF !important;
             padding: var(--space-2) var(--space-4) !important;
             border-radius: var(--radius-md);
             font-weight: 700;
@@ -67,7 +67,7 @@
         }
         
         .nav-link-special:hover {
-            background: var(--color-secondary-dark);
+            background: #0F403D !important; /* Noch dunkler für 7:1 Kontrast */
             transform: translateY(-2px);
         }
         
@@ -472,19 +472,19 @@
                 <div class="bauhaus-grid" style="gap: var(--space-8);">
                     <div class="span-4">
                         <div class="glass-card" style="padding: var(--space-8); text-align: center;">
-                            <h3 style="font-size: 1.25rem; margin-bottom: var(--space-4); color: var(--color-primary);">Für Betroffene</h3>
+                            <h2 style="font-size: 1.25rem; margin-bottom: var(--space-4); color: var(--color-primary);">Für Betroffene</h2>
                             <p>Unterstützung für Menschen jeden Alters und Geschlechts</p>
                         </div>
                     </div>
                     <div class="span-4">
                         <div class="glass-card" style="padding: var(--space-8); text-align: center;">
-                            <h3 style="font-size: 1.25rem; margin-bottom: var(--space-4); color: var(--color-secondary);">Für Angehörige</h3>
+                            <h2 style="font-size: 1.25rem; margin-bottom: var(--space-4); color: var(--color-secondary);">Für Angehörige</h2>
                             <p>Begleitung für Bezugspersonen und Unterstützende</p>
                         </div>
                     </div>
                     <div class="span-4">
                         <div class="glass-card" style="padding: var(--space-8); text-align: center;">
-                            <h3 style="font-size: 1.25rem; margin-bottom: var(--space-4); color: var(--color-accent);">Flexible Termine</h3>
+                            <h2 style="font-size: 1.25rem; margin-bottom: var(--space-4); color: var(--color-accent);">Flexible Termine</h2>
                             <p>Online, telefonisch oder vor Ort - Sie entscheiden</p>
                         </div>
                     </div>
