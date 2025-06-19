@@ -84,6 +84,23 @@
             color: var(--color-secondary);
         }
         
+        /* Skip Link - WCAG AAA */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--color-primary);
+            color: white;
+            padding: var(--space-3) var(--space-4);
+            text-decoration: none;
+            z-index: var(--z-emergency);
+            border-radius: var(--radius-md);
+        }
+        
+        .skip-link:focus {
+            top: var(--space-2);
+        }
+        
         .bg-soft {
             background: rgba(232, 165, 165, 0.08);
             border-radius: var(--radius-xl);
@@ -305,8 +322,8 @@
         
         /* Hero Logo Container - ULTRATHINK: Trauma-informed prominence */
         .logo-hero-prominent {
-            margin-top: var(--space-8);
-            margin-bottom: var(--space-6);
+            margin-top: var(--space-4);
+            margin-bottom: var(--space-4);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -364,9 +381,8 @@
     <div class="emergency-bar" style="background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-secondary) 100%);">
         <div class="container">
             <div class="emergency-text">
-                <strong data-i18n="emergency.police">Notruf: 110</strong> • 
-                <span data-i18n="emergency.helpline">Hilfetelefon: <a href="tel:08000116016" style="color: white; text-decoration: underline;">08000 116 016</a></span> • 
-                <a href="tel:0241542220" class="emergency-button" aria-label="Rückhalt anrufen">
+                <strong data-i18n="emergency.police">Notruf: 110</strong>
+                <a href="tel:0241542220" class="emergency-button" aria-label="Rückhalt anrufen" style="margin-left: var(--space-4);">
                     <span class="emergency-button-text">0241 - 542220</span>
                 </a>
             </div>
@@ -450,7 +466,7 @@
             <div class="float-element float-2"></div>
             
             <div class="container" style="position: relative; z-index: 20;">
-                <div class="bauhaus-grid" style="align-items: center; min-height: 80vh; padding-top: 60px;">
+                <div class="bauhaus-grid" style="align-items: center; min-height: 80vh; padding-top: 20px;">
                     <div class="span-12" style="text-align: center;">
                         <!-- Prominent Logo Display -->
                         <div class="logo-hero-prominent">
@@ -464,9 +480,9 @@
                         
                         <div class="trust-indicators">
                             <span style="color: var(--color-gray-600);">Vertraulich</span>
-                            <span style="color: var(--color-primary);">•</span>
+                            <span style="color: var(--color-primary);">|</span>
                             <span style="color: var(--color-gray-600);">Kostenlos</span>
-                            <span style="color: var(--color-primary);">•</span>
+                            <span style="color: var(--color-primary);">|</span>
                             <span style="color: var(--color-gray-600);">In Ihrem Tempo</span>
                         </div>
                         
@@ -506,11 +522,11 @@
                         </div>
                     </div>
                     
-                    <div class="span-6">
-                        <div class="glass-card" style="padding: var(--space-10);">
-                            <div style="display: flex; align-items: center; gap: var(--space-4); margin-bottom: var(--space-6);">
-                                <img src="/assets/images/logo-transparent.svg" alt="Rückhalt Logo" style="width: 80px; height: 80px; object-fit: contain;">
-                                <h2 style="font-size: 1.5rem; color: var(--color-primary); margin: 0;">
+                    <div class="span-12">
+                        <div class="glass-card" style="padding: var(--space-10); max-width: 600px; margin: 0 auto;">
+                            <div style="display: flex; align-items: center; justify-content: center; gap: var(--space-4); margin-bottom: var(--space-6);">
+                                <img src="/src/assets/images/logo-new-high-res.png" alt="Rückhalt Logo" style="width: 80px; height: 80px; object-fit: contain;">
+                                <h2 style="font-size: 1.5rem; color: var(--color-primary); margin: 0; text-align: center;">
                                     Beratungsstelle gegen sexuelle Gewalt
                                 </h2>
                             </div>
@@ -580,7 +596,7 @@
                             </div>
                             <h3 class="subsection-title">Beratung</h3>
                             <p>Für Frauen* und Mädchen* ab 15 Jahren, die sexuelle Gewalt erlebt haben. Vertraulich, kostenlos und auf Wunsch anonym. Persönlich, telefonisch oder online. Auch für Angehörige und Bezugspersonen.</p>
-                            <a href="https://rueckhalt-beratung.de/rueckhalt/angebote/" target="_blank" rel="noopener" class="service-link accent-primary">Mehr erfahren →</a>
+                            <a href="https://rueckhalt-beratung.de/rueckhalt/angebote/" target="_blank" rel="noopener" class="service-link accent-primary">Mehr erfahren</a>
                         </div>
                     </article>
 
@@ -594,7 +610,7 @@
                             </div>
                             <h3 class="subsection-title">Psychosoziale Prozessbegleitung</h3>
                             <p>Professionelle Begleitung bei Polizei und Gericht. Wir informieren über Abläufe, bereiten vor und begleiten Sie zu Terminen. Kostenlos für Betroffene.</p>
-                            <a href="https://rueckhalt-beratung.de/rueckhalt/angebote/" target="_blank" rel="noopener" class="service-link accent-primary">Mehr erfahren →</a>
+                            <a href="https://rueckhalt-beratung.de/rueckhalt/angebote/" target="_blank" rel="noopener" class="service-link accent-primary">Mehr erfahren</a>
                         </div>
                     </article>
 
@@ -609,7 +625,7 @@
                             </div>
                             <h3 class="subsection-title">Hilfe bei Anträgen</h3>
                             <p>Unterstützung beim Opferentschädigungsgesetz (OEG) und anderen Entschädigungsanträgen. Wir helfen beim Ausfüllen und begleiten den Prozess.</p>
-                            <a href="https://rueckhalt-beratung.de/rueckhalt/angebote/" target="_blank" rel="noopener" class="service-link accent-primary">Mehr erfahren →</a>
+                            <a href="https://rueckhalt-beratung.de/rueckhalt/angebote/" target="_blank" rel="noopener" class="service-link accent-primary">Mehr erfahren</a>
                         </div>
                     </article>
 
@@ -623,7 +639,7 @@
                             </div>
                             <h3 class="subsection-title">Fortbildungen</h3>
                             <p>Vorträge, Seminare und Workshops für Fachkräfte verschiedener Berufsgruppen. Themen: Sexualisierte Gewalt, Trauma und professioneller Umgang mit Betroffenen.</p>
-                            <a href="https://rueckhalt-beratung.de/rueckhalt/angebote/" target="_blank" rel="noopener" class="service-link accent-primary">Mehr erfahren →</a>
+                            <a href="https://rueckhalt-beratung.de/rueckhalt/angebote/" target="_blank" rel="noopener" class="service-link accent-primary">Mehr erfahren</a>
                         </div>
                     </article>
 
@@ -637,7 +653,7 @@
                             </div>
                             <h3 class="subsection-title">Prävention</h3>
                             <p>Aufklärungsarbeit in Schulen und Einrichtungen. Kampagnen gegen K.O.-Tropfen, Entwicklung von Schutzkonzepten und Öffentlichkeitsarbeit zur Prävention sexualisierter Gewalt.</p>
-                            <a href="https://rueckhalt-beratung.de/rueckhalt/angebote/" target="_blank" rel="noopener" class="service-link accent-primary">Mehr erfahren →</a>
+                            <a href="https://rueckhalt-beratung.de/rueckhalt/angebote/" target="_blank" rel="noopener" class="service-link accent-primary">Mehr erfahren</a>
                         </div>
                     </article>
 
@@ -651,7 +667,7 @@
                             </div>
                             <h3 class="subsection-title">Rückhalt (M)</h3>
                             <p>Spezielles Beratungsangebot für Männer* ab 18 Jahren, die sexuelle Gewalt erlebt haben. Vertrauliche Beratung und Unterstützung in einem geschützten Rahmen.</p>
-                            <a href="#kontakt" class="service-link accent-primary">Kontakt aufnehmen →</a>
+                            <a href="#kontakt" class="service-link accent-primary">Kontakt aufnehmen</a>
                         </div>
                     </article>
                 </div>
@@ -1832,10 +1848,10 @@
                         <div style="margin-top: var(--space-6); padding: var(--space-4); background: rgba(232, 165, 165, 0.1); border-radius: var(--radius-lg);">
                             <h4 style="color: var(--color-primary); margin-bottom: var(--space-2);">Progressive Muskelentspannung (Kurzform)</h4>
                             <ol style="color: var(--color-gray-600); line-height: 1.8; margin-left: var(--space-4);">
-                                <li>Hände zu Fäusten ballen (5 Sek.) → entspannen</li>
-                                <li>Schultern zu den Ohren ziehen (5 Sek.) → entspannen</li>
-                                <li>Gesicht anspannen (5 Sek.) → entspannen</li>
-                                <li>Alle Muskeln kurz anspannen → komplett loslassen</li>
+                                <li>Hände zu Fäusten ballen (5 Sek.) entspannen</li>
+                                <li>Schultern zu den Ohren ziehen (5 Sek.) entspannen</li>
+                                <li>Gesicht anspannen (5 Sek.) entspannen</li>
+                                <li>Alle Muskeln kurz anspannen komplett loslassen</li>
                             </ol>
                         </div>
                         <div style="margin-top: var(--space-4); padding: var(--space-4); background: rgba(125, 221, 215, 0.1); border-radius: var(--radius-lg);">
@@ -2077,65 +2093,7 @@
     </script>
     
     <script>
-        // Language Switcher Functionality
-        (function() {
-            const langCurrent = document.querySelector('.lang-current');
-            const langOptions = document.querySelector('.lang-options');
-            const langButtons = document.querySelectorAll('[data-lang]');
-            
-            if (langCurrent && langOptions) {
-                langCurrent.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
-                    this.setAttribute('aria-expanded', !isExpanded);
-                    langOptions.hidden = isExpanded;
-                });
-                
-                langButtons.forEach(button => {
-                    button.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        const lang = this.dataset.lang;
-                        
-                        // Update active state
-                        langButtons.forEach(btn => btn.classList.remove('active'));
-                        this.classList.add('active');
-                        
-                        // Update current language display with proper codes
-                        const langCodes = {
-                            'de': 'DE',
-                            'en': 'EN',
-                            'pl': 'PL',
-                            'uk': 'UK',
-                            'ru': 'RU',
-                            'ro': 'RO',
-                            'ar': 'AR',
-                            'sy': 'SY',
-                            'fr': 'FR',
-                            'nl': 'NL',
-                            'tr': 'TR'
-                        };
-                        langCurrent.innerHTML = langCodes[lang] + ' <svg width="12" height="8" viewBox="0 0 12 8"><path d="M1 1l5 5 5-5" stroke="currentColor" fill="none"/></svg>';
-                        
-                        // Close dropdown
-                        langCurrent.setAttribute('aria-expanded', 'false');
-                        langOptions.hidden = true;
-                        
-                        // Apply translations
-                        if (window.RueckhaltTranslations) {
-                            window.RueckhaltTranslations.applyTranslations(lang);
-                        }
-                    });
-                });
-                
-                // Close dropdown when clicking outside
-                document.addEventListener('click', function(e) {
-                    if (!e.target.closest('.language-switcher')) {
-                        langCurrent.setAttribute('aria-expanded', 'false');
-                        langOptions.hidden = true;
-                    }
-                });
-            }
+        // Language Switcher handled by main.js LanguageSwitcher class
             
             // Dark Mode Toggle
             const darkModeToggle = document.querySelector('.dark-mode-toggle');

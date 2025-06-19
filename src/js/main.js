@@ -7,8 +7,10 @@ class QuickExit {
     this.escapeCount = 0;
     this.escapeTimer = null;
     this.safeUrl = 'https://www.google.de/search?q=wetter';
+    this.escapeIndicator = null;
     
     this.init();
+    this.createEscapeIndicator();
   }
   
   init() {
@@ -33,6 +35,7 @@ class QuickExit {
   
   handleEscapeKey() {
     this.escapeCount++;
+    this.showEscapeIndicator();
     
     if (this.escapeCount === 3) {
       this.performExit();
@@ -42,6 +45,7 @@ class QuickExit {
     clearTimeout(this.escapeTimer);
     this.escapeTimer = setTimeout(() => {
       this.escapeCount = 0;
+      this.hideEscapeIndicator();
     }, 2000);
   }
   
@@ -55,6 +59,35 @@ class QuickExit {
     // Clear sensitive data from sessionStorage/localStorage
     sessionStorage.clear();
     localStorage.clear();
+  }
+  
+  createEscapeIndicator() {
+    this.escapeIndicator = document.createElement('div');
+    this.escapeIndicator.style.cssText = `
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--color-emergency);
+      color: white;
+      padding: var(--space-3) var(--space-6);
+      border-radius: var(--radius-lg);
+      font-weight: bold;
+      z-index: var(--z-emergency);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      pointer-events: none;
+    `;
+    document.body.appendChild(this.escapeIndicator);
+  }
+  
+  showEscapeIndicator() {
+    this.escapeIndicator.textContent = `ESC: ${this.escapeCount}/3`;
+    this.escapeIndicator.style.opacity = '1';
+  }
+  
+  hideEscapeIndicator() {
+    this.escapeIndicator.style.opacity = '0';
   }
 }
 
@@ -243,7 +276,9 @@ class LanguageSwitcher {
     this.closeOptions();
     
     // Apply translations
-    translations.applyTranslations(lang);
+    if (window.RueckhaltTranslations) {
+      window.RueckhaltTranslations.applyTranslations(lang);
+    }
   }
 }
 
@@ -423,8 +458,7 @@ class HeaderScroll {
   }
 }
 
-// Import translations
-import translations from './translations.js';
+// Translations are loaded via translations-complete.js in HTML
 
 // Initialize all components
 document.addEventListener('DOMContentLoaded', () => {
@@ -438,8 +472,10 @@ document.addEventListener('DOMContentLoaded', () => {
   new HeaderScroll();
   
   // Initialize translations
-  const currentLang = translations.detectLanguage();
-  translations.applyTranslations(currentLang);
+  if (window.RueckhaltTranslations) {
+    const currentLang = window.RueckhaltTranslations.detectLanguage();
+    window.RueckhaltTranslations.applyTranslations(currentLang);
+  }
   
   // Accessibility: Announce page changes for screen readers
   const announcer = document.createElement('div');
