@@ -383,7 +383,7 @@
                     </button>
                     
                     <ul class="nav-list">
-                        <li><a href="#" class="nav-link active" data-i18n="nav.home">Startseite</a></li>
+                        <li><a href="#hero" class="nav-link active" data-i18n="nav.home">Startseite</a></li>
                         <li><a href="#angebote" class="nav-link" data-i18n="nav.services">Angebote</a></li>
                         <li><a href="#rueckhalt-m" class="nav-link" data-i18n="nav.rueckhalt-m">Rückhalt-M</a></li>
                         <li><a href="#ueber-uns" class="nav-link" data-i18n="nav.about">Über uns</a></li>
@@ -440,7 +440,7 @@
     <!-- Main Content -->
     <main id="main" class="main-content">
         <!-- Hero Section with Prominent Logo -->
-        <section class="hero hero-modern" id="home">
+        <section class="hero hero-modern" id="hero">
             <div class="hero-overlay"></div>
             <div class="float-element float-1"></div>
             <div class="float-element float-2"></div>
@@ -453,12 +453,12 @@
                             <img src="/src/assets/images/logo-new-high-res.png" alt="Rückhalt Logo - Sanfte abstrakte Umarmung in beruhigenden Farben" style="width: 300px; height: auto; filter: drop-shadow(0 4px 20px rgba(232, 165, 165, 0.3)); animation: gentlePulse 4s ease-in-out infinite; object-fit: contain;">
                         </div>
                         <h1 class="hero-title-pentagram" data-i18n="hero.title" style="text-transform: none; font-size: clamp(2.5rem, 7vw, 5rem); font-weight: 800;">Wir sind für Sie da</h1>
-                        <p class="hero-subtitle" style="font-size: 1.4rem; line-height: 1.8; max-width: 800px; margin: 0 auto var(--space-8);" data-i18n="hero.subtitle">
+                        <p class="hero-subtitle" data-i18n="hero.subtitle">
                             Jede*r sexuelle*r Übergriff stellt eine schwere Persönlichkeitsverletzung dar 
                             und kann eine emotionale Krise auslösen. <strong>Sie sind nicht allein.</strong>
                         </p>
                         
-                        <div class="trust-indicators" style="display: flex; justify-content: center; gap: var(--space-8); margin-bottom: var(--space-8); flex-wrap: wrap;">
+                        <div class="trust-indicators">
                             <span style="color: var(--color-gray-600);">Vertraulich</span>
                             <span style="color: var(--color-primary);">•</span>
                             <span style="color: var(--color-gray-600);">Kostenlos</span>
@@ -485,19 +485,19 @@
                 <div class="bauhaus-grid" style="gap: var(--space-8);">
                     <div class="span-4">
                         <div class="glass-card" style="padding: var(--space-8); text-align: center;">
-                            <h2 style="font-size: 1.25rem; margin-bottom: var(--space-4); color: var(--color-primary);">Für Betroffene</h2>
+                            <h2 class="card-title card-title-primary">Für Betroffene</h2>
                             <p>Unterstützung für Menschen jeden Alters und Geschlechts</p>
                         </div>
                     </div>
                     <div class="span-4">
                         <div class="glass-card" style="padding: var(--space-8); text-align: center;">
-                            <h2 style="font-size: 1.25rem; margin-bottom: var(--space-4); color: var(--color-secondary);">Für Angehörige</h2>
+                            <h2 class="card-title card-title-secondary">Für Angehörige</h2>
                             <p>Begleitung für Bezugspersonen und Unterstützende</p>
                         </div>
                     </div>
                     <div class="span-4">
                         <div class="glass-card" style="padding: var(--space-8); text-align: center;">
-                            <h2 style="font-size: 1.25rem; margin-bottom: var(--space-4); color: var(--color-accent);">Flexible Termine</h2>
+                            <h2 class="card-title card-title-accent">Flexible Termine</h2>
                             <p>Online, telefonisch oder vor Ort - Sie entscheiden</p>
                         </div>
                     </div>
@@ -545,7 +545,7 @@
                         <span class="label" style="color: var(--color-primary);">Aktuelles</span>
                     </div>
                     <div>
-                        <h2 class="bauhaus-heading-1">Wichtige Hinweise</h2>
+                        <h2 class="section-title">Wichtige Hinweise</h2>
                         <div class="bg-soft" style="margin-top: var(--space-6);">
                             <p><strong>Corona-Update:</strong> Wir sind weiterhin für Sie da! Beratungen finden unter Einhaltung aller Schutzmaßnahmen statt. Auch Video- und Telefonberatung sind möglich.</p>
                         </div>
@@ -558,13 +558,13 @@
         <section class="services" id="angebote" style="background: var(--color-warm);">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="bauhaus-heading-1">Unsere Angebote</h2>
+                    <h2 class="section-title">Unsere Angebote</h2>
                     <p class="section-subtitle">
                         Professionelle Unterstützung auf Ihrem Weg
                     </p>
                 </div>
 
-                <div class="bauhaus-grid" style="margin-top: var(--space-12);">
+                <div class="bauhaus-grid">
                     <!-- Beratung -->
                     <article class="span-4">
                         <div class="service-modern">
@@ -574,9 +574,9 @@
                                     <path d="M15 10c-2.209 0-4 1.791-4 4s1.791 4 4 4 4-1.791 4-4-1.791-4-4-4z" fill="currentColor" opacity="0.5"/>
                                 </svg>
                             </div>
-                            <h3 class="bauhaus-heading-2">Beratung</h3>
-                            <p>Einzelgespräche für Betroffene sexueller Gewalt. Vertraulich, kostenlos und auf Wunsch anonym. Persönlich, telefonisch oder online.</p>
-                            <a href="#" class="service-link accent-primary">Mehr erfahren →</a>
+                            <h3 class="subsection-title">Beratung</h3>
+                            <p>Für Frauen* und Mädchen* ab 15 Jahren, die sexuelle Gewalt erlebt haben. Vertraulich, kostenlos und auf Wunsch anonym. Persönlich, telefonisch oder online. Auch für Angehörige und Bezugspersonen.</p>
+                            <a href="https://rueckhalt-beratung.de/rueckhalt/angebote/" target="_blank" rel="noopener" class="service-link accent-primary">Mehr erfahren →</a>
                         </div>
                     </article>
 
@@ -588,9 +588,9 @@
                                     <path d="M15 2l3.09 6.26L25 9.27l-5 4.87 1.18 6.88L15 17.77l-6.18 3.25L10 14.14l-5-4.87 6.91-1.01L15 2z" stroke="currentColor" stroke-width="2" fill="currentColor" opacity="0.3"/>
                                 </svg>
                             </div>
-                            <h3 class="bauhaus-heading-2">Prozessbegleitung</h3>
-                            <p>Psychosoziale Unterstützung vor, während und nach Gerichtsverfahren. Wir stehen Ihnen zur Seite.</p>
-                            <a href="#" class="service-link accent-primary">Mehr erfahren →</a>
+                            <h3 class="subsection-title">Psychosoziale Prozessbegleitung</h3>
+                            <p>Professionelle Begleitung bei Polizei und Gericht. Wir informieren über Abläufe, bereiten vor und begleiten Sie zu Terminen. Kostenlos für Betroffene.</p>
+                            <a href="https://rueckhalt-beratung.de/rueckhalt/angebote/" target="_blank" rel="noopener" class="service-link accent-primary">Mehr erfahren →</a>
                         </div>
                     </article>
 
@@ -603,9 +603,9 @@
                                     <path d="M0 0h24v24H0z" fill="none"/>
                                 </svg>
                             </div>
-                            <h3 class="bauhaus-heading-2">Hilfe bei Anträgen</h3>
-                            <p>Unterstützung beim Opferentschädigungsgesetz und anderen Anträgen. Wir helfen bei der Antragstellung.</p>
-                            <a href="#" class="service-link accent-primary">Mehr erfahren →</a>
+                            <h3 class="subsection-title">Hilfe bei Anträgen</h3>
+                            <p>Unterstützung beim Opferentschädigungsgesetz (OEG) und anderen Entschädigungsanträgen. Wir helfen beim Ausfüllen und begleiten den Prozess.</p>
+                            <a href="https://rueckhalt-beratung.de/rueckhalt/angebote/" target="_blank" rel="noopener" class="service-link accent-primary">Mehr erfahren →</a>
                         </div>
                     </article>
 
@@ -617,9 +617,9 @@
                                     <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z" fill="currentColor"/>
                                 </svg>
                             </div>
-                            <h3 class="bauhaus-heading-2">Fortbildungen</h3>
-                            <p>Schulungen für Fachkräfte zu sexualisierter Gewalt, Trauma und professionellem Umgang mit Betroffenen.</p>
-                            <a href="#" class="service-link accent-primary">Mehr erfahren →</a>
+                            <h3 class="subsection-title">Fortbildungen</h3>
+                            <p>Vorträge, Seminare und Workshops für Fachkräfte verschiedener Berufsgruppen. Themen: Sexualisierte Gewalt, Trauma und professioneller Umgang mit Betroffenen.</p>
+                            <a href="https://rueckhalt-beratung.de/rueckhalt/angebote/" target="_blank" rel="noopener" class="service-link accent-primary">Mehr erfahren →</a>
                         </div>
                     </article>
 
@@ -631,9 +631,9 @@
                                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" fill="currentColor"/>
                                 </svg>
                             </div>
-                            <h3 class="bauhaus-heading-2">Prävention</h3>
-                            <p>Präventionsarbeit in Schulen und Einrichtungen. Aufklärung und Schutzkonzepte gegen sexuelle Gewalt.</p>
-                            <a href="#" class="service-link accent-primary">Mehr erfahren →</a>
+                            <h3 class="subsection-title">Prävention</h3>
+                            <p>Aufklärungsarbeit in Schulen und Einrichtungen. Kampagnen gegen K.O.-Tropfen, Entwicklung von Schutzkonzepten und Öffentlichkeitsarbeit zur Prävention sexualisierter Gewalt.</p>
+                            <a href="https://rueckhalt-beratung.de/rueckhalt/angebote/" target="_blank" rel="noopener" class="service-link accent-primary">Mehr erfahren →</a>
                         </div>
                     </article>
 
@@ -645,9 +645,9 @@
                                     <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" fill="currentColor"/>
                                 </svg>
                             </div>
-                            <h3 class="bauhaus-heading-2">Gruppenangebote</h3>
-                            <p>Angeleitete Gruppen für Betroffene. Austausch und gegenseitige Unterstützung in geschütztem Rahmen.</p>
-                            <a href="#" class="service-link accent-primary">Mehr erfahren →</a>
+                            <h3 class="subsection-title">Rückhalt-M</h3>
+                            <p>Spezielles Beratungsangebot für Männer* ab 18 Jahren, die sexuelle Gewalt erlebt haben. Vertrauliche Beratung und Unterstützung in einem geschützten Rahmen.</p>
+                            <a href="#kontakt" class="service-link accent-primary">Kontakt aufnehmen →</a>
                         </div>
                     </article>
                 </div>
@@ -658,7 +658,7 @@
         <section id="wissen" style="background: white; padding: var(--space-20) 0;">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="bauhaus-heading-1">Wissen & Ressourcen</h2>
+                    <h2 class="section-title">Wissen & Ressourcen</h2>
                     <p class="section-subtitle">
                         Wissenschaftlich fundierte Informationen und Selbsthilfe-Ressourcen für Ihren Heilungsweg
                     </p>
@@ -719,7 +719,7 @@
                                     <path d="M15 3C8.373 3 3 8.373 3 15s5.373 12 12 12 12-5.373 12-12S21.627 3 15 3zm0 2c5.514 0 10 4.486 10 10s-4.486 10-10 10S5 20.514 5 15 9.486 5 15 5zm0 3c-3.866 0-7 3.134-7 7s3.134 7 7 7 7-3.134 7-7-3.134-7-7-7zm0 2c2.761 0 5 2.239 5 5s-2.239 5-5 5-5-2.239-5-5 2.239-5 5-5z" fill="currentColor"/>
                                 </svg>
                             </div>
-                            <h3 class="bauhaus-heading-3">Erdungs-Übungen</h3>
+                            <h3 class="item-title">Erdungs-Übungen</h3>
                             <p style="margin-bottom: var(--space-4);">Techniken, die Ihnen helfen, im Hier und Jetzt zu bleiben:</p>
                             <ul style="list-style: none; font-size: 0.95rem;">
                                 <li>• 5-4-3-2-1 Methode</li>
@@ -737,7 +737,7 @@
                                     <path d="M15 5.5C15 4.672 14.328 4 13.5 4S12 4.672 12 5.5c0 .653.42 1.21 1 1.414V11h2V6.914c.58-.205 1-.761 1-1.414zM21.5 4c-.828 0-1.5.672-1.5 1.5 0 .653.42 1.21 1 1.414V11h2V6.914c.58-.205 1-.761 1-1.414C24 4.672 23.328 4 22.5 4zM8.5 4C7.672 4 7 4.672 7 5.5c0 .653.42 1.21 1 1.414V11h2V6.914c.58-.205 1-.761 1-1.414C11 4.672 10.328 4 8.5 4zM6 13v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V13H6zm9 8c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z" fill="currentColor"/>
                                 </svg>
                             </div>
-                            <h3 class="bauhaus-heading-3">Selbstfürsorge</h3>
+                            <h3 class="item-title">Selbstfürsorge</h3>
                             <p style="margin-bottom: var(--space-4);">Stärken Sie Ihre Ressourcen:</p>
                             <ul style="list-style: none; font-size: 0.95rem;">
                                 <li>• Regelmäßige Routinen</li>
@@ -755,7 +755,7 @@
                                     <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" fill="currentColor"/>
                                 </svg>
                             </div>
-                            <h3 class="bauhaus-heading-3">Soziale Unterstützung</h3>
+                            <h3 class="item-title">Soziale Unterstützung</h3>
                             <p style="margin-bottom: var(--space-4);">Verbindung ist heilsam:</p>
                             <ul style="list-style: none; font-size: 0.95rem;">
                                 <li>• Vertrauenspersonen einbeziehen</li>
@@ -858,7 +858,7 @@
         <section id="faq" style="background: var(--color-gray-50); padding: var(--space-20) 0;">
             <div class="container">
                 <div class="text-center" style="margin-bottom: var(--space-12);">
-                    <h2 class="bauhaus-heading-1">Häufige Fragen</h2>
+                    <h2 class="section-title">Häufige Fragen</h2>
                     <p style="font-size: 1.2rem; color: var(--color-gray-600); max-width: 600px; margin: var(--space-4) auto;">
                         Hier finden Sie Antworten auf die wichtigsten Fragen zu unserer Arbeit
                     </p>
@@ -1131,7 +1131,7 @@
                 <div class="bauhaus-grid" style="align-items: center;">
                     <div class="span-6">
                         <span class="label" style="color: var(--color-secondary);">Spezielles Angebot</span>
-                        <h2 class="bauhaus-heading-1" style="margin-top: var(--space-4);">Rückhalt-M</h2>
+                        <h2 class="section-title">Rückhalt-M</h2>
                         <div class="accent-line" style="background: var(--color-secondary);"></div>
                         <p style="font-size: 1.2rem; line-height: 1.8; margin: var(--space-6) 0;">
                             Beratungsangebot speziell für <strong>männlich gelesene Personen ab 18 Jahren</strong>, 
@@ -1173,7 +1173,7 @@
         <section id="ueber-uns" class="diagonal-section" style="background: var(--color-warm);">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="bauhaus-heading-1">Über Rückhalt</h2>
+                    <h2 class="section-title">Über Rückhalt</h2>
                 </div>
                 
                 <div class="bauhaus-grid" style="margin-top: var(--space-8);">
@@ -1211,7 +1211,7 @@
 
                 <!-- Team -->
                 <div style="margin-top: var(--space-16); text-align: center;">
-                    <h3 class="bauhaus-heading-2">Unser Team</h3>
+                    <h3 class="subsection-title">Unser Team</h3>
                     <p style="margin: var(--space-4) 0;">
                         Ein interdisziplinäres Team mit langjähriger Erfahrung in der Beratung und Begleitung.
                     </p>
@@ -1226,7 +1226,7 @@
         <!-- Netzwerk -->
         <section style="background: white; padding: var(--space-16) 0;">
             <div class="container">
-                <h2 class="bauhaus-heading-1" style="text-align: center; margin-bottom: var(--space-8);">Vernetzung & Partner</h2>
+                <h2 class="section-title">Vernetzung & Partner</h2>
                 <div class="text-grid">
                     <div>
                         <h3 style="color: var(--color-primary);">Mitgliedschaften</h3>
@@ -1254,7 +1254,7 @@
             <div class="container">
                 <div class="contact-content">
                     <div class="contact-info">
-                        <h2 class="bauhaus-heading-1">Kontakt aufnehmen</h2>
+                        <h2 class="section-title">Kontakt aufnehmen</h2>
                         <p style="font-size: 1.2rem; margin: var(--space-4) 0;">
                             Der erste Schritt ist oft der schwerste. Wir sind für Sie da.
                         </p>
@@ -1304,7 +1304,7 @@
                     </div>
 
                     <form class="contact-form-modern" id="contact-form">
-                        <h3 class="bauhaus-heading-2">Nachricht senden</h3>
+                        <h3 class="subsection-title">Nachricht senden</h3>
                         <p class="form-info">Alle Felder sind optional. Ihre Daten werden verschlüsselt übertragen.</p>
                         
                         <div class="form-group">
