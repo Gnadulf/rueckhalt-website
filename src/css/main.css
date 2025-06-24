@@ -143,7 +143,7 @@ section {
   box-shadow: var(--shadow-sm);
   position: sticky;
   top: 0;
-  z-index: var(--z-sticky);
+  z-index: 9999;
   transition: transform var(--transition-base);
 }
 
@@ -267,9 +267,10 @@ section {
   transform: translateY(8px);
 }
 
-/* Language Switcher */
+/* Language Switcher - ULTRATHINK: Critical for 11 language communities */
 .language-switcher {
   position: relative;
+  z-index: calc(var(--z-dropdown) + 1);
 }
 
 .lang-current {
@@ -282,10 +283,13 @@ section {
   background: var(--color-white);
   font-weight: var(--weight-medium);
   transition: all var(--transition-fast);
+  cursor: pointer;
+  user-select: none;
 }
 
 .lang-current:hover {
   border-color: var(--color-primary);
+  background: var(--color-gray-50);
 }
 
 .lang-options {
@@ -303,17 +307,88 @@ section {
   visibility: hidden;
   transform: translateY(-10px);
   transition: all var(--transition-fast);
-}
-
-.lang-options[hidden] {
+  z-index: var(--z-dropdown);
   display: none;
 }
 
-.language-switcher:hover .lang-options,
-.language-switcher:focus-within .lang-options {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
+/* ULTRATHINK PERFEKTE LÖSUNG: Dropdown mit Animationen und maximaler Barrierefreiheit */
+.lang-options {
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease !important;
+  pointer-events: none;
+}
+
+.lang-options.show {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) !important;
+  pointer-events: auto !important;
+}
+
+/* ULTRATHINK: Hover-Effekte für bessere UX */
+.lang-options button {
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.lang-options button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(232, 165, 165, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.lang-options button:hover::before {
+  left: 100%;
+}
+
+.lang-options button:focus {
+  outline: 3px solid var(--color-primary);
+  outline-offset: -3px;
+}
+
+/* ULTRATHINK: Aktiver Zustand deutlich sichtbar */
+.lang-options button.active {
+  background: var(--color-primary-light) !important;
+  font-weight: 700;
+  color: var(--color-gray-900);
+}
+
+.lang-options button.active::after {
+  content: '✓';
+  position: absolute;
+  right: var(--space-3);
+  font-size: 1.2em;
+  color: var(--color-primary-dark);
+}
+
+/* ULTRATHINK: Loading State für Sprachwechsel */
+.language-switcher.loading .lang-current {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.language-switcher.loading .lang-current::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  width: 16px;
+  height: 16px;
+  margin: -8px 0 0 0;
+  border: 2px solid var(--color-primary);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spinner 0.6s linear infinite;
+}
+
+@keyframes spinner {
+  to { transform: rotate(360deg); }
 }
 
 .lang-options button {
@@ -838,4 +913,37 @@ section {
 .footer-safety {
   margin-top: var(--space-2);
   color: var(--color-gray-500);
+}
+
+/* Dark Mode - Comprehensive fixes */
+body.dark-mode #wissen,
+body.dark-mode #wissen * {
+  color: var(--color-gray-100) \!important;
+}
+
+body.dark-mode .glass-card {
+  background: rgba(30, 30, 30, 0.8) \!important;
+  border: 1px solid rgba(255, 255, 255, 0.1) \!important;
+}
+
+body.dark-mode .service-modern {
+  background: var(--color-gray-800) \!important;
+}
+
+body.dark-mode .service-modern h3,
+body.dark-mode .service-modern h4,
+body.dark-mode .service-modern p,
+body.dark-mode .service-modern li,
+body.dark-mode .item-title,
+body.dark-mode .bauhaus-heading-2,
+body.dark-mode .subsection-title {
+  color: var(--color-gray-100) \!important;
+}
+
+body.dark-mode .bauhaus-grid h3,
+body.dark-mode .bauhaus-grid h4,
+body.dark-mode .bauhaus-grid p,
+body.dark-mode .bauhaus-grid li,
+body.dark-mode .bauhaus-grid span {
+  color: var(--color-gray-100) \!important;
 }

@@ -1,0 +1,184 @@
+---
+// ULTRATHINK: Critical safety feature - must be immediately accessible
+import type { SupportedLanguage } from '@/env.d.ts';
+
+const lang = Astro.currentLocale || 'de';
+
+// Quick exit translations
+const quickExitTexts: Record<SupportedLanguage, {
+  label: string;
+  tooltip: string;
+}> = {
+  de: {
+    label: 'Schnell verlassen',
+    tooltip: 'Drücken Sie 3x schnell ESC'
+  },
+  en: {
+    label: 'Quick Exit',
+    tooltip: 'Press ESC 3x quickly'
+  },
+  pl: {
+    label: 'Szybkie wyjście',
+    tooltip: 'Naciśnij ESC 3x szybko'
+  },
+  uk: {
+    label: 'Швидкий вихід',
+    tooltip: 'Натисніть ESC 3 рази швидко'
+  },
+  ru: {
+    label: 'Быстрый выход',
+    tooltip: 'Нажмите ESC 3 раза быстро'
+  },
+  ro: {
+    label: 'Ieșire rapidă',
+    tooltip: 'Apasă ESC de 3 ori rapid'
+  },
+  ar: {
+    label: 'خروج سريع',
+    tooltip: 'اضغط ESC 3 مرات بسرعة'
+  },
+  sy: {
+    label: 'ܢܦܩܬܐ ܥܓܠܬܐ',
+    tooltip: 'ܕܘܫ ESC 3 ܙܒܢ̈ܝܢ ܒܥܓܠ'
+  },
+  fr: {
+    label: 'Sortie rapide',
+    tooltip: 'Appuyez sur ESC 3 fois rapidement'
+  },
+  nl: {
+    label: 'Snel verlaten',
+    tooltip: 'Druk 3x snel op ESC'
+  },
+  tr: {
+    label: 'Hızlı çıkış',
+    tooltip: 'ESC\'ye 3 kez hızlıca basın'
+  }
+};
+
+const texts = quickExitTexts[lang as SupportedLanguage] || quickExitTexts.de;
+---
+
+<button 
+  id="quick-exit-button" 
+  class="quick-exit-button"
+  aria-label={texts.label}
+  title={texts.tooltip}
+  type="button"
+>
+  <svg class="quick-exit-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9"/>
+  </svg>
+  <span class="quick-exit-text">{texts.label}</span>
+</button>
+
+<style>
+  .quick-exit-button {
+    position: fixed;
+    top: var(--space-4);
+    right: var(--space-4);
+    background: var(--color-danger);
+    color: white;
+    border: none;
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    z-index: var(--z-emergency);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    user-select: none;
+  }
+  
+  .quick-exit-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    background: #B91C1C;
+  }
+  
+  .quick-exit-button:active {
+    transform: translateY(0);
+  }
+  
+  .quick-exit-button:focus {
+    outline: 3px solid white;
+    outline-offset: 2px;
+  }
+  
+  .quick-exit-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+  
+  .quick-exit-text {
+    display: inline-block;
+    white-space: nowrap;
+  }
+  
+  /* Mobile adjustments */
+  @media (max-width: 640px) {
+    .quick-exit-button {
+      padding: var(--space-2);
+      gap: var(--space-1);
+    }
+    
+    .quick-exit-text {
+      display: none;
+    }
+    
+    .quick-exit-icon {
+      width: 24px;
+      height: 24px;
+    }
+  }
+  
+  /* Tablet adjustments */
+  @media (min-width: 641px) and (max-width: 1024px) {
+    .quick-exit-button {
+      font-size: 0.875rem;
+    }
+  }
+  
+  /* High contrast mode */
+  @media (prefers-contrast: high) {
+    .quick-exit-button {
+      background: var(--color-black);
+      border: 2px solid white;
+    }
+    
+    .quick-exit-button:hover {
+      background: white;
+      color: black;
+    }
+  }
+  
+  /* Print styles - hide on print */
+  @media print {
+    .quick-exit-button {
+      display: none;
+    }
+  }
+  
+  /* Animation for attention */
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(220, 38, 38, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(220, 38, 38, 0);
+    }
+  }
+  
+  /* Pulse animation on first load */
+  .quick-exit-button {
+    animation: pulse 2s ease-out 3;
+  }
+</style>

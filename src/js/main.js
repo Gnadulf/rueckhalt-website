@@ -224,7 +224,11 @@ class LanguageSwitcher {
   }
   
   init() {
-    this.current?.addEventListener('click', () => this.toggleOptions());
+    this.current?.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      this.toggleOptions();
+    });
     
     this.buttons.forEach(button => {
       button.addEventListener('click', () => {
@@ -254,14 +258,18 @@ class LanguageSwitcher {
   }
   
   toggleOptions() {
-    const isOpen = this.options.hidden === false;
-    this.options.hidden = !isOpen;
-    this.current.setAttribute('aria-expanded', !isOpen);
+    const isOpen = this.options?.hidden === false;
+    if (this.options) {
+      this.options.hidden = !isOpen;
+    }
+    this.current?.setAttribute('aria-expanded', !isOpen);
   }
   
   closeOptions() {
-    this.options.hidden = true;
-    this.current.setAttribute('aria-expanded', 'false');
+    if (this.options) {
+      this.options.hidden = true;
+    }
+    this.current?.setAttribute('aria-expanded', 'false');
   }
   
   setLanguage(lang) {
@@ -459,9 +467,13 @@ class HeaderScroll {
 }
 
 // Translations are loaded via translations-complete.js in HTML
+import { initLanguageRouter } from './language-router.js';
 
 // Initialize all components
 document.addEventListener('DOMContentLoaded', () => {
+  // ULTRATHINK: Language Routing MUSS zuerst kommen
+  initLanguageRouter();
+  
   // Core features
   new QuickExit();
   new MoodAdjustment();

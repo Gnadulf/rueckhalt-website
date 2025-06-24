@@ -1,0 +1,361 @@
+---
+// ULTRATHINK: Footer with essential information and language links
+import type { SupportedLanguage } from '@/env.d.ts';
+
+const lang = Astro.currentLocale || 'de';
+const currentYear = new Date().getFullYear();
+
+// Footer translations
+const footerTranslations: Record<SupportedLanguage, {
+  organization: string;
+  description: string;
+  quickHelp: string;
+  languages: string;
+  impressum: string;
+  privacy: string;
+  openingHours: string;
+}> = {
+  de: {
+    organization: 'Rückhalt e.V.',
+    description: 'Beratungsstelle gegen sexuelle Gewalt für Aachen und die StädteRegion',
+    quickHelp: 'Schnelle Hilfe',
+    languages: 'Sprachen',
+    impressum: 'Impressum',
+    privacy: 'Datenschutz',
+    openingHours: 'Mo-Fr 09:00-17:00 Uhr'
+  },
+  en: {
+    organization: 'Rückhalt e.V.',
+    description: 'Counseling center against sexual violence for Aachen and the StädteRegion',
+    quickHelp: 'Quick Help',
+    languages: 'Languages',
+    impressum: 'Legal Notice',
+    privacy: 'Privacy',
+    openingHours: 'Mon-Fri 09:00-17:00'
+  },
+  pl: {
+    organization: 'Rückhalt e.V.',
+    description: 'Poradnia przeciwko przemocy seksualnej dla Aachen i regionu',
+    quickHelp: 'Szybka pomoc',
+    languages: 'Języki',
+    impressum: 'Stopka redakcyjna',
+    privacy: 'Prywatność',
+    openingHours: 'Pon-Pt 09:00-17:00'
+  },
+  uk: {
+    organization: 'Rückhalt e.V.',
+    description: 'Консультаційний центр проти сексуального насильства для Аахена та регіону',
+    quickHelp: 'Швидка допомога',
+    languages: 'Мови',
+    impressum: 'Вихідні дані',
+    privacy: 'Конфіденційність',
+    openingHours: 'Пн-Пт 09:00-17:00'
+  },
+  ru: {
+    organization: 'Rückhalt e.V.',
+    description: 'Консультационный центр против сексуального насилия для Аахена и региона',
+    quickHelp: 'Быстрая помощь',
+    languages: 'Языки',
+    impressum: 'Выходные данные',
+    privacy: 'Конфиденциальность',
+    openingHours: 'Пн-Пт 09:00-17:00'
+  },
+  ro: {
+    organization: 'Rückhalt e.V.',
+    description: 'Centru de consiliere împotriva violenței sexuale pentru Aachen și regiune',
+    quickHelp: 'Ajutor rapid',
+    languages: 'Limbi',
+    impressum: 'Date legale',
+    privacy: 'Confidențialitate',
+    openingHours: 'Lun-Vin 09:00-17:00'
+  },
+  ar: {
+    organization: 'Rückhalt e.V.',
+    description: 'مركز استشارات ضد العنف الجنسي في آخن والمنطقة',
+    quickHelp: 'مساعدة سريعة',
+    languages: 'اللغات',
+    impressum: 'بيانات قانونية',
+    privacy: 'الخصوصية',
+    openingHours: 'الإثنين-الجمعة 09:00-17:00'
+  },
+  sy: {
+    organization: 'Rückhalt e.V.',
+    description: 'ܡܪܟܙܐ ܕܡܠܟܐ ܠܘܩܒܠ ܛܠܘܡܝܐ ܓܢܣܝܐ ܒܐܟܢ ܘܫܘܪܬܐ',
+    quickHelp: 'ܥܘܕܪܢܐ ܥܓܠܐ',
+    languages: 'ܠܫܢ̈ܐ',
+    impressum: 'ܡܘܕܥܢܘܬܐ ܢܡܘܣܝܬܐ',
+    privacy: 'ܢܛܘܪܬܐ ܕܪ̈ܐܙܐ',
+    openingHours: 'ܬܪܝܢ-ܥܪܘܒܬܐ 09:00-17:00'
+  },
+  fr: {
+    organization: 'Rückhalt e.V.',
+    description: 'Centre de conseil contre la violence sexuelle pour Aachen et la région',
+    quickHelp: 'Aide rapide',
+    languages: 'Langues',
+    impressum: 'Mentions légales',
+    privacy: 'Confidentialité',
+    openingHours: 'Lun-Ven 09:00-17:00'
+  },
+  nl: {
+    organization: 'Rückhalt e.V.',
+    description: 'Adviescentrum tegen seksueel geweld voor Aken en de regio',
+    quickHelp: 'Snelle hulp',
+    languages: 'Talen',
+    impressum: 'Colofon',
+    privacy: 'Privacy',
+    openingHours: 'Ma-Vr 09:00-17:00'
+  },
+  tr: {
+    organization: 'Rückhalt e.V.',
+    description: 'Aachen ve bölgesi için cinsel şiddete karşı danışma merkezi',
+    quickHelp: 'Hızlı yardım',
+    languages: 'Diller',
+    impressum: 'Künye',
+    privacy: 'Gizlilik',
+    openingHours: 'Pzt-Cum 09:00-17:00'
+  }
+};
+
+const t = footerTranslations[lang as SupportedLanguage] || footerTranslations.de;
+
+// Language list
+const languages: Array<{ code: SupportedLanguage; name: string }> = [
+  { code: 'de', name: 'Deutsch' },
+  { code: 'en', name: 'English' },
+  { code: 'pl', name: 'Polski' },
+  { code: 'uk', name: 'Українська' },
+  { code: 'ru', name: 'Русский' },
+  { code: 'ro', name: 'Română' },
+  { code: 'ar', name: 'العربية' },
+  { code: 'sy', name: 'ܣܘܪܝܝܐ' },
+  { code: 'fr', name: 'Français' },
+  { code: 'nl', name: 'Nederlands' },
+  { code: 'tr', name: 'Türkçe' }
+];
+---
+
+<footer class="footer" role="contentinfo">
+  <div class="footer-container">
+    <div class="footer-grid">
+      <!-- Organization Info -->
+      <div class="footer-section">
+        <h3 class="footer-title">{t.organization}</h3>
+        <p class="footer-description">{t.description}</p>
+        <address class="footer-address">
+          Jakobstraße 40-42<br>
+          52064 Aachen<br>
+          <a href="tel:0241542220">0241 - 542220</a><br>
+          <a href="mailto:info@rueckhalt-beratung.de">info@rueckhalt-beratung.de</a>
+        </address>
+        <p class="footer-hours">{t.openingHours}</p>
+      </div>
+      
+      <!-- Quick Help -->
+      <div class="footer-section">
+        <h3 class="footer-title">{t.quickHelp}</h3>
+        <ul class="footer-links">
+          <li>
+            <a href="tel:110" class="footer-emergency">
+              <strong>Notruf: 110</strong>
+            </a>
+          </li>
+          <li>
+            <a href="tel:08000116016">
+              Hilfetelefon: 08000 116 016
+            </a>
+          </li>
+          <li>
+            <a href="tel:0241542220">
+              Rückhalt: 0241 - 542220
+            </a>
+          </li>
+        </ul>
+      </div>
+      
+      <!-- Languages -->
+      <div class="footer-section">
+        <h3 class="footer-title">{t.languages}</h3>
+        <ul class="footer-languages">
+          {languages.map(({ code, name }) => (
+            <li>
+              <a 
+                href={`/${code}/`} 
+                class={lang === code ? 'active' : ''}
+                lang={code}
+              >
+                {name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p class="footer-copyright">
+        &copy; {currentYear} {t.organization} | 
+        <a href={`/${lang}/impressum`}>{t.impressum}</a> | 
+        <a href={`/${lang}/datenschutz`}>{t.privacy}</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--color-gray-900);
+    color: white;
+    padding: var(--space-10) 0 var(--space-6);
+    margin-top: auto;
+  }
+  
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+  }
+  
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-8);
+    margin-bottom: var(--space-8);
+  }
+  
+  .footer-section {
+    /* Section styling */
+  }
+  
+  .footer-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: var(--space-4);
+    color: white;
+  }
+  
+  .footer-description {
+    opacity: 0.8;
+    margin-bottom: var(--space-4);
+    line-height: 1.6;
+  }
+  
+  .footer-address {
+    font-style: normal;
+    opacity: 0.8;
+    line-height: 1.8;
+  }
+  
+  .footer-address a {
+    color: white;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+  }
+  
+  .footer-address a:hover {
+    opacity: 1;
+    text-decoration: underline;
+  }
+  
+  .footer-hours {
+    margin-top: var(--space-3);
+    opacity: 0.8;
+    font-size: 0.875rem;
+  }
+  
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer-links li {
+    margin-bottom: var(--space-2);
+  }
+  
+  .footer-links a {
+    color: white;
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+  }
+  
+  .footer-links a:hover {
+    opacity: 1;
+  }
+  
+  .footer-emergency {
+    color: var(--color-secondary) !important;
+    opacity: 1 !important;
+  }
+  
+  .footer-languages {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    columns: 2;
+    column-gap: var(--space-4);
+  }
+  
+  .footer-languages li {
+    margin-bottom: var(--space-1);
+  }
+  
+  .footer-languages a {
+    color: white;
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+    font-size: 0.875rem;
+  }
+  
+  .footer-languages a:hover,
+  .footer-languages a.active {
+    opacity: 1;
+  }
+  
+  .footer-languages a.active {
+    font-weight: 600;
+    color: var(--color-secondary);
+  }
+  
+  .footer-bottom {
+    padding-top: var(--space-8);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+  }
+  
+  .footer-copyright {
+    opacity: 0.6;
+    font-size: 0.875rem;
+  }
+  
+  .footer-copyright a {
+    color: white;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+  }
+  
+  .footer-copyright a:hover {
+    opacity: 1;
+    text-decoration: underline;
+  }
+  
+  /* RTL Support */
+  [dir="rtl"] .footer-languages {
+    direction: rtl;
+  }
+  
+  /* Print styles */
+  @media print {
+    .footer {
+      background: white;
+      color: black;
+      border-top: 2px solid black;
+    }
+    
+    .footer a {
+      color: black;
+    }
+  }
+</style>

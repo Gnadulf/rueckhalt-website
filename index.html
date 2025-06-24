@@ -25,11 +25,33 @@
     
     <!-- Translation System -->
     <script src="/src/js/translations-complete.js"></script>
+    <script type="module" src="/src/js/app.js"></script>
     
     <style>
         /* Überschreibungen für Rosa/Türkis Design */
         body {
-            background: linear-gradient(180deg, #FFF8F3 0%, #FFFCFA 100%);
+            background: linear-gradient(
+                135deg,
+                #FFF8F3 0%,
+                #FFF5F0 25%,
+                #F5FFFE 50%,
+                #FFF9F5 75%,
+                #FFFCFA 100%
+            );
+            animation: subtleGradientShift 30s ease-in-out infinite;
+            background-size: 300% 300%;
+        }
+        
+        @keyframes subtleGradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
         }
         
         .hero-modern {
@@ -161,6 +183,52 @@
             --color-accent: #95D5C5;
             background: #0f0f0f;
             color: #ffffff; /* Reines Weiß für Text */
+        }
+        
+        /* Dark Mode: Force dark backgrounds on all sections */
+        body.dark-mode section {
+            background: #1a1a1a !important;
+        }
+        
+        body.dark-mode section#angebote {
+            background: #222 !important;
+        }
+        
+        body.dark-mode section#ueber-uns {
+            background: #1a1a1a !important;
+        }
+        
+        body.dark-mode section#faq {
+            background: #222 !important;
+        }
+        
+        body.dark-mode section#wissen {
+            background: #1a1a1a !important;
+        }
+        
+        body.dark-mode section#kontakt {
+            background: #222 !important;
+        }
+        
+        body.dark-mode .faq-question,
+        body.dark-mode .faq-answer {
+            background: rgba(40, 40, 40, 0.95) !important;
+            color: #f0f0f0 !important;
+        }
+        
+        body.dark-mode .contact-form {
+            background: rgba(30, 30, 30, 0.95) !important;
+        }
+        
+        body.dark-mode input,
+        body.dark-mode textarea {
+            background: rgba(50, 50, 50, 0.95) !important;
+            color: #f0f0f0 !important;
+            border-color: rgba(255, 255, 255, 0.2) !important;
+        }
+        
+        body.dark-mode .diagonal-section {
+            background: #1a1a1a !important;
         }
         
         body.dark-mode .hero-modern {
@@ -322,8 +390,8 @@
         
         /* Hero Logo Container - ULTRATHINK: Trauma-informed prominence */
         .logo-hero-prominent {
-            margin-top: var(--space-4);
-            margin-bottom: var(--space-4);
+            margin-top: -80px;
+            margin-bottom: var(--space-3);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -405,9 +473,8 @@
                     <ul class="nav-list">
                         <li><a href="#hero" class="nav-link active" data-i18n="nav.home">Startseite</a></li>
                         <li><a href="#angebote" class="nav-link" data-i18n="nav.services">Angebote</a></li>
-                        <li><a href="#rueckhalt-m" class="nav-link" data-i18n="nav.rueckhalt-m">Rückhalt (M)</a></li>
-                        <li><a href="#ueber-uns" class="nav-link" data-i18n="nav.about">Über uns</a></li>
                         <li><a href="#wissen" class="nav-link" data-i18n="nav.knowledge">Wissen & Ressourcen</a></li>
+                        <li><a href="#ueber-uns" class="nav-link" data-i18n="nav.about">Über uns</a></li>
                         <li><a href="#kontakt" class="nav-link" data-i18n="nav.contact">Kontakt</a></li>
                         <li style="margin-left: auto;"><a href="/leichte-sprache.html" class="nav-link nav-link-special" data-i18n="nav.easy-language">Leichte Sprache</a></li>
                     </ul>
@@ -419,7 +486,7 @@
                         <button class="lang-current" aria-expanded="false">
                             DE <svg width="12" height="8" viewBox="0 0 12 8"><path d="M1 1l5 5 5-5" stroke="currentColor" fill="none"/></svg>
                         </button>
-                        <ul class="lang-options" hidden>
+                        <ul class="lang-options">
                             <li><button data-lang="de" class="active">Deutsch</button></li>
                             <li><button data-lang="en">English</button></li>
                             <li><button data-lang="pl">Polski</button></li>
@@ -466,16 +533,16 @@
             <div class="float-element float-2"></div>
             
             <div class="container" style="position: relative; z-index: 20;">
-                <div class="bauhaus-grid" style="align-items: center; min-height: 80vh; padding-top: 20px;">
+                <div class="bauhaus-grid" style="align-items: center; min-height: 80vh; padding-top: 0;">
                     <div class="span-12" style="text-align: center;">
                         <!-- Prominent Logo Display -->
                         <div class="logo-hero-prominent">
                             <img src="/src/assets/images/logo-new-high-res.png" alt="Rückhalt Logo - Sanfte abstrakte Umarmung in beruhigenden Farben" style="width: 300px; height: auto; filter: drop-shadow(0 4px 20px rgba(232, 165, 165, 0.3)); animation: gentlePulse 4s ease-in-out infinite; object-fit: contain;">
                         </div>
                         <h1 class="hero-title-pentagram" data-i18n="hero.title" style="text-transform: none; font-size: clamp(2.5rem, 7vw, 5rem); font-weight: 800;">Wir sind für Sie da</h1>
-                        <p class="hero-subtitle" data-i18n="hero.subtitle">
-                            Jede*r sexuelle*r Übergriff stellt eine schwere Persönlichkeitsverletzung dar 
-                            und kann eine emotionale Krise auslösen. <strong>Sie sind nicht allein.</strong>
+                        <p class="hero-subtitle" data-i18n="hero.subtitle" style="font-size: 1.25rem; line-height: 1.6; max-width: 600px; margin: 0 auto var(--space-6);">
+                            Hilfe bei sexueller Gewalt.<br>
+                            <strong>Sie sind nicht allein.</strong>
                         </p>
                         
                         <div class="trust-indicators">
@@ -483,7 +550,7 @@
                             <span style="color: var(--color-primary);">|</span>
                             <span style="color: var(--color-gray-600);">Kostenlos</span>
                             <span style="color: var(--color-primary);">|</span>
-                            <span style="color: var(--color-gray-600);">In Ihrem Tempo</span>
+                            <span style="color: var(--color-gray-600);">Für Sie da</span>
                         </div>
                         
                         <div class="hero-actions" style="justify-content: center; gap: var(--space-4);">
@@ -506,19 +573,19 @@
                     <div class="span-4">
                         <div class="glass-card" style="padding: var(--space-8); text-align: center;">
                             <h2 class="card-title card-title-primary">Für Betroffene</h2>
-                            <p>Unterstützung für Menschen jeden Alters und Geschlechts</p>
+                            <p>Hilfe für alle Menschen</p>
                         </div>
                     </div>
                     <div class="span-4">
                         <div class="glass-card" style="padding: var(--space-8); text-align: center;">
                             <h2 class="card-title card-title-secondary">Für Angehörige</h2>
-                            <p>Begleitung für Bezugspersonen und Unterstützende</p>
+                            <p>Hilfe für Familie und Freunde</p>
                         </div>
                     </div>
                     <div class="span-4">
                         <div class="glass-card" style="padding: var(--space-8); text-align: center;">
                             <h2 class="card-title card-title-accent">Flexible Termine</h2>
-                            <p>Online, telefonisch oder vor Ort - Sie entscheiden</p>
+                            <p>Online oder vor Ort</p>
                         </div>
                     </div>
                     
@@ -557,23 +624,6 @@
             </div>
         </section>
 
-        <!-- Aktuelles / Wichtige Hinweise -->
-        <section class="diagonal-section" style="background: white;">
-            <div class="container">
-                <div class="text-grid">
-                    <div>
-                        <span class="label" style="color: var(--color-primary);">Aktuelles</span>
-                    </div>
-                    <div>
-                        <h2 class="section-title">Wichtige Hinweise</h2>
-                        <div class="bg-soft" style="margin-top: var(--space-6);">
-                            <p><strong>Wir sind für Sie da:</strong> Beratungen finden persönlich, telefonisch oder online statt. Alle Angebote sind vertraulich und kostenlos. Termine flexibel nach Ihren Bedürfnissen.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- Angebote Section -->
         <section class="services" id="angebote" style="background: var(--color-warm);">
             <div class="container">
@@ -585,7 +635,7 @@
                 </div>
 
                 <div class="bauhaus-grid">
-                    <!-- Beratung -->
+                    <!-- Beratung für weiblich gelesene Personen -->
                     <article class="span-4">
                         <div class="service-modern">
                             <div class="icon-modern">
@@ -594,8 +644,8 @@
                                     <path d="M15 10c-2.209 0-4 1.791-4 4s1.791 4 4 4 4-1.791 4-4-1.791-4-4-4z" fill="currentColor" opacity="0.5"/>
                                 </svg>
                             </div>
-                            <h3 class="subsection-title">Beratung</h3>
-                            <p>Für Frauen* und Mädchen* ab 15 Jahren, die sexuelle Gewalt erlebt haben. Vertraulich, kostenlos und auf Wunsch anonym. Persönlich, telefonisch oder online. Auch für Angehörige und Bezugspersonen.</p>
+                            <h3 class="subsection-title">Beratung für weiblich gelesene Personen</h3>
+                            <p>Für alle weiblich gelesenen Personen ab 15 Jahren, die sexuelle Gewalt erlebt haben. Vertraulich, kostenlos und auf Wunsch anonym. Persönlich, telefonisch oder online.</p>
                             <a href="https://rueckhalt-beratung.de/rueckhalt/angebote/" target="_blank" rel="noopener" class="service-link accent-primary">Mehr erfahren</a>
                         </div>
                     </article>
@@ -629,17 +679,17 @@
                         </div>
                     </article>
 
-                    <!-- Fortbildung -->
+                    <!-- Beratung für männlich gelesene Personen -->
                     <article class="span-4">
                         <div class="service-modern">
                             <div class="icon-modern">
                                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
-                                    <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z" fill="currentColor"/>
+                                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" fill="currentColor"/>
                                 </svg>
                             </div>
-                            <h3 class="subsection-title">Fortbildungen</h3>
-                            <p>Vorträge, Seminare und Workshops für Fachkräfte verschiedener Berufsgruppen. Themen: Sexualisierte Gewalt, Trauma und professioneller Umgang mit Betroffenen.</p>
-                            <a href="https://rueckhalt-beratung.de/rueckhalt/angebote/" target="_blank" rel="noopener" class="service-link accent-primary">Mehr erfahren</a>
+                            <h3 class="subsection-title">Beratung für männlich gelesene Personen</h3>
+                            <p>Spezielles Beratungsangebot für alle männlich gelesenen Personen ab 18 Jahren, die sexuelle Gewalt erlebt haben. Vertrauliche Beratung in geschütztem Rahmen.</p>
+                            <a href="#kontakt" class="service-link accent-primary">Kontakt aufnehmen</a>
                         </div>
                     </article>
 
@@ -657,17 +707,17 @@
                         </div>
                     </article>
 
-                    <!-- Gruppenangebote -->
+                    <!-- Fortbildung -->
                     <article class="span-4">
                         <div class="service-modern">
                             <div class="icon-modern">
                                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
-                                    <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" fill="currentColor"/>
+                                    <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z" fill="currentColor"/>
                                 </svg>
                             </div>
-                            <h3 class="subsection-title">Rückhalt (M)</h3>
-                            <p>Spezielles Beratungsangebot für Männer* ab 18 Jahren, die sexuelle Gewalt erlebt haben. Vertrauliche Beratung und Unterstützung in einem geschützten Rahmen.</p>
-                            <a href="#kontakt" class="service-link accent-primary">Kontakt aufnehmen</a>
+                            <h3 class="subsection-title">Fortbildungen</h3>
+                            <p>Vorträge, Seminare und Workshops für Fachkräfte verschiedener Berufsgruppen. Themen: Sexualisierte Gewalt, Trauma und professioneller Umgang mit Betroffenen.</p>
+                            <a href="https://rueckhalt-beratung.de/rueckhalt/angebote/" target="_blank" rel="noopener" class="service-link accent-primary">Mehr erfahren</a>
                         </div>
                     </article>
                 </div>
@@ -772,7 +822,7 @@
                         <div class="service-modern" style="height: 100%;">
                             <div class="icon-modern" style="background: linear-gradient(135deg, var(--color-accent) 0%, #8FA89F 100%);">
                                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
-                                    <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" fill="currentColor"/>
+                                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" fill="currentColor"/>
                                 </svg>
                             </div>
                             <h3 class="item-title">Soziale Unterstützung</h3>
@@ -877,9 +927,9 @@
         <!-- FAQ Section -->
         <section id="faq" style="background: var(--color-gray-50); padding: var(--space-20) 0;">
             <div class="container">
-                <div class="text-center" style="margin-bottom: var(--space-12);">
+                <div class="section-header">
                     <h2 class="section-title">Häufige Fragen</h2>
-                    <p style="font-size: 1.2rem; color: var(--color-gray-600); max-width: 600px; margin: var(--space-4) auto;">
+                    <p class="section-subtitle">
                         Hier finden Sie Antworten auf die wichtigsten Fragen zu unserer Arbeit
                     </p>
                 </div>
@@ -903,7 +953,7 @@
                 
                 <!-- FAQ Categories -->
                 <div class="text-center" style="margin-bottom: var(--space-8);">
-                    <div style="display: inline-flex; gap: var(--space-2); flex-wrap: wrap; justify-content: center;">
+                    <div style="display: flex; gap: var(--space-2); flex-wrap: wrap; justify-content: center; align-items: center; max-width: 600px; margin: 0 auto;">
                         <button class="faq-filter active" data-category="all" 
                                 style="padding: var(--space-2) var(--space-4); border: 2px solid var(--color-primary); 
                                        background: var(--color-primary); color: white; border-radius: var(--radius-full); 
@@ -912,19 +962,19 @@
                         </button>
                         <button class="faq-filter" data-category="betroffene" 
                                 style="padding: var(--space-2) var(--space-4); border: 2px solid var(--color-gray-300); 
-                                       background: white; color: var(--color-gray-700); border-radius: var(--radius-full); 
+                                       background: var(--color-white); color: var(--color-gray-700); border-radius: var(--radius-full); 
                                        font-weight: 500; cursor: pointer; transition: all 0.2s ease;">
                             Für Betroffene
                         </button>
                         <button class="faq-filter" data-category="angehoerige" 
                                 style="padding: var(--space-2) var(--space-4); border: 2px solid var(--color-gray-300); 
-                                       background: white; color: var(--color-gray-700); border-radius: var(--radius-full); 
+                                       background: var(--color-white); color: var(--color-gray-700); border-radius: var(--radius-full); 
                                        font-weight: 500; cursor: pointer; transition: all 0.2s ease;">
                             Für Angehörige
                         </button>
                         <button class="faq-filter" data-category="allgemein" 
                                 style="padding: var(--space-2) var(--space-4); border: 2px solid var(--color-gray-300); 
-                                       background: white; color: var(--color-gray-700); border-radius: var(--radius-full); 
+                                       background: var(--color-white); color: var(--color-gray-700); border-radius: var(--radius-full); 
                                        font-weight: 500; cursor: pointer; transition: all 0.2s ease;">
                             Allgemein
                         </button>
@@ -940,7 +990,7 @@
                             <div class="faq-item" data-category="betroffene" style="margin-bottom: var(--space-4);">
                                 <button class="faq-question" aria-expanded="false" 
                                         style="width: 100%; text-align: left; padding: var(--space-4) var(--space-6); 
-                                               background: white; border: none; border-radius: var(--radius-lg); 
+                                               background: var(--color-white); border: none; border-radius: var(--radius-lg); 
                                                cursor: pointer; transition: all 0.2s ease; display: flex; 
                                                justify-content: space-between; align-items: center; 
                                                font-size: 1.1rem; font-weight: 500; color: var(--color-gray-800);">
@@ -951,7 +1001,7 @@
                                     </svg>
                                 </button>
                                 <div class="faq-answer" hidden style="padding: 0 var(--space-6) var(--space-4); 
-                                                                       background: white; border-radius: 0 0 var(--radius-lg) var(--radius-lg); 
+                                                                       background: var(--color-white); border-radius: 0 0 var(--radius-lg) var(--radius-lg); 
                                                                        margin-top: -2px;">
                                     <p style="color: var(--color-gray-600); line-height: 1.8;">
                                         Nein, Sie müssen nicht zur Polizei gehen. Unsere Beratung ist unabhängig von einer Anzeige. 
@@ -965,7 +1015,7 @@
                             <div class="faq-item" data-category="betroffene" style="margin-bottom: var(--space-4);">
                                 <button class="faq-question" aria-expanded="false" 
                                         style="width: 100%; text-align: left; padding: var(--space-4) var(--space-6); 
-                                               background: white; border: none; border-radius: var(--radius-lg); 
+                                               background: var(--color-white); border: none; border-radius: var(--radius-lg); 
                                                cursor: pointer; transition: all 0.2s ease; display: flex; 
                                                justify-content: space-between; align-items: center; 
                                                font-size: 1.1rem; font-weight: 500; color: var(--color-gray-800);">
@@ -976,7 +1026,7 @@
                                     </svg>
                                 </button>
                                 <div class="faq-answer" hidden style="padding: 0 var(--space-6) var(--space-4); 
-                                                                       background: white; border-radius: 0 0 var(--radius-lg) var(--radius-lg); 
+                                                                       background: var(--color-white); border-radius: 0 0 var(--radius-lg) var(--radius-lg); 
                                                                        margin-top: -2px;">
                                     <p style="color: var(--color-gray-600); line-height: 1.8;">
                                         Ein Beratungsgespräch dauert in der Regel 50-60 Minuten. Die Anzahl der Termine richtet sich 
@@ -989,7 +1039,7 @@
                             <div class="faq-item" data-category="betroffene" style="margin-bottom: var(--space-4);">
                                 <button class="faq-question" aria-expanded="false" 
                                         style="width: 100%; text-align: left; padding: var(--space-4) var(--space-6); 
-                                               background: white; border: none; border-radius: var(--radius-lg); 
+                                               background: var(--color-white); border: none; border-radius: var(--radius-lg); 
                                                cursor: pointer; transition: all 0.2s ease; display: flex; 
                                                justify-content: space-between; align-items: center; 
                                                font-size: 1.1rem; font-weight: 500; color: var(--color-gray-800);">
@@ -1000,7 +1050,7 @@
                                     </svg>
                                 </button>
                                 <div class="faq-answer" hidden style="padding: 0 var(--space-6) var(--space-4); 
-                                                                       background: white; border-radius: 0 0 var(--radius-lg) var(--radius-lg); 
+                                                                       background: var(--color-white); border-radius: 0 0 var(--radius-lg) var(--radius-lg); 
                                                                        margin-top: -2px;">
                                     <p style="color: var(--color-gray-600); line-height: 1.8;">
                                         Ja, Sie können auch anonym beraten werden. Sie müssen uns weder Ihren Namen noch andere 
@@ -1013,7 +1063,7 @@
                             <div class="faq-item" data-category="angehoerige" style="margin-bottom: var(--space-4);">
                                 <button class="faq-question" aria-expanded="false" 
                                         style="width: 100%; text-align: left; padding: var(--space-4) var(--space-6); 
-                                               background: white; border: none; border-radius: var(--radius-lg); 
+                                               background: var(--color-white); border: none; border-radius: var(--radius-lg); 
                                                cursor: pointer; transition: all 0.2s ease; display: flex; 
                                                justify-content: space-between; align-items: center; 
                                                font-size: 1.1rem; font-weight: 500; color: var(--color-gray-800);">
@@ -1024,7 +1074,7 @@
                                     </svg>
                                 </button>
                                 <div class="faq-answer" hidden style="padding: 0 var(--space-6) var(--space-4); 
-                                                                       background: white; border-radius: 0 0 var(--radius-lg) var(--radius-lg); 
+                                                                       background: var(--color-white); border-radius: 0 0 var(--radius-lg) var(--radius-lg); 
                                                                        margin-top: -2px;">
                                     <p style="color: var(--color-gray-600); line-height: 1.8;">
                                         Das Wichtigste ist: Glauben Sie der betroffenen Person und nehmen Sie sie ernst. Drängen Sie 
@@ -1038,7 +1088,7 @@
                             <div class="faq-item" data-category="angehoerige" style="margin-bottom: var(--space-4);">
                                 <button class="faq-question" aria-expanded="false" 
                                         style="width: 100%; text-align: left; padding: var(--space-4) var(--space-6); 
-                                               background: white; border: none; border-radius: var(--radius-lg); 
+                                               background: var(--color-white); border: none; border-radius: var(--radius-lg); 
                                                cursor: pointer; transition: all 0.2s ease; display: flex; 
                                                justify-content: space-between; align-items: center; 
                                                font-size: 1.1rem; font-weight: 500; color: var(--color-gray-800);">
@@ -1049,7 +1099,7 @@
                                     </svg>
                                 </button>
                                 <div class="faq-answer" hidden style="padding: 0 var(--space-6) var(--space-4); 
-                                                                       background: white; border-radius: 0 0 var(--radius-lg) var(--radius-lg); 
+                                                                       background: var(--color-white); border-radius: 0 0 var(--radius-lg) var(--radius-lg); 
                                                                        margin-top: -2px;">
                                     <p style="color: var(--color-gray-600); line-height: 1.8;">
                                         Ja, Sie können sich auch ohne das Wissen der betroffenen Person an uns wenden. Wir beraten Sie 
@@ -1063,7 +1113,7 @@
                             <div class="faq-item" data-category="allgemein" style="margin-bottom: var(--space-4);">
                                 <button class="faq-question" aria-expanded="false" 
                                         style="width: 100%; text-align: left; padding: var(--space-4) var(--space-6); 
-                                               background: white; border: none; border-radius: var(--radius-lg); 
+                                               background: var(--color-white); border: none; border-radius: var(--radius-lg); 
                                                cursor: pointer; transition: all 0.2s ease; display: flex; 
                                                justify-content: space-between; align-items: center; 
                                                font-size: 1.1rem; font-weight: 500; color: var(--color-gray-800);">
@@ -1074,7 +1124,7 @@
                                     </svg>
                                 </button>
                                 <div class="faq-answer" hidden style="padding: 0 var(--space-6) var(--space-4); 
-                                                                       background: white; border-radius: 0 0 var(--radius-lg) var(--radius-lg); 
+                                                                       background: var(--color-white); border-radius: 0 0 var(--radius-lg) var(--radius-lg); 
                                                                        margin-top: -2px;">
                                     <p style="color: var(--color-gray-600); line-height: 1.8;">
                                         Unsere Beratung ist grundsätzlich kostenlos. Die Finanzierung erfolgt über öffentliche Mittel. 
@@ -1086,7 +1136,7 @@
                             <div class="faq-item" data-category="allgemein" style="margin-bottom: var(--space-4);">
                                 <button class="faq-question" aria-expanded="false" 
                                         style="width: 100%; text-align: left; padding: var(--space-4) var(--space-6); 
-                                               background: white; border: none; border-radius: var(--radius-lg); 
+                                               background: var(--color-white); border: none; border-radius: var(--radius-lg); 
                                                cursor: pointer; transition: all 0.2s ease; display: flex; 
                                                justify-content: space-between; align-items: center; 
                                                font-size: 1.1rem; font-weight: 500; color: var(--color-gray-800);">
@@ -1097,7 +1147,7 @@
                                     </svg>
                                 </button>
                                 <div class="faq-answer" hidden style="padding: 0 var(--space-6) var(--space-4); 
-                                                                       background: white; border-radius: 0 0 var(--radius-lg) var(--radius-lg); 
+                                                                       background: var(--color-white); border-radius: 0 0 var(--radius-lg) var(--radius-lg); 
                                                                        margin-top: -2px;">
                                     <p style="color: var(--color-gray-600); line-height: 1.8;">
                                         Wir sind für alle Menschen da, die von sexualisierter Gewalt betroffen sind - unabhängig von 
@@ -1110,7 +1160,7 @@
                             <div class="faq-item" data-category="allgemein" style="margin-bottom: var(--space-4);">
                                 <button class="faq-question" aria-expanded="false" 
                                         style="width: 100%; text-align: left; padding: var(--space-4) var(--space-6); 
-                                               background: white; border: none; border-radius: var(--radius-lg); 
+                                               background: var(--color-white); border: none; border-radius: var(--radius-lg); 
                                                cursor: pointer; transition: all 0.2s ease; display: flex; 
                                                justify-content: space-between; align-items: center; 
                                                font-size: 1.1rem; font-weight: 500; color: var(--color-gray-800);">
@@ -1121,7 +1171,7 @@
                                     </svg>
                                 </button>
                                 <div class="faq-answer" hidden style="padding: 0 var(--space-6) var(--space-4); 
-                                                                       background: white; border-radius: 0 0 var(--radius-lg) var(--radius-lg); 
+                                                                       background: var(--color-white); border-radius: 0 0 var(--radius-lg) var(--radius-lg); 
                                                                        margin-top: -2px;">
                                     <p style="color: var(--color-gray-600); line-height: 1.8;">
                                         Unsere Beratungsstelle befindet sich in der Innenstadt von Aachen. Die genaue Adresse teilen 
@@ -1141,50 +1191,6 @@
                     <a href="#kontakt" class="btn-modern" style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);">
                         Kontaktieren Sie uns direkt
                     </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Rückhalt (M) Section -->
-        <section id="rueckhalt-m" style="background: white; padding: var(--space-20) 0;">
-            <div class="container">
-                <div class="bauhaus-grid" style="align-items: center;">
-                    <div class="span-6">
-                        <span class="label" style="color: var(--color-secondary);">Spezielles Angebot</span>
-                        <h2 class="section-title">Rückhalt (M)</h2>
-                        <div class="accent-line" style="background: var(--color-secondary);"></div>
-                        <p style="font-size: 1.2rem; line-height: 1.8; margin: var(--space-6) 0;">
-                            Beratungsangebot speziell für <strong>männlich gelesene Personen ab 18 Jahren</strong>, 
-                            die von sexualisierter Gewalt betroffen sind.
-                        </p>
-                        <ul style="list-style: none; margin: var(--space-6) 0;">
-                            <li style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-3);">
-                                <span style="width: 8px; height: 8px; background: var(--color-secondary); border-radius: 50%; display: block; flex-shrink: 0;"></span>
-                                <span>Geschützter Rahmen</span>
-                            </li>
-                            <li style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-3);">
-                                <span style="width: 8px; height: 8px; background: var(--color-secondary); border-radius: 50%; display: block; flex-shrink: 0;"></span>
-                                <span>Erfahrene männlich gelesene Berater*innen</span>
-                            </li>
-                            <li style="display: flex; align-items: center; gap: var(--space-3);">
-                                <span style="width: 8px; height: 8px; background: var(--color-secondary); border-radius: 50%; display: block; flex-shrink: 0;"></span>
-                                <span>Individuelle Unterstützung</span>
-                            </li>
-                        </ul>
-                        <a href="#kontakt" class="btn-modern" style="background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-secondary-dark) 100%);">
-                            <span>Kontakt aufnehmen</span>
-                        </a>
-                    </div>
-                    <div class="span-6">
-                        <div class="color-block" style="background: linear-gradient(135deg, rgba(125, 221, 215, 0.1) 0%, rgba(125, 221, 215, 0.05) 100%); min-height: 400px; display: flex; align-items: center; justify-content: center;">
-                            <div style="text-align: center;">
-                                <div style="font-size: 5rem; margin-bottom: var(--space-4);">🤝</div>
-                                <p style="font-size: 1.2rem; color: var(--color-secondary);">
-                                    Gemeinsam einen Weg finden
-                                </p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -1236,7 +1242,9 @@
                         Ein interdisziplinäres Team mit langjähriger Erfahrung in der Beratung und Begleitung.
                     </p>
                     <div class="bg-soft" style="display: inline-block; margin-top: var(--space-6);">
-                        <p style="font-size: 3rem; margin-bottom: var(--space-2);">👥</p>
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="var(--color-primary)" style="margin-bottom: var(--space-2);">
+                            <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                        </svg>
                         <p>12 Fachkräfte für Sie da</p>
                     </div>
                 </div>
@@ -1364,7 +1372,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <img src="/assets/images/logo-transparent.svg" alt="Rückhalt Logo" class="footer-logo" width="80" height="80">
+                    <img src="/src/assets/images/logo-new-high-res.png" alt="Rückhalt Logo" class="footer-logo" width="80" height="80" style="object-fit: contain;">
                     <p>Rückhalt<br>
                     Beratungsstelle gegen sexuelle Gewalt</p>
                 </div>
@@ -1443,7 +1451,7 @@
             });
         })();
     </script>
-    <script type="module" src="/src/js/main.js"></script>
+    <script type="module" src="./src/js/main.js"></script>
     
     <!-- Modal Container -->
     <div id="service-modal" class="modal-overlay" aria-hidden="true">
@@ -1615,7 +1623,7 @@
                             </div>
                             <div class="modal-feature">
                                 <svg class="modal-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
                                 </svg>
                                 <div>
                                     <strong>Für alle Menschen</strong>
@@ -1782,7 +1790,7 @@
                         <div class="modal-features">
                             <div class="modal-feature">
                                 <svg class="modal-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
                                 </svg>
                                 <div>
                                     <strong>Geschlossene Gruppen</strong>
@@ -2092,62 +2100,6 @@
         })();
     </script>
     
-    <script>
-        // Language Switcher handled by main.js LanguageSwitcher class
-            
-            // Dark Mode Toggle
-            const darkModeToggle = document.querySelector('.dark-mode-toggle');
-            const body = document.body;
-            const sunIcon = darkModeToggle.querySelector('.sun-icon');
-            const moonIcon = darkModeToggle.querySelector('.moon-icon');
-            
-            // Check for saved dark mode preference
-            const darkMode = localStorage.getItem('darkMode') === 'true';
-            if (darkMode) {
-                body.classList.add('dark-mode');
-                sunIcon.style.display = 'none';
-                moonIcon.style.display = 'block';
-            }
-            
-            darkModeToggle.addEventListener('click', function() {
-                body.classList.toggle('dark-mode');
-                const isDark = body.classList.contains('dark-mode');
-                
-                // Update icons
-                sunIcon.style.display = isDark ? 'none' : 'block';
-                moonIcon.style.display = isDark ? 'block' : 'none';
-                
-                // Save preference
-                localStorage.setItem('darkMode', isDark);
-            });
-            
-            // Initialize translations on page load
-            document.addEventListener('DOMContentLoaded', function() {
-                if (window.RueckhaltTranslations) {
-                    const currentLang = window.RueckhaltTranslations.detectLanguage();
-                    window.RueckhaltTranslations.applyTranslations(currentLang);
-                    
-                    // Update language switcher display
-                    const langCodes = {
-                        'de': 'DE',
-                        'en': 'EN',
-                        'pl': 'PL',
-                        'uk': 'UK',
-                        'ru': 'RU',
-                        'ro': 'RO',
-                        'ar': 'AR',
-                        'sy': 'SY',
-                        'fr': 'FR',
-                        'nl': 'NL',
-                        'tr': 'TR'
-                    };
-                    const langCurrent = document.querySelector('.lang-current');
-                    if (langCurrent) {
-                        langCurrent.innerHTML = langCodes[currentLang] + ' <svg width="12" height="8" viewBox="0 0 12 8"><path d="M1 1l5 5 5-5" stroke="currentColor" fill="none"/></svg>';
-                    }
-                }
-            });
-        })();
-    </script>
+    <!-- All functionality now handled by app.js module -->
 </body>
 </html>

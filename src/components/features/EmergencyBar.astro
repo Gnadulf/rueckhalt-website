@@ -1,0 +1,182 @@
+---
+// ULTRATHINK: Critical emergency contact information always visible
+import type { SupportedLanguage } from '@/env.d.ts';
+
+const lang = Astro.currentLocale || 'de';
+
+// Emergency contact translations
+const emergencyTexts: Record<SupportedLanguage, {
+  police: string;
+  helpline: string;
+  rueckhalt: string;
+}> = {
+  de: {
+    police: 'Notruf: 110',
+    helpline: 'Hilfetelefon: 08000 116 016',
+    rueckhalt: 'Rückhalt: 0241 - 542220'
+  },
+  en: {
+    police: 'Emergency: 110',
+    helpline: 'Helpline: 08000 116 016',
+    rueckhalt: 'Rückhalt: 0241 - 542220'
+  },
+  pl: {
+    police: 'Pogotowie: 110',
+    helpline: 'Telefon zaufania: 08000 116 016',
+    rueckhalt: 'Rückhalt: 0241 - 542220'
+  },
+  uk: {
+    police: 'Екстрена допомога: 110',
+    helpline: 'Телефон довіри: 08000 116 016',
+    rueckhalt: 'Rückhalt: 0241 - 542220'
+  },
+  ru: {
+    police: 'Экстренная помощь: 110',
+    helpline: 'Телефон доверия: 08000 116 016',
+    rueckhalt: 'Rückhalt: 0241 - 542220'
+  },
+  ro: {
+    police: 'Urgență: 110',
+    helpline: 'Linie de ajutor: 08000 116 016',
+    rueckhalt: 'Rückhalt: 0241 - 542220'
+  },
+  ar: {
+    police: 'الطوارئ: 110',
+    helpline: 'خط المساعدة: 08000 116 016',
+    rueckhalt: 'Rückhalt: 0241 - 542220'
+  },
+  sy: {
+    police: 'ܚܘܦܛܢܐ: 110',
+    helpline: 'ܛܠܦܘܢ ܥܘܕܪܢܐ: 08000 116 016',
+    rueckhalt: 'Rückhalt: 0241 - 542220'
+  },
+  fr: {
+    police: 'Urgence : 110',
+    helpline: 'Ligne d\'aide : 08000 116 016',
+    rueckhalt: 'Rückhalt : 0241 - 542220'
+  },
+  nl: {
+    police: 'Noodgeval: 110',
+    helpline: 'Hulplijn: 08000 116 016',
+    rueckhalt: 'Rückhalt: 0241 - 542220'
+  },
+  tr: {
+    police: 'Acil: 110',
+    helpline: 'Yardım hattı: 08000 116 016',
+    rueckhalt: 'Rückhalt: 0241 - 542220'
+  }
+};
+
+const texts = emergencyTexts[lang as SupportedLanguage] || emergencyTexts.de;
+---
+
+<div class="emergency-bar" role="banner" aria-label="Emergency contacts">
+  <div class="emergency-container">
+    <div class="emergency-content">
+      <span class="emergency-item">
+        <strong>{texts.police}</strong>
+      </span>
+      <span class="emergency-separator" aria-hidden="true">|</span>
+      <span class="emergency-item">
+        {texts.helpline}
+      </span>
+      <span class="emergency-separator" aria-hidden="true">|</span>
+      <a href="tel:0241542220" class="emergency-link" aria-label={texts.rueckhalt}>
+        <strong>{texts.rueckhalt}</strong>
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .emergency-bar {
+    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: white;
+    padding: var(--space-2) 0;
+    position: relative;
+    z-index: var(--z-header);
+    print-display: none;
+  }
+  
+  .emergency-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+  }
+  
+  .emergency-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: 0.875rem;
+    flex-wrap: wrap;
+  }
+  
+  .emergency-item {
+    white-space: nowrap;
+  }
+  
+  .emergency-separator {
+    opacity: 0.7;
+    user-select: none;
+  }
+  
+  .emergency-link {
+    color: white;
+    text-decoration: none;
+    padding: var(--space-1) var(--space-3);
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-sm);
+    transition: all 0.3s ease;
+    display: inline-block;
+  }
+  
+  .emergency-link:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+  }
+  
+  .emergency-link:focus {
+    outline: 2px solid white;
+    outline-offset: 2px;
+  }
+  
+  /* Mobile responsive */
+  @media (max-width: 640px) {
+    .emergency-content {
+      font-size: 0.75rem;
+      gap: var(--space-2);
+    }
+    
+    .emergency-separator {
+      display: none;
+    }
+    
+    .emergency-item,
+    .emergency-link {
+      flex: 1 1 auto;
+      text-align: center;
+    }
+  }
+  
+  /* High contrast mode */
+  @media (prefers-contrast: high) {
+    .emergency-bar {
+      background: var(--color-black);
+      border-bottom: 2px solid white;
+    }
+    
+    .emergency-link {
+      background: white;
+      color: black;
+    }
+  }
+  
+  /* Print styles */
+  @media print {
+    .emergency-bar {
+      display: none;
+    }
+  }
+</style>

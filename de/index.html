@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rückhalt - Beratungsstelle gegen sexuelle Gewalt in Aachen. Kostenlose und vertrauliche Hilfe für Betroffene jeden Alters. Tel: 0241-542220">
+    <meta name="keywords" content="Beratungsstelle, sexuelle Gewalt, Aachen, Hilfe, Rückhalt, kostenlos, vertraulich">
+    
+    <title>Rückhalt - Beratungsstelle gegen sexuelle Gewalt | Aachen</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="/src/css/reset.css">
+    <link rel="stylesheet" href="/src/css/variables.css">
+    <link rel="stylesheet" href="/src/css/main.css">
+    <link rel="stylesheet" href="/src/css/components.css">
+    <link rel="stylesheet" href="/src/css/responsive.css">
+    
+    <style>
+        body {
+            background: linear-gradient(135deg, #FFF8F3 0%, #FFF5F0 25%, #F5FFFE 50%, #FFF9F5 75%, #FFFCFA 100%);
+            animation: subtleGradientShift 30s ease-in-out infinite;
+            background-size: 300% 300%;
+        }
+        
+        @keyframes subtleGradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .hero-modern {
+            background: linear-gradient(135deg, rgba(232, 165, 165, 0.05) 0%, rgba(125, 221, 215, 0.05) 100%);
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--color-primary);
+        }
+        
+        .nav-link::after {
+            background: var(--color-primary);
+        }
+        
+        .nav-link-special {
+            background: var(--color-secondary-dark) !important;
+            color: #FFFFFF !important;
+            padding: var(--space-2) var(--space-4) !important;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            margin-left: var(--space-4);
+        }
+        
+        .nav-link-special:hover {
+            background: #0F403D !important;
+            transform: translateY(-2px);
+        }
+        
+        .nav-link-special::after {
+            display: none !important;
+        }
+        
+        .btn-modern {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+            color: white;
+            padding: var(--space-3) var(--space-6);
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-modern:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(232, 165, 165, 0.4);
+        }
+        
+        .btn-modern-secondary {
+            background: transparent;
+            color: var(--color-primary);
+            border: 2px solid var(--color-primary);
+        }
+        
+        .btn-modern-secondary:hover {
+            background: var(--color-primary);
+            color: white;
+        }
+        
+        .emergency-bar {
+            background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            color: white;
+            padding: var(--space-2) 0;
+            text-align: center;
+        }
+        
+        .emergency-button {
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            padding: var(--space-1) var(--space-3);
+            background: rgba(255,255,255,0.2);
+            border-radius: var(--radius-sm);
+            transition: all 0.3s ease;
+        }
+        
+        .emergency-button:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        .quick-exit {
+            position: fixed;
+            top: var(--space-4);
+            right: var(--space-4);
+            background: var(--color-danger);
+            color: white;
+            border: none;
+            padding: var(--space-2) var(--space-4);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .quick-exit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+        }
+        
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--color-primary);
+            color: white;
+            padding: var(--space-2) var(--space-4);
+            text-decoration: none;
+            border-radius: var(--radius-md);
+        }
+        
+        .skip-link:focus {
+            top: var(--space-4);
+        }
+        
+        .language-switcher {
+            position: relative;
+        }
+        
+        .lang-current {
+            background: transparent;
+            border: 1px solid var(--color-gray-300);
+            padding: var(--space-2) var(--space-3);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: var(--space-1);
+            font-weight: 500;
+        }
+        
+        .lang-options {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border: 1px solid var(--color-gray-200);
+            border-radius: var(--radius-md);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            list-style: none;
+            padding: var(--space-2);
+            margin: 0;
+            margin-top: var(--space-2);
+            min-width: 150px;
+            display: none;
+        }
+        
+        .lang-options.active {
+            display: block;
+        }
+        
+        .lang-options button {
+            background: transparent;
+            border: none;
+            padding: var(--space-2) var(--space-3);
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+            border-radius: var(--radius-sm);
+            transition: all 0.2s ease;
+        }
+        
+        .lang-options button:hover {
+            background: var(--color-gray-100);
+        }
+        
+        .lang-options button.active {
+            background: var(--color-primary);
+            color: white;
+        }
+        
+        .trust-indicators {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-4);
+            margin-bottom: var(--space-6);
+            font-size: 1.1rem;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(232, 165, 165, 0.2);
+            border-radius: var(--radius-lg);
+            padding: var(--space-6);
+            transition: all 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+        }
+        
+        .logo-hero-prominent {
+            margin-bottom: var(--space-6);
+        }
+        
+        @keyframes gentlePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+        
+        @media (max-width: 768px) {
+            .quick-exit-text {
+                display: none;
+            }
+            
+            .trust-indicators {
+                flex-direction: column;
+                gap: var(--space-2);
+            }
+            
+            .hero-title-pentagram {
+                font-size: 2rem !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Quick Exit Button -->
+    <button id="quick-exit" class="quick-exit" aria-label="Seite schnell verlassen" title="Drücken Sie 3x schnell ESC">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9"/>
+        </svg>
+        <span class="quick-exit-text">Schnell verlassen</span>
+    </button>
+
+    <!-- Skip to main content -->
+    <a href="#main" class="skip-link">Zum Hauptinhalt springen</a>
+
+    <!-- Emergency Bar -->
+    <div class="emergency-bar">
+        <div class="container">
+            <div class="emergency-text">
+                <strong>Notruf: 110</strong> | Hilfetelefon: 08000 116 016 | 
+                <a href="tel:0241542220" class="emergency-button" aria-label="Rückhalt anrufen">
+                    Rückhalt: 0241 - 542220
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="container">
+            <div class="header-content">
+                <a href="/de/" class="logo" aria-label="Rückhalt Startseite">
+                    <img src="/src/assets/images/logo-new-high-res.png" alt="Rückhalt Logo" width="60" height="90">
+                </a>
+                
+                <nav class="main-nav" role="navigation" aria-label="Hauptnavigation">
+                    <ul class="nav-list">
+                        <li><a href="#hero" class="nav-link active">Startseite</a></li>
+                        <li><a href="#angebote" class="nav-link">Angebote</a></li>
+                        <li><a href="#wissen" class="nav-link">Wissen & Ressourcen</a></li>
+                        <li><a href="#ueber-uns" class="nav-link">Über uns</a></li>
+                        <li><a href="#kontakt" class="nav-link">Kontakt</a></li>
+                        <li style="margin-left: auto;"><a href="/leichte-sprache.html" class="nav-link nav-link-special">Leichte Sprache</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Language Switcher -->
+                <div class="language-switcher">
+                    <button class="lang-current" aria-expanded="false">
+                        DE <svg width="12" height="8" viewBox="0 0 12 8"><path d="M1 1l5 5 5-5" stroke="currentColor" fill="none"/></svg>
+                    </button>
+                    <ul class="lang-options">
+                        <li><button class="active">Deutsch</button></li>
+                        <li><a href="/en/"><button>English</button></a></li>
+                        <li><a href="/pl/"><button>Polski</button></a></li>
+                        <li><a href="/uk/"><button>Українська</button></a></li>
+                        <li><a href="/ru/"><button>Русский</button></a></li>
+                        <li><a href="/ro/"><button>Română</button></a></li>
+                        <li><a href="/ar/"><button>العربية</button></a></li>
+                        <li><a href="/sy/"><button>ܣܘܪܝܝܐ</button></a></li>
+                        <li><a href="/fr/"><button>Français</button></a></li>
+                        <li><a href="/nl/"><button>Nederlands</button></a></li>
+                        <li><a href="/tr/"><button>Türkçe</button></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main" class="main-content">
+        <!-- Hero Section -->
+        <section class="hero hero-modern" id="hero">
+            <div class="container">
+                <div class="bauhaus-grid" style="align-items: center; min-height: 80vh; padding-top: 0;">
+                    <div class="span-12" style="text-align: center;">
+                        <!-- Prominent Logo Display -->
+                        <div class="logo-hero-prominent">
+                            <img src="/src/assets/images/logo-new-high-res.png" alt="Rückhalt Logo" style="width: 300px; height: auto;">
+                        </div>
+                        <h1 class="hero-title-pentagram" style="font-size: clamp(2.5rem, 7vw, 5rem); font-weight: 800; margin-bottom: var(--space-4);">
+                            Wir sind für Sie da
+                        </h1>
+                        <p class="hero-subtitle" style="font-size: 1.25rem; line-height: 1.6; max-width: 600px; margin: 0 auto var(--space-6);">
+                            Hilfe bei sexueller Gewalt.<br>
+                            <strong>Sie sind nicht allein.</strong>
+                        </p>
+                        
+                        <div class="trust-indicators">
+                            <span>Vertraulich</span>
+                            <span style="color: var(--color-primary);">|</span>
+                            <span>Kostenlos</span>
+                            <span style="color: var(--color-primary);">|</span>
+                            <span>In Ihrem Tempo</span>
+                        </div>
+                        
+                        <div class="hero-actions" style="display: flex; justify-content: center; gap: var(--space-4); flex-wrap: wrap;">
+                            <a href="#kontakt" class="btn-modern">
+                                Erstgespräch vereinbaren
+                            </a>
+                            <a href="#angebote" class="btn-modern btn-modern-secondary">
+                                Unsere Angebote
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Info Cards -->
+        <section style="margin-top: -100px; position: relative; z-index: 30;">
+            <div class="container">
+                <div class="bauhaus-grid" style="gap: var(--space-8);">
+                    <div class="span-4">
+                        <div class="glass-card" style="text-align: center;">
+                            <h2 style="color: var(--color-primary); margin-bottom: var(--space-3);">Für Betroffene</h2>
+                            <p>Unterstützung für Menschen jeden Alters und Geschlechts</p>
+                        </div>
+                    </div>
+                    <div class="span-4">
+                        <div class="glass-card" style="text-align: center;">
+                            <h2 style="color: var(--color-secondary); margin-bottom: var(--space-3);">Für Angehörige</h2>
+                            <p>Begleitung für Bezugspersonen und Unterstützende</p>
+                        </div>
+                    </div>
+                    <div class="span-4">
+                        <div class="glass-card" style="text-align: center;">
+                            <h2 style="color: var(--color-accent); margin-bottom: var(--space-3);">Flexible Termine</h2>
+                            <p>Online, telefonisch oder vor Ort - Sie entscheiden</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="angebote" style="padding: var(--space-20) 0;">
+            <div class="container">
+                <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: var(--space-10); color: var(--color-primary);">
+                    Unsere Angebote
+                </h2>
+                
+                <div class="bauhaus-grid" style="gap: var(--space-8);">
+                    <div class="span-6">
+                        <div class="glass-card">
+                            <h3 style="color: var(--color-primary); margin-bottom: var(--space-4);">Beratung für Betroffene</h3>
+                            <p style="margin-bottom: var(--space-4);">
+                                Vertrauliche und kostenlose Unterstützung für alle Menschen, die sexuelle Gewalt erfahren haben.
+                            </p>
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="padding: var(--space-2) 0;">✓ Einzelberatung</li>
+                                <li style="padding: var(--space-2) 0;">✓ Krisenintervention</li>
+                                <li style="padding: var(--space-2) 0;">✓ Langzeitbegleitung</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="span-6">
+                        <div class="glass-card">
+                            <h3 style="color: var(--color-secondary); margin-bottom: var(--space-4);">Unterstützung für Angehörige</h3>
+                            <p style="margin-bottom: var(--space-4);">
+                                Beratung und Begleitung für Familie, Freunde und Bezugspersonen von Betroffenen.
+                            </p>
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="padding: var(--space-2) 0;">✓ Informationsgespräche</li>
+                                <li style="padding: var(--space-2) 0;">✓ Umgang mit Betroffenen</li>
+                                <li style="padding: var(--space-2) 0;">✓ Eigene Belastungen</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="span-6">
+                        <div class="glass-card">
+                            <h3 style="color: var(--color-accent); margin-bottom: var(--space-4);">Gruppenangebote</h3>
+                            <p style="margin-bottom: var(--space-4);">
+                                Angeleitete Gruppen zum Austausch und zur gegenseitigen Unterstützung.
+                            </p>
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="padding: var(--space-2) 0;">✓ Stabilisierungsgruppen</li>
+                                <li style="padding: var(--space-2) 0;">✓ Selbsthilfegruppen</li>
+                                <li style="padding: var(--space-2) 0;">✓ Themenworkshops</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="span-6">
+                        <div class="glass-card">
+                            <h3 style="color: var(--color-primary); margin-bottom: var(--space-4);">Prävention & Fortbildung</h3>
+                            <p style="margin-bottom: var(--space-4);">
+                                Schulungen und Workshops für Fachkräfte und Interessierte.
+                            </p>
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="padding: var(--space-2) 0;">✓ Fortbildungen für Fachkräfte</li>
+                                <li style="padding: var(--space-2) 0;">✓ Präventionsworkshops</li>
+                                <li style="padding: var(--space-2) 0;">✓ Informationsveranstaltungen</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="kontakt" style="padding: var(--space-20) 0; background: var(--color-gray-50);">
+            <div class="container">
+                <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: var(--space-10); color: var(--color-primary);">
+                    Kontakt aufnehmen
+                </h2>
+                
+                <div class="bauhaus-grid" style="gap: var(--space-8);">
+                    <div class="span-12">
+                        <div class="glass-card" style="max-width: 600px; margin: 0 auto; text-align: center;">
+                            <h3 style="color: var(--color-primary); margin-bottom: var(--space-4);">Wir sind für Sie da</h3>
+                            <p style="font-size: 1.1rem; margin-bottom: var(--space-6);">
+                                Rufen Sie uns an oder schreiben Sie uns. Wir vereinbaren gerne einen Termin mit Ihnen.
+                            </p>
+                            
+                            <div style="margin-bottom: var(--space-6);">
+                                <p style="font-size: 1.5rem; font-weight: 700; color: var(--color-primary); margin-bottom: var(--space-2);">
+                                    <a href="tel:0241542220" style="color: var(--color-primary); text-decoration: none;">
+                                        0241 - 542220
+                                    </a>
+                                </p>
+                                <p style="color: var(--color-gray-600);">
+                                    Montag bis Freitag: 9:00 - 17:00 Uhr
+                                </p>
+                            </div>
+                            
+                            <div style="margin-bottom: var(--space-6);">
+                                <p style="font-weight: 600; margin-bottom: var(--space-2);">
+                                    <a href="mailto:info@rueckhalt-beratung.de" style="color: var(--color-primary);">
+                                        info@rueckhalt-beratung.de
+                                    </a>
+                                </p>
+                            </div>
+                            
+                            <div>
+                                <p style="font-weight: 600; margin-bottom: var(--space-2);">Adresse:</p>
+                                <p>
+                                    Jakobstraße 40-42<br>
+                                    52064 Aachen
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer style="background: var(--color-gray-900); color: white; padding: var(--space-10) 0;">
+        <div class="container">
+            <div class="bauhaus-grid">
+                <div class="span-4">
+                    <h3 style="margin-bottom: var(--space-4);">Rückhalt e.V.</h3>
+                    <p style="opacity: 0.8;">
+                        Beratungsstelle gegen sexuelle Gewalt<br>
+                        Für Aachen und die StädteRegion
+                    </p>
+                </div>
+                <div class="span-4">
+                    <h3 style="margin-bottom: var(--space-4);">Schnelle Hilfe</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: var(--space-2);">
+                            <a href="tel:110" style="color: white; opacity: 0.8;">Notruf: 110</a>
+                        </li>
+                        <li style="margin-bottom: var(--space-2);">
+                            <a href="tel:08000116016" style="color: white; opacity: 0.8;">Hilfetelefon: 08000 116 016</a>
+                        </li>
+                        <li style="margin-bottom: var(--space-2);">
+                            <a href="tel:0241542220" style="color: white; opacity: 0.8;">Rückhalt: 0241 - 542220</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="span-4">
+                    <h3 style="margin-bottom: var(--space-4);">Sprachen</h3>
+                    <ul style="list-style: none; padding: 0; columns: 2;">
+                        <li style="margin-bottom: var(--space-1);"><a href="/de/" style="color: white; opacity: 0.8;">Deutsch</a></li>
+                        <li style="margin-bottom: var(--space-1);"><a href="/en/" style="color: white; opacity: 0.8;">English</a></li>
+                        <li style="margin-bottom: var(--space-1);"><a href="/pl/" style="color: white; opacity: 0.8;">Polski</a></li>
+                        <li style="margin-bottom: var(--space-1);"><a href="/uk/" style="color: white; opacity: 0.8;">Українська</a></li>
+                        <li style="margin-bottom: var(--space-1);"><a href="/ru/" style="color: white; opacity: 0.8;">Русский</a></li>
+                        <li style="margin-bottom: var(--space-1);"><a href="/ro/" style="color: white; opacity: 0.8;">Română</a></li>
+                        <li style="margin-bottom: var(--space-1);"><a href="/ar/" style="color: white; opacity: 0.8;">العربية</a></li>
+                        <li style="margin-bottom: var(--space-1);"><a href="/sy/" style="color: white; opacity: 0.8;">ܣܘܪܝܝܐ</a></li>
+                        <li style="margin-bottom: var(--space-1);"><a href="/fr/" style="color: white; opacity: 0.8;">Français</a></li>
+                        <li style="margin-bottom: var(--space-1);"><a href="/nl/" style="color: white; opacity: 0.8;">Nederlands</a></li>
+                        <li style="margin-bottom: var(--space-1);"><a href="/tr/" style="color: white; opacity: 0.8;">Türkçe</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="margin-top: var(--space-8); padding-top: var(--space-8); border-top: 1px solid rgba(255,255,255,0.1); text-align: center; opacity: 0.6;">
+                <p>&copy; 2024 Rückhalt e.V. | <a href="/impressum" style="color: white;">Impressum</a> | <a href="/datenschutz" style="color: white;">Datenschutz</a></p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Quick Exit Script -->
+    <script>
+        // Quick Exit functionality
+        let escapeCount = 0;
+        let escapeTimer;
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                escapeCount++;
+                clearTimeout(escapeTimer);
+                
+                if (escapeCount >= 3) {
+                    window.location.replace('https://www.google.com');
+                }
+                
+                escapeTimer = setTimeout(() => {
+                    escapeCount = 0;
+                }, 1000);
+            }
+        });
+        
+        document.getElementById('quick-exit').addEventListener('click', function() {
+            window.location.replace('https://www.google.com');
+        });
+        
+        // Language switcher
+        const langCurrent = document.querySelector('.lang-current');
+        const langOptions = document.querySelector('.lang-options');
+        
+        langCurrent.addEventListener('click', function(e) {
+            e.stopPropagation();
+            langOptions.classList.toggle('active');
+            langCurrent.setAttribute('aria-expanded', langOptions.classList.contains('active'));
+        });
+        
+        document.addEventListener('click', function() {
+            langOptions.classList.remove('active');
+            langCurrent.setAttribute('aria-expanded', 'false');
+        });
+        
+        langOptions.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+    </script>
+</body>
+</html>

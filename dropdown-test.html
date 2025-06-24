@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown Test</title>
+    <style>
+        body {
+            padding: 50px;
+            font-family: Arial, sans-serif;
+        }
+        
+        .language-switcher {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .lang-current {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background: white;
+            cursor: pointer;
+            user-select: none;
+        }
+        
+        .lang-current:hover {
+            background: #f5f5f5;
+        }
+        
+        .lang-options {
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            min-width: 150px;
+            max-height: 320px;
+            overflow-y: auto;
+            display: none;
+        }
+        
+        .lang-options.show {
+            display: block !important;
+        }
+        
+        .lang-options button {
+            width: 100%;
+            padding: 8px 16px;
+            text-align: left;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .lang-options button:hover {
+            background: #f5f5f5;
+        }
+        
+        .lang-options button.active {
+            background: #e0e0e0;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dropdown Funktionstest - ULTRATHINK</h1>
+    
+    <div class="language-switcher">
+        <button class="lang-current" aria-expanded="false">
+            DE <svg width="12" height="8" viewBox="0 0 12 8"><path d="M1 1l5 5 5-5" stroke="currentColor" fill="none"/></svg>
+        </button>
+        <ul class="lang-options">
+            <li><button data-lang="de" class="active">Deutsch</button></li>
+            <li><button data-lang="en">English</button></li>
+            <li><button data-lang="pl">Polski</button></li>
+            <li><button data-lang="uk">Українська</button></li>
+            <li><button data-lang="ru">Русский</button></li>
+            <li><button data-lang="ro">Română</button></li>
+            <li><button data-lang="ar">العربية</button></li>
+            <li><button data-lang="sy">ܣܘܪܝܝܐ</button></li>
+            <li><button data-lang="fr">Français</button></li>
+            <li><button data-lang="nl">Nederlands</button></li>
+            <li><button data-lang="tr">Türkçe</button></li>
+        </ul>
+    </div>
+    
+    <div style="margin-top: 50px;">
+        <h2>Status:</h2>
+        <div id="status">Klicke auf das Dropdown...</div>
+    </div>
+    
+    <script>
+        const langCurrent = document.querySelector('.lang-current');
+        const langOptions = document.querySelector('.lang-options');
+        const status = document.getElementById('status');
+        
+        // Test der grundlegenden Funktionalität
+        langCurrent.addEventListener('click', function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            
+            const isOpen = langOptions.classList.contains('show');
+            
+            if (!isOpen) {
+                langOptions.classList.add('show');
+                status.textContent = '✅ Dropdown ist OFFEN!';
+                status.style.color = 'green';
+            } else {
+                langOptions.classList.remove('show');
+                status.textContent = '❌ Dropdown ist GESCHLOSSEN!';
+                status.style.color = 'red';
+            }
+            
+            langCurrent.setAttribute('aria-expanded', !isOpen);
+        });
+        
+        // Sprache wählen
+        langOptions.addEventListener('click', function(e) {
+            if (e.target.tagName === 'BUTTON') {
+                e.preventDefault();
+                const selectedLang = e.target.getAttribute('data-lang');
+                
+                status.textContent = `✅ Sprache gewählt: ${selectedLang}`;
+                status.style.color = 'blue';
+                
+                // Update active state
+                langOptions.querySelectorAll('button').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                e.target.classList.add('active');
+                
+                // Update current language display
+                const langCodes = {
+                    'de': 'DE', 'en': 'EN', 'pl': 'PL', 'uk': 'UK',
+                    'ru': 'RU', 'ro': 'RO', 'ar': 'AR', 'sy': 'SY',
+                    'fr': 'FR', 'nl': 'NL', 'tr': 'TR'
+                };
+                langCurrent.innerHTML = `${langCodes[selectedLang]} <svg width="12" height="8" viewBox="0 0 12 8"><path d="M1 1l5 5 5-5" stroke="currentColor" fill="none"/></svg>`;
+                
+                // Close dropdown
+                langOptions.classList.remove('show');
+                langCurrent.setAttribute('aria-expanded', 'false');
+            }
+        });
+        
+        // Close on outside click
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.language-switcher')) {
+                langOptions.classList.remove('show');
+                langCurrent.setAttribute('aria-expanded', 'false');
+            }
+        });
+        
+        console.log('✅ Dropdown Test initialisiert!');
+    </script>
+</body>
+</html>

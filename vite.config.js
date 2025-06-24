@@ -8,6 +8,7 @@ export default defineConfig({
       targets: ['defaults', 'not IE 11']
     })
   ],
+  base: './',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
@@ -20,15 +21,22 @@ export default defineConfig({
       }
     },
     rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        app: resolve(__dirname, 'src/js/app.js')
+      },
       output: {
-        manualChunks: {
-          vendor: ['./src/js/vendor.js']
-        }
+        entryFileNames: 'assets/[name]-[hash].js',
+        chunkFileNames: 'assets/[name]-[hash].js',
+        assetFileNames: 'assets/[name]-[hash].[ext]'
       }
     }
   },
   server: {
     port: 3000,
-    open: true
+    open: true,
+    fs: {
+      strict: false
+    }
   }
 });

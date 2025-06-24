@@ -1,0 +1,287 @@
+---
+// ULTRATHINK: Language switcher for 11 languages with accessibility
+import type { SupportedLanguage } from '@/env.d.ts';
+
+const currentLang = Astro.currentLocale || 'de';
+const currentPath = Astro.url.pathname;
+
+// Language configuration
+const languages: Array<{ 
+  code: SupportedLanguage; 
+  name: string; 
+  nativeName: string;
+  dir: 'ltr' | 'rtl';
+}> = [
+  { code: 'de', name: 'German', nativeName: 'Deutsch', dir: 'ltr' },
+  { code: 'en', name: 'English', nativeName: 'English', dir: 'ltr' },
+  { code: 'pl', name: 'Polish', nativeName: 'Polski', dir: 'ltr' },
+  { code: 'uk', name: 'Ukrainian', nativeName: 'Українська', dir: 'ltr' },
+  { code: 'ru', name: 'Russian', nativeName: 'Русский', dir: 'ltr' },
+  { code: 'ro', name: 'Romanian', nativeName: 'Română', dir: 'ltr' },
+  { code: 'ar', name: 'Arabic', nativeName: 'العربية', dir: 'rtl' },
+  { code: 'sy', name: 'Syriac', nativeName: 'ܣܘܪܝܝܐ', dir: 'rtl' },
+  { code: 'fr', name: 'French', nativeName: 'Français', dir: 'ltr' },
+  { code: 'nl', name: 'Dutch', nativeName: 'Nederlands', dir: 'ltr' },
+  { code: 'tr', name: 'Turkish', nativeName: 'Türkçe', dir: 'ltr' }
+];
+
+// Get current language display
+const currentLanguage = languages.find(l => l.code === currentLang) || languages[0];
+
+// Generate language URLs
+function getLanguageUrl(langCode: string): string {
+  // Remove current language from path
+  const pathSegments = currentPath.split('/').filter(seg => seg);
+  if (pathSegments[0] && languages.some(l => l.code === pathSegments[0])) {
+    pathSegments.shift();
+  }
+  
+  // Construct new path
+  return `/${langCode}${pathSegments.length > 0 ? '/' + pathSegments.join('/') : ''}`;
+}
+---
+
+<div class="language-switcher" data-language-switcher>
+  <button
+    class="lang-current"
+    aria-expanded="false"
+    aria-controls="language-menu"
+    aria-label={`Current language: ${currentLanguage.nativeName}`}
+    type="button"
+  >
+    <span class="lang-code">{currentLang.toUpperCase()}</span>
+    <svg 
+      class="lang-arrow" 
+      width="12" 
+      height="8" 
+      viewBox="0 0 12 8" 
+      fill="none"
+      aria-hidden="true"
+    >
+      <path 
+        d="M1 1l5 5 5-5" 
+        stroke="currentColor" 
+        stroke-width="2" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"
+      />
+    </svg>
+  </button>
+  
+  <ul 
+    id="language-menu"
+    class="lang-options" 
+    hidden
+    role="menu"
+    aria-labelledby="language-switcher"
+  >
+    {languages.map(({ code, name, nativeName, dir }) => (
+      <li role="none">
+        <a
+          href={getLanguageUrl(code)}
+          class={`lang-option ${code === currentLang ? 'active' : ''}`}
+          lang={code}
+          dir={dir}
+          role="menuitem"
+          aria-current={code === currentLang ? 'true' : undefined}
+          hreflang={code}
+        >
+          <span class="lang-native">{nativeName}</span>
+          <span class="lang-name">{name}</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+</div>
+
+<style>
+  .language-switcher {
+    position: relative;
+  }
+  
+  .lang-current {
+    background: transparent;
+    border: 1px solid var(--color-gray-300);
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: var(--color-gray-700);
+    transition: all 0.3s ease;
+  }
+  
+  .lang-current:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+  
+  .lang-current:focus {
+    outline: 2px solid var(--color-secondary);
+    outline-offset: 2px;
+  }
+  
+  .lang-arrow {
+    transition: transform 0.3s ease;
+  }
+  
+  .lang-current[aria-expanded="true"] .lang-arrow {
+    transform: rotate(180deg);
+  }
+  
+  .lang-options {
+    position: absolute;
+    top: calc(100% + var(--space-2));
+    right: 0;
+    background: white;
+    border: 1px solid var(--color-gray-200);
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: var(--space-2);
+    margin: 0;
+    min-width: 200px;
+    max-height: 400px;
+    overflow-y: auto;
+    z-index: var(--z-dropdown);
+  }
+  
+  .lang-options[hidden] {
+    display: none;
+  }
+  
+  .lang-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-2) var(--space-3);
+    text-decoration: none;
+    color: var(--color-gray-700);
+    border-radius: var(--radius-sm);
+    transition: all 0.2s ease;
+    font-size: 0.875rem;
+  }
+  
+  .lang-option:hover {
+    background: var(--color-gray-100);
+    color: var(--color-gray-900);
+  }
+  
+  .lang-option:focus {
+    outline: 2px solid var(--color-secondary);
+    outline-offset: -2px;
+  }
+  
+  .lang-option.active {
+    background: var(--color-primary);
+    color: white;
+    font-weight: 600;
+  }
+  
+  .lang-native {
+    font-weight: 500;
+  }
+  
+  .lang-name {
+    font-size: 0.75rem;
+    opacity: 0.7;
+  }
+  
+  .lang-option.active .lang-name {
+    opacity: 0.9;
+  }
+  
+  /* RTL language support */
+  .lang-option[dir="rtl"] {
+    text-align: right;
+    direction: rtl;
+  }
+  
+  /* Mobile adjustments */
+  @media (max-width: 640px) {
+    .lang-options {
+      left: auto;
+      right: 0;
+      min-width: 150px;
+    }
+    
+    .lang-name {
+      display: none;
+    }
+  }
+  
+  /* High contrast mode */
+  @media (prefers-contrast: high) {
+    .lang-current {
+      border-width: 2px;
+    }
+    
+    .lang-option.active {
+      background: var(--color-black);
+      color: white;
+    }
+  }
+</style>
+
+<script>
+  // ULTRATHINK: Progressive enhancement for language switcher
+  document.addEventListener('DOMContentLoaded', () => {
+    const switchers = document.querySelectorAll('[data-language-switcher]');
+    
+    switchers.forEach(switcher => {
+      const button = switcher.querySelector('.lang-current');
+      const menu = switcher.querySelector('.lang-options');
+      
+      if (!button || !menu) return;
+      
+      // Toggle menu
+      button.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = button.getAttribute('aria-expanded') === 'true';
+        button.setAttribute('aria-expanded', !isOpen ? 'true' : 'false');
+        menu.hidden = isOpen;
+      });
+      
+      // Close on outside click
+      document.addEventListener('click', () => {
+        button.setAttribute('aria-expanded', 'false');
+        menu.hidden = true;
+      });
+      
+      // Prevent menu click from closing
+      menu.addEventListener('click', (e) => {
+        e.stopPropagation();
+      });
+      
+      // Keyboard navigation
+      menu.addEventListener('keydown', (e) => {
+        const items = menu.querySelectorAll('.lang-option');
+        const currentIndex = Array.from(items).indexOf(document.activeElement as HTMLElement);
+        
+        switch (e.key) {
+          case 'ArrowDown':
+            e.preventDefault();
+            const nextIndex = (currentIndex + 1) % items.length;
+            (items[nextIndex] as HTMLElement).focus();
+            break;
+            
+          case 'ArrowUp':
+            e.preventDefault();
+            const prevIndex = currentIndex <= 0 ? items.length - 1 : currentIndex - 1;
+            (items[prevIndex] as HTMLElement).focus();
+            break;
+            
+          case 'Escape':
+            button.setAttribute('aria-expanded', 'false');
+            menu.hidden = true;
+            button.focus();
+            break;
+        }
+      });
+    });
+  });
+</script>

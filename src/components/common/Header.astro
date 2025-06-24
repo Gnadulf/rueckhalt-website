@@ -1,0 +1,394 @@
+---
+// ULTRATHINK: Main navigation header with language switcher
+import LanguageSwitcher from '@/components/features/LanguageSwitcher.astro';
+import type { SupportedLanguage } from '@/env.d.ts';
+
+const lang = Astro.currentLocale || 'de';
+
+// Navigation translations
+const navTranslations: Record<SupportedLanguage, {
+  home: string;
+  services: string;
+  about: string;
+  knowledge: string;
+  contact: string;
+  easyLanguage: string;
+}> = {
+  de: {
+    home: 'Startseite',
+    services: 'Angebote',
+    about: 'Über uns',
+    knowledge: 'Wissen & Ressourcen',
+    contact: 'Kontakt',
+    easyLanguage: 'Leichte Sprache'
+  },
+  en: {
+    home: 'Home',
+    services: 'Services',
+    about: 'About Us',
+    knowledge: 'Knowledge & Resources',
+    contact: 'Contact',
+    easyLanguage: 'Easy Language'
+  },
+  pl: {
+    home: 'Strona główna',
+    services: 'Usługi',
+    about: 'O nas',
+    knowledge: 'Wiedza i zasoby',
+    contact: 'Kontakt',
+    easyLanguage: 'Łatwy język'
+  },
+  uk: {
+    home: 'Головна',
+    services: 'Послуги',
+    about: 'Про нас',
+    knowledge: 'Знання та ресурси',
+    contact: 'Контакти',
+    easyLanguage: 'Проста мова'
+  },
+  ru: {
+    home: 'Главная',
+    services: 'Услуги',
+    about: 'О нас',
+    knowledge: 'Знания и ресурсы',
+    contact: 'Контакт',
+    easyLanguage: 'Простой язык'
+  },
+  ro: {
+    home: 'Acasă',
+    services: 'Servicii',
+    about: 'Despre noi',
+    knowledge: 'Cunoștințe și resurse',
+    contact: 'Contact',
+    easyLanguage: 'Limbaj simplu'
+  },
+  ar: {
+    home: 'الصفحة الرئيسية',
+    services: 'الخدمات',
+    about: 'من نحن',
+    knowledge: 'المعرفة والموارد',
+    contact: 'اتصل بنا',
+    easyLanguage: 'لغة سهلة'
+  },
+  sy: {
+    home: 'ܦܐܬܐ ܪܝܫܝܬܐ',
+    services: 'ܬܫܡܫܬܐ',
+    about: 'ܥܠܝܢ',
+    knowledge: 'ܝܕܥܬܐ ܘܡܘܪ̈ܕܐ',
+    contact: 'ܐܬܩܫܪ ܥܡܢ',
+    easyLanguage: 'ܠܫܢܐ ܦܫܝܛܐ'
+  },
+  fr: {
+    home: 'Accueil',
+    services: 'Services',
+    about: 'À propos',
+    knowledge: 'Connaissances et ressources',
+    contact: 'Contact',
+    easyLanguage: 'Langage simple'
+  },
+  nl: {
+    home: 'Home',
+    services: 'Diensten',
+    about: 'Over ons',
+    knowledge: 'Kennis en bronnen',
+    contact: 'Contact',
+    easyLanguage: 'Makkelijke taal'
+  },
+  tr: {
+    home: 'Ana Sayfa',
+    services: 'Hizmetler',
+    about: 'Hakkımızda',
+    knowledge: 'Bilgi ve Kaynaklar',
+    contact: 'İletişim',
+    easyLanguage: 'Kolay dil'
+  }
+};
+
+const nav = navTranslations[lang as SupportedLanguage] || navTranslations.de;
+const currentPath = Astro.url.pathname;
+---
+
+<header class="header" role="banner">
+  <div class="header-container">
+    <div class="header-content">
+      <!-- Logo -->
+      <a href={`/${lang}/`} class="logo" aria-label="Rückhalt">
+        <img 
+          src="/src/assets/images/logo-new-high-res.png" 
+          alt="Rückhalt Logo" 
+          width="60" 
+          height="90"
+          loading="eager"
+        >
+      </a>
+      
+      <!-- Main Navigation -->
+      <nav class="main-nav" role="navigation" aria-label="Hauptnavigation">
+        <ul class="nav-list">
+          <li>
+            <a 
+              href={`/${lang}/`} 
+              class={`nav-link ${currentPath === `/${lang}/` ? 'active' : ''}`}
+              aria-current={currentPath === `/${lang}/` ? 'page' : undefined}
+            >
+              {nav.home}
+            </a>
+          </li>
+          <li>
+            <a 
+              href={`/${lang}/angebote`} 
+              class="nav-link"
+              aria-current={currentPath.includes('/angebote') ? 'page' : undefined}
+            >
+              {nav.services}
+            </a>
+          </li>
+          <li>
+            <a 
+              href={`/${lang}/ueber-uns`} 
+              class="nav-link"
+              aria-current={currentPath.includes('/ueber-uns') ? 'page' : undefined}
+            >
+              {nav.about}
+            </a>
+          </li>
+          <li>
+            <a 
+              href={`/${lang}/wissen`} 
+              class="nav-link"
+              aria-current={currentPath.includes('/wissen') ? 'page' : undefined}
+            >
+              {nav.knowledge}
+            </a>
+          </li>
+          <li>
+            <a 
+              href={`/${lang}/kontakt`} 
+              class="nav-link"
+              aria-current={currentPath.includes('/kontakt') ? 'page' : undefined}
+            >
+              {nav.contact}
+            </a>
+          </li>
+          <li class="nav-special">
+            <a 
+              href={`/${lang}/leichte-sprache`} 
+              class="nav-link nav-link-special"
+              aria-current={currentPath.includes('/leichte-sprache') ? 'page' : undefined}
+            >
+              {nav.easyLanguage}
+            </a>
+          </li>
+        </ul>
+      </nav>
+      
+      <!-- Mobile Menu Toggle -->
+      <button 
+        class="mobile-menu-toggle"
+        aria-label="Menü öffnen"
+        aria-expanded="false"
+        aria-controls="main-nav"
+      >
+        <span class="hamburger"></span>
+        <span class="hamburger"></span>
+        <span class="hamburger"></span>
+      </button>
+      
+      <!-- Language Switcher -->
+      <LanguageSwitcher />
+    </div>
+  </div>
+</header>
+
+<style>
+  .header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: var(--z-header);
+    transition: transform 0.3s ease;
+  }
+  
+  .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+  }
+  
+  .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    gap: var(--space-6);
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+  
+  .logo img {
+    height: 60px;
+    width: auto;
+  }
+  
+  .main-nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .nav-list {
+    display: flex;
+    list-style: none;
+    gap: var(--space-6);
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-link {
+    color: var(--color-gray-700);
+    text-decoration: none;
+    font-weight: 500;
+    padding: var(--space-2) 0;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-primary);
+    transition: width 0.3s ease;
+  }
+  
+  .nav-link:hover,
+  .nav-link.active {
+    color: var(--color-primary);
+  }
+  
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    width: 100%;
+  }
+  
+  .nav-special {
+    margin-left: auto;
+  }
+  
+  .nav-link-special {
+    background: var(--color-secondary-dark);
+    color: white !important;
+    padding: var(--space-2) var(--space-4) !important;
+    border-radius: var(--radius-md);
+    font-weight: 700;
+  }
+  
+  .nav-link-special:hover {
+    background: #0F403D;
+    transform: translateY(-2px);
+  }
+  
+  .nav-link-special::after {
+    display: none !important;
+  }
+  
+  .mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-2);
+  }
+  
+  .hamburger {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--color-gray-700);
+    transition: all 0.3s ease;
+  }
+  
+  /* Mobile Navigation */
+  @media (max-width: 1024px) {
+    .main-nav {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: white;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transform: translateY(-100%);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .main-nav.active {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .nav-list {
+      flex-direction: column;
+      gap: 0;
+      padding: var(--space-4) 0;
+    }
+    
+    .nav-list li {
+      width: 100%;
+    }
+    
+    .nav-link {
+      display: block;
+      padding: var(--space-3) var(--space-4);
+      width: 100%;
+    }
+    
+    .nav-special {
+      margin-left: 0;
+      margin-top: var(--space-2);
+    }
+    
+    .mobile-menu-toggle {
+      display: flex;
+    }
+    
+    .mobile-menu-toggle[aria-expanded="true"] .hamburger:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .mobile-menu-toggle[aria-expanded="true"] .hamburger:nth-child(2) {
+      opacity: 0;
+    }
+    
+    .mobile-menu-toggle[aria-expanded="true"] .hamburger:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+  }
+  
+  /* Print styles */
+  @media print {
+    .header {
+      position: static;
+      box-shadow: none;
+    }
+    
+    .mobile-menu-toggle {
+      display: none;
+    }
+  }
+</style>
