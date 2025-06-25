@@ -8,6 +8,9 @@ const translations = {
     'nav.services': 'Angebote',
     'nav.about': 'Über uns',
     'nav.contact': 'Kontakt',
+    'nav.rueckhalt-m': 'Rückhalt-M',
+    'nav.knowledge': 'Wissen & Ressourcen',
+    'nav.easy-language': 'Leichte Sprache',
     
     // Emergency
     'emergency.police': 'Notruf: 110',
@@ -82,6 +85,9 @@ const translations = {
     'nav.services': 'Services',
     'nav.about': 'About Us',
     'nav.contact': 'Contact',
+    'nav.rueckhalt-m': 'Rückhalt-M',
+    'nav.knowledge': 'Knowledge & Resources',
+    'nav.easy-language': 'Easy Language',
     
     // Emergency
     'emergency.police': 'Emergency: 110',
@@ -129,6 +135,9 @@ const translations = {
     'nav.services': 'الخدمات',
     'nav.about': 'معلومات عنا',
     'nav.contact': 'اتصل بنا',
+    'nav.rueckhalt-m': 'Rückhalt-M',
+    'nav.knowledge': 'المعرفة والموارد',
+    'nav.easy-language': 'لغة سهلة',
     
     'hero.title': 'نحن هنا من أجلك',
     'hero.subtitle': 'كل اعتداء جنسي هو انتهاك خطير للشخصية ويمكن أن يؤدي إلى أزمة عاطفية. لست وحدك.',
@@ -146,6 +155,9 @@ const translations = {
     'nav.services': 'Hizmetler',
     'nav.about': 'Hakkımızda',
     'nav.contact': 'İletişim',
+    'nav.rueckhalt-m': 'Rückhalt-M',
+    'nav.knowledge': 'Bilgi ve Kaynaklar',
+    'nav.easy-language': 'Kolay Dil',
     
     'hero.title': 'Sizin için buradayız',
     'hero.subtitle': 'Her cinsel saldırı ciddi bir kişilik ihlalidir ve duygusal bir krize yol açabilir. Yalnız değilsiniz.',
@@ -165,16 +177,35 @@ export function t(key, lang = 'de') {
 // Language detection
 export function detectLanguage() {
   const saved = localStorage.getItem('language');
-  if (saved && translations[saved]) return saved;
+  
+  // ULTRATHINK: Validate saved language and clean up invalid entries
+  if (saved) {
+    if (translations[saved]) {
+      return saved;
+    } else {
+      // Remove invalid language from localStorage
+      localStorage.removeItem('language');
+    }
+  }
   
   const browserLang = navigator.language.split('-')[0];
   if (translations[browserLang]) return browserLang;
   
-  return 'de';
+  return 'de'; // Always fallback to German
+}
+
+// Get available languages
+export function getAvailableLanguages() {
+  return Object.keys(translations);
 }
 
 // Apply translations to DOM
 export function applyTranslations(lang) {
+  // ULTRATHINK: Validate language before applying
+  if (!translations[lang]) {
+    console.warn(`Language '${lang}' not available, falling back to German`);
+    lang = 'de';
+  }
   document.querySelectorAll('[data-i18n]').forEach(element => {
     const key = element.getAttribute('data-i18n');
     element.textContent = t(key, lang);
@@ -194,4 +225,4 @@ export function applyTranslations(lang) {
   localStorage.setItem('language', lang);
 }
 
-export default { t, detectLanguage, applyTranslations };
+export default { t, detectLanguage, applyTranslations, getAvailableLanguages };
