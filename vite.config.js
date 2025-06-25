@@ -21,9 +21,7 @@ export default defineConfig({
     },
     rollupOptions: {
       output: {
-        manualChunks: {
-          vendor: ['./src/js/vendor.js']
-        }
+        manualChunks: undefined
       }
     }
   },
