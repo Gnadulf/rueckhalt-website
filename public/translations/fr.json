@@ -1,0 +1,44 @@
+{
+  "siteName": "Rückhalt e.V.",
+  "tagline": "Centre de Conseil contre les Violences Sexuelles",
+  "emergency": {
+    "title": "Urgence ?",
+    "number": "0241-542220",
+    "text": "Ligne de crise 24h/24"
+  },
+  "navigation": {
+    "home": "Accueil",
+    "about": "À propos",
+    "services": "Services",
+    "prevention": "Prévention",
+    "team": "Équipe",
+    "resources": "Ressources",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Nous sommes là pour vous",
+    "subtitle": "Aide en cas de violence sexuelle. Vous n'êtes pas seul·e.",
+    "cta": "Prendre un premier rendez-vous"
+  },
+  "services": {
+    "counseling": {
+      "title": "Pour les personnes concernées",
+      "description": "Soutien pour les personnes de tout âge et de tout genre"
+    },
+    "support": {
+      "title": "Pour les proches",
+      "description": "Accompagnement pour la famille et les aidants"
+    },
+    "prevention": {
+      "title": "Prévention",
+      "description": "Formations et ateliers de prévention"
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "address": "Jakobstraße 20, 52064 Aachen",
+    "phone": "Tél : 0241-542220",
+    "email": "info@rueckhalt-beratung.de",
+    "hours": "Lun-Ven : 9h00 - 17h00"
+  }
+}

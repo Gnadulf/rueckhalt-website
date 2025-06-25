@@ -1,0 +1,44 @@
+{
+  "siteName": "Rückhalt e.V.",
+  "tagline": "Cinsel Şiddete Karşı Danışmanlık Merkezi",
+  "emergency": {
+    "title": "Acil durum?",
+    "number": "0241-542220",
+    "text": "7/24 Kriz Hattı"
+  },
+  "navigation": {
+    "home": "Ana Sayfa",
+    "about": "Hakkımızda",
+    "services": "Hizmetler",
+    "prevention": "Önleme",
+    "team": "Ekip",
+    "resources": "Kaynaklar",
+    "contact": "İletişim"
+  },
+  "hero": {
+    "title": "Sizin için buradayız",
+    "subtitle": "Cinsel şiddet durumunda yardım. Yalnız değilsiniz.",
+    "cta": "İlk görüşme randevusu alın"
+  },
+  "services": {
+    "counseling": {
+      "title": "Mağdurlar için",
+      "description": "Her yaş ve cinsiyetten insanlar için destek"
+    },
+    "support": {
+      "title": "Yakınlar için",
+      "description": "Aile üyeleri ve destekleyenler için rehberlik"
+    },
+    "prevention": {
+      "title": "Önleme",
+      "description": "Önleyici eğitimler ve atölye çalışmaları"
+    }
+  },
+  "contact": {
+    "title": "İletişim",
+    "address": "Jakobstraße 20, 52064 Aachen",
+    "phone": "Tel: 0241-542220",
+    "email": "info@rueckhalt-beratung.de",
+    "hours": "Pzt-Cum: 9:00 - 17:00"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "siteName": "Rückhalt e.V.",
+  "tagline": "Counseling Center Against Sexual Violence",
+  "emergency": {
+    "title": "Emergency?",
+    "number": "0241-542220",
+    "text": "24/7 Crisis Hotline"
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Services",
+    "prevention": "Prevention",
+    "team": "Team",
+    "resources": "Resources",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "We are here for you",
+    "subtitle": "Support for sexual violence. You are not alone.",
+    "cta": "Schedule initial consultation"
+  },
+  "services": {
+    "counseling": {
+      "title": "For Survivors",
+      "description": "Support for people of all ages and genders"
+    },
+    "support": {
+      "title": "For Loved Ones",
+      "description": "Guidance for family members and supporters"
+    },
+    "prevention": {
+      "title": "Prevention",
+      "description": "Training and workshops for prevention"
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "address": "Jakobstraße 20, 52064 Aachen",
+    "phone": "Tel: 0241-542220",
+    "email": "info@rueckhalt-beratung.de",
+    "hours": "Mon-Fri: 9:00 AM - 5:00 PM"
+  }
+}

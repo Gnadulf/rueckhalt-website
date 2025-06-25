@@ -1,0 +1,44 @@
+{
+  "siteName": "Rückhalt e.V.",
+  "tagline": "مركز استشاري ضد العنف الجنسي",
+  "emergency": {
+    "title": "حالة طارئة؟",
+    "number": "0241-542220",
+    "text": "خط الأزمات على مدار الساعة"
+  },
+  "navigation": {
+    "home": "الصفحة الرئيسية",
+    "about": "من نحن",
+    "services": "خدماتنا",
+    "prevention": "الوقاية",
+    "team": "الفريق",
+    "resources": "الموارد",
+    "contact": "اتصل بنا"
+  },
+  "hero": {
+    "title": "نحن هنا من أجلك",
+    "subtitle": "المساعدة في حالات العنف الجنسي. لست وحدك.",
+    "cta": "احجز استشارة أولية"
+  },
+  "services": {
+    "counseling": {
+      "title": "للمتضررين",
+      "description": "الدعم للأشخاص من جميع الأعمار والأجناس"
+    },
+    "support": {
+      "title": "للأقارب",
+      "description": "الإرشاد لأفراد الأسرة والداعمين"
+    },
+    "prevention": {
+      "title": "الوقاية",
+      "description": "التدريب وورش العمل للوقاية"
+    }
+  },
+  "contact": {
+    "title": "اتصل بنا",
+    "address": "Jakobstraße 20, 52064 Aachen",
+    "phone": "هاتف: 0241-542220",
+    "email": "info@rueckhalt-beratung.de",
+    "hours": "الإثنين-الجمعة: 9:00 - 17:00"
+  }
+}

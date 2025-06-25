@@ -1,0 +1,44 @@
+{
+  "siteName": "Rückhalt e.V.",
+  "tagline": "Adviescentrum tegen Seksueel Geweld",
+  "emergency": {
+    "title": "Noodgeval?",
+    "number": "0241-542220",
+    "text": "24/7 Crisislijn"
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "Over ons",
+    "services": "Diensten",
+    "prevention": "Preventie",
+    "team": "Team",
+    "resources": "Materialen",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Wij zijn er voor u",
+    "subtitle": "Hulp bij seksueel geweld. U staat er niet alleen voor.",
+    "cta": "Eerste gesprek inplannen"
+  },
+  "services": {
+    "counseling": {
+      "title": "Voor slachtoffers",
+      "description": "Ondersteuning voor mensen van alle leeftijden en geslachten"
+    },
+    "support": {
+      "title": "Voor naasten",
+      "description": "Begeleiding voor familieleden en ondersteunende personen"
+    },
+    "prevention": {
+      "title": "Preventie",
+      "description": "Trainingen en workshops ter preventie"
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "address": "Jakobstraße 20, 52064 Aachen",
+    "phone": "Tel: 0241-542220",
+    "email": "info@rueckhalt-beratung.de",
+    "hours": "Ma-Vr: 9:00 - 17:00 uur"
+  }
+}

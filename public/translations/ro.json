@@ -1,0 +1,44 @@
+{
+  "siteName": "Rückhalt e.V.",
+  "tagline": "Centru de Consiliere împotriva Violenței Sexuale",
+  "emergency": {
+    "title": "Urgență?",
+    "number": "0241-542220",
+    "text": "Linie de criză 24/7"
+  },
+  "navigation": {
+    "home": "Acasă",
+    "about": "Despre noi",
+    "services": "Servicii",
+    "prevention": "Prevenție",
+    "team": "Echipa",
+    "resources": "Resurse",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Suntem aici pentru tine",
+    "subtitle": "Ajutor în caz de violență sexuală. Nu ești singur/singură.",
+    "cta": "Programează o primă consultație"
+  },
+  "services": {
+    "counseling": {
+      "title": "Pentru persoane afectate",
+      "description": "Sprijin pentru persoane de toate vârstele și genurile"
+    },
+    "support": {
+      "title": "Pentru apropiați",
+      "description": "Îndrumare pentru membri ai familiei și susținători"
+    },
+    "prevention": {
+      "title": "Prevenție",
+      "description": "Instruiri și ateliere pentru prevenire"
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "address": "Jakobstraße 20, 52064 Aachen",
+    "phone": "Tel: 0241-542220",
+    "email": "info@rueckhalt-beratung.de",
+    "hours": "Luni-Vineri: 9:00 - 17:00"
+  }
+}

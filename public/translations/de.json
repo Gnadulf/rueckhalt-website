@@ -1,0 +1,44 @@
+{
+  "siteName": "Rückhalt e.V.",
+  "tagline": "Beratungsstelle gegen sexuelle Gewalt",
+  "emergency": {
+    "title": "Notfall?",
+    "number": "0241-542220",
+    "text": "24/7 Krisenhotline"
+  },
+  "navigation": {
+    "home": "Startseite",
+    "about": "Über uns",
+    "services": "Angebote",
+    "prevention": "Prävention",
+    "team": "Team",
+    "resources": "Materialien",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "title": "Wir sind für Sie da",
+    "subtitle": "Hilfe bei sexueller Gewalt. Sie sind nicht allein.",
+    "cta": "Erstgespräch vereinbaren"
+  },
+  "services": {
+    "counseling": {
+      "title": "Für Betroffene",
+      "description": "Unterstützung für Menschen jeden Alters und Geschlechts"
+    },
+    "support": {
+      "title": "Für Angehörige",
+      "description": "Begleitung für Bezugspersonen und Unterstützende"
+    },
+    "prevention": {
+      "title": "Prävention",
+      "description": "Schulungen und Workshops zur Vorbeugung"
+    }
+  },
+  "contact": {
+    "title": "Kontakt",
+    "address": "Jakobstraße 20, 52064 Aachen",
+    "phone": "Tel: 0241-542220",
+    "email": "info@rueckhalt-beratung.de",
+    "hours": "Mo-Fr: 9:00 - 17:00 Uhr"
+  }
+}

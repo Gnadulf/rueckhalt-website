@@ -1,0 +1,44 @@
+{
+  "siteName": "Rückhalt e.V.",
+  "tagline": "Centrum Pomocy Osobom Dotkniętym Przemocą Seksualną",
+  "emergency": {
+    "title": "Potrzebujesz pomocy?",
+    "number": "0241-542220",
+    "text": "Całodobowy telefon zaufania"
+  },
+  "navigation": {
+    "home": "Strona główna",
+    "about": "O nas",
+    "services": "Nasze usługi",
+    "prevention": "Profilaktyka",
+    "team": "Zespół",
+    "resources": "Materiały",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "title": "Jesteśmy tu dla Ciebie",
+    "subtitle": "Pomoc przy przemocy seksualnej. Nie jesteś sam/sama.",
+    "cta": "Umów pierwsze spotkanie"
+  },
+  "services": {
+    "counseling": {
+      "title": "Dla osób dotkniętych",
+      "description": "Wsparcie dla osób w każdym wieku i każdej płci"
+    },
+    "support": {
+      "title": "Dla bliskich",
+      "description": "Pomoc dla rodziny i osób wspierających"
+    },
+    "prevention": {
+      "title": "Profilaktyka",
+      "description": "Szkolenia i warsztaty zapobiegające przemocy"
+    }
+  },
+  "contact": {
+    "title": "Kontakt",
+    "address": "Jakobstraße 20, 52064 Aachen",
+    "phone": "Tel: 0241-542220",
+    "email": "info@rueckhalt-beratung.de",
+    "hours": "Pon-Pt: 9:00 - 17:00"
+  }
+}
