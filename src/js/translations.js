@@ -16,6 +16,7 @@ const translations = {
     'emergency.police': 'Notruf: 110',
     'emergency.helpline': 'Hilfetelefon',
     'emergency.counseling': 'Beratung',
+    'emergency.rueckhalt': 'Rückhalt: 0241-542220',
     
     // Hero
     'hero.title': 'Wir sind für Sie da',
@@ -93,6 +94,7 @@ const translations = {
     'emergency.police': 'Emergency: 110',
     'emergency.helpline': 'Helpline',
     'emergency.counseling': 'Counseling',
+    'emergency.rueckhalt': 'Rückhalt: 0241-542220',
     
     // Hero
     'hero.title': 'We are here for you',
@@ -145,6 +147,7 @@ const translations = {
     'hero.cta.secondary': 'كيف نساعد',
     
     'emergency.police': 'الطوارئ: 110',
+    'emergency.rueckhalt': 'Rückhalt: 0241-542220',
     'quickexit.button': 'خروج سريع'
   },
   
@@ -165,6 +168,7 @@ const translations = {
     'hero.cta.secondary': 'Nasıl yardım ediyoruz',
     
     'emergency.police': 'Acil: 110',
+    'emergency.rueckhalt': 'Rückhalt: 0241-542220',
     'quickexit.button': 'Hızlı Çıkış'
   }
 };

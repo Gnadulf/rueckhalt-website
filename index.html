@@ -7,14 +7,19 @@
     <meta name="keywords" content="Beratungsstelle sexuelle Gewalt Aachen, Rückhalt, Opferberatung StädteRegion Aachen, psychosoziale Prozessbegleitung, Rückhalt-M Männer*beratung">
     
     <title>Rückhalt - Beratungsstelle gegen sexuelle Gewalt | Aachen</title>
-    <link rel="icon" type="image/png" href="/src/assets/images/rueckhalt-favicon.png">
+    <!-- Favicons für alle Plattformen -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/src/assets/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/src/assets/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/src/assets/images/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/x-icon" href="/src/assets/images/favicon/favicon.ico">
+    <link rel="manifest" href="/src/assets/images/favicon/site.webmanifest">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
     
-    <!-- Styles -->
+    <!-- CSS Dateien -->
     <link rel="stylesheet" href="/src/css/reset.css">
     <link rel="stylesheet" href="/src/css/variables.css">
     <link rel="stylesheet" href="/src/css/main.css">
@@ -23,6 +28,10 @@
     <link rel="stylesheet" href="/src/css/modern.css">
     <link rel="stylesheet" href="/src/css/responsive.css">
     <link rel="stylesheet" href="/src/css/pentagram.css">
+    <link rel="stylesheet" href="/src/css/utilities.css">
+    
+    <!-- JavaScript Module -->
+    <script type="module" src="/src/js/main.js"></script>
     
     <!-- Translation System -->
     
@@ -280,6 +289,70 @@
                 font-size: 0.85rem !important;
             }
         }
+        
+        /* Logo Animation */
+        @keyframes logoFadeToBackground {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+                z-index: 100;
+            }
+            40% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+            70% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0.15;
+                transform: scale(1);
+                z-index: 0;
+            }
+        }
+        
+        .logo {
+            position: relative;
+            animation: logoFadeToBackground 3s ease-in-out forwards;
+            animation-delay: 0.5s;
+        }
+        
+        .logo img {
+            transition: opacity 0.3s ease;
+        }
+        
+        /* Hover-Effekt nach Animation */
+        .logo:hover img {
+            opacity: 0.8 !important;
+        }
+        
+        /* Dark Mode Anpassung */
+        body.dark-mode .logo {
+            animation: logoFadeToBackgroundDark 3s ease-in-out forwards;
+            animation-delay: 0.5s;
+        }
+        
+        @keyframes logoFadeToBackgroundDark {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+                z-index: 100;
+            }
+            40% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+            70% {
+                opacity: 0.2;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0.1;
+                transform: scale(1);
+                z-index: 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -374,14 +447,14 @@
             <div class="float-element float-1"></div>
             <div class="float-element float-2"></div>
             
-            <!-- Subtle Logo Display -->
-            <div class="logo-hero" style="position: absolute; top: 20%; right: 10%; z-index: 10; opacity: 0.15;">
-                <img src="/src/assets/images/rueckhalt-logo.png" alt="Rückhalt Logo" style="width: 200px; height: auto; mix-blend-mode: multiply; filter: contrast(1.2);">
+            <!-- Subtle Logo Display with Fade -->
+            <div class="logo-hero" id="hero-logo" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 5; transition: opacity 0.3s ease;">
+                <img src="/src/assets/images/rueckhalt-logo.png" alt="Rückhalt Logo" style="width: 300px; height: auto; mix-blend-mode: multiply; filter: contrast(1.1);">
             </div>
             
             <div class="container" style="position: relative; z-index: 20;">
                 <div class="bauhaus-grid" style="align-items: center; min-height: 80vh; padding-top: 120px;">
-                    <div class="span-12" style="text-align: center;">
+                    <div class="span-12 text-center">
                         <h1 class="hero-title-pentagram" data-i18n="hero.title" style="text-transform: none; font-size: clamp(2.5rem, 7vw, 5rem); font-weight: 800;">Wir sind für Sie da</h1>
                         <p class="hero-subtitle" style="font-size: 1.4rem; line-height: 1.8; max-width: 800px; margin: 0 auto var(--space-8);" data-i18n="hero.subtitle">
                             Jede*r sexuelle*r Übergriff stellt eine schwere Persönlichkeitsverletzung dar 
@@ -396,7 +469,7 @@
                             <span style="color: var(--color-gray-600);">In Ihrem Tempo</span>
                         </div>
                         
-                        <div class="hero-actions" style="justify-content: center; gap: var(--space-4);">
+                        <div class="hero-actions">
                             <a href="#kontakt" class="btn-modern">
                                 <span data-i18n="hero.cta.primary">Erstgespräch vereinbaren</span>
                             </a>
@@ -414,27 +487,27 @@
             <div class="container">
                 <div class="bauhaus-grid" style="gap: var(--space-8);">
                     <div class="span-4">
-                        <div class="glass-card" style="padding: var(--space-8); text-align: center;">
-                            <h3 style="font-size: 1.25rem; margin-bottom: var(--space-4); color: var(--color-primary);">Für Betroffene</h3>
+                        <div class="glass-card text-center" style="padding: var(--space-8);">
+                            <h3 class="mb-4 text-primary" style="font-size: 1.25rem;">Für Betroffene</h3>
                             <p>Unterstützung für Menschen jeden Alters und Geschlechts</p>
                         </div>
                     </div>
                     <div class="span-4">
-                        <div class="glass-card" style="padding: var(--space-8); text-align: center;">
-                            <h3 style="font-size: 1.25rem; margin-bottom: var(--space-4); color: var(--color-secondary);">Für Angehörige</h3>
+                        <div class="glass-card text-center" style="padding: var(--space-8);">
+                            <h3 class="mb-4 text-secondary" style="font-size: 1.25rem;">Für Angehörige</h3>
                             <p>Begleitung für Bezugspersonen und Unterstützende</p>
                         </div>
                     </div>
                     <div class="span-4">
-                        <div class="glass-card" style="padding: var(--space-8); text-align: center;">
-                            <h3 style="font-size: 1.25rem; margin-bottom: var(--space-4); color: var(--color-accent);">Flexible Termine</h3>
+                        <div class="glass-card text-center" style="padding: var(--space-8);">
+                            <h3 class="mb-4 text-accent" style="font-size: 1.25rem;">Flexible Termine</h3>
                             <p>Online, telefonisch oder vor Ort - Sie entscheiden</p>
                         </div>
                     </div>
                     
                     <div class="span-6">
-                        <div class="glass-card" style="padding: var(--space-10);">
-                            <div style="display: flex; align-items: center; gap: var(--space-4); margin-bottom: var(--space-6);">
+                        <div class="glass-card text-center" style="padding: var(--space-10);">
+                            <div style="display: flex; align-items: center; gap: var(--space-4); margin-bottom: var(--space-6); justify-content: center;">
                                 <img src="/src/assets/images/rueckhalt-logo.png" alt="Rückhalt Logo" style="width: 80px; height: 80px; object-fit: contain;">
                                 <h2 style="font-size: 1.5rem; color: var(--color-primary); margin: 0;">
                                     Beratungsstelle gegen sexuelle Gewalt
@@ -604,7 +677,7 @@
                             <div class="bauhaus-grid" style="gap: var(--space-8);">
                                 <div class="span-6">
                                     <h4 style="color: var(--color-secondary); margin-bottom: var(--space-3);">Was ist ein Trauma?</h4>
-                                    <p style="line-height: 1.8; margin-bottom: var(--space-4);">
+                                    <p class="leading-8 mb-4">
                                         Ein Trauma ist eine normale Reaktion auf eine unnormale Situation. Es entsteht, wenn 
                                         unser Nervensystem durch ein überwältigendes Ereignis überfordert wird und die 
                                         natürlichen Bewältigungsmechanismen nicht ausreichen.
@@ -616,16 +689,16 @@
                                 </div>
                                 <div class="span-6">
                                     <h4 style="color: var(--color-secondary); margin-bottom: var(--space-3);">Häufige Reaktionen</h4>
-                                    <ul style="list-style: none; line-height: 1.8;">
-                                        <li style="display: flex; align-items: flex-start; gap: var(--space-2); margin-bottom: var(--space-2);">
+                                    <ul class="list-none leading-8">
+                                        <li class="mb-2" style="display: flex; align-items: flex-start; gap: var(--space-2);">
                                             <span style="color: var(--color-primary); margin-top: 5px;">•</span>
                                             <span><strong>Körperlich:</strong> Schlafstörungen, Erschöpfung, Schmerzen, Unruhe</span>
                                         </li>
-                                        <li style="display: flex; align-items: flex-start; gap: var(--space-2); margin-bottom: var(--space-2);">
+                                        <li class="mb-2" style="display: flex; align-items: flex-start; gap: var(--space-2);">
                                             <span style="color: var(--color-primary); margin-top: 5px;">•</span>
                                             <span><strong>Emotional:</strong> Angst, Wut, Traurigkeit, Taubheit, Scham</span>
                                         </li>
-                                        <li style="display: flex; align-items: flex-start; gap: var(--space-2); margin-bottom: var(--space-2);">
+                                        <li class="mb-2" style="display: flex; align-items: flex-start; gap: var(--space-2);">
                                             <span style="color: var(--color-primary); margin-top: 5px;">•</span>
                                             <span><strong>Kognitiv:</strong> Konzentrationsprobleme, Vergesslichkeit, Grübeln</span>
                                         </li>
@@ -650,8 +723,8 @@
                                 </svg>
                             </div>
                             <h3 class="bauhaus-heading-3">Erdungs-Übungen</h3>
-                            <p style="margin-bottom: var(--space-4);">Techniken, die Ihnen helfen, im Hier und Jetzt zu bleiben:</p>
-                            <ul style="list-style: none; font-size: 0.95rem;">
+                            <p class="mb-4">Techniken, die Ihnen helfen, im Hier und Jetzt zu bleiben:</p>
+                            <ul class="list-none" style="font-size: 0.95rem;">
                                 <li>• 5-4-3-2-1 Methode</li>
                                 <li>• Atemübungen</li>
                                 <li>• Progressive Muskelentspannung</li>
@@ -668,8 +741,8 @@
                                 </svg>
                             </div>
                             <h3 class="bauhaus-heading-3">Selbstfürsorge</h3>
-                            <p style="margin-bottom: var(--space-4);">Stärken Sie Ihre Ressourcen:</p>
-                            <ul style="list-style: none; font-size: 0.95rem;">
+                            <p class="mb-4">Stärken Sie Ihre Ressourcen:</p>
+                            <ul class="list-none" style="font-size: 0.95rem;">
                                 <li>• Regelmäßige Routinen</li>
                                 <li>• Gesunde Ernährung</li>
                                 <li>• Bewegung & Sport</li>
@@ -686,8 +759,8 @@
                                 </svg>
                             </div>
                             <h3 class="bauhaus-heading-3">Soziale Unterstützung</h3>
-                            <p style="margin-bottom: var(--space-4);">Verbindung ist heilsam:</p>
-                            <ul style="list-style: none; font-size: 0.95rem;">
+                            <p class="mb-4">Verbindung ist heilsam:</p>
+                            <ul class="list-none" style="font-size: 0.95rem;">
                                 <li>• Vertrauenspersonen einbeziehen</li>
                                 <li>• Selbsthilfegruppen</li>
                                 <li>• Professionelle Begleitung</li>
@@ -704,23 +777,23 @@
                             <h3 class="bauhaus-heading-2" style="color: var(--color-secondary); margin-bottom: var(--space-4);">
                                 Wissenschaftliche Grundlagen
                             </h3>
-                            <p style="line-height: 1.8; margin-bottom: var(--space-4);">
+                            <p class="leading-8 mb-4">
                                 Moderne Traumaforschung zeigt: <strong>Heilung ist möglich.</strong> Unser Gehirn verfügt über 
                                 Neuroplastizität - die Fähigkeit, neue Verbindungen zu bilden und alte Muster zu verändern.
                             </p>
                             <div style="display: grid; gap: var(--space-4); margin-top: var(--space-6);">
                                 <div style="padding: var(--space-4); background: white; border-radius: var(--radius-md);">
-                                    <h4 style="color: var(--color-primary); margin-bottom: var(--space-2);">Traumasensitive Ansätze</h4>
+                                    <h4 class="text-primary mb-2">Traumasensitive Ansätze</h4>
                                     <p>Wir arbeiten mit evidenzbasierten Methoden wie EMDR, traumafokussierter kognitiver 
                                     Verhaltenstherapie und körperorientierten Verfahren.</p>
                                 </div>
                                 <div style="padding: var(--space-4); background: white; border-radius: var(--radius-md);">
-                                    <h4 style="color: var(--color-primary); margin-bottom: var(--space-2);">Polyvagal-Theorie</h4>
+                                    <h4 class="text-primary mb-2">Polyvagal-Theorie</h4>
                                     <p>Verstehen, wie unser Nervensystem auf Bedrohungen reagiert und wie wir es regulieren 
                                     können, ist ein wichtiger Baustein der Heilung.</p>
                                 </div>
                                 <div style="padding: var(--space-4); background: white; border-radius: var(--radius-md);">
-                                    <h4 style="color: var(--color-primary); margin-bottom: var(--space-2);">Window of Tolerance</h4>
+                                    <h4 class="text-primary mb-2">Window of Tolerance</h4>
                                     <p>Lernen Sie Ihr persönliches "Toleranzfenster" kennen und erweitern Sie es schrittweise 
                                     für mehr emotionale Stabilität.</p>
                                 </div>
@@ -729,7 +802,7 @@
                     </div>
                     
                     <div class="span-4">
-                        <div class="glass-card" style="padding: var(--space-8); text-align: center;">
+                        <div class="glass-card text-center" style="padding: var(--space-8);">
                             <h3 style="color: var(--color-primary); margin-bottom: var(--space-4);">Notfall-Toolkit</h3>
                             <p style="margin-bottom: var(--space-6);">Für akute Belastungssituationen</p>
                             <a href="#" class="btn-modern" style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%); margin-bottom: var(--space-3);">
@@ -741,24 +814,24 @@
                         </div>
                         
                         <div class="glass-card" style="padding: var(--space-8); margin-top: var(--space-6);">
-                            <h3 style="color: var(--color-secondary); margin-bottom: var(--space-4); text-align: center;">Ressourcen-Bibliothek</h3>
+                            <h3 class="text-center" style="color: var(--color-secondary); margin-bottom: var(--space-4);">Ressourcen-Bibliothek</h3>
                             <div style="text-align: left;">
                                 <h4 style="color: var(--color-primary); margin-bottom: var(--space-2); font-size: 0.95rem;">Empfohlene Bücher:</h4>
-                                <ul style="list-style: none; margin-bottom: var(--space-4); font-size: 0.9rem;">
+                                <ul class="list-none mb-4" style="font-size: 0.9rem;">
                                     <li style="margin-bottom: var(--space-1);">• "Der Körper vergisst nicht" - B. van der Kolk</li>
                                     <li style="margin-bottom: var(--space-1);">• "Trauma verstehen und heilen" - J. Herman</li>
                                     <li>• "Wieder ganz werden" - L. Reddemann</li>
                                 </ul>
                                 
                                 <h4 style="color: var(--color-primary); margin-bottom: var(--space-2); font-size: 0.95rem;">Hilfreiche Apps:</h4>
-                                <ul style="list-style: none; margin-bottom: var(--space-4); font-size: 0.9rem;">
+                                <ul class="list-none mb-4" style="font-size: 0.9rem;">
                                     <li style="margin-bottom: var(--space-1);">• PTSD Coach - Trauma-Unterstützung</li>
                                     <li style="margin-bottom: var(--space-1);">• Calm - Meditation & Entspannung</li>
                                     <li>• 7Mind - Achtsamkeitsübungen</li>
                                 </ul>
                                 
                                 <h4 style="color: var(--color-primary); margin-bottom: var(--space-2); font-size: 0.95rem;">Wichtige Links:</h4>
-                                <ul style="list-style: none; font-size: 0.9rem;">
+                                <ul class="list-none" style="font-size: 0.9rem;">
                                     <li style="margin-bottom: var(--space-1);">• <a href="https://www.hilfetelefon.de" target="_blank" rel="noopener" style="color: var(--color-secondary);">Hilfetelefon</a></li>
                                     <li style="margin-bottom: var(--space-1);">• <a href="https://www.frauenberatungsstellen-nrw.de" target="_blank" rel="noopener" style="color: var(--color-secondary);">Frauenberatung NRW</a></li>
                                     <li>• <a href="https://weisser-ring.de" target="_blank" rel="noopener" style="color: var(--color-secondary);">Weisser Ring e.V.</a></li>
@@ -813,7 +886,7 @@
                 
                 <!-- FAQ Categories -->
                 <div class="text-center" style="margin-bottom: var(--space-8);">
-                    <div style="display: inline-flex; gap: var(--space-2); flex-wrap: wrap; justify-content: center;">
+                    <div class="inline-flex-center" style="gap: var(--space-2); flex-wrap: wrap;">
                         <button class="faq-filter active" data-category="all" 
                                 style="padding: var(--space-2) var(--space-4); border: 2px solid var(--color-primary); 
                                        background: var(--color-primary); color: white; border-radius: var(--radius-full); 
@@ -1087,8 +1160,8 @@
                     </div>
                     <div class="span-6">
                         <div class="color-block" style="background: linear-gradient(135deg, rgba(125, 221, 215, 0.1) 0%, rgba(125, 221, 215, 0.05) 100%); min-height: 400px; display: flex; align-items: center; justify-content: center;">
-                            <div style="text-align: center;">
-                                <div style="font-size: 5rem; margin-bottom: var(--space-4);">🤝</div>
+                            <div class="text-center">
+                                <div style="font-size: 5rem; margin-bottom: var(--space-4);"></div>
                                 <p style="font-size: 1.2rem; color: var(--color-secondary);">
                                     Gemeinsam einen Weg finden
                                 </p>
@@ -1140,13 +1213,13 @@
                 </div>
 
                 <!-- Team -->
-                <div style="margin-top: var(--space-16); text-align: center;">
+                <div class="text-center" style="margin-top: var(--space-16);">
                     <h3 class="bauhaus-heading-2">Unser Team</h3>
                     <p style="margin: var(--space-4) 0;">
                         Ein interdisziplinäres Team mit langjähriger Erfahrung in der Beratung und Begleitung.
                     </p>
                     <div class="bg-soft" style="display: inline-block; margin-top: var(--space-6);">
-                        <p style="font-size: 3rem; margin-bottom: var(--space-2);">👥</p>
+                        <p style="font-size: 3rem; margin-bottom: var(--space-2);"></p>
                         <p>12 Fachkräfte für Sie da</p>
                     </div>
                 </div>
@@ -1156,9 +1229,9 @@
         <!-- Netzwerk -->
         <section style="background: white; padding: var(--space-16) 0;">
             <div class="container">
-                <h2 class="bauhaus-heading-1" style="text-align: center; margin-bottom: var(--space-8);">Vernetzung & Partner</h2>
-                <div class="text-grid">
-                    <div>
+                <h2 class="bauhaus-heading-1 text-center" style="margin-bottom: var(--space-8);">Vernetzung & Partner</h2>
+                <div class="flex-center" style="gap: var(--space-16);">
+                    <div class="text-center">
                         <h3 style="color: var(--color-primary);">Mitgliedschaften</h3>
                         <ul style="list-style: none; margin-top: var(--space-4);">
                             <li style="margin-bottom: var(--space-2);">• Bundesverband Frauen*beratungsstellen und Frauen*notrufe (bff)</li>
@@ -1166,7 +1239,7 @@
                             <li>• Runder Tisch gegen Gewalt</li>
                         </ul>
                     </div>
-                    <div>
+                    <div class="text-center">
                         <h3 style="color: var(--color-secondary);">Kooperationen</h3>
                         <ul style="list-style: none; margin-top: var(--space-4);">
                             <li style="margin-bottom: var(--space-2);">• Polizei Aachen</li>
@@ -1274,7 +1347,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <img src="/src/assets/images/rueckhalt-logo.png" alt="Rückhalt Logo" class="footer-logo" width="80" height="80" style="mix-blend-mode: multiply; filter: contrast(1.1);">
+                    <img src="/src/assets/images/rueckhalt-logo.png" alt="Rückhalt Logo" class="footer-logo" width="80" height="80" style="filter: brightness(0) invert(1);">
                     <p>Rückhalt<br>
                     Beratungsstelle gegen sexuelle Gewalt</p>
                 </div>
@@ -1308,7 +1381,7 @@
             </div>
 
             <div class="footer-bottom">
-                <p>© 2024 Rückhalt - Alle Rechte vorbehalten</p>
+                <p>© 2025 Rückhalt - Alle Rechte vorbehalten</p>
                 <p class="footer-safety">Diese Website speichert keine persönlichen Daten ohne Ihre Zustimmung</p>
             </div>
         </div>
@@ -1353,7 +1426,6 @@
             });
         })();
     </script>
-    <script type="module" src="/src/js/main.js"></script>
     
     <!-- Modal Container -->
     <div id="service-modal" class="modal-overlay" aria-hidden="true">

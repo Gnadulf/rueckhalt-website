@@ -63,6 +63,9 @@
   grid-template-columns: repeat(12, 1fr);
   gap: calc(var(--grid-unit) * 3);
   align-items: start;
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
 }
 
 .span-4 { grid-column: span 4; }

@@ -3,27 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Rückhalt in Leichter Sprache - Beratung bei sexueller Gewalt">
+    <meta name="description" content="Rückhalt in Leichter Sprache - Beratung bei sexueller Gewalt. Einfache Erklärungen zu unseren Hilfsangeboten in Aachen">
+    <meta name="keywords" content="Beratungsstelle sexuelle Gewalt Aachen, Rückhalt, Opferberatung StädteRegion Aachen, psychosoziale Prozessbegleitung, Rückhalt-M Männer*beratung">
     
-    <title>Rückhalt - Leichte Sprache</title>
+    <title>Rückhalt - Leichte Sprache | Beratungsstelle Aachen</title>
+    <!-- Favicons für alle Plattformen -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/src/assets/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/src/assets/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/src/assets/images/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/x-icon" href="/src/assets/images/favicon/favicon.ico">
+    <link rel="manifest" href="/src/assets/images/favicon/site.webmanifest">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
     
-    <!-- Styles -->
+    <!-- CSS Dateien -->
     <link rel="stylesheet" href="/src/css/reset.css">
     <link rel="stylesheet" href="/src/css/variables.css">
     <link rel="stylesheet" href="/src/css/main.css">
+    <link rel="stylesheet" href="/src/css/components.css">
+    <link rel="stylesheet" href="/src/css/bauhaus.css">
+    <link rel="stylesheet" href="/src/css/modern.css">
+    <link rel="stylesheet" href="/src/css/responsive.css">
+    <link rel="stylesheet" href="/src/css/pentagram.css">
+    <link rel="stylesheet" href="/src/css/utilities.css">
     <link rel="stylesheet" href="/src/css/leichte-sprache.css">
     
+    <!-- JavaScript Module -->
+    <script type="module" src="/src/js/main.js"></script>
+    
+    <!-- Translation System -->
+    
     <style>
-        /* Leichte Sprache spezifische Styles */
+        /* Überschreibungen für Rosa/Türkis Design */
         body {
+            background: linear-gradient(180deg, #FFF8F3 0%, #FFFCFA 100%);
+        }
+        
+        .hero-modern {
+            background: linear-gradient(135deg, rgba(232, 165, 165, 0.05) 0%, rgba(125, 221, 215, 0.05) 100%);
+        }
+        
+        .service-icon {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            color: white;
+        }
+        
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+        }
+        
+        /* Anpassung der Navigation */
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--color-primary);
+        }
+        
+        .nav-link::after {
+            background: var(--color-primary);
+        }
+        
+        /* Spezial-Link für Leichte Sprache */
+        .nav-link-special {
+            background: var(--color-secondary);
+            color: white !important;
+            padding: var(--space-2) var(--space-4) !important;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            margin-left: var(--space-4);
+        }
+        
+        .nav-link-special:hover {
+            background: var(--color-secondary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .nav-link-special::after {
+            display: none !important;
+        }
+        
+        /* Neue Akzentfarben */
+        .accent-primary {
+            color: var(--color-primary);
+        }
+        
+        .accent-secondary {
+            color: var(--color-secondary);
+        }
+        
+        .bg-soft {
+            background: rgba(232, 165, 165, 0.08);
+            border-radius: var(--radius-xl);
+            padding: var(--space-8);
+        }
+        
+        /* Leichte Sprache spezifische Styles */
+        .main-content {
             font-size: 1.25rem;
             line-height: 2;
-            background: white;
+            padding-top: var(--header-height);
         }
         
         .container-ls {
@@ -32,17 +113,19 @@
             padding: var(--space-4);
         }
         
-        h1, h2, h3 {
+        .leichte-sprache h1, 
+        .leichte-sprache h2, 
+        .leichte-sprache h3 {
             font-weight: 700;
             margin-bottom: var(--space-6);
             color: var(--color-primary);
         }
         
-        h1 { font-size: 2rem; }
-        h2 { font-size: 1.75rem; }
-        h3 { font-size: 1.5rem; }
+        .leichte-sprache h1 { font-size: 2rem; }
+        .leichte-sprache h2 { font-size: 1.75rem; }
+        .leichte-sprache h3 { font-size: 1.5rem; }
         
-        p {
+        .leichte-sprache p {
             margin-bottom: var(--space-6);
         }
         
@@ -94,13 +177,15 @@
             font-weight: 700;
         }
         
+        /* Navigation für Leichte Sprache innerhalb der Seite */
         .nav-ls {
             background: var(--color-background);
             padding: var(--space-4) 0;
             position: sticky;
-            top: 0;
-            z-index: 100;
+            top: var(--header-height);
+            z-index: 10;
             box-shadow: var(--shadow-md);
+            margin-bottom: var(--space-8);
         }
         
         .nav-ls ul {
@@ -138,28 +223,149 @@
             object-fit: cover;
             border-radius: var(--radius-md);
         }
+
+        /* Dark Mode Support */
+        body.dark-mode {
+            --color-background: #0f0f0f;
+            --color-warm: #1a1a1a;
+            --color-light: #1f1f1f;
+            --color-white: #1f1f1f;
+            --color-gray-900: #ffffff;
+            --color-gray-800: #f5f5f5;
+            --color-gray-700: #e8e8e8;
+            --color-gray-600: #d0d0d0;
+            --color-gray-500: #b0b0b0;
+            --color-gray-400: #808080;
+            --color-gray-300: #606060;
+            --color-gray-200: #404040;
+            --color-gray-100: #2a2a2a;
+            --color-gray-50: #1f1f1f;
+            --color-primary: #FFB8B8;
+            --color-primary-light: #FFD5D5;
+            --color-primary-dark: #FFA0A0;
+            --color-secondary: #A0F5EE;
+            --color-secondary-light: #C0FFFA;
+            --color-secondary-dark: #80E5DD;
+            --color-accent: #95D5C5;
+            background: #0f0f0f;
+            color: #ffffff;
+        }
+        
+        body.dark-mode .header {
+            background: rgba(25, 25, 25, 0.95);
+        }
+        
+        body.dark-mode .nav-ls {
+            background: rgba(25, 25, 25, 0.95);
+        }
+        
+        body.dark-mode .wichtig {
+            background: rgba(255, 184, 184, 0.1);
+        }
+        
+        body.dark-mode .telefon-box {
+            background: rgba(160, 245, 238, 0.1);
+        }
     </style>
 </head>
 <body>
-    <!-- Schnell weg Button -->
-    <button id="quick-exit" class="quick-exit" aria-label="Seite schnell verlassen">
-        <span style="font-size: 1.5rem; font-weight: 700;">Schnell weg!</span>
+    <!-- Quick Exit Button -->
+    <button id="quick-exit" class="quick-exit" aria-label="Seite schnell verlassen" title="Drücken Sie 3x schnell ESC">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9"/>
+        </svg>
+        <span class="quick-exit-text">Schnell verlassen</span>
     </button>
 
-    <!-- Navigation -->
-    <nav class="nav-ls">
-        <div class="container-ls">
-            <ul>
-                <li><a href="/">Normale Sprache</a></li>
-                <li><a href="#was-wir-machen">Was wir machen</a></li>
-                <li><a href="#hilfe">Hilfe bekommen</a></li>
-                <li><a href="#kontakt">Kontakt</a></li>
-            </ul>
-        </div>
-    </nav>
+    <!-- Skip to main content -->
+    <a href="#main" class="skip-link">Zum Hauptinhalt springen</a>
 
-    <!-- Hauptinhalt -->
-    <main>
+    <!-- Emergency Bar -->
+    <div class="emergency-bar" style="background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-secondary) 100%);">
+        <div class="container">
+            <span class="emergency-text">
+                <strong>Notruf: 110</strong> • 
+                <span>Hilfetelefon: <a href="tel:08000116016" style="color: white; text-decoration: underline;">08000 116 016</a></span> • 
+                <strong><a href="tel:0241542220" style="color: white; text-decoration: none; font-size: 1.1em;">Rückhalt: 0241 - 542220</a></strong>
+            </span>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo" aria-label="Rückhalt Startseite">
+                    <img src="/src/assets/images/rueckhalt-logo.png" alt="Rückhalt Logo" width="120" height="120" style="mix-blend-mode: multiply; filter: contrast(1.1);">
+                </a>
+                
+                <nav class="main-nav" role="navigation" aria-label="Hauptnavigation">
+                    <button class="mobile-menu-toggle" aria-label="Menü öffnen" aria-expanded="false">
+                        <span class="hamburger"></span>
+                    </button>
+                    
+                    <ul class="nav-list">
+                        <li><a href="/" class="nav-link">Startseite</a></li>
+                        <li><a href="/#angebote" class="nav-link">Angebote</a></li>
+                        <li><a href="/#rueckhalt-m" class="nav-link">Rückhalt-M</a></li>
+                        <li><a href="/#ueber-uns" class="nav-link">Über uns</a></li>
+                        <li><a href="/#wissen" class="nav-link">Wissen & Ressourcen</a></li>
+                        <li><a href="/#kontakt" class="nav-link">Kontakt</a></li>
+                        <li style="margin-left: auto;"><a href="/leichte-sprache.html" class="nav-link nav-link-special active">Leichte Sprache</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Language & Dark Mode -->
+                <div style="display: flex; gap: var(--space-3); align-items: center;">
+                    <div class="language-switcher">
+                        <button class="lang-current" aria-expanded="false">
+                            DE <svg width="12" height="8" viewBox="0 0 12 8"><path d="M1 1l5 5 5-5" stroke="currentColor" fill="none"/></svg>
+                        </button>
+                        <ul class="lang-options" hidden>
+                            <li><button data-lang="de" class="active">Deutsch</button></li>
+                            <li><button data-lang="en">English</button></li>
+                            <li><button data-lang="ar">العربية</button></li>
+                            <li><button data-lang="tr">Türkçe</button></li>
+                        </ul>
+                    </div>
+
+                    <!-- Dark Mode Toggle -->
+                    <button class="dark-mode-toggle" aria-label="Dark Mode umschalten" title="Dark Mode">
+                        <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main" class="main-content leichte-sprache">
+        <!-- Navigation innerhalb der Leichte Sprache Seite -->
+        <nav class="nav-ls">
+            <div class="container-ls">
+                <ul>
+                    <li><a href="/">← Normale Sprache</a></li>
+                    <li><a href="#was-wir-machen">Was wir machen</a></li>
+                    <li><a href="#hilfe">Hilfe bekommen</a></li>
+                    <li><a href="#kontakt">Kontakt</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Hauptinhalt -->
         <div class="container-ls">
             <!-- Logo -->
             <div style="text-align: center; margin: var(--space-8) 0;">
@@ -170,7 +376,7 @@
             
             <div class="wichtig">
                 <p><strong>Wichtig:</strong> Sie können jederzeit diese Seite schnell verlassen.<br>
-                Klicken Sie oben rechts auf "Schnell weg!"</p>
+                Klicken Sie oben rechts auf "Schnell verlassen"</p>
             </div>
 
             <p>Rückhalt ist eine Beratungs-Stelle.</p>
@@ -325,22 +531,92 @@
                     Rufen Sie die Polizei: <strong style="font-size: 1.5rem;">110</strong></p>
                 </div>
             </section>
-
-            <!-- Footer -->
-            <footer style="margin-top: var(--space-16); padding: var(--space-8) 0; border-top: 2px solid var(--color-gray-200);">
-                <p style="text-align: center; color: var(--color-gray-600);">
-                    <a href="/" style="color: var(--color-primary);">Zurück zur normalen Sprache</a>
-                </p>
-            </footer>
         </div>
     </main>
 
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo" style="background: var(--color-gray-900);">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <img src="/src/assets/images/rueckhalt-logo.png" alt="Rückhalt Logo" class="footer-logo" width="80" height="80" style="filter: brightness(0) invert(1);">
+                    <p>Rückhalt<br>
+                    Beratungsstelle gegen sexuelle Gewalt</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Schnelle Hilfe</h3>
+                    <ul>
+                        <li><a href="tel:110">Notruf: 110</a></li>
+                        <li><a href="tel:08000116016">Hilfetelefon: 08000 116 016</a></li>
+                        <li><a href="/#wissen">Selbsthilfe-Übungen</a></li>
+                        <li><a href="/#wissen">Sicherheitsplan erstellen</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Information</h3>
+                    <ul>
+                        <li><a href="/datenschutz">Datenschutz</a></li>
+                        <li><a href="/impressum">Impressum</a></li>
+                        <li><a href="/spenden">Spenden</a></li>
+                        <li><a href="/newsletter">Newsletter</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Vernetzung</h3>
+                    <p>Mitglied im Bundesverband<br>
+                    Frauen*beratungsstellen und<br>
+                    Frauen*notrufe (bff)</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2025 Rückhalt - Alle Rechte vorbehalten</p>
+                <p class="footer-safety">Diese Website speichert keine persönlichen Daten ohne Ihre Zustimmung</p>
+            </div>
+        </div>
+    </footer>
+
     <!-- Scripts -->
     <script>
-        // Quick Exit für Leichte Sprache
-        document.getElementById('quick-exit').addEventListener('click', function() {
-            window.location.replace('https://www.google.de/search?q=wetter');
-        });
+        // Dark Mode Toggle
+        (function() {
+            // Check for saved preference or default to light mode
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            if (currentTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+            }
+            
+            // Dark mode toggle functionality
+            document.addEventListener('DOMContentLoaded', function() {
+                const darkModeToggle = document.querySelector('.dark-mode-toggle');
+                const sunIcon = darkModeToggle.querySelector('.sun-icon');
+                const moonIcon = darkModeToggle.querySelector('.moon-icon');
+                
+                function updateIcons() {
+                    if (document.body.classList.contains('dark-mode')) {
+                        sunIcon.style.display = 'none';
+                        moonIcon.style.display = 'block';
+                    } else {
+                        sunIcon.style.display = 'block';
+                        moonIcon.style.display = 'none';
+                    }
+                }
+                
+                updateIcons();
+                
+                darkModeToggle.addEventListener('click', function() {
+                    document.body.classList.toggle('dark-mode');
+                    
+                    const theme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+                    localStorage.setItem('theme', theme);
+                    
+                    updateIcons();
+                });
+            });
+        })();
     </script>
 </body>
 </html>

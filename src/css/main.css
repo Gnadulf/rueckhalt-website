@@ -731,3 +731,45 @@ section {
   margin-top: var(--space-2);
   color: var(--color-gray-500);
 }
+
+/* Utility Classes - Fehlende Klassen für konsistente Zentrierung */
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+/* Flexbox Utilities */
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-center-x {
+  display: flex;
+  justify-content: center;
+}
+
+.flex-center-y {
+  display: flex;
+  align-items: center;
+}
+
+.inline-flex-center {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Container Zentrierung */
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}

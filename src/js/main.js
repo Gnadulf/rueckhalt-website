@@ -46,15 +46,20 @@ class QuickExit {
   }
   
   performExit() {
-    // Replace current page in history
-    window.location.replace(this.safeUrl);
-    
-    // Try to close tab (works in some browsers)
-    window.close();
-    
-    // Clear sensitive data from sessionStorage/localStorage
-    sessionStorage.clear();
-    localStorage.clear();
+    try {
+      // Replace current page in history
+      window.location.replace(this.safeUrl);
+      
+      // Try to close tab (works in some browsers)
+      window.close();
+      
+      // Clear sensitive data from sessionStorage/localStorage
+      sessionStorage.clear();
+      localStorage.clear();
+    } catch (error) {
+      // Failsafe: At least perform the redirect
+      window.location.href = this.safeUrl;
+    }
   }
 }
 
@@ -82,6 +87,12 @@ class MoodAdjustment {
   }
   
   setMood(mood) {
+    // Validate mood value
+    const validMoods = ['calm', 'neutral', 'energetic'];
+    if (!validMoods.includes(mood)) {
+      return;
+    }
+    
     // Remove active class from all buttons
     this.buttons.forEach(btn => btn.classList.remove('active'));
     
@@ -93,8 +104,13 @@ class MoodAdjustment {
     this.applyMood(mood);
     
     // Save preference
-    localStorage.setItem('userMood', mood);
-    this.currentMood = mood;
+    try {
+      localStorage.setItem('userMood', mood);
+      this.currentMood = mood;
+    } catch (error) {
+      // Handle localStorage errors (e.g., quota exceeded)
+      this.currentMood = mood;
+    }
   }
   
   applyMood(mood) {
@@ -123,7 +139,8 @@ class MobileNav {
     
     // Close on outside click
     document.addEventListener('click', (e) => {
-      if (this.isOpen && !this.nav.contains(e.target) && !this.toggle.contains(e.target)) {
+      if (this.isOpen && this.nav?.contains(e.target) === false && 
+          this.toggle?.contains(e.target) === false) {
         this.closeMenu();
       }
     });
@@ -202,7 +219,8 @@ class LanguageSwitcher {
     
     // Close on outside click
     document.addEventListener('click', (e) => {
-      if (!this.current?.contains(e.target) && !this.options?.contains(e.target)) {
+      if (this.current?.contains(e.target) === false && 
+          this.options?.contains(e.target) === false) {
         this.closeOptions();
       }
     });
@@ -230,8 +248,22 @@ class LanguageSwitcher {
     // Close dropdown
     this.closeOptions();
     
+    // Toggle Leichte Sprache button visibility
+    this.toggleLeichteSpracheButton(lang);
+    
     // Apply translations
     translations.applyTranslations(lang);
+  }
+  
+  toggleLeichteSpracheButton(lang) {
+    const leichteSpracheButton = document.querySelector('.nav-link-special[href="/leichte-sprache.html"]');
+    if (leichteSpracheButton) {
+      const listItem = leichteSpracheButton.closest('li');
+      if (listItem) {
+        // Show button only for German language
+        listItem.style.display = lang === 'de' ? '' : 'none';
+      }
+    }
   }
 }
 
@@ -407,20 +439,78 @@ class HeaderScroll {
 // Import translations
 import translations from './translations.js';
 
+// Logo Fade on Scroll
+class LogoFade {
+  constructor() {
+    this.logo = document.getElementById('hero-logo');
+    this.isScrolling = false;
+    this.init();
+  }
+  
+  init() {
+    if (!this.logo) {
+      return;
+    }
+    
+    // Initial opacity setzen (startet im Vordergrund)
+    this.logo.style.opacity = '1';
+    
+    // Scroll-Event mit RequestAnimationFrame für bessere Performance
+    window.addEventListener('scroll', () => {
+      if (!this.isScrolling) {
+        window.requestAnimationFrame(() => {
+          this.updateOpacity();
+          this.isScrolling = false;
+        });
+        this.isScrolling = true;
+      }
+    });
+    
+    // Initial update
+    this.updateOpacity();
+  }
+  
+  updateOpacity() {
+    const scrollY = window.pageYOffset;
+    const fadeStart = 0;      // Startet sofort beim Scrollen
+    const fadeEnd = 300;      // Komplett transparent bei 300px
+    const minOpacity = 0.15;  // Bleibt bei 15% sichtbar
+    
+    let opacity;
+    
+    if (scrollY <= fadeStart) {
+      opacity = 1;  // Voll sichtbar am Anfang
+    } else if (scrollY >= fadeEnd) {
+      opacity = minOpacity;  // Minimal sichtbar
+    } else {
+      // Lineare Interpolation zwischen 1 und minOpacity
+      const fadeRange = fadeEnd - fadeStart;
+      const scrollInRange = scrollY - fadeStart;
+      opacity = 1 - (scrollInRange / fadeRange) * (1 - minOpacity);
+    }
+    
+    this.logo.style.opacity = opacity.toString();
+  }
+}
+
 // Initialize all components
 document.addEventListener('DOMContentLoaded', () => {
   // Core features
   new QuickExit();
   new MoodAdjustment();
   new MobileNav();
-  new LanguageSwitcher();
+  const languageSwitcher = new LanguageSwitcher();
   new SmoothScroll();
   new ContactForm();
   new HeaderScroll();
+  new LogoFade();
   
   // Initialize translations
   const currentLang = translations.detectLanguage();
   translations.applyTranslations(currentLang);
+  
+  // Set initial visibility of Leichte Sprache button
+  languageSwitcher.toggleLeichteSpracheButton(currentLang);
   
   // Accessibility: Announce page changes for screen readers
   const announcer = document.createElement('div');

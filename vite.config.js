@@ -3,6 +3,7 @@ import legacy from '@vitejs/plugin-legacy';
 import { resolve } from 'path';
 
 export default defineConfig({
+  root: '.', // Explizit das aktuelle Verzeichnis als Root definieren
   plugins: [
     legacy({
       targets: ['defaults', 'not IE 11']
