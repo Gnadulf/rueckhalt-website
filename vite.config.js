@@ -21,6 +21,10 @@ export default defineConfig({
       }
     },
     rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        pitch: resolve(__dirname, 'pitch.html')
+      },
       output: {
         manualChunks: undefined
       }

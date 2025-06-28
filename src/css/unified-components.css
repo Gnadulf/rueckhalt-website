@@ -1,0 +1,383 @@
+/* ==========================================
+   UNIFIED COMPONENT SYSTEM
+   RückHalt e.V. - Konsolidierte Komponenten
+   ========================================== */
+
+/* ==========================================
+   BUTTON SYSTEM
+   ========================================== */
+
+/* Base Button Component */
+.btn {
+  /* Core Properties */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  
+  /* Sizing */
+  padding: var(--space-3) var(--space-6);
+  font-size: var(--size-body);
+  font-weight: var(--weight-medium);
+  line-height: 1;
+  
+  /* Styling */
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: var(--radius-full);
+  
+  /* Animation */
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Size Variants */
+.btn--small {
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--size-small);
+}
+
+.btn--large {
+  padding: var(--space-4) var(--space-8);
+  font-size: var(--size-body-large);
+}
+
+/* Style Variants */
+.btn--primary {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.btn--secondary {
+  background: var(--color-white);
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.btn--emergency {
+  background: var(--color-emergency);
+  color: var(--color-white);
+}
+
+/* Design System Variants */
+.btn--modern {
+  background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-secondary-dark) 100%);
+  box-shadow: 0 4px 15px rgba(125, 221, 215, 0.3);
+}
+
+.btn--bauhaus {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 0;
+  padding: calc(var(--grid-unit) * 2) calc(var(--grid-unit) * 6);
+}
+
+/* Universal Hover States */
+.btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.btn--primary:hover {
+  background: var(--color-primary-dark);
+  box-shadow: 0 4px 12px rgba(46, 82, 102, 0.2);
+}
+
+.btn--secondary:hover {
+  background: var(--color-primary);
+  color: var(--color-white);
+  border-color: var(--color-primary);
+}
+
+.btn--emergency:hover {
+  background: #b43a2a;
+  box-shadow: 0 4px 12px rgba(200, 75, 49, 0.3);
+}
+
+.btn--modern:hover {
+  background: linear-gradient(135deg, var(--color-secondary-dark) 0%, var(--color-secondary) 100%);
+  box-shadow: 0 8px 25px rgba(125, 221, 215, 0.4);
+  transform: translateY(-3px);
+}
+
+.btn--bauhaus:hover {
+  background: var(--color-secondary);
+  border-color: var(--color-secondary);
+}
+
+/* Focus States */
+.btn:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.btn--emergency:focus {
+  outline-color: var(--color-emergency);
+}
+
+/* Active States */
+.btn:active {
+  transform: translateY(0);
+}
+
+/* Disabled State */
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Ripple Animation */
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+  pointer-events: none;
+}
+
+.btn:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Special Button Styles */
+.btn--icon-only {
+  padding: var(--space-3);
+  gap: 0;
+}
+
+.btn--full-width {
+  width: 100%;
+  justify-content: center;
+}
+
+/* ==========================================
+   CARD SYSTEM
+   ========================================== */
+
+/* Base Card Component */
+.card {
+  /* Core Properties */
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+  
+  /* Spacing */
+  padding: var(--space-8);
+  
+  /* Animation */
+  transition: all var(--transition-base);
+}
+
+/* Card Sections */
+.card__header {
+  padding: var(--space-6);
+  border-bottom: 1px solid var(--color-gray-100);
+  margin: calc(var(--space-8) * -1) calc(var(--space-8) * -1) var(--space-6);
+}
+
+.card__body {
+  /* Inherits padding from parent */
+}
+
+.card__footer {
+  padding: var(--space-6);
+  background: var(--color-gray-50);
+  margin: var(--space-6) calc(var(--space-8) * -1) calc(var(--space-8) * -1);
+}
+
+/* Size Variants */
+.card--compact {
+  padding: var(--space-6);
+}
+
+.card--spacious {
+  padding: var(--space-10);
+}
+
+/* Style Variants */
+.card--bordered {
+  border: 2px solid var(--color-gray-200);
+  box-shadow: none;
+}
+
+.card--glass {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.card--shadow {
+  box-shadow: var(--shadow-md);
+}
+
+/* Interactive Variants */
+.card--hoverable {
+  cursor: pointer;
+}
+
+.card--hoverable:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.card--hoverable.card--bordered:hover {
+  border-color: var(--color-primary);
+}
+
+.card--hoverable.card--glass:hover {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Design System Variants */
+.card--bauhaus::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 8px;
+  background: var(--color-primary);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform var(--transition-base);
+}
+
+.card--bauhaus:hover::before {
+  transform: scaleY(1);
+}
+
+.card--pentagram {
+  border: 3px solid var(--color-gray-900);
+  transition: all var(--transition-slow);
+}
+
+.card--pentagram:hover {
+  transform: translateY(-5px);
+  box-shadow: 10px 10px 0 var(--color-secondary);
+}
+
+.card--pentagram::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--color-gray-900);
+  transform: translateY(100%);
+  transition: transform var(--transition-slow);
+  z-index: -1;
+}
+
+.card--pentagram:hover::before {
+  transform: translateY(0);
+}
+
+.card--pentagram:hover {
+  color: white;
+}
+
+/* Layout Variants */
+.card--centered {
+  text-align: center;
+}
+
+/* Special Purpose Cards */
+.card--service {
+  text-align: center;
+}
+
+.card--service .icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto var(--space-4);
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2rem;
+}
+
+.card--resource .icon {
+  font-size: 2.5rem;
+  color: var(--color-primary);
+  margin-bottom: var(--space-3);
+}
+
+/* Card Link Wrapper */
+a.card {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .card {
+    padding: var(--space-6);
+  }
+  
+  .card--compact {
+    padding: var(--space-4);
+  }
+  
+  .card--spacious {
+    padding: var(--space-8);
+  }
+  
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .btn--small,
+  .btn--large {
+    width: 100%;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .card {
+    background: var(--color-gray-800);
+    color: var(--color-gray-100);
+  }
+  
+  .card--bordered {
+    border-color: var(--color-gray-700);
+  }
+  
+  .card__header {
+    border-color: var(--color-gray-700);
+  }
+  
+  .card__footer {
+    background: var(--color-gray-900);
+  }
+  
+  .btn--secondary {
+    background: var(--color-gray-800);
+    border-color: var(--color-gray-600);
+    color: var(--color-gray-100);
+  }
+  
+  .btn--secondary:hover {
+    background: var(--color-gray-700);
+    border-color: var(--color-gray-500);
+  }
+}

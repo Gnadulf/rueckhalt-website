@@ -1,6 +1,7 @@
 /* Modernes Design mit Rosa & Türkis */
 
-/* Glassmorphismus Effekte */
+/* Glassmorphismus Effekte - DEPRECATED: Use unified-components.css */
+/*
 .glass-card {
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(20px);
@@ -16,6 +17,7 @@
   box-shadow: 0 12px 48px 0 rgba(232, 165, 165, 0.25);
   transform: translateY(-2px);
 }
+*/
 
 /* Gradient Backgrounds */
 .gradient-primary {
@@ -93,7 +95,8 @@
   box-shadow: 0 20px 40px rgba(232, 165, 165, 0.2);
 }
 
-/* Moderne Buttons */
+/* Moderne Buttons - DEPRECATED: Use unified-components.css */
+/*
 .btn-modern {
   background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
   color: var(--color-white);
@@ -144,6 +147,7 @@
   color: var(--color-white);
   box-shadow: 0 8px 25px rgba(232, 165, 165, 0.4);
 }
+*/
 
 /* Floating Elements */
 .float-element {

@@ -1,5 +1,17 @@
 // Main JavaScript - RückHalt e.V.
 
+// Import all CSS files for Vite
+import '../css/reset.css';
+import '../css/variables.css';
+import '../css/main.css';
+import '../css/unified-components.css';
+import '../css/components.css';
+import '../css/bauhaus.css';
+import '../css/modern.css';
+import '../css/responsive.css';
+import '../css/pentagram.css';
+import '../css/utilities.css';
+
 // Quick Exit Functionality
 class QuickExit {
   constructor() {
@@ -439,27 +451,34 @@ class HeaderScroll {
 // Import translations
 import translations from './translations.js';
 
-// Logo Fade on Scroll
+// Logo Fade on Scroll - Advanced Animation
 class LogoFade {
   constructor() {
+    this.logoWrapper = document.getElementById('hero-logo-wrapper');
     this.logo = document.getElementById('hero-logo');
+    this.heroSection = document.querySelector('.hero');
     this.isScrolling = false;
+    this.isAnimating = false;
     this.init();
   }
   
   init() {
-    if (!this.logo) {
+    if (!this.logo || !this.logoWrapper) {
       return;
     }
     
-    // Initial opacity setzen (startet im Vordergrund)
-    this.logo.style.opacity = '1';
+    // Get initial position
+    this.initialRect = this.logoWrapper.getBoundingClientRect();
+    this.heroRect = this.heroSection.getBoundingClientRect();
     
-    // Scroll-Event mit RequestAnimationFrame für bessere Performance
+    // Create clone for animation
+    this.createAnimatedClone();
+    
+    // Scroll-Event mit RequestAnimationFrame
     window.addEventListener('scroll', () => {
       if (!this.isScrolling) {
         window.requestAnimationFrame(() => {
-          this.updateOpacity();
+          this.updateAnimation();
           this.isScrolling = false;
         });
         this.isScrolling = true;
@@ -467,29 +486,74 @@ class LogoFade {
     });
     
     // Initial update
-    this.updateOpacity();
+    this.updateAnimation();
   }
   
-  updateOpacity() {
+  createAnimatedClone() {
+    // Create a fixed position clone for smooth animation
+    this.animatedLogo = this.logo.cloneNode(true);
+    this.animatedLogo.id = 'hero-logo-animated';
+    this.animatedLogo.style.position = 'fixed';
+    this.animatedLogo.style.top = `${this.initialRect.top}px`;
+    this.animatedLogo.style.left = '50%';
+    this.animatedLogo.style.transform = 'translateX(-50%)';
+    this.animatedLogo.style.zIndex = '5';
+    this.animatedLogo.style.opacity = '0';
+    this.animatedLogo.style.transition = 'none'; // No transition for instant switch
+    this.animatedLogo.style.mixBlendMode = 'multiply'; // Keep same blend mode
+    this.animatedLogo.style.filter = 'contrast(1.1)'; // Keep same filter
+    document.body.appendChild(this.animatedLogo);
+  }
+  
+  updateAnimation() {
     const scrollY = window.pageYOffset;
-    const fadeStart = 0;      // Startet sofort beim Scrollen
-    const fadeEnd = 300;      // Komplett transparent bei 300px
-    const minOpacity = 0.15;  // Bleibt bei 15% sichtbar
+    const animationStart = 50;
+    const animationEnd = 400;
+    const minOpacity = 0.15;
     
-    let opacity;
-    
-    if (scrollY <= fadeStart) {
-      opacity = 1;  // Voll sichtbar am Anfang
-    } else if (scrollY >= fadeEnd) {
-      opacity = minOpacity;  // Minimal sichtbar
+    // Calculate progress
+    let progress = 0;
+    if (scrollY <= animationStart) {
+      progress = 0;
+    } else if (scrollY >= animationEnd) {
+      progress = 1;
     } else {
-      // Lineare Interpolation zwischen 1 und minOpacity
-      const fadeRange = fadeEnd - fadeStart;
-      const scrollInRange = scrollY - fadeStart;
-      opacity = 1 - (scrollInRange / fadeRange) * (1 - minOpacity);
+      progress = (scrollY - animationStart) / (animationEnd - animationStart);
     }
     
-    this.logo.style.opacity = opacity.toString();
+    // Easing function
+    const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+    const easedProgress = easeOutCubic(progress);
+    
+    if (progress > 0 && !this.isAnimating) {
+      // Start animation - instant switch
+      this.isAnimating = true;
+      this.logo.style.visibility = 'hidden';
+      this.animatedLogo.style.opacity = '1';
+    } else if (progress === 0 && this.isAnimating) {
+      // Reset - instant switch back
+      this.isAnimating = false;
+      this.logo.style.visibility = 'visible';
+      this.animatedLogo.style.opacity = '0';
+    }
+    
+    if (this.isAnimating) {
+      // Animate the clone
+      const opacity = 1 - (easedProgress * (1 - minOpacity));
+      const scale = 1 + (easedProgress * 0.2);
+      const translateY = this.initialRect.top - scrollY + (easedProgress * 100);
+      const blur = easedProgress * 2;
+      
+      this.animatedLogo.style.opacity = opacity.toString();
+      this.animatedLogo.style.top = `${translateY}px`;
+      this.animatedLogo.style.transform = `translateX(-50%) scale(${scale})`;
+      
+      if (blur > 0) {
+        this.animatedLogo.style.filter = `blur(${blur}px) contrast(1.1)`;
+      } else {
+        this.animatedLogo.style.filter = 'contrast(1.1)';
+      }
+    }
   }
 }
 
@@ -522,18 +586,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Service Worker for offline support (if supported)
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/sw.js').catch(() => {
-      console.log('Service Worker registration failed');
+      // Silent fail - no console output
     });
   }
-  
-  // Print warning about browser history
-  console.log(
-    '%cSicherheitshinweis:',
-    'color: red; font-size: 20px; font-weight: bold;'
-  );
-  console.log(
-    '%cDiese Website kann Spuren in Ihrem Browserverlauf hinterlassen. ' +
-    'Nutzen Sie den Inkognito-/Privatmodus oder löschen Sie Ihren Verlauf nach dem Besuch.',
-    'color: red; font-size: 14px;'
-  );
 });

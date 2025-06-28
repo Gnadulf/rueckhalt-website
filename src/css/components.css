@@ -1,6 +1,7 @@
 /* Components - Reusable UI Elements */
 
-/* Buttons */
+/* Buttons - DEPRECATED: Use unified-components.css */
+/* 
 .btn {
   display: inline-flex;
   align-items: center;
@@ -46,7 +47,6 @@
   cursor: not-allowed;
 }
 
-/* Button Variants */
 .btn-primary {
   background: var(--color-primary);
   color: var(--color-white);
@@ -86,7 +86,6 @@
   box-shadow: 0 4px 12px rgba(200, 75, 49, 0.3);
 }
 
-/* Button Sizes */
 .btn-small {
   padding: var(--space-2) var(--space-4);
   font-size: var(--size-small);
@@ -96,8 +95,10 @@
   padding: var(--space-4) var(--space-8);
   font-size: var(--size-body-large);
 }
+*/
 
-/* Cards */
+/* Cards - DEPRECATED: Use unified-components.css */
+/*
 .card {
   background: var(--color-white);
   border-radius: var(--radius-lg);
@@ -125,6 +126,7 @@
   border-top: 1px solid var(--color-gray-100);
   background: var(--color-gray-50);
 }
+*/
 
 /* Badges */
 .badge {

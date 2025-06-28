@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="/src/css/reset.css">
     <link rel="stylesheet" href="/src/css/variables.css">
     <link rel="stylesheet" href="/src/css/main.css">
+    <link rel="stylesheet" href="/src/css/unified-components.css">
     <link rel="stylesheet" href="/src/css/components.css">
     <link rel="stylesheet" href="/src/css/bauhaus.css">
     <link rel="stylesheet" href="/src/css/modern.css">
@@ -159,7 +160,7 @@
             background: linear-gradient(135deg, rgba(50, 50, 50, 0.3) 0%, rgba(30, 30, 30, 0.3) 100%);
         }
         
-        body.dark-mode .glass-card {
+        body.dark-mode .card--glass {
             background: rgba(30, 30, 30, 0.95);
             border: 1px solid rgba(255, 255, 255, 0.2);
             color: #ffffff;
@@ -170,17 +171,17 @@
             background: rgba(25, 25, 25, 0.95);
         }
         
-        body.dark-mode .btn-modern {
+        body.dark-mode .btn--modern {
             background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
         }
         
-        body.dark-mode .btn-modern-secondary {
+        body.dark-mode .btn--secondary {
             background: transparent;
             border: 2px solid var(--color-primary);
             color: var(--color-primary);
         }
         
-        body.dark-mode .btn-modern-secondary:hover {
+        body.dark-mode .btn--secondary:hover {
             background: var(--color-primary);
             color: #1a1a1a;
         }
@@ -327,6 +328,21 @@
             opacity: 0.8 !important;
         }
         
+        /* Hero Logo Mobile Anpassung */
+        @media (max-width: 768px) {
+            .hero {
+                padding-top: 40px !important;
+            }
+            
+            .hero-logo-wrapper {
+                margin-bottom: 40px !important;
+            }
+            
+            #hero-logo {
+                width: 220px !important;
+            }
+        }
+        
         /* Dark Mode Anpassung */
         body.dark-mode .logo {
             animation: logoFadeToBackgroundDark 3s ease-in-out forwards;
@@ -442,19 +458,18 @@
     <!-- Main Content -->
     <main id="main" class="main-content">
         <!-- Hero Section with Prominent Logo -->
-        <section class="hero hero-modern" id="home">
+        <section class="hero hero-modern" id="home" style="padding-top: 30px;">
             <div class="hero-overlay"></div>
             <div class="float-element float-1"></div>
             <div class="float-element float-2"></div>
             
-            <!-- Subtle Logo Display with Fade -->
-            <div class="logo-hero" id="hero-logo" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 5; transition: opacity 0.3s ease;">
-                <img src="/src/assets/images/rueckhalt-logo.png" alt="Rückhalt Logo" style="width: 300px; height: auto; mix-blend-mode: multiply; filter: contrast(1.1);">
-            </div>
-            
             <div class="container" style="position: relative; z-index: 20;">
-                <div class="bauhaus-grid" style="align-items: center; min-height: 80vh; padding-top: 120px;">
+                <div class="bauhaus-grid" style="align-items: center; min-height: 80vh;">
                     <div class="span-12 text-center">
+                        <!-- Logo im normalen Dokumentenfluss -->
+                        <div class="hero-logo-wrapper" id="hero-logo-wrapper" style="margin-bottom: 30px; position: relative; z-index: 100;">
+                            <img src="/src/assets/images/rueckhalt-logo.png" alt="Rückhalt Logo" id="hero-logo" style="width: 280px; height: auto; mix-blend-mode: multiply; filter: contrast(1.1); display: inline-block;">
+                        </div>
                         <h1 class="hero-title-pentagram" data-i18n="hero.title" style="text-transform: none; font-size: clamp(2.5rem, 7vw, 5rem); font-weight: 800;">Wir sind für Sie da</h1>
                         <p class="hero-subtitle" style="font-size: 1.4rem; line-height: 1.8; max-width: 800px; margin: 0 auto var(--space-8);" data-i18n="hero.subtitle">
                             Jede*r sexuelle*r Übergriff stellt eine schwere Persönlichkeitsverletzung dar 
@@ -470,10 +485,10 @@
                         </div>
                         
                         <div class="hero-actions">
-                            <a href="#kontakt" class="btn-modern">
+                            <a href="#kontakt" class="btn btn--modern">
                                 <span data-i18n="hero.cta.primary">Erstgespräch vereinbaren</span>
                             </a>
-                            <a href="#angebote" class="btn-modern btn-modern-secondary">
+                            <a href="#angebote" class="btn btn--secondary">
                                 <span data-i18n="hero.cta.secondary">Unsere Angebote</span>
                             </a>
                         </div>
@@ -487,26 +502,26 @@
             <div class="container">
                 <div class="bauhaus-grid" style="gap: var(--space-8);">
                     <div class="span-4">
-                        <div class="glass-card text-center" style="padding: var(--space-8);">
+                        <div class="card card--glass card--centered">
                             <h3 class="mb-4 text-primary" style="font-size: 1.25rem;">Für Betroffene</h3>
                             <p>Unterstützung für Menschen jeden Alters und Geschlechts</p>
                         </div>
                     </div>
                     <div class="span-4">
-                        <div class="glass-card text-center" style="padding: var(--space-8);">
+                        <div class="card card--glass card--centered">
                             <h3 class="mb-4 text-secondary" style="font-size: 1.25rem;">Für Angehörige</h3>
                             <p>Begleitung für Bezugspersonen und Unterstützende</p>
                         </div>
                     </div>
                     <div class="span-4">
-                        <div class="glass-card text-center" style="padding: var(--space-8);">
+                        <div class="card card--glass card--centered">
                             <h3 class="mb-4 text-accent" style="font-size: 1.25rem;">Flexible Termine</h3>
                             <p>Online, telefonisch oder vor Ort - Sie entscheiden</p>
                         </div>
                     </div>
                     
                     <div class="span-6">
-                        <div class="glass-card text-center" style="padding: var(--space-10);">
+                        <div class="card card--glass card--spacious card--centered">
                             <div style="display: flex; align-items: center; gap: var(--space-4); margin-bottom: var(--space-6); justify-content: center;">
                                 <img src="/src/assets/images/rueckhalt-logo.png" alt="Rückhalt Logo" style="width: 80px; height: 80px; object-fit: contain;">
                                 <h2 style="font-size: 1.5rem; color: var(--color-primary); margin: 0;">
@@ -540,22 +555,6 @@
             </div>
         </section>
 
-        <!-- Aktuelles / Wichtige Hinweise -->
-        <section class="diagonal-section" style="background: white;">
-            <div class="container">
-                <div class="text-grid">
-                    <div>
-                        <span class="label" style="color: var(--color-primary);">Aktuelles</span>
-                    </div>
-                    <div>
-                        <h2 class="bauhaus-heading-1">Wichtige Hinweise</h2>
-                        <div class="bg-soft" style="margin-top: var(--space-6);">
-                            <p><strong>Corona-Update:</strong> Wir sind weiterhin für Sie da! Beratungen finden unter Einhaltung aller Schutzmaßnahmen statt. Auch Video- und Telefonberatung sind möglich.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- Angebote Section -->
         <section class="services" id="angebote" style="background: var(--color-warm);">
@@ -670,7 +669,7 @@
                 <!-- Trauma verstehen -->
                 <div class="bauhaus-grid" style="margin-top: var(--space-12);">
                     <div class="span-12">
-                        <div class="glass-card" style="padding: var(--space-10); background: linear-gradient(135deg, rgba(232, 165, 165, 0.03) 0%, rgba(125, 221, 215, 0.03) 100%);">
+                        <div class="card card--glass card--spacious" style="background: linear-gradient(135deg, rgba(232, 165, 165, 0.03) 0%, rgba(125, 221, 215, 0.03) 100%);">
                             <h3 class="bauhaus-heading-2" style="color: var(--color-primary); margin-bottom: var(--space-6);">
                                 Trauma verstehen
                             </h3>
@@ -802,10 +801,10 @@
                     </div>
                     
                     <div class="span-4">
-                        <div class="glass-card text-center" style="padding: var(--space-8);">
+                        <div class="card card--glass card--centered">
                             <h3 style="color: var(--color-primary); margin-bottom: var(--space-4);">Notfall-Toolkit</h3>
                             <p style="margin-bottom: var(--space-6);">Für akute Belastungssituationen</p>
-                            <a href="#" class="btn-modern" style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%); margin-bottom: var(--space-3);">
+                            <a href="#" class="btn btn--emergency" style="margin-bottom: var(--space-3);">
                                 <span>Sofort-Hilfe Übungen</span>
                             </a>
                             <p style="font-size: 0.9rem; color: var(--color-gray-600);">
@@ -813,7 +812,7 @@
                             </p>
                         </div>
                         
-                        <div class="glass-card" style="padding: var(--space-8); margin-top: var(--space-6);">
+                        <div class="card card--glass" style="margin-top: var(--space-6);">
                             <h3 class="text-center" style="color: var(--color-secondary); margin-bottom: var(--space-4);">Ressourcen-Bibliothek</h3>
                             <div style="text-align: left;">
                                 <h4 style="color: var(--color-primary); margin-bottom: var(--space-2); font-size: 0.95rem;">Empfohlene Bücher:</h4>
@@ -1121,7 +1120,7 @@
                 <!-- CTA nach FAQ -->
                 <div class="text-center" style="margin-top: var(--space-12);">
                     <p style="color: var(--color-gray-600); margin-bottom: var(--space-4);">Ihre Frage war nicht dabei?</p>
-                    <a href="#kontakt" class="btn-modern" style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);">
+                    <a href="#kontakt" class="btn btn--modern">
                         Kontaktieren Sie uns direkt
                     </a>
                 </div>
@@ -1154,7 +1153,7 @@
                                 <span>Individuelle Unterstützung</span>
                             </li>
                         </ul>
-                        <a href="#kontakt" class="btn-modern" style="background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-secondary-dark) 100%);">
+                        <a href="#kontakt" class="btn btn--modern" style="background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-secondary-dark) 100%);">
                             <span>Kontakt aufnehmen</span>
                         </a>
                     </div>
@@ -1181,7 +1180,7 @@
                 
                 <div class="bauhaus-grid" style="margin-top: var(--space-8);">
                     <div class="span-8">
-                        <div class="glass-card" style="padding: var(--space-10);">
+                        <div class="card card--glass card--spacious">
                             <h3 class="bauhaus-heading-2" style="color: var(--color-primary); margin-bottom: var(--space-4);">
                                 Unsere Mission
                             </h3>
@@ -1326,7 +1325,7 @@
                         </div>
 
                         <div class="form-actions">
-                            <button type="submit" class="btn-modern">
+                            <button type="submit" class="btn btn--modern">
                                 Sicher senden
                             </button>
                             <p class="form-note" style="display: flex; align-items: center; gap: var(--space-2); margin-top: var(--space-4);">
@@ -1347,8 +1346,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <img src="/src/assets/images/rueckhalt-logo.png" alt="Rückhalt Logo" class="footer-logo" width="80" height="80" style="filter: brightness(0) invert(1);">
-                    <p>Rückhalt<br>
+                    <p><strong>Rückhalt</strong><br>
                     Beratungsstelle gegen sexuelle Gewalt</p>
                 </div>
 
@@ -1873,7 +1871,7 @@
             });
             
             // Handle Notfall-Toolkit button
-            const notfallButton = document.querySelector('a[href="#"].btn-modern');
+            const notfallButton = document.querySelector('a[href="#"].btn.btn--emergency');
             if (notfallButton && notfallButton.textContent.includes('Sofort-Hilfe')) {
                 notfallButton.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -1889,10 +1887,10 @@
                     </div>
                     ${details.content}
                     <div class="modal-cta">
-                        <a href="#kontakt" class="btn-modern" onclick="closeModal()">
+                        <a href="#kontakt" class="btn btn--modern" onclick="closeModal()">
                             ${details.cta}
                         </a>
-                        <button class="btn-modern btn-modern-secondary" onclick="closeModal()">
+                        <button class="btn btn--secondary" onclick="closeModal()">
                             Schließen
                         </button>
                     </div>
