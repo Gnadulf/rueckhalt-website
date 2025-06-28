@@ -11,6 +11,7 @@ import '../css/modern.css';
 import '../css/responsive.css';
 import '../css/pentagram.css';
 import '../css/utilities.css';
+import '../css/dark-mode.css';
 
 // Quick Exit Functionality
 class QuickExit {
@@ -448,8 +449,238 @@ class HeaderScroll {
   }
 }
 
+// Dark Mode Toggle
+class DarkMode {
+  constructor() {
+    this.toggle = document.querySelector('.dark-mode-toggle');
+    this.body = document.body;
+    this.sunIcon = this.toggle?.querySelector('.sun-icon');
+    this.moonIcon = this.toggle?.querySelector('.moon-icon');
+    
+    this.init();
+  }
+  
+  init() {
+    if (!this.toggle) return;
+    
+    // Check for saved preference or system preference
+    const savedMode = localStorage.getItem('darkMode');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (savedMode === 'true' || (savedMode === null && prefersDark)) {
+      this.enableDarkMode();
+    }
+    
+    // Toggle on click
+    this.toggle.addEventListener('click', () => this.toggleMode());
+    
+    // Listen for system preference changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+      if (localStorage.getItem('darkMode') === null) {
+        if (e.matches) {
+          this.enableDarkMode();
+        } else {
+          this.disableDarkMode();
+        }
+      }
+    });
+  }
+  
+  toggleMode() {
+    if (this.body.classList.contains('dark-mode')) {
+      this.disableDarkMode();
+    } else {
+      this.enableDarkMode();
+    }
+  }
+  
+  enableDarkMode() {
+    this.body.classList.add('dark-mode');
+    if (this.sunIcon) this.sunIcon.style.display = 'none';
+    if (this.moonIcon) this.moonIcon.style.display = 'block';
+    localStorage.setItem('darkMode', 'true');
+    
+    // Announce to screen readers
+    this.announce('Dark Mode aktiviert');
+  }
+  
+  disableDarkMode() {
+    this.body.classList.remove('dark-mode');
+    if (this.sunIcon) this.sunIcon.style.display = 'block';
+    if (this.moonIcon) this.moonIcon.style.display = 'none';
+    localStorage.setItem('darkMode', 'false');
+    
+    // Announce to screen readers
+    this.announce('Dark Mode deaktiviert');
+  }
+  
+  announce(message) {
+    const announcer = document.querySelector('[role="status"]');
+    if (announcer) {
+      announcer.textContent = message;
+      setTimeout(() => announcer.textContent = '', 1000);
+    }
+  }
+}
+
 // Import translations
 import translations from './translations.js';
+
+// FAQ System - Trauma-informed Interactive Design
+class FAQSystem {
+  constructor() {
+    this.filters = document.querySelectorAll('.faq-filter');
+    this.items = document.querySelectorAll('.faq-item');
+    this.questions = document.querySelectorAll('.faq-question');
+    this.searchInput = document.getElementById('faq-search');
+    this.activeCategory = 'all';
+    
+    this.init();
+  }
+  
+  init() {
+    // Filter functionality
+    this.filters.forEach(filter => {
+      filter.addEventListener('click', () => this.handleFilter(filter));
+    });
+    
+    // Accordion functionality
+    this.questions.forEach(question => {
+      question.addEventListener('click', () => this.toggleAccordion(question));
+    });
+    
+    // Search functionality
+    this.searchInput?.addEventListener('input', (e) => this.handleSearch(e.target.value));
+    
+    // Keyboard navigation
+    this.setupKeyboardNav();
+  }
+  
+  handleFilter(clickedFilter) {
+    const category = clickedFilter.dataset.category;
+    
+    // Update active state
+    this.filters.forEach(filter => {
+      filter.classList.remove('active');
+      // Reset styles for non-active filters
+      if (filter !== clickedFilter) {
+        filter.style.background = 'white';
+        filter.style.color = 'var(--color-gray-700)';
+        filter.style.borderColor = 'var(--color-gray-300)';
+      }
+    });
+    
+    clickedFilter.classList.add('active');
+    clickedFilter.style.background = 'var(--color-primary)';
+    clickedFilter.style.color = 'white';
+    clickedFilter.style.borderColor = 'var(--color-primary)';
+    
+    // Show/hide items
+    this.activeCategory = category;
+    this.filterItems();
+  }
+  
+  filterItems() {
+    this.items.forEach(item => {
+      const itemCategory = item.dataset.category;
+      const matchesCategory = this.activeCategory === 'all' || itemCategory === this.activeCategory;
+      const searchQuery = this.searchInput?.value.toLowerCase() || '';
+      const itemText = item.textContent.toLowerCase();
+      const matchesSearch = !searchQuery || itemText.includes(searchQuery);
+      
+      // Show only if matches both category and search
+      if (matchesCategory && matchesSearch) {
+        item.style.display = 'block';
+        item.style.opacity = '1';
+        item.style.transform = 'translateY(0)';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+    
+    // Show message if no results
+    const visibleItems = Array.from(this.items).filter(item => 
+      item.style.display !== 'none'
+    );
+    
+    this.updateNoResultsMessage(visibleItems.length === 0);
+  }
+  
+  toggleAccordion(question) {
+    const answer = question.nextElementSibling;
+    const icon = question.querySelector('.faq-icon');
+    const isExpanded = question.getAttribute('aria-expanded') === 'true';
+    
+    // Close all other accordions for better UX
+    this.questions.forEach(q => {
+      if (q !== question) {
+        const a = q.nextElementSibling;
+        const i = q.querySelector('.faq-icon');
+        q.setAttribute('aria-expanded', 'false');
+        a.hidden = true;
+        if (i) i.style.transform = 'rotate(0deg)';
+      }
+    });
+    
+    // Toggle clicked accordion
+    question.setAttribute('aria-expanded', !isExpanded);
+    answer.hidden = isExpanded;
+    
+    // Animate icon
+    if (icon) {
+      icon.style.transform = isExpanded ? 'rotate(0deg)' : 'rotate(180deg)';
+      icon.style.transition = 'transform 0.3s ease';
+    }
+    
+    // Smooth height animation
+    if (!isExpanded) {
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+      answer.style.transition = 'max-height 0.3s ease';
+    } else {
+      answer.style.maxHeight = '0';
+    }
+  }
+  
+  handleSearch(query) {
+    this.filterItems();
+  }
+  
+  updateNoResultsMessage(show) {
+    let message = document.getElementById('faq-no-results');
+    
+    if (show && !message) {
+      message = document.createElement('div');
+      message.id = 'faq-no-results';
+      message.className = 'text-center py-8';
+      message.innerHTML = `
+        <p class="text-gray-600 text-lg">Keine passenden Fragen gefunden.</p>
+        <p class="text-gray-500 mt-2">Versuchen Sie es mit anderen Suchbegriffen oder 
+          <a href="#kontakt" class="text-primary hover:underline">kontaktieren Sie uns direkt</a>.
+        </p>
+      `;
+      
+      const accordion = document.querySelector('.faq-accordion');
+      accordion?.appendChild(message);
+    } else if (!show && message) {
+      message.remove();
+    }
+  }
+  
+  setupKeyboardNav() {
+    // Allow keyboard navigation between questions
+    this.questions.forEach((question, index) => {
+      question.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowDown' && index < this.questions.length - 1) {
+          e.preventDefault();
+          this.questions[index + 1].focus();
+        } else if (e.key === 'ArrowUp' && index > 0) {
+          e.preventDefault();
+          this.questions[index - 1].focus();
+        }
+      });
+    });
+  }
+}
 
 // Logo Fade on Scroll - Advanced Animation
 class LogoFade {
@@ -568,6 +799,8 @@ document.addEventListener('DOMContentLoaded', () => {
   new ContactForm();
   new HeaderScroll();
   new LogoFade();
+  new FAQSystem();
+  new DarkMode();
   
   // Initialize translations
   const currentLang = translations.detectLanguage();
