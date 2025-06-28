@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Die neue RückHalt Webseite - Design als Dienst am Menschen">
+    <meta name="robots" content="noindex, nofollow">
+    
+    <title>RückHalt - Die neue Webseite | Präsentation</title>
+    <!-- Favicons für alle Plattformen -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/src/assets/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/src/assets/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/src/assets/images/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/x-icon" href="/src/assets/images/favicon/favicon.ico">
+    <link rel="manifest" href="/src/assets/images/favicon/site.webmanifest">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    
+    <!-- CSS Dateien -->
+    <link rel="stylesheet" href="/src/css/reset.css">
+    <link rel="stylesheet" href="/src/css/variables.css">
+    <link rel="stylesheet" href="/src/css/main.css">
+    <link rel="stylesheet" href="/src/css/unified-components.css">
+    <link rel="stylesheet" href="/src/css/components.css">
+    <link rel="stylesheet" href="/src/css/bauhaus.css">
+    <link rel="stylesheet" href="/src/css/modern.css">
+    <link rel="stylesheet" href="/src/css/responsive.css">
+    <link rel="stylesheet" href="/src/css/pentagram.css">
+    <link rel="stylesheet" href="/src/css/utilities.css">
+    
+    <!-- JavaScript Module -->
+    <script type="module" src="/src/js/main.js"></script>
+    
+    <style>
+        /* Presentation-spezifische Styles */
+        .presentation-section {
+            padding: var(--space-20) 0;
+            position: relative;
+        }
+        
+        .presentation-section:nth-child(even) {
+            background: linear-gradient(135deg, rgba(232, 165, 165, 0.03) 0%, rgba(125, 221, 215, 0.03) 100%);
+        }
+        
+        .section-number {
+            position: absolute;
+            top: var(--space-8);
+            right: var(--space-8);
+            font-size: 4rem;
+            font-weight: 700;
+            color: rgba(232, 165, 165, 0.15);
+            font-family: var(--font-heading);
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(232, 165, 165, 0.08) 0%, rgba(125, 221, 215, 0.08) 100%);
+            border-left: 4px solid var(--color-primary);
+            padding: var(--space-6);
+            border-radius: var(--radius-lg);
+            margin: var(--space-8) 0;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-8);
+            margin-top: var(--space-12);
+        }
+        
+        .feature-card {
+            background: white;
+            padding: var(--space-8);
+            border-radius: var(--radius-xl);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: all var(--transition-base);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--space-4);
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .metric-box {
+            text-align: center;
+            padding: var(--space-8);
+        }
+        
+        .metric-number {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(232, 165, 165, 0.1) 0%, rgba(125, 221, 215, 0.1) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-gradient::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(232, 165, 165, 0.1) 0%, transparent 70%);
+            animation: float 20s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-30px, -30px) rotate(180deg); }
+        }
+        
+        .timeline {
+            position: relative;
+            padding: var(--space-8) 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding: var(--space-6) 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .timeline-content {
+            width: 45%;
+            background: white;
+            padding: var(--space-6);
+            border-radius: var(--radius-lg);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: white;
+            border: 3px solid var(--color-primary);
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                flex-direction: column;
+                align-items: flex-start;
+                padding-left: 60px;
+            }
+            
+            .timeline-content {
+                width: 100%;
+            }
+            
+            .timeline-dot {
+                left: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo" aria-label="Rückhalt Startseite">
+                    <img src="/src/assets/images/rueckhalt-logo.png" alt="Rückhalt Logo" width="120" height="120" style="mix-blend-mode: multiply; filter: contrast(1.1);">
+                </a>
+                
+                <nav class="main-nav" role="navigation" aria-label="Hauptnavigation">
+                    <button class="mobile-menu-toggle" aria-label="Menü öffnen" aria-expanded="false">
+                        <span class="hamburger"></span>
+                    </button>
+                    
+                    <ul class="nav-list">
+                        <li><a href="/" class="nav-link">Startseite</a></li>
+                        <li><a href="/index.html#angebote" class="nav-link">Angebote</a></li>
+                        <li><a href="/index.html#rueckhalt-m" class="nav-link">Rückhalt-M</a></li>
+                        <li><a href="/index.html#ueber-uns" class="nav-link">Über uns</a></li>
+                        <li><a href="/index.html#wissen" class="nav-link">Wissen & Ressourcen</a></li>
+                        <li><a href="/index.html#kontakt" class="nav-link">Kontakt</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Dark Mode Toggle -->
+                <div style="display: flex; gap: var(--space-3); align-items: center;">
+                    <button class="dark-mode-toggle" aria-label="Dark Mode umschalten" title="Dark Mode">
+                        <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main id="main" role="main">
+        <!-- Hero Section -->
+        <section class="hero-gradient presentation-section">
+            <div class="container">
+                <div class="text-center max-w-4xl mx-auto">
+                    <h1 class="text-5xl font-bold mb-6">Die neue RückHalt-Webseite</h1>
+                    <p class="text-2xl text-gray-700 mb-8">Design als Dienst am Menschen</p>
+                    <div class="highlight-box">
+                        <p class="text-lg">
+                            <strong>Stellen Sie sich vor:</strong> Es ist 2 Uhr nachts. Jemand sucht verzweifelt nach Hilfe. 
+                            Die erste Google-Suche führt zu Ihrer Webseite. Was diese Person dort findet, kann den 
+                            Unterschied zwischen Hoffnung und Verzweiflung ausmachen.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Abschnitt 1: Design als Teil der Mission -->
+        <section class="presentation-section">
+            <div class="container">
+                <span class="section-number">01</span>
+                <div class="max-w-4xl">
+                    <h2 class="text-4xl font-bold mb-6">Design als Teil der Mission</h2>
+                    <p class="text-xl text-gray-700 mb-8">
+                        Die Webseite von RückHalt e.V. ist mehr als eine digitale Visitenkarte – sie ist oft der erste, 
+                        anonyme Kontaktpunkt für Menschen in einer ihrer verletzlichsten Lebensphasen.
+                    </p>
+                    
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-3">Digitaler Schutzraum</h3>
+                            <p class="text-gray-600">
+                                Ein Ort, der bereits durch seine Gestaltung Sicherheit vermittelt und Vertrauen aufbaut.
+                            </p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-3">Erste Kontaktaufnahme</h3>
+                            <p class="text-gray-600">
+                                Oft der einzige Weg für Betroffene, anonym und geschützt erste Informationen zu erhalten.
+                            </p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-3">Mut zur Hilfe</h3>
+                            <p class="text-gray-600">
+                                Jedes Element unterstützt das Kernziel – Menschen Mut zur Kontaktaufnahme zu geben.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Abschnitt 2: Trauma-informiertes Design -->
+        <section class="presentation-section">
+            <div class="container">
+                <span class="section-number">02</span>
+                <div class="max-w-4xl">
+                    <h2 class="text-4xl font-bold mb-6">Trauma-informiertes Design</h2>
+                    <p class="text-xl text-gray-700 mb-8">
+                        Jede visuelle Entscheidung basiert auf der Frage: "Wie wirkt das auf jemanden, 
+                        der gerade eine schwierige Erfahrung verarbeitet?"
+                    </p>
+
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <h3 class="text-xl font-semibold mb-3 accent-primary">Farbpalette: Rosa & Türkis</h3>
+                                <ul class="space-y-2 text-gray-600">
+                                    <li>• Wissenschaftlich belegt: Diese Farben senken Stress und Angst</li>
+                                    <li>• Keine aggressiven Rottöne oder düsteres Schwarz</li>
+                                    <li>• Rosa für Empathie, Türkis für Klarheit und Heilung</li>
+                                </ul>
+                            </div>
+                            <div class="timeline-dot"></div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <h3 class="text-xl font-semibold mb-3 accent-secondary">Typografie: Inter & Lora</h3>
+                                <ul class="space-y-2 text-gray-600">
+                                    <li>• Klare, offene Buchstaben ohne ablenkende Details</li>
+                                    <li>• Größere Schriftgrößen für Stress-Situationen</li>
+                                    <li>• Optimale Kontraste für ermüdete Augen</li>
+                                </ul>
+                            </div>
+                            <div class="timeline-dot"></div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <h3 class="text-xl font-semibold mb-3 accent-primary">Layout & Weißraum</h3>
+                                <ul class="space-y-2 text-gray-600">
+                                    <li>• Großzügige Abstände vermeiden Überforderung</li>
+                                    <li>• Klare Hierarchie für sofortige Orientierung</li>
+                                    <li>• Keine ablenkenden Animationen</li>
+                                </ul>
+                            </div>
+                            <div class="timeline-dot"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Abschnitt 3: Inklusivität & Sicherheit -->
+        <section class="presentation-section">
+            <div class="container">
+                <span class="section-number">03</span>
+                <div class="max-w-4xl">
+                    <h2 class="text-4xl font-bold mb-6">Inklusivität & Sicherheit im Fokus</h2>
+                    <p class="text-xl text-gray-700 mb-8">
+                        Die Webseite bietet aktive Schutzfunktionen, die zeigen: "Wir verstehen Ihre Situation."
+                    </p>
+
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-3">"Schnell verlassen"-Button</h3>
+                            <ul class="space-y-2 text-gray-600 mt-4">
+                                <li>• Immer sichtbar, aber dezent platziert</li>
+                                <li>• Sofortiger Wechsel zu neutraler Seite</li>
+                                <li>• Message: "Ihre Sicherheit hat Priorität"</li>
+                            </ul>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-3">Dark Mode</h3>
+                            <ul class="space-y-2 text-gray-600 mt-4">
+                                <li>• Diskrete Nutzung bei wenig Licht</li>
+                                <li>• Augenschonung bei Lichtempfindlichkeit</li>
+                                <li>• Gibt Kontrolle an Nutzende zurück</li>
+                            </ul>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-3">"Leichte Sprache"</h3>
+                            <ul class="space-y-2 text-gray-600 mt-4">
+                                <li>• Barrierefreiheit für alle</li>
+                                <li>• Einfache Sprache in Krisensituationen</li>
+                                <li>• Niemand wird ausgeschlossen</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Abschnitt 4: Sichtbarkeit & Reichweite -->
+        <section class="presentation-section">
+            <div class="container">
+                <span class="section-number">04</span>
+                <div class="max-w-4xl">
+                    <h2 class="text-4xl font-bold mb-6">Sichtbarkeit & Reichweite</h2>
+                    <p class="text-xl text-gray-700 mb-8">
+                        Eine technisch optimierte Webseite bedeutet: Mehr Betroffene finden Hilfe, 
+                        wenn sie sie am dringendsten brauchen.
+                    </p>
+
+                    <div class="highlight-box mb-8">
+                        <h3 class="text-xl font-semibold mb-3">Was bedeutet "besser gefunden werden"?</h3>
+                        <p class="text-gray-700">
+                            Wenn jemand "Hilfe sexuelle Gewalt Aachen" googelt, erscheint RückHalt weiter oben. 
+                            Die saubere Struktur hilft Google zu verstehen: "Diese Seite ist wichtig und vertrauenswürdig".
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                        <div class="metric-box">
+                            <div class="metric-number">95%</div>
+                            <p class="text-lg mt-2">Bildkomprimierung</p>
+                            <p class="text-gray-600 text-sm">Schnelle Ladezeiten auch bei schlechtem Internet</p>
+                        </div>
+                        <div class="metric-box">
+                            <div class="metric-number">100%</div>
+                            <p class="text-lg mt-2">Mobile Optimierung</p>
+                            <p class="text-gray-600 text-sm">70% suchen Hilfe vom Smartphone</p>
+                        </div>
+                        <div class="metric-box">
+                            <div class="metric-number">AAA</div>
+                            <p class="text-lg mt-2">Barrierefreiheit</p>
+                            <p class="text-gray-600 text-sm">Höchste Standards für Zugänglichkeit</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-soft p-8 rounded-xl">
+                        <h3 class="text-2xl font-semibold mb-4">Das Ergebnis</h3>
+                        <ul class="space-y-3 text-lg">
+                            <li class="flex items-start">
+                                <span class="text-primary mr-3">✓</span>
+                                <span><strong>Mehr Sichtbarkeit</strong> = Mehr Menschen finden Hilfe</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary mr-3">✓</span>
+                                <span><strong>Professionelles Auftreten</strong> = Mehr Vertrauen bei Förderern</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary mr-3">✓</span>
+                                <span><strong>Zukunftssicher</strong> = Die Seite wächst mit den Bedürfnissen</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Abschluss -->
+        <section class="hero-gradient presentation-section">
+            <div class="container">
+                <div class="text-center max-w-4xl mx-auto">
+                    <h2 class="text-4xl font-bold mb-6">Mehr als Code und Design</h2>
+                    <p class="text-xl text-gray-700 mb-8">
+                        Diese Webseite ist ein digitaler Arm, der sich schützend um Hilfesuchende legt 
+                        und ihnen den Weg zu RückHalt weist. Jede Zeile Code, jede Designentscheidung 
+                        dient einem Zweck:
+                    </p>
+                    <p class="text-3xl font-bold accent-primary">
+                        Menschen in ihrer dunkelsten Stunde ein Licht zu sein.
+                    </p>
+                    
+                    <div class="mt-12">
+                        <a href="/" class="btn btn--modern">
+                            Die neue Webseite ansehen
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo" style="background: var(--color-gray-900);">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <p><strong>Rückhalt</strong><br>
+                    Beratungsstelle gegen sexuelle Gewalt</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Schnelle Hilfe</h3>
+                    <ul>
+                        <li><a href="tel:110">Notruf: 110</a></li>
+                        <li><a href="tel:08000116016">Hilfetelefon: 08000 116 016</a></li>
+                        <li><a href="/index.html#wissen">Selbsthilfe-Übungen</a></li>
+                        <li><a href="/index.html#wissen">Sicherheitsplan erstellen</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Information</h3>
+                    <ul>
+                        <li><a href="/datenschutz">Datenschutz</a></li>
+                        <li><a href="/impressum">Impressum</a></li>
+                        <li><a href="/spenden">Spenden</a></li>
+                        <li><a href="/newsletter">Newsletter</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Vernetzung</h3>
+                    <p>Mitglied im Bundesverband<br>
+                    Frauen*beratungsstellen und<br>
+                    Frauen*notrufe (bff)</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2025 Rückhalt - Alle Rechte vorbehalten</p>
+                <p class="footer-safety">Diese Website speichert keine persönlichen Daten ohne Ihre Zustimmung</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
