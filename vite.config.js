@@ -23,7 +23,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
-        pitch: resolve(__dirname, 'pitch.html')
+        pitch: resolve(__dirname, 'pitch.html'),
+        leichteSprache: resolve(__dirname, 'leichte-sprache.html')
       },
       output: {
         manualChunks: undefined

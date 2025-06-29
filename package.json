@@ -6,7 +6,10 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "npm run build"
+    "deploy": "npm run build",
+    "deploy:trigger": "netlify deploy --trigger --prod",
+    "deploy:clean": "rm -rf dist node_modules/.cache && npm ci && npm run build && netlify deploy --prod --dir dist",
+    "deploy:local": "netlify deploy --prod --dir dist"
   },
   "keywords": [],
   "author": "",
