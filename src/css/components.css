@@ -413,3 +413,52 @@
   color: var(--color-gray-600);
   margin-bottom: var(--space-6);
 }
+
+/* Dark Mode Toggle Button */
+.dark-mode-toggle {
+  background: transparent;
+  border: 2px solid var(--color-gray-300);
+  border-radius: var(--radius-full);
+  padding: var(--space-2);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+}
+
+.dark-mode-toggle:hover {
+  background: var(--color-gray-50);
+  border-color: var(--color-primary);
+}
+
+.dark-mode-toggle:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Icon visibility */
+.dark-mode-toggle .moon-icon {
+  display: none;
+}
+
+body.dark-mode .dark-mode-toggle {
+  background: var(--color-bg-tertiary);
+  color: var(--color-text-primary);
+  border-color: var(--color-gray-600);
+}
+
+body.dark-mode .dark-mode-toggle:hover {
+  background: var(--color-bg-secondary);
+  border-color: var(--color-primary-dark);
+}
+
+body.dark-mode .dark-mode-toggle .sun-icon {
+  display: none;
+}
+
+body.dark-mode .dark-mode-toggle .moon-icon {
+  display: block;
+}
