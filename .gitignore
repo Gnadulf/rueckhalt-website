@@ -34,3 +34,24 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.temp
+
+# Backup files
+*.backup
+*.backup-*
+*-backup/
+dist_backup_*/
+src/css-backup*/
+
+# Test files
+test-*.html
+
+# Local configurations
+claude_desktop_config.json
+MCP_SETUP.md
+SUPERCLAUDE_ZEN_SETUP.md
+SuperClaude/
+zen-mcp-server/
+
+# Editor configurations
+.vscode/
+.idea/
