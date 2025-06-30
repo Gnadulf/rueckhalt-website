@@ -68,6 +68,19 @@
     display: none;
   }
   
+  /* Dark Mode Toggle - Mobile Fixes */
+  .dark-mode-toggle {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    flex-shrink: 0;
+  }
+  
+  /* Language & Dark Mode Container */
+  .header-content > div[style*="display: flex"] {
+    gap: var(--space-2) !important;
+  }
+  
   /* Emergency Bar */
   .emergency-text {
     font-size: var(--size-tiny);
@@ -211,6 +224,22 @@
     width: 48px;
     height: 48px;
     font-size: var(--size-body-large);
+  }
+}
+
+/* Very Small Screens (480px and below) */
+@media (max-width: 480px) {
+  /* Dark Mode Toggle - Extra Small */
+  .dark-mode-toggle {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+  }
+  
+  /* Language Switcher - Smaller */
+  .lang-current {
+    padding: var(--space-2);
+    font-size: var(--size-tiny);
   }
 }
 
