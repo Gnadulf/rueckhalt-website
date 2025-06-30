@@ -1,212 +1,212 @@
 /* Dark Mode Styles - RückHalt e.V. */
 /* Trauma-informed dark theme with warm, calming colors */
+/* Automatische Anpassung an System-Präferenz */
 
 :root {
   /* Light mode defaults are already in variables.css */
   --transition-mode: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
-/* Dark mode color overrides */
-body.dark-mode {
-  /* Core dark colors - warm and gentle */
-  --color-bg-primary: #1a1a1a;
-  --color-bg-secondary: #242424;
-  --color-bg-tertiary: #2d2d2d;
-  
-  /* Text colors for dark backgrounds */
-  --color-text-primary: #f0f0f0;
-  --color-text-secondary: #d0d0d0;
-  --color-text-tertiary: #b0b0b0;
-  
-  /* Adjust brand colors for dark mode */
-  --color-primary-dark: #d14d4d;  /* Softer pink */
-  --color-secondary-dark: #5ab3ad; /* Softer turquoise */
-  
-  /* Backgrounds */
-  background: var(--color-bg-primary);
-  color: var(--color-text-primary);
-  transition: var(--transition-mode);
-}
+/* Automatischer Dark Mode basierend auf System-Einstellungen */
+@media (prefers-color-scheme: dark) {
+  /* Dark mode color overrides */
+  :root {
+    /* Core dark colors - warm and gentle */
+    --color-bg-primary: #1a1a1a;
+    --color-bg-secondary: #242424;
+    --color-bg-tertiary: #2d2d2d;
+    
+    /* Text colors for dark backgrounds */
+    --color-text-primary: #f0f0f0;
+    --color-text-secondary: #d0d0d0;
+    --color-text-tertiary: #b0b0b0;
+    
+    /* Adjust brand colors for dark mode */
+    --color-primary-dark: #d14d4d;  /* Softer pink */
+    --color-secondary-dark: #5ab3ad; /* Softer turquoise */
+  }
 
-/* Header in dark mode */
-body.dark-mode .header {
-  background: rgba(26, 26, 26, 0.95);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
+  body {
+    /* Backgrounds */
+    background: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    transition: var(--transition-mode);
+  }
 
-body.dark-mode .nav-link {
-  color: var(--color-text-secondary);
-}
+  /* Header in dark mode */
+  .header {
+    background: rgba(26, 26, 26, 0.95);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
 
-body.dark-mode .nav-link:hover,
-body.dark-mode .nav-link.active {
-  color: var(--color-primary-dark);
-}
+  .nav-link {
+    color: var(--color-text-secondary);
+  }
 
-/* Sections */
-body.dark-mode .hero {
-  background: linear-gradient(135deg, rgba(232, 165, 165, 0.05) 0%, rgba(125, 221, 215, 0.05) 100%);
-}
+  .nav-link:hover,
+  .nav-link.active {
+    color: var(--color-primary-dark);
+  }
 
-body.dark-mode .bg-gray-50 {
-  background: var(--color-bg-secondary);
-}
+  /* Sections */
+  .hero {
+    background: linear-gradient(135deg, rgba(232, 165, 165, 0.05) 0%, rgba(125, 221, 215, 0.05) 100%);
+  }
 
-body.dark-mode .bg-white {
-  background: var(--color-bg-tertiary);
-  color: var(--color-text-primary);
-}
+  .bg-gray-50 {
+    background: var(--color-bg-secondary);
+  }
 
-/* Cards and containers */
-body.dark-mode .service-card,
-body.dark-mode .card,
-body.dark-mode .faq-question,
-body.dark-mode .faq-answer {
-  background: var(--color-bg-tertiary);
-  border-color: rgba(255, 255, 255, 0.1);
-  color: var(--color-text-primary);
-}
+  .bg-white {
+    background: var(--color-bg-tertiary);
+    color: var(--color-text-primary);
+  }
 
-body.dark-mode .service-card:hover {
-  background: #363636;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-}
+  /* Cards and containers */
+  .service-card,
+  .card,
+  .faq-question,
+  .faq-answer {
+    background: var(--color-bg-tertiary);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: var(--color-text-primary);
+  }
 
-/* Buttons */
-body.dark-mode .btn--modern {
-  background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-secondary-dark) 100%);
-  color: white;
-  border: none;
-}
+  .service-card:hover {
+    background: #363636;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  }
 
-body.dark-mode .btn--modern:hover {
-  opacity: 0.9;
-  transform: translateY(-2px);
-}
+  /* Buttons */
+  .btn--modern {
+    background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-secondary-dark) 100%);
+    color: white;
+    border: none;
+  }
 
-body.dark-mode .btn--secondary {
-  background: transparent;
-  border: 2px solid var(--color-primary-dark);
-  color: var(--color-primary-dark);
-}
+  .btn--modern:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+  }
 
-/* Forms */
-body.dark-mode input,
-body.dark-mode textarea,
-body.dark-mode select {
-  background: var(--color-bg-tertiary);
-  border-color: rgba(255, 255, 255, 0.2);
-  color: var(--color-text-primary);
-}
+  .btn--secondary {
+    background: transparent;
+    border: 2px solid var(--color-primary-dark);
+    color: var(--color-primary-dark);
+  }
 
-body.dark-mode input::placeholder,
-body.dark-mode textarea::placeholder {
-  color: var(--color-text-tertiary);
-}
+  /* Forms */
+  input,
+  textarea,
+  select {
+    background: var(--color-bg-tertiary);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: var(--color-text-primary);
+  }
 
-body.dark-mode input:focus,
-body.dark-mode textarea:focus,
-body.dark-mode select:focus {
-  border-color: var(--color-primary-dark);
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(232, 165, 165, 0.1);
-}
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--color-text-tertiary);
+  }
 
-/* FAQ specific */
-body.dark-mode .faq-filter {
-  background: var(--color-bg-tertiary);
-  color: var(--color-text-secondary);
-  border-color: rgba(255, 255, 255, 0.2);
-}
+  input:focus,
+  textarea:focus,
+  select:focus {
+    border-color: var(--color-primary-dark);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(232, 165, 165, 0.1);
+  }
 
-body.dark-mode .faq-filter.active {
-  background: var(--color-primary-dark) !important;
-  color: white !important;
-  border-color: var(--color-primary-dark) !important;
-}
+  /* FAQ specific */
+  .faq-filter {
+    background: var(--color-bg-tertiary);
+    color: var(--color-text-secondary);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
 
-/* Footer */
-body.dark-mode .footer {
-  background: #0f0f0f;
-  color: var(--color-text-secondary);
-}
+  .faq-filter.active {
+    background: var(--color-primary-dark) !important;
+    color: white !important;
+    border-color: var(--color-primary-dark) !important;
+  }
 
-body.dark-mode .footer a {
-  color: var(--color-text-secondary);
-}
+  /* Footer */
+  .footer {
+    background: #0f0f0f;
+    color: var(--color-text-secondary);
+  }
 
-body.dark-mode .footer a:hover {
-  color: var(--color-primary-dark);
-}
+  .footer a {
+    color: var(--color-text-secondary);
+  }
 
-/* Dark mode toggle button */
-body.dark-mode .dark-mode-toggle {
-  background: var(--color-bg-tertiary);
-  color: var(--color-text-primary);
-}
+  .footer a:hover {
+    color: var(--color-primary-dark);
+  }
 
-/* Text colors */
-body.dark-mode .text-gray-600 {
-  color: var(--color-text-secondary);
-}
+  /* Text colors */
+  .text-gray-600 {
+    color: var(--color-text-secondary);
+  }
 
-body.dark-mode .text-gray-700 {
-  color: var(--color-text-secondary);
-}
+  .text-gray-700 {
+    color: var(--color-text-secondary);
+  }
 
-body.dark-mode .text-gray-800 {
-  color: var(--color-text-primary);
-}
+  .text-gray-800 {
+    color: var(--color-text-primary);
+  }
 
-/* Links */
-body.dark-mode a {
-  color: var(--color-primary-dark);
-}
+  /* Links */
+  a {
+    color: var(--color-primary-dark);
+  }
 
-body.dark-mode a:hover {
-  color: var(--color-secondary-dark);
-}
+  a:hover {
+    color: var(--color-secondary-dark);
+  }
 
-/* Headings */
-body.dark-mode h1,
-body.dark-mode h2,
-body.dark-mode h3,
-body.dark-mode h4,
-body.dark-mode h5,
-body.dark-mode h6 {
-  color: var(--color-text-primary);
-}
+  /* Headings */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--color-text-primary);
+  }
 
-/* Accent elements */
-body.dark-mode .accent-primary {
-  color: var(--color-primary-dark);
-}
+  /* Accent elements */
+  .accent-primary {
+    color: var(--color-primary-dark);
+  }
 
-body.dark-mode .accent-secondary {
-  color: var(--color-secondary-dark);
-}
+  .accent-secondary {
+    color: var(--color-secondary-dark);
+  }
 
-/* Quick exit button - extra visible in dark mode */
-body.dark-mode .quick-exit {
-  background: #ff4444;
-  color: white;
-  box-shadow: 0 4px 12px rgba(255, 68, 68, 0.3);
-}
+  /* Quick exit button - extra visible in dark mode */
+  .quick-exit {
+    background: #ff4444;
+    color: white;
+    box-shadow: 0 4px 12px rgba(255, 68, 68, 0.3);
+  }
 
-/* Ensure images don't get inverted */
-body.dark-mode img {
-  opacity: 0.9;
-}
+  /* Ensure images don't get inverted */
+  img {
+    opacity: 0.9;
+  }
 
-/* Code blocks if any */
-body.dark-mode code,
-body.dark-mode pre {
-  background: var(--color-bg-primary);
-  color: var(--color-text-primary);
-  border-color: rgba(255, 255, 255, 0.1);
-}
+  /* Code blocks if any */
+  code,
+  pre {
+    background: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
 
-/* Smooth transitions */
-body.dark-mode * {
-  transition: var(--transition-mode);
+  /* Smooth transitions */
+  * {
+    transition: var(--transition-mode);
+  }
 }

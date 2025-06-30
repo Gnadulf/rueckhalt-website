@@ -68,15 +68,7 @@
     display: none;
   }
   
-  /* Dark Mode Toggle - Mobile Fixes */
-  .dark-mode-toggle {
-    width: 40px;
-    height: 40px;
-    min-width: 40px;
-    flex-shrink: 0;
-  }
-  
-  /* Language & Dark Mode Container */
+  /* Language Container */
   .header-content > div[style*="display: flex"] {
     gap: var(--space-2) !important;
   }

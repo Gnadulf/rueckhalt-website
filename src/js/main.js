@@ -449,80 +449,6 @@ class HeaderScroll {
   }
 }
 
-// Dark Mode Toggle
-class DarkMode {
-  constructor() {
-    this.toggle = document.querySelector('.dark-mode-toggle');
-    this.body = document.body;
-    this.sunIcon = this.toggle?.querySelector('.sun-icon');
-    this.moonIcon = this.toggle?.querySelector('.moon-icon');
-    
-    this.init();
-  }
-  
-  init() {
-    if (!this.toggle) return;
-    
-    // Check for saved preference or system preference
-    const savedMode = localStorage.getItem('darkMode');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    if (savedMode === 'true' || (savedMode === null && prefersDark)) {
-      this.enableDarkMode();
-    }
-    
-    // Toggle on click
-    this.toggle.addEventListener('click', () => this.toggleMode());
-    
-    // Listen for system preference changes
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-      if (localStorage.getItem('darkMode') === null) {
-        if (e.matches) {
-          this.enableDarkMode();
-        } else {
-          this.disableDarkMode();
-        }
-      }
-    });
-  }
-  
-  toggleMode() {
-    if (this.body.classList.contains('dark-mode')) {
-      this.disableDarkMode();
-    } else {
-      this.enableDarkMode();
-    }
-  }
-  
-  enableDarkMode() {
-    this.body.classList.add('dark-mode');
-    if (this.sunIcon) this.sunIcon.style.display = 'none';
-    if (this.moonIcon) this.moonIcon.style.display = 'block';
-    localStorage.setItem('darkMode', 'true');
-    
-    // Announce to screen readers
-    this.announce('Dark Mode aktiviert');
-  }
-  
-  disableDarkMode() {
-    this.body.classList.remove('dark-mode');
-    if (this.sunIcon) this.sunIcon.style.display = 'block';
-    if (this.moonIcon) this.moonIcon.style.display = 'none';
-    localStorage.setItem('darkMode', 'false');
-    
-    // Announce to screen readers
-    this.announce('Dark Mode deaktiviert');
-  }
-  
-  announce(message) {
-    const announcer = document.querySelector('[role="status"]');
-    if (announcer) {
-      announcer.textContent = message;
-      setTimeout(() => announcer.textContent = '', 1000);
-    }
-  }
-}
-
 // Import translations
 import translations from './translations.js';
 
@@ -800,7 +726,6 @@ document.addEventListener('DOMContentLoaded', () => {
   new HeaderScroll();
   new LogoFade();
   new FAQSystem();
-  new DarkMode();
   
   // Initialize translations
   const currentLang = translations.detectLanguage();

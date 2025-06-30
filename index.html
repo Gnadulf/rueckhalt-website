@@ -109,28 +109,9 @@
             pointer-events: none;
         }
         
-        /* Dark Mode Toggle */
-        .dark-mode-toggle {
-            background: transparent;
-            border: 2px solid var(--color-gray-300);
-            border-radius: var(--radius-full);
-            padding: var(--space-2);
-            cursor: pointer;
-            transition: all var(--transition-base);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-        }
-        
-        .dark-mode-toggle:hover {
-            border-color: var(--color-primary);
-            transform: rotate(180deg);
-        }
-        
-        /* Dark Mode Styles - Maximaler Kontrast für Barrierefreiheit */
-        body.dark-mode {
+        /* Dark Mode Styles - Automatische Anpassung an System-Präferenz */
+        @media (prefers-color-scheme: dark) {
+          :root {
             --color-background: #0f0f0f; /* Dunklerer Hintergrund */
             --color-warm: #1a1a1a;
             --color-light: #1f1f1f;
@@ -152,103 +133,106 @@
             --color-secondary-light: #C0FFFA;
             --color-secondary-dark: #80E5DD;
             --color-accent: #95D5C5;
+          }
+          
+          body {
             background: #0f0f0f;
             color: #ffffff; /* Reines Weiß für Text */
-        }
+          }
         
-        body.dark-mode .hero-modern {
+          .hero-modern {
             background: linear-gradient(135deg, rgba(50, 50, 50, 0.3) 0%, rgba(30, 30, 30, 0.3) 100%);
         }
         
-        body.dark-mode .card--glass {
+        .card--glass {
             background: rgba(30, 30, 30, 0.95);
             border: 1px solid rgba(255, 255, 255, 0.2);
             color: #ffffff;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
         }
         
-        body.dark-mode .header {
+        .header {
             background: rgba(25, 25, 25, 0.95);
         }
         
-        body.dark-mode .btn--modern {
+        .btn--modern {
             background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
         }
         
-        body.dark-mode .btn--secondary {
+        .btn--secondary {
             background: transparent;
             border: 2px solid var(--color-primary);
             color: var(--color-primary);
         }
         
-        body.dark-mode .btn--secondary:hover {
+        .btn--secondary:hover {
             background: var(--color-primary);
             color: #1a1a1a;
         }
         
-        body.dark-mode .emergency-bar {
+        .emergency-bar {
             background: linear-gradient(90deg, #C08080 0%, #4BA39D 100%) !important;
         }
         
-        body.dark-mode .service-icon {
+        .service-icon {
             background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-secondary-dark) 100%);
         }
         
-        body.dark-mode .nav-link-special {
+        .nav-link-special {
             background: var(--color-secondary-dark);
         }
         
-        body.dark-mode .footer {
+        .footer {
             background: #0f0f0f;
         }
         
         /* Dark Mode Text Kontrast Fixes - WCAG AAA Compliance */
-        body.dark-mode p,
-        body.dark-mode li,
-        body.dark-mode span {
+        p,
+        li,
+        span {
             color: #f0f0f0; /* Hellerer Text */
             font-weight: 400; /* Etwas stärker für bessere Lesbarkeit */
         }
         
-        body.dark-mode h1,
-        body.dark-mode h2,
-        body.dark-mode h3,
-        body.dark-mode h4 {
+        h1,
+        h2,
+        h3,
+        h4 {
             color: #ffffff;
             font-weight: 600; /* Stärkere Gewichtung */
         }
         
-        body.dark-mode .hero-subtitle {
+        .hero-subtitle {
             color: #f5f5f5 !important;
             font-weight: 400;
         }
         
-        body.dark-mode .service-modern,
-        body.dark-mode .faq-item,
-        body.dark-mode .bg-soft {
+        .service-modern,
+        .faq-item,
+        .bg-soft {
             background: rgba(25, 25, 25, 0.95);
             border: 1px solid rgba(255, 255, 255, 0.15);
             box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
         
-        body.dark-mode .service-modern p,
-        body.dark-mode .faq-answer p {
+        .service-modern p,
+        .faq-answer p {
             color: #e8e8e8;
             line-height: 1.8;
         }
         
-        body.dark-mode .nav-link {
+        .nav-link {
             color: #d0d0d0;
         }
         
-        body.dark-mode .nav-link:hover,
-        body.dark-mode .nav-link.active {
+        .nav-link:hover,
+        .nav-link.active {
             color: var(--color-primary);
         }
         
-        body.dark-mode img[alt*="Logo"] {
+        img[alt*="Logo"] {
             mix-blend-mode: normal;
-            filter: brightness(0.9) contrast(1.1);
+            filter: contrast(1.1);
         }
         
         /* Header Improvements */
@@ -339,15 +323,16 @@
             }
             
             #hero-logo {
-                width: 220px !important;
+                width: 150px !important;
             }
         }
         
-        /* Dark Mode Anpassung */
-        body.dark-mode .logo {
+          /* Dark Mode Logo Animation */
+          .logo {
             animation: logoFadeToBackgroundDark 3s ease-in-out forwards;
             animation-delay: 0.5s;
-        }
+          }
+        } /* Ende @media (prefers-color-scheme: dark) */
         
         @keyframes logoFadeToBackgroundDark {
             0% {
@@ -367,6 +352,81 @@
                 opacity: 0.1;
                 transform: scale(1);
                 z-index: 0;
+            }
+        }
+        
+        /* FAQ Answer Zentrierung */
+        .faq-answer {
+            text-align: center;
+        }
+        
+        .faq-answer p {
+            margin: 0 auto;
+            max-width: 800px;
+        }
+        
+        /* Service Cards - Vollständig klickbar */
+        .service-modern {
+            position: relative;
+            cursor: pointer;
+            transition: all var(--transition-base);
+        }
+        
+        .service-modern .service-link {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-start;
+            padding: var(--space-6);
+            text-indent: -9999px;
+        }
+        
+        .service-modern .service-link::after {
+            content: 'Mehr erfahren →';
+            text-indent: 0;
+            position: absolute;
+            bottom: var(--space-6);
+            left: var(--space-6);
+            color: var(--color-primary);
+        }
+        
+        .service-modern:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+        
+        /* Erstgespräch Link - Farbe korrigieren */
+        a[href="#erstgespraech"] {
+            color: var(--color-primary) !important;
+        }
+        
+        /* Mobile Responsiveness Fixes */
+        @media (max-width: 768px) {
+            .bauhaus-heading-1 {
+                font-size: 2rem;
+            }
+            
+            .bauhaus-heading-2 {
+                font-size: 1.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .bauhaus-grid > * {
+                grid-column: span 12 !important;
+            }
+            
+            .nav-list {
+                flex-direction: column;
+                gap: var(--space-2) !important;
+            }
+            
+            .faq-filter {
+                font-size: 0.875rem;
+                padding: var(--space-2) var(--space-3);
             }
         }
     </style>
@@ -431,25 +491,6 @@
                             <li><button data-lang="tr">Türkçe</button></li>
                         </ul>
                     </div>
-
-                    
-                    <!-- Dark Mode Toggle -->
-                    <button class="dark-mode-toggle" aria-label="Dark Mode umschalten" title="Dark Mode">
-                        <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="5"></circle>
-                            <line x1="12" y1="1" x2="12" y2="3"></line>
-                            <line x1="12" y1="21" x2="12" y2="23"></line>
-                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                            <line x1="1" y1="12" x2="3" y2="12"></line>
-                            <line x1="21" y1="12" x2="23" y2="12"></line>
-                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                        </svg>
-                        <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                        </svg>
-                    </button>
                 </div>
             </div>
         </div>
@@ -689,15 +730,15 @@
                                 <div class="span-6">
                                     <h4 class="text-secondary mb-3">Häufige Reaktionen</h4>
                                     <ul class="list-none leading-8">
-                                        <li class="mb-2" class="flex items-start gap-2">
+                                        <li class="mb-2 flex items-start gap-2">
                                             <span class="text-primary mt-1">•</span>
                                             <span><strong>Körperlich:</strong> Schlafstörungen, Erschöpfung, Schmerzen, Unruhe</span>
                                         </li>
-                                        <li class="mb-2" class="flex items-start gap-2">
+                                        <li class="mb-2 flex items-start gap-2">
                                             <span class="text-primary mt-1">•</span>
                                             <span><strong>Emotional:</strong> Angst, Wut, Traurigkeit, Taubheit, Scham</span>
                                         </li>
-                                        <li class="mb-2" class="flex items-start gap-2">
+                                        <li class="mb-2 flex items-start gap-2">
                                             <span class="text-primary mt-1">•</span>
                                             <span><strong>Kognitiv:</strong> Konzentrationsprobleme, Vergesslichkeit, Grübeln</span>
                                         </li>
@@ -715,7 +756,7 @@
                 <!-- Bewältigungsstrategien -->
                 <div class="bauhaus-grid" style="margin-top: var(--space-8); gap: var(--space-6);">
                     <div class="span-4">
-                        <div class="service-modern" class="h-full">
+                        <div class="service-modern h-full">
                             <div class="icon-modern" style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);">
                                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
                                     <path d="M15 3C8.373 3 3 8.373 3 15s5.373 12 12 12 12-5.373 12-12S21.627 3 15 3zm0 2c5.514 0 10 4.486 10 10s-4.486 10-10 10S5 20.514 5 15 9.486 5 15 5zm0 3c-3.866 0-7 3.134-7 7s3.134 7 7 7 7-3.134 7-7-3.134-7-7-7zm0 2c2.761 0 5 2.239 5 5s-2.239 5-5 5-5-2.239-5-5 2.239-5 5-5z" fill="currentColor"/>
@@ -723,7 +764,7 @@
                             </div>
                             <h3 class="bauhaus-heading-3">Erdungs-Übungen</h3>
                             <p class="mb-4">Techniken, die Ihnen helfen, im Hier und Jetzt zu bleiben:</p>
-                            <ul class="list-none" class="text-sm">
+                            <ul class="list-none text-sm">
                                 <li>• 5-4-3-2-1 Methode</li>
                                 <li>• Atemübungen</li>
                                 <li>• Progressive Muskelentspannung</li>
@@ -733,7 +774,7 @@
                     </div>
 
                     <div class="span-4">
-                        <div class="service-modern" class="h-full">
+                        <div class="service-modern h-full">
                             <div class="icon-modern" style="background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-secondary-light) 100%);">
                                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
                                     <path d="M15 5.5C15 4.672 14.328 4 13.5 4S12 4.672 12 5.5c0 .653.42 1.21 1 1.414V11h2V6.914c.58-.205 1-.761 1-1.414zM21.5 4c-.828 0-1.5.672-1.5 1.5 0 .653.42 1.21 1 1.414V11h2V6.914c.58-.205 1-.761 1-1.414C24 4.672 23.328 4 22.5 4zM8.5 4C7.672 4 7 4.672 7 5.5c0 .653.42 1.21 1 1.414V11h2V6.914c.58-.205 1-.761 1-1.414C11 4.672 10.328 4 8.5 4zM6 13v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V13H6zm9 8c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z" fill="currentColor"/>
@@ -741,7 +782,7 @@
                             </div>
                             <h3 class="bauhaus-heading-3">Selbstfürsorge</h3>
                             <p class="mb-4">Stärken Sie Ihre Ressourcen:</p>
-                            <ul class="list-none" class="text-sm">
+                            <ul class="list-none text-sm">
                                 <li>• Regelmäßige Routinen</li>
                                 <li>• Gesunde Ernährung</li>
                                 <li>• Bewegung & Sport</li>
@@ -751,7 +792,7 @@
                     </div>
 
                     <div class="span-4">
-                        <div class="service-modern" class="h-full">
+                        <div class="service-modern h-full">
                             <div class="icon-modern" style="background: linear-gradient(135deg, var(--color-accent) 0%, #8FA89F 100%);">
                                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
                                     <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" fill="currentColor"/>
@@ -759,7 +800,7 @@
                             </div>
                             <h3 class="bauhaus-heading-3">Soziale Unterstützung</h3>
                             <p class="mb-4">Verbindung ist heilsam:</p>
-                            <ul class="list-none" class="text-sm">
+                            <ul class="list-none text-sm">
                                 <li>• Vertrauenspersonen einbeziehen</li>
                                 <li>• Selbsthilfegruppen</li>
                                 <li>• Professionelle Begleitung</li>
@@ -830,7 +871,7 @@
                                 </ul>
                                 
                                 <h4 class="text-primary mb-2 text-sm">Wichtige Links:</h4>
-                                <ul class="list-none" class="text-sm">
+                                <ul class="list-none text-sm">
                                     <li class="mb-1">• <a href="https://www.hilfetelefon.de" target="_blank" rel="noopener" class="text-secondary">Hilfetelefon</a></li>
                                     <li class="mb-1">• <a href="https://www.frauenberatungsstellen-nrw.de" target="_blank" rel="noopener" class="text-secondary">Frauenberatung NRW</a></li>
                                     <li>• <a href="https://weisser-ring.de" target="_blank" rel="noopener" class="text-secondary">Weisser Ring e.V.</a></li>
@@ -914,15 +955,13 @@
                             
                             <!-- Betroffene Questions -->
                             <div class="faq-item" data-category="betroffene" class="mb-4">
-                                <button class="faq-question" aria-expanded="false" 
-                                        class="w-full text-left py-4 px-6 bg-white rounded-lg cursor-pointer transition-all flex justify-between items-center text-gray-800" class="border-none" style="font-size: 1.1rem; font-weight: 500;">
+                                <button class="faq-question w-full text-left py-4 px-6 bg-white rounded-lg cursor-pointer transition-all flex justify-between items-center text-gray-800 border-none" aria-expanded="false" style="font-size: 1.1rem; font-weight: 500;">
                                     <span>Muss ich zur Polizei gehen, wenn ich zu Ihnen komme?</span>
-                                    <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="currentColor" 
-                                         class="rotate-0 transition-transform">
+                                    <svg class="faq-icon rotate-0 transition-transform" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
                                         <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
                                     </svg>
                                 </button>
-                                <div class="faq-answer" hidden class="pt-0 px-6 pb-4 bg-white" class="rounded-b-lg mt-n2">
+                                <div class="faq-answer pt-0 px-6 pb-4 bg-white rounded-b-lg mt-n2" hidden>
                                     <p class="text-gray-600 leading-8">
                                         Nein, Sie müssen nicht zur Polizei gehen. Unsere Beratung ist unabhängig von einer Anzeige. 
                                         Wir unterliegen der Schweigepflicht und geben keine Informationen ohne Ihre ausdrückliche 
@@ -933,15 +972,13 @@
                             </div>
                             
                             <div class="faq-item" data-category="betroffene" class="mb-4">
-                                <button class="faq-question" aria-expanded="false" 
-                                        class="w-full text-left py-4 px-6 bg-white rounded-lg cursor-pointer transition-all flex justify-between items-center text-gray-800" class="border-none" style="font-size: 1.1rem; font-weight: 500;">
+                                <button class="faq-question w-full text-left py-4 px-6 bg-white rounded-lg cursor-pointer transition-all flex justify-between items-center text-gray-800 border-none" aria-expanded="false" style="font-size: 1.1rem; font-weight: 500;">
                                     <span>Wie lange dauert eine Beratung?</span>
-                                    <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="currentColor" 
-                                         class="rotate-0 transition-transform">
+                                    <svg class="faq-icon rotate-0 transition-transform" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
                                         <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
                                     </svg>
                                 </button>
-                                <div class="faq-answer" hidden class="pt-0 px-6 pb-4 bg-white" class="rounded-b-lg mt-n2">
+                                <div class="faq-answer pt-0 px-6 pb-4 bg-white rounded-b-lg mt-n2" hidden>
                                     <p class="text-gray-600 leading-8">
                                         Ein Beratungsgespräch dauert in der Regel 50-60 Minuten. Die Anzahl der Termine richtet sich 
                                         nach Ihrem individuellen Bedarf. Manche Menschen kommen nur einmal, andere über einen längeren 
@@ -951,15 +988,13 @@
                             </div>
                             
                             <div class="faq-item" data-category="betroffene" class="mb-4">
-                                <button class="faq-question" aria-expanded="false" 
-                                        class="w-full text-left py-4 px-6 bg-white rounded-lg cursor-pointer transition-all flex justify-between items-center text-gray-800" class="border-none" style="font-size: 1.1rem; font-weight: 500;">
+                                <button class="faq-question w-full text-left py-4 px-6 bg-white rounded-lg cursor-pointer transition-all flex justify-between items-center text-gray-800 border-none" aria-expanded="false" style="font-size: 1.1rem; font-weight: 500;">
                                     <span>Kann ich auch anonym beraten werden?</span>
-                                    <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="currentColor" 
-                                         class="rotate-0 transition-transform">
+                                    <svg class="faq-icon rotate-0 transition-transform" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
                                         <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
                                     </svg>
                                 </button>
-                                <div class="faq-answer" hidden class="pt-0 px-6 pb-4 bg-white" class="rounded-b-lg mt-n2">
+                                <div class="faq-answer pt-0 px-6 pb-4 bg-white rounded-b-lg mt-n2" hidden>
                                     <p class="text-gray-600 leading-8">
                                         Ja, Sie können auch anonym beraten werden. Sie müssen uns weder Ihren Namen noch andere 
                                         persönliche Daten mitteilen. Wichtig ist nur, dass wir Sie unterstützen können.
@@ -969,15 +1004,13 @@
                             
                             <!-- Angehörige Questions -->
                             <div class="faq-item" data-category="angehoerige" class="mb-4">
-                                <button class="faq-question" aria-expanded="false" 
-                                        class="w-full text-left py-4 px-6 bg-white rounded-lg cursor-pointer transition-all flex justify-between items-center text-gray-800" class="border-none" style="font-size: 1.1rem; font-weight: 500;">
+                                <button class="faq-question w-full text-left py-4 px-6 bg-white rounded-lg cursor-pointer transition-all flex justify-between items-center text-gray-800 border-none" aria-expanded="false" style="font-size: 1.1rem; font-weight: 500;">
                                     <span>Wie kann ich als Angehörige*r helfen?</span>
-                                    <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="currentColor" 
-                                         class="rotate-0 transition-transform">
+                                    <svg class="faq-icon rotate-0 transition-transform" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
                                         <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
                                     </svg>
                                 </button>
-                                <div class="faq-answer" hidden class="pt-0 px-6 pb-4 bg-white" class="rounded-b-lg mt-n2">
+                                <div class="faq-answer pt-0 px-6 pb-4 bg-white rounded-b-lg mt-n2" hidden>
                                     <p class="text-gray-600 leading-8">
                                         Das Wichtigste ist: Glauben Sie der betroffenen Person und nehmen Sie sie ernst. Drängen Sie 
                                         nicht zu Entscheidungen, sondern respektieren Sie das Tempo der betroffenen Person. Bieten Sie 
@@ -988,15 +1021,13 @@
                             </div>
                             
                             <div class="faq-item" data-category="angehoerige" class="mb-4">
-                                <button class="faq-question" aria-expanded="false" 
-                                        class="w-full text-left py-4 px-6 bg-white rounded-lg cursor-pointer transition-all flex justify-between items-center text-gray-800" class="border-none" style="font-size: 1.1rem; font-weight: 500;">
+                                <button class="faq-question w-full text-left py-4 px-6 bg-white rounded-lg cursor-pointer transition-all flex justify-between items-center text-gray-800 border-none" aria-expanded="false" style="font-size: 1.1rem; font-weight: 500;">
                                     <span>Darf ich ohne das Wissen der betroffenen Person Kontakt aufnehmen?</span>
-                                    <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="currentColor" 
-                                         class="rotate-0 transition-transform">
+                                    <svg class="faq-icon rotate-0 transition-transform" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
                                         <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
                                     </svg>
                                 </button>
-                                <div class="faq-answer" hidden class="pt-0 px-6 pb-4 bg-white" class="rounded-b-lg mt-n2">
+                                <div class="faq-answer pt-0 px-6 pb-4 bg-white rounded-b-lg mt-n2" hidden>
                                     <p class="text-gray-600 leading-8">
                                         Ja, Sie können sich auch ohne das Wissen der betroffenen Person an uns wenden. Wir beraten Sie 
                                         gerne, wie Sie bestmöglich unterstützen können, ohne die Selbstbestimmung der betroffenen Person 
@@ -1006,16 +1037,14 @@
                             </div>
                             
                             <!-- Allgemeine Questions -->
-                            <div class="faq-item" data-category="allgemein" class="mb-4">
-                                <button class="faq-question" aria-expanded="false" 
-                                        class="w-full text-left py-4 px-6 bg-white rounded-lg cursor-pointer transition-all flex justify-between items-center text-gray-800" class="border-none" style="font-size: 1.1rem; font-weight: 500;">
+                            <div class="faq-item mb-4" data-category="allgemein">
+                                <button class="faq-question w-full text-left py-4 px-6 bg-white rounded-lg cursor-pointer transition-all flex justify-between items-center text-gray-800 border-none" aria-expanded="false" style="font-size: 1.1rem; font-weight: 500;">
                                     <span>Was kostet die Beratung?</span>
-                                    <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="currentColor" 
-                                         class="rotate-0 transition-transform">
+                                    <svg class="faq-icon rotate-0 transition-transform" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
                                         <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
                                     </svg>
                                 </button>
-                                <div class="faq-answer" hidden class="pt-0 px-6 pb-4 bg-white" class="rounded-b-lg mt-n2">
+                                <div class="faq-answer pt-0 px-6 pb-4 bg-white rounded-b-lg mt-n2" hidden>
                                     <p class="text-gray-600 leading-8">
                                         Unsere Beratung ist grundsätzlich kostenlos. Die Finanzierung erfolgt über öffentliche Mittel. 
                                         Sie müssen sich keine Sorgen um die Kosten machen.
@@ -1023,16 +1052,14 @@
                                 </div>
                             </div>
                             
-                            <div class="faq-item" data-category="allgemein" class="mb-4">
-                                <button class="faq-question" aria-expanded="false" 
-                                        class="w-full text-left py-4 px-6 bg-white rounded-lg cursor-pointer transition-all flex justify-between items-center text-gray-800" class="border-none" style="font-size: 1.1rem; font-weight: 500;">
+                            <div class="faq-item mb-4" data-category="allgemein">
+                                <button class="faq-question w-full text-left py-4 px-6 bg-white rounded-lg cursor-pointer transition-all flex justify-between items-center text-gray-800 border-none" aria-expanded="false" style="font-size: 1.1rem; font-weight: 500;">
                                     <span>Für wen ist Ihre Beratungsstelle da?</span>
-                                    <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="currentColor" 
-                                         class="rotate-0 transition-transform">
+                                    <svg class="faq-icon rotate-0 transition-transform" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
                                         <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
                                     </svg>
                                 </button>
-                                <div class="faq-answer" hidden class="pt-0 px-6 pb-4 bg-white" class="rounded-b-lg mt-n2">
+                                <div class="faq-answer pt-0 px-6 pb-4 bg-white rounded-b-lg mt-n2" hidden>
                                     <p class="text-gray-600 leading-8">
                                         Wir sind für alle Menschen da, die von sexualisierter Gewalt betroffen sind - unabhängig von 
                                         Geschlecht, Alter, Herkunft, Religion oder sexueller Orientierung. Auch Angehörige, Freund*innen 
@@ -1041,16 +1068,14 @@
                                 </div>
                             </div>
                             
-                            <div class="faq-item" data-category="allgemein" class="mb-4">
-                                <button class="faq-question" aria-expanded="false" 
-                                        class="w-full text-left py-4 px-6 bg-white rounded-lg cursor-pointer transition-all flex justify-between items-center text-gray-800" class="border-none" style="font-size: 1.1rem; font-weight: 500;">
+                            <div class="faq-item mb-4" data-category="allgemein">
+                                <button class="faq-question w-full text-left py-4 px-6 bg-white rounded-lg cursor-pointer transition-all flex justify-between items-center text-gray-800 border-none" aria-expanded="false" style="font-size: 1.1rem; font-weight: 500;">
                                     <span>Wo finde ich Ihre Beratungsstelle?</span>
-                                    <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="currentColor" 
-                                         class="rotate-0 transition-transform">
+                                    <svg class="faq-icon rotate-0 transition-transform" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
                                         <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
                                     </svg>
                                 </button>
-                                <div class="faq-answer" hidden class="pt-0 px-6 pb-4 bg-white" class="rounded-b-lg mt-n2">
+                                <div class="faq-answer pt-0 px-6 pb-4 bg-white rounded-b-lg mt-n2" hidden>
                                     <p class="text-gray-600 leading-8">
                                         Unsere Beratungsstelle befindet sich in der Innenstadt von Aachen. Die genaue Adresse teilen 
                                         wir Ihnen gerne bei der Terminvereinbarung mit. Wir bieten auch Online-Beratung und telefonische 
@@ -1064,7 +1089,7 @@
                 </div>
                 
                 <!-- CTA nach FAQ -->
-                <div class="text-center" class="mt-12">
+                <div class="text-center mt-12">
                     <p style="color: var(--color-gray-600); margin-bottom: var(--space-4);">Ihre Frage war nicht dabei?</p>
                     <a href="#kontakt" class="btn btn--modern">
                         Kontaktieren Sie uns direkt
@@ -1118,7 +1143,7 @@
         </section>
 
         <!-- Über uns Section -->
-        <section id="ueber-uns" class="diagonal-section" class="bg-warm">
+        <section id="ueber-uns" class="diagonal-section bg-warm">
             <div class="container">
                 <div class="section-header">
                     <h2 class="bauhaus-heading-1">Über Rückhalt</h2>
@@ -1127,7 +1152,7 @@
                 <div class="bauhaus-grid" style="margin-top: var(--space-8);">
                     <div class="span-8">
                         <div class="card card--glass card--spacious">
-                            <h3 class="bauhaus-heading-2" class="text-primary mb-4">
+                            <h3 class="bauhaus-heading-2 text-primary mb-4">
                                 Unsere Mission
                             </h3>
                             <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: var(--space-6);">
@@ -1332,44 +1357,6 @@
     </footer>
 
     <!-- Scripts -->
-    <script>
-        // Dark Mode Toggle
-        (function() {
-            // Check for saved preference or default to light mode
-            const currentTheme = localStorage.getItem('theme') || 'light';
-            if (currentTheme === 'dark') {
-                document.body.classList.add('dark-mode');
-            }
-            
-            // Dark mode toggle functionality
-            document.addEventListener('DOMContentLoaded', function() {
-                const darkModeToggle = document.querySelector('.dark-mode-toggle');
-                const sunIcon = darkModeToggle.querySelector('.sun-icon');
-                const moonIcon = darkModeToggle.querySelector('.moon-icon');
-                
-                function updateIcons() {
-                    if (document.body.classList.contains('dark-mode')) {
-                        sunIcon.style.display = 'none';
-                        moonIcon.style.display = 'block';
-                    } else {
-                        sunIcon.style.display = 'block';
-                        moonIcon.style.display = 'none';
-                    }
-                }
-                
-                updateIcons();
-                
-                darkModeToggle.addEventListener('click', function() {
-                    document.body.classList.toggle('dark-mode');
-                    
-                    const theme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
-                    localStorage.setItem('theme', theme);
-                    
-                    updateIcons();
-                });
-            });
-        })();
-    </script>
     
     <!-- Modal Container -->
     <div id="service-modal" class="modal-overlay" aria-hidden="true">
