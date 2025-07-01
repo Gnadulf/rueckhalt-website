@@ -69,6 +69,10 @@
   overflow: hidden;
   transition: all var(--transition-base);
   border: 2px solid transparent;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 320px;
 }
 
 .service-modern::before {
@@ -93,6 +97,18 @@
   border-color: var(--color-primary-light);
   transform: translateY(-4px);
   box-shadow: 0 20px 40px rgba(232, 165, 165, 0.2);
+}
+
+/* Service Card Content Layout */
+.service-modern p {
+  flex: 1;
+  margin-bottom: var(--space-4);
+  line-height: 1.6;
+}
+
+.service-modern .service-link {
+  margin-top: auto;
+  align-self: flex-start;
 }
 
 /* Moderne Buttons - DEPRECATED: Use unified-components.css */
