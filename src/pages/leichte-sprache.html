@@ -176,39 +176,6 @@
             font-weight: 700;
         }
         
-        /* Navigation für Leichte Sprache innerhalb der Seite */
-        .nav-ls {
-            background: var(--color-background);
-            padding: var(--space-4) 0;
-            position: sticky;
-            top: var(--header-height);
-            z-index: 10;
-            box-shadow: var(--shadow-md);
-            margin-bottom: var(--space-8);
-        }
-        
-        .nav-ls ul {
-            display: flex;
-            gap: var(--space-6);
-            list-style: none;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        
-        .nav-ls a {
-            color: var(--color-gray-700);
-            text-decoration: none;
-            font-weight: 600;
-            padding: var(--space-2) var(--space-4);
-            border-radius: var(--radius-md);
-            transition: all var(--transition-base);
-        }
-        
-        .nav-ls a:hover {
-            background: var(--color-primary);
-            color: white;
-        }
-        
         .bilder {
             display: flex;
             gap: var(--space-4);
@@ -254,10 +221,6 @@
             background: rgba(25, 25, 25, 0.95);
         }
         
-        body.dark-mode .nav-ls {
-            background: rgba(25, 25, 25, 0.95);
-        }
-        
         body.dark-mode .wichtig {
             background: rgba(255, 184, 184, 0.1);
         }
@@ -294,8 +257,8 @@
     <header class="header" role="banner">
         <div class="container">
             <div class="header-content">
-                <a href="/" class="logo" aria-label="Rückhalt Startseite">
-                    <img src="/src/assets/images/rueckhalt-logo.png" alt="Rückhalt Logo" width="120" height="120" style="mix-blend-mode: multiply; filter: contrast(1.1);">
+                <a href="../index.html" class="logo" aria-label="Rückhalt Startseite">
+                    <img src="../assets/images/rueckhalt-logo.png" alt="Rückhalt Logo" width="120" height="120" style="mix-blend-mode: multiply; filter: contrast(1.1);">
                 </a>
                 
                 <nav class="main-nav" role="navigation" aria-label="Hauptnavigation">
@@ -304,13 +267,13 @@
                     </button>
                     
                     <ul class="nav-list">
-                        <li><a href="/" class="nav-link">Startseite</a></li>
-                        <li><a href="/#angebote" class="nav-link">Angebote</a></li>
-                        <li><a href="/#rueckhalt-m" class="nav-link">Rückhalt-M</a></li>
-                        <li><a href="/#ueber-uns" class="nav-link">Über uns</a></li>
-                        <li><a href="/#wissen" class="nav-link">Wissen & Ressourcen</a></li>
-                        <li><a href="/#kontakt" class="nav-link">Kontakt</a></li>
-                        <li style="margin-left: auto;"><a href="/leichte-sprache.html" class="nav-link nav-link-special active">Leichte Sprache</a></li>
+                        <li><a href="../index.html" class="nav-link">Startseite</a></li>
+                        <li><a href="../index.html#angebote" class="nav-link">Angebote</a></li>
+                        <li><a href="../index.html#rueckhalt-m" class="nav-link">Rückhalt-M</a></li>
+                        <li><a href="../index.html#ueber-uns" class="nav-link">Über uns</a></li>
+                        <li><a href="../index.html#wissen" class="nav-link">Wissen & Ressourcen</a></li>
+                        <li><a href="../index.html#kontakt" class="nav-link">Kontakt</a></li>
+                        <li style="margin-left: auto;"><a href="../index.html" class="nav-link nav-link-special">← Normale Sprache</a></li>
                     </ul>
                 </nav>
 
@@ -334,23 +297,11 @@
 
     <!-- Main Content -->
     <main id="main" class="main-content leichte-sprache">
-        <!-- Navigation innerhalb der Leichte Sprache Seite -->
-        <nav class="nav-ls">
-            <div class="container-ls">
-                <ul>
-                    <li><a href="/">← Normale Sprache</a></li>
-                    <li><a href="#was-wir-machen">Was wir machen</a></li>
-                    <li><a href="#hilfe">Hilfe bekommen</a></li>
-                    <li><a href="#kontakt">Kontakt</a></li>
-                </ul>
-            </div>
-        </nav>
-
         <!-- Hauptinhalt -->
         <div class="container-ls">
             <!-- Logo -->
             <div style="text-align: center; margin: var(--space-8) 0;">
-                <img src="/src/assets/images/logo.png" alt="Rückhalt Logo" width="200" height="200">
+                <img src="../assets/images/rueckhalt-logo.png" alt="Rückhalt Logo" width="200" height="200">
             </div>
 
             <h1>Willkommen bei Rückhalt</h1>
@@ -524,7 +475,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <img src="/src/assets/images/rueckhalt-logo.png" alt="Rückhalt Logo" class="footer-logo" width="80" height="80" style="filter: brightness(0) invert(1);">
+                    <img src="../assets/images/rueckhalt-logo.png" alt="Rückhalt Logo" class="footer-logo" width="80" height="80" style="filter: brightness(0) invert(1);">
                     <p>Rückhalt<br>
                     Beratungsstelle gegen sexuelle Gewalt</p>
                 </div>
@@ -534,18 +485,18 @@
                     <ul>
                         <li><a href="tel:110">Notruf: 110</a></li>
                         <li><a href="tel:08000116016">Hilfetelefon: 08000 116 016</a></li>
-                        <li><a href="/#wissen">Selbsthilfe-Übungen</a></li>
-                        <li><a href="/#wissen">Sicherheitsplan erstellen</a></li>
+                        <li><a href="../index.html#wissen">Selbsthilfe-Übungen</a></li>
+                        <li><a href="../index.html#wissen">Sicherheitsplan erstellen</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-section">
                     <h3>Information</h3>
                     <ul>
-                        <li><a href="/datenschutz">Datenschutz</a></li>
-                        <li><a href="/impressum">Impressum</a></li>
-                        <li><a href="/spenden">Spenden</a></li>
-                        <li><a href="/newsletter">Newsletter</a></li>
+                        <li><a href="../datenschutz">Datenschutz</a></li>
+                        <li><a href="../impressum">Impressum</a></li>
+                        <li><a href="../spenden">Spenden</a></li>
+                        <li><a href="../newsletter">Newsletter</a></li>
                     </ul>
                 </div>
 
