@@ -119,28 +119,6 @@
   clip-path: polygon(100% 0, 100% 100%, 0 100%);
 }
 
-/* Asymmetrisches Gleichgewicht */
-.hero-bauhaus {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: calc(var(--grid-unit) * 8);
-  align-items: center;
-  min-height: 80vh;
-  position: relative;
-}
-
-.hero-bauhaus::before {
-  content: '';
-  position: absolute;
-  top: 20%;
-  left: -5%;
-  width: 40%;
-  height: 60%;
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
-  opacity: 0.15;
-  border-radius: 50%;
-  filter: blur(100px);
-}
 
 /* Primärfarben-Akzente */
 .accent-line {
@@ -150,46 +128,7 @@
   margin: calc(var(--grid-unit) * 3) 0;
 }
 
-/* Funktionale Buttons nach Bauhaus */
-.btn-bauhaus {
-  background: var(--color-primary);
-  color: var(--color-white);
-  padding: calc(var(--grid-unit) * 2) calc(var(--grid-unit) * 6);
-  border: 2px solid var(--color-primary);
-  font-weight: var(--weight-medium);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  transition: all var(--transition-base);
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-bauhaus::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  background: var(--color-white);
-  transform: translate(-50%, -50%);
-  transition: all var(--transition-base);
-  border-radius: 50%;
-}
-
-.btn-bauhaus:hover {
-  color: var(--color-primary);
-}
-
-.btn-bauhaus:hover::before {
-  width: 120%;
-  height: 120%;
-}
-
-.btn-bauhaus span {
-  position: relative;
-  z-index: 1;
-}
+/* Button-Bauhaus-Stile wurden in unified-components.css konsolidiert */
 
 /* Diagonale Elemente */
 .diagonal-section {
@@ -238,10 +177,6 @@
     grid-column: span 4;
   }
   
-  .hero-bauhaus {
-    grid-template-columns: 1fr;
-    gap: calc(var(--grid-unit) * 4);
-  }
   
   .text-grid {
     grid-template-columns: 1fr;

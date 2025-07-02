@@ -75,6 +75,36 @@
   padding: calc(var(--grid-unit) * 2) calc(var(--grid-unit) * 6);
 }
 
+.btn--pentagram {
+  background: var(--color-gray-900);
+  color: var(--color-white);
+  text-transform: uppercase;
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.05em;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-slow);
+}
+
+.btn--pentagram::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  transform: translateY(100%);
+  transition: transform var(--transition-base);
+  z-index: 0;
+}
+
+.btn--pentagram span {
+  position: relative;
+  z-index: 1;
+}
+
+.btn--pentagram:hover::after {
+  transform: translateY(0);
+}
+
 /* Universal Hover States */
 .btn:hover:not(:disabled) {
   transform: translateY(-2px);
@@ -105,6 +135,21 @@
 .btn--bauhaus:hover {
   background: var(--color-secondary);
   border-color: var(--color-secondary);
+}
+
+.btn--round {
+  border-radius: var(--radius-full);
+  width: 44px;
+  height: 44px;
+  padding: 0;
+}
+
+.btn--square {
+  border-radius: 0;
+}
+
+.btn--pill {
+  border-radius: var(--radius-full);
 }
 
 /* Focus States */
@@ -158,6 +203,29 @@
 .btn--full-width {
   width: 100%;
   justify-content: center;
+}
+
+.btn--link {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.btn--link:hover {
+  text-decoration: none;
+}
+
+.btn--outline {
+  background: transparent;
+  border: 2px solid currentColor;
+}
+
+.btn--outline:hover {
+  background: currentColor;
+  color: var(--color-white);
 }
 
 /* ==========================================
@@ -290,6 +358,16 @@
   color: white;
 }
 
+.card--modern {
+  background: linear-gradient(135deg, var(--color-white) 0%, var(--color-gray-50) 100%);
+  border: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.card--modern:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
 /* Layout Variants */
 .card--centered {
   text-align: center;
@@ -313,10 +391,30 @@
   font-size: 2rem;
 }
 
+.card--resource {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 .card--resource .icon {
   font-size: 2.5rem;
   color: var(--color-primary);
   margin-bottom: var(--space-3);
+}
+
+.card--faq {
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  margin-bottom: var(--space-3);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all var(--transition-base);
+}
+
+.card--faq:hover {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-sm);
 }
 
 /* Card Link Wrapper */
