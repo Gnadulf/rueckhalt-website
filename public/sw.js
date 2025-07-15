@@ -9,13 +9,9 @@ const STATIC_CACHE = [
   '/',
   '/index.html',
   '/offline.html',
-  '/src/css/reset.css',
-  '/src/css/variables.css', 
-  '/src/css/main.css',
-  '/src/css/components.css',
-  '/src/css/responsive.css',
-  '/src/js/main.js',
-  '/src/assets/images/logo.png',
+  '/modal-content.json',
+  // Note: In production, CSS and JS files will have hashed names
+  // The service worker should be updated during build to include actual asset URLs
   'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap'
 ];
 

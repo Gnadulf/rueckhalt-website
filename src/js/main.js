@@ -12,6 +12,7 @@ import '../css/responsive.css';
 import '../css/pentagram.css';
 import '../css/utilities.css';
 import '../css/dark-mode.css';
+import '../css/modal.css';
 
 // Quick Exit Functionality
 class QuickExit {
@@ -452,6 +453,136 @@ class HeaderScroll {
 // Import translations
 import translations from './translations.js';
 
+// Modal System - Data-driven Architecture
+class ModalSystem {
+  constructor() {
+    this.modal = document.getElementById('service-modal');
+    this.modalBody = document.getElementById('modal-body');
+    this.modalClose = this.modal?.querySelector('.modal-close');
+    this.serviceData = null;
+    this.activeServiceLink = null;
+    
+    this.init();
+  }
+  
+  async init() {
+    if (!this.modal) return;
+    
+    try {
+      // Load modal content from JSON
+      const response = await fetch('/modal-content.json');
+      const data = await response.json();
+      
+      // Transform array to object for easy lookup
+      this.serviceData = data.services.reduce((acc, service) => {
+        acc[service.id] = service;
+        return acc;
+      }, {});
+      
+      this.attachEventListeners();
+      this.attachServiceLinks();
+    } catch (error) {
+      console.error('Failed to load modal content:', error);
+    }
+  }
+  
+  attachEventListeners() {
+    // Close button
+    this.modalClose?.addEventListener('click', () => this.close());
+    
+    // Click outside modal
+    this.modal?.addEventListener('click', (e) => {
+      if (e.target === this.modal) {
+        this.close();
+      }
+    });
+    
+    // Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && this.modal?.classList.contains('active')) {
+        this.close();
+      }
+    });
+  }
+  
+  attachServiceLinks() {
+    // Attach click handlers to all service links
+    const serviceLinks = document.querySelectorAll('.service-link');
+    serviceLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const serviceId = link.dataset.service;
+        if (serviceId) {
+          this.activeServiceLink = link;
+          this.open(serviceId);
+        }
+      });
+    });
+    
+    // Special handler for Notfall-Toolkit button
+    const notfallButton = document.querySelector('.btn--emergency');
+    if (notfallButton) {
+      notfallButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        this.activeServiceLink = notfallButton;
+        this.open('notfall');
+      });
+    }
+  }
+  
+  generateModalHTML(service) {
+    const featuresHTML = service.features.map(feature => `
+      <div class="modal-feature">
+        <svg class="modal-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${feature.iconPath}"></path>
+        </svg>
+        <div>
+          <strong>${feature.title}</strong>
+          <p>${feature.description}</p>
+        </div>
+      </div>
+    `).join('');
+    
+    return `
+      <div class="modal-header">
+        <h2 id="modal-title" class="modal-title">${service.title}</h2>
+        <p id="modal-description" class="modal-subtitle">${service.subtitle}</p>
+      </div>
+      <div class="modal-features">${featuresHTML}</div>
+      <div class="modal-cta">
+        <a href="#kontakt" class="btn btn--modern" onclick="window.modalSystem.close()">
+          ${service.cta}
+        </a>
+        <button class="btn btn--secondary" onclick="window.modalSystem.close()">
+          Schließen
+        </button>
+      </div>
+    `;
+  }
+  
+  open(serviceId) {
+    const service = this.serviceData?.[serviceId];
+    if (!service || !this.modalBody) return;
+    
+    this.modalBody.innerHTML = this.generateModalHTML(service);
+    this.modal.classList.add('active');
+    this.modal.setAttribute('aria-hidden', 'false');
+    this.modalClose?.focus();
+    document.body.style.overflow = 'hidden';
+  }
+  
+  close() {
+    this.modal?.classList.remove('active');
+    this.modal?.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    
+    // Return focus to trigger element
+    if (this.activeServiceLink) {
+      this.activeServiceLink.focus();
+    }
+  }
+}
+
 // FAQ System - Trauma-informed Interactive Design
 class FAQSystem {
   constructor() {
@@ -727,6 +858,9 @@ document.addEventListener('DOMContentLoaded', () => {
   new LogoFade();
   new FAQSystem();
   
+  // Initialize Modal System
+  window.modalSystem = new ModalSystem();
+  
   // Initialize translations
   const currentLang = translations.detectLanguage();
   translations.applyTranslations(currentLang);
@@ -743,7 +877,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Service Worker for offline support (if supported)
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js').catch(() => {
+    navigator.serviceWorker.register('./sw.js').catch(() => {
       // Silent fail - no console output
     });
   }

@@ -1,0 +1,149 @@
+/* Modal System Styles - Refactored for clean architecture */
+
+/* Base Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    backdrop-filter: blur(4px);
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Modal Content Container */
+.modal-content {
+    background: white;
+    border-radius: var(--radius-xl);
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: var(--space-8);
+    position: relative;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.modal-overlay.active .modal-content {
+    transform: translateY(0);
+}
+
+/* Close Button */
+.modal-close {
+    position: absolute;
+    top: var(--space-4);
+    right: var(--space-4);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-2);
+    border-radius: var(--radius-full);
+    transition: background 0.2s ease;
+    color: var(--color-gray-600);
+}
+
+.modal-close:hover {
+    background: var(--color-gray-100);
+}
+
+.modal-close:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* Dark Mode Support */
+.dark-mode .modal-content {
+    background: var(--color-gray-900);
+    color: var(--color-gray-100);
+}
+
+.dark-mode .modal-close {
+    color: var(--color-gray-400);
+}
+
+.dark-mode .modal-close:hover {
+    background: var(--color-gray-800);
+}
+
+/* Modal Content Typography */
+.modal-header {
+    margin-bottom: var(--space-6);
+}
+
+.modal-title {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: var(--space-2);
+}
+
+.modal-subtitle {
+    color: var(--color-gray-600);
+    font-size: var(--text-lg);
+}
+
+/* Feature List */
+.modal-features {
+    margin: var(--space-6) 0;
+}
+
+.modal-feature {
+    display: flex;
+    align-items: start;
+    margin-bottom: var(--space-4);
+}
+
+.modal-feature-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: var(--space-3);
+    color: var(--color-secondary);
+    flex-shrink: 0;
+}
+
+/* CTA Buttons */
+.modal-cta {
+    margin-top: var(--space-6);
+    display: flex;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .modal-content {
+        padding: var(--space-6);
+        width: 95%;
+        max-height: 90vh;
+    }
+    
+    .modal-title {
+        font-size: var(--text-xl);
+    }
+    
+    .modal-subtitle {
+        font-size: var(--text-base);
+    }
+    
+    .modal-cta {
+        flex-direction: column;
+    }
+    
+    .modal-cta .btn {
+        width: 100%;
+    }
+}

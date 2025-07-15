@@ -1,0 +1,2201 @@
+{
+  "summary": {
+    "totalSelectors": 516,
+    "usedSelectors": 282,
+    "unusedSelectors": 308,
+    "analyzedFiles": {
+      "css": 12,
+      "html": 8,
+      "js": 6
+    }
+  },
+  "deadSelectors": {
+    "highConfidence": [
+      {
+        "selector": "card-systematic",
+        "definedIn": [
+          "src/css/bauhaus.css"
+        ],
+        "reason": "Component class with no usage found"
+      },
+      {
+        "selector": "btn-primary",
+        "definedIn": [
+          "src/css/components.css"
+        ],
+        "reason": "Component class with no usage found"
+      },
+      {
+        "selector": "btn-secondary",
+        "definedIn": [
+          "src/css/components.css"
+        ],
+        "reason": "Component class with no usage found"
+      },
+      {
+        "selector": "btn-emergency",
+        "definedIn": [
+          "src/css/components.css"
+        ],
+        "reason": "Component class with no usage found"
+      },
+      {
+        "selector": "btn-small",
+        "definedIn": [
+          "src/css/components.css"
+        ],
+        "reason": "Component class with no usage found"
+      },
+      {
+        "selector": "btn-large",
+        "definedIn": [
+          "src/css/components.css",
+          "src/css/responsive.css"
+        ],
+        "reason": "Component class with no usage found"
+      },
+      {
+        "selector": "card-header",
+        "definedIn": [
+          "src/css/components.css"
+        ],
+        "reason": "Component class with no usage found"
+      },
+      {
+        "selector": "card-body",
+        "definedIn": [
+          "src/css/components.css"
+        ],
+        "reason": "Component class with no usage found"
+      },
+      {
+        "selector": "card-footer",
+        "definedIn": [
+          "src/css/components.css"
+        ],
+        "reason": "Component class with no usage found"
+      },
+      {
+        "selector": "badge",
+        "definedIn": [
+          "src/css/components.css"
+        ],
+        "reason": "Component class with no usage found"
+      },
+      {
+        "selector": "badge-primary",
+        "definedIn": [
+          "src/css/components.css"
+        ],
+        "reason": "Component class with no usage found"
+      },
+      {
+        "selector": "badge-success",
+        "definedIn": [
+          "src/css/components.css"
+        ],
+        "reason": "Component class with no usage found"
+      },
+      {
+        "selector": "badge-warning",
+        "definedIn": [
+          "src/css/components.css"
+        ],
+        "reason": "Component class with no usage found"
+      },
+      {
+        "selector": "badge-emergency",
+        "definedIn": [
+          "src/css/components.css"
+        ],
+        "reason": "Component class with no usage found"
+      },
+      {
+        "selector": "alert-icon",
+        "definedIn": [
+          "src/css/components.css"
+        ],
+        "reason": "Component class with no usage found"
+      },
+      {
+        "selector": "alert-content",
+        "definedIn": [
+          "src/css/components.css"
+        ],
+        "reason": "Component class with no usage found"
+      },
+      {
+        "selector": "alert-title",
+        "definedIn": [
+          "src/css/components.css"
+        ],
+        "reason": "Component class with no usage found"
+      },
+      {
+        "selector": "alert-info",
+        "definedIn": [
+          "src/css/components.css"
+        ],
+        "reason": "Component class with no usage found"
+      },
+      {
+        "selector": "alert-success",
+        "definedIn": [
+          "src/css/components.css"
+        ],
+        "reason": "Component class with no usage found"
+      },
+      {
+        "selector": "alert-warning",
+        "definedIn": [
+          "src/css/components.css"
+        ],
+        "reason": "Component class with no usage found"
+      },
+      {
+        "selector": "alert-emergency",
+        "definedIn": [
+          "src/css/components.css"
+        ],
+        "reason": "Component class with no usage found"
+      },
+      {
+        "selector": "spinner",
+        "definedIn": [
+          "src/css/components.css"
+        ],
+        "reason": "Component class with no usage found"
+      },
+      {
+        "selector": "tooltip",
+        "definedIn": [
+          "src/css/components.css"
+        ],
+        "reason": "Component class with no usage found"
+      },
+      {
+        "selector": "tooltip-content",
+        "definedIn": [
+          "src/css/components.css"
+        ],
+        "reason": "Component class with no usage found"
+      },
+      {
+        "selector": "modal-backdrop",
+        "definedIn": [
+          "src/css/components.css"
+        ],
+        "reason": "Component class with no usage found"
+      },
+      {
+        "selector": "modal",
+        "definedIn": [
+          "src/css/components.css"
+        ],
+        "reason": "Component class with no usage found"
+      },
+      {
+        "selector": "modal-header",
+        "definedIn": [
+          "src/css/components.css",
+          "src/css/modal.css"
+        ],
+        "reason": "Component class with no usage found"
+      },
+      {
+        "selector": "modal-title",
+        "definedIn": [
+          "src/css/components.css",
+          "src/css/modal.css"
+        ],
+        "reason": "Component class with no usage found"
+      },
+      {
+        "selector": "modal-footer",
+        "definedIn": [
+          "src/css/components.css"
+        ],
+        "reason": "Component class with no usage found"
+      },
+      {
+        "selector": "modal-subtitle",
+        "definedIn": [
+          "src/css/modal.css"
+        ],
+        "reason": "Component class with no usage found"
+      },
+      {
+        "selector": "modal-features",
+        "definedIn": [
+          "src/css/modal.css"
+        ],
+        "reason": "Component class with no usage found"
+      },
+      {
+        "selector": "modal-feature",
+        "definedIn": [
+          "src/css/modal.css"
+        ],
+        "reason": "Component class with no usage found"
+      },
+      {
+        "selector": "modal-feature-icon",
+        "definedIn": [
+          "src/css/modal.css"
+        ],
+        "reason": "Component class with no usage found"
+      },
+      {
+        "selector": "modal-cta",
+        "definedIn": [
+          "src/css/modal.css"
+        ],
+        "reason": "Component class with no usage found"
+      }
+    ],
+    "mediumConfidence": [
+      {
+        "selector": "text-grid",
+        "definedIn": [
+          "src/css/bauhaus.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "dark-mode-toggle",
+        "definedIn": [
+          "src/css/components.css",
+          "src/css/responsive.css"
+        ],
+        "reason": "Might be used conditionally or via media queries"
+      },
+      {
+        "selector": "moon-icon",
+        "definedIn": [
+          "src/css/components.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "dark-mode",
+        "definedIn": [
+          "src/css/components.css",
+          "src/css/modal.css"
+        ],
+        "reason": "Might be used conditionally or via media queries"
+      },
+      {
+        "selector": "mood-adjustment",
+        "definedIn": [
+          "src/css/main.css",
+          "src/css/responsive.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "mood-icon",
+        "definedIn": [
+          "src/css/main.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "hero-background",
+        "definedIn": [
+          "src/css/main.css",
+          "src/css/responsive.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "hero-content",
+        "definedIn": [
+          "src/css/main.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "hero-title",
+        "definedIn": [
+          "src/css/main.css",
+          "src/css/responsive.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "process",
+        "definedIn": [
+          "src/css/main.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "process-timeline",
+        "definedIn": [
+          "src/css/main.css",
+          "src/css/responsive.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "process-step",
+        "definedIn": [
+          "src/css/main.css",
+          "src/css/responsive.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "text-right",
+        "definedIn": [
+          "src/css/main.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "flex-center-x",
+        "definedIn": [
+          "src/css/main.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "flex-center-y",
+        "definedIn": [
+          "src/css/main.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "pentagram-grid",
+        "definedIn": [
+          "src/css/pentagram.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "m-1",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "m-2",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "m-3",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "m-4",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "m-5",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "m-6",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "m-8",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "m-10",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "m-12",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "m-16",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "m-20",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "m-24",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "mt-0",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "mt-3",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "mt-5",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "mt-6",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "mt-10",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "mt-16",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "mt-20",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "mt-24",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "mr-0",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "mr-1",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "mr-2",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "mr-4",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "mr-5",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "mr-6",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "mr-8",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "mr-10",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "mr-12",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "mr-16",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "mr-20",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "mr-24",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "mb-0",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "mb-5",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "mb-10",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "mb-16",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "mb-20",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "mb-24",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "ml-0",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "ml-1",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "ml-2",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "ml-3",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "ml-4",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "ml-5",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "ml-6",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "ml-8",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "ml-10",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "ml-12",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "ml-16",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "ml-20",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "ml-24",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "mx-0",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "mx-1",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "mx-2",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "mx-3",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "mx-4",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "mx-5",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "mx-6",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "mx-8",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "mx-10",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "mx-12",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "mx-16",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "mx-20",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "mx-24",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "my-0",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "my-1",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "my-2",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "my-3",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "my-4",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "my-5",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "my-6",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "my-8",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "my-10",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "my-12",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "my-16",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "my-20",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "my-24",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "p-0",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "p-1",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "p-2",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "p-3",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "p-5",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "p-10",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "p-12",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "p-16",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "p-20",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "p-24",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "pt-1",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "pt-2",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "pt-3",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "pt-4",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "pt-5",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "pt-6",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "pt-10",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "pt-12",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "pt-16",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "pt-20",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "pt-24",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "pr-0",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "pr-1",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "pr-2",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "pr-3",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "pr-4",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "pr-5",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "pr-6",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "pr-8",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "pr-10",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "pr-12",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "pr-16",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "pr-20",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "pr-24",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "pb-0",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "pb-1",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "pb-2",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "pb-3",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "pb-5",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "pb-6",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "pb-8",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "pb-10",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "pb-12",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "pb-16",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "pb-20",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "pb-24",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "pl-0",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "pl-1",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "pl-2",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "pl-3",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "pl-4",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "pl-5",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "pl-6",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "pl-8",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "pl-10",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "pl-12",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "pl-16",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "pl-20",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "pl-24",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "px-0",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "px-1",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "px-2",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "px-3",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "px-5",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "px-8",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "px-10",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "px-12",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "px-16",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "px-20",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "px-24",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "py-0",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "py-1",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "py-3",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "py-5",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "py-6",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "py-10",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "py-12",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "py-16",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "py-24",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "text-emergency",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "text-white",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "text-black",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "text-gray-50",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "text-gray-100",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "text-gray-200",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "text-gray-300",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "text-gray-400",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "text-gray-500",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "text-gray-900",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "bg-black",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "bg-primary",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "bg-secondary",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "bg-accent",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "bg-emergency",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "bg-gray-100",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "bg-gray-200",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "text-xs",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "text-base",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "hidden",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "flex-row",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "flex-nowrap",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "w-auto",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "max-w-sm",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "max-w-lg",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "max-w-xl",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "max-w-2xl",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "max-w-3xl",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "max-w-full",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      },
+      {
+        "selector": "md",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Utility class - check if design system is actively used"
+      }
+    ],
+    "lowConfidence": [
+      {
+        "selector": "bauhaus-hero",
+        "definedIn": [
+          "src/css/bauhaus.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "circle-accent",
+        "definedIn": [
+          "src/css/bauhaus.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "square-accent",
+        "definedIn": [
+          "src/css/bauhaus.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "css",
+        "definedIn": [
+          "src/css/bauhaus.css",
+          "src/css/components.css",
+          "src/css/dark-mode.css",
+          "src/css/main.css",
+          "src/css/modern.css",
+          "src/css/pentagram.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "loading",
+        "definedIn": [
+          "src/css/components.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "focus-indicator",
+        "definedIn": [
+          "src/css/components.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "exit-warning",
+        "definedIn": [
+          "src/css/components.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "sun-icon",
+        "definedIn": [
+          "src/css/components.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "V",
+        "definedIn": [
+          "src/css/dark-mode.css",
+          "src/css/main.css",
+          "src/css/unified-components.css",
+          "src/css/utilities.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "service-card",
+        "definedIn": [
+          "src/css/dark-mode.css",
+          "src/css/responsive.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "section-title",
+        "definedIn": [
+          "src/css/main.css",
+          "src/css/responsive.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "services-grid",
+        "definedIn": [
+          "src/css/main.css",
+          "src/css/responsive.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "step-number",
+        "definedIn": [
+          "src/css/main.css",
+          "src/css/responsive.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "resources-grid",
+        "definedIn": [
+          "src/css/main.css",
+          "src/css/responsive.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "resource-card",
+        "definedIn": [
+          "src/css/main.css",
+          "src/css/responsive.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "resource-link",
+        "definedIn": [
+          "src/css/main.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "glass-card",
+        "definedIn": [
+          "src/css/modern.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "gradient-primary",
+        "definedIn": [
+          "src/css/modern.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "gradient-secondary",
+        "definedIn": [
+          "src/css/modern.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "gradient-mixed",
+        "definedIn": [
+          "src/css/modern.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "float-3",
+        "definedIn": [
+          "src/css/modern.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "section-title-pentagram",
+        "definedIn": [
+          "src/css/pentagram.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "span-7",
+        "definedIn": [
+          "src/css/pentagram.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "span-5",
+        "definedIn": [
+          "src/css/pentagram.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "diagonal-block",
+        "definedIn": [
+          "src/css/pentagram.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "quote-pentagram",
+        "definedIn": [
+          "src/css/pentagram.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "icon-geometric",
+        "definedIn": [
+          "src/css/pentagram.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "visually-hidden",
+        "definedIn": [
+          "src/css/reset.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "service-icon",
+        "definedIn": [
+          "src/css/responsive.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "leading-none",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "leading-tight",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "leading-normal",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "leading-relaxed",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "font-light",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "font-normal",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "list-disc",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "list-decimal",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "block",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "inline",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "inline-flex",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "justify-start",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "justify-end",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "justify-around",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "items-end",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "items-baseline",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "gap-1",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "gap-10",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "gap-12",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "gap-16",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "absolute",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "fixed",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "sticky",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "list-style-none",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "rounded-none",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "rounded-sm",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "rounded-2xl",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "overflow-hidden",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "overflow-auto",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "overflow-x-auto",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "overflow-y-auto",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "z-0",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "z-10",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "z-40",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "z-50",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "transition-fast",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "transition-slow",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "transition-none",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "rotate-45",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "rotate-90",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "rotate-180",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "cursor-default",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      },
+      {
+        "selector": "cursor-not-allowed",
+        "definedIn": [
+          "src/css/utilities.css"
+        ],
+        "reason": "Generic selector - verify usage"
+      }
+    ]
+  },
+  "timestamp": "2025-07-05T10:17:35.827Z"
+}

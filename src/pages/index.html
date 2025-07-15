@@ -604,7 +604,7 @@
                             </div>
                             <h3 class="bauhaus-heading-2">Beratung</h3>
                             <p>Einzelgespräche für Betroffene sexueller Gewalt. Vertraulich, kostenlos und auf Wunsch anonym. Persönlich, telefonisch oder online.</p>
-                            <a href="#" class="btn btn--link">Mehr erfahren →</a>
+                            <a href="#" class="btn btn--link service-link" data-service="beratung">Mehr erfahren →</a>
                         </div>
                     </article>
 
@@ -618,7 +618,7 @@
                             </div>
                             <h3 class="bauhaus-heading-2">Prozessbegleitung</h3>
                             <p>Psychosoziale Unterstützung vor, während und nach Gerichtsverfahren. Wir stehen Ihnen zur Seite.</p>
-                            <a href="#" class="btn btn--link">Mehr erfahren →</a>
+                            <a href="#" class="btn btn--link service-link" data-service="prozessbegleitung">Mehr erfahren →</a>
                         </div>
                     </article>
 
@@ -633,7 +633,7 @@
                             </div>
                             <h3 class="bauhaus-heading-2">Hilfe bei Anträgen</h3>
                             <p>Unterstützung beim Opferentschädigungsgesetz und anderen Anträgen. Wir helfen bei der Antragstellung.</p>
-                            <a href="#" class="btn btn--link">Mehr erfahren →</a>
+                            <a href="#" class="btn btn--link service-link" data-service="antraege">Mehr erfahren →</a>
                         </div>
                     </article>
 
@@ -647,7 +647,7 @@
                             </div>
                             <h3 class="bauhaus-heading-2">Fortbildungen</h3>
                             <p>Schulungen für Fachkräfte zu sexualisierter Gewalt, Trauma und professionellem Umgang mit Betroffenen.</p>
-                            <a href="#" class="btn btn--link">Mehr erfahren →</a>
+                            <a href="#" class="btn btn--link service-link" data-service="fortbildung">Mehr erfahren →</a>
                         </div>
                     </article>
 
@@ -661,7 +661,7 @@
                             </div>
                             <h3 class="bauhaus-heading-2">Prävention</h3>
                             <p>Präventionsarbeit in Schulen und Einrichtungen. Aufklärung und Schutzkonzepte gegen sexuelle Gewalt.</p>
-                            <a href="#" class="btn btn--link">Mehr erfahren →</a>
+                            <a href="#" class="btn btn--link service-link" data-service="praevention">Mehr erfahren →</a>
                         </div>
                     </article>
 
@@ -675,7 +675,7 @@
                             </div>
                             <h3 class="bauhaus-heading-2">Gruppenangebote</h3>
                             <p>Angeleitete Gruppen für Betroffene. Austausch und gegenseitige Unterstützung in geschütztem Rahmen.</p>
-                            <a href="#" class="btn btn--link">Mehr erfahren →</a>
+                            <a href="#" class="btn btn--link service-link" data-service="gruppe">Mehr erfahren →</a>
                         </div>
                     </article>
                 </div>
@@ -1366,495 +1366,7 @@
         </div>
     </div>
     
-    <style>
-        /* Modal Styles */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.7);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-            backdrop-filter: blur(4px);
-        }
-        
-        .modal-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .modal-content {
-            background: white;
-            border-radius: var(--radius-xl);
-            max-width: 600px;
-            width: 90%;
-            max-height: 80vh;
-            overflow-y: auto;
-            padding: var(--space-8);
-            position: relative;
-            transform: translateY(20px);
-            transition: transform 0.3s ease;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-        }
-        
-        .modal-overlay.active .modal-content {
-            transform: translateY(0);
-        }
-        
-        .modal-close {
-            position: absolute;
-            top: var(--space-4);
-            right: var(--space-4);
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            padding: var(--space-2);
-            border-radius: var(--radius-full);
-            transition: background 0.2s ease;
-            color: var(--color-gray-600);
-        }
-        
-        .modal-close:hover {
-            background: var(--color-gray-100);
-        }
-        
-        .modal-close:focus {
-            outline: 2px solid var(--color-primary);
-            outline-offset: 2px;
-        }
-        
-        /* Dark mode support */
-        .dark-mode .modal-content {
-            background: var(--color-gray-900);
-            color: var(--color-gray-100);
-        }
-        
-        .dark-mode .modal-close {
-            color: var(--color-gray-400);
-        }
-        
-        .dark-mode .modal-close:hover {
-            background: var(--color-gray-800);
-        }
-        
-        /* Modal content styling */
-        .modal-header {
-            margin-bottom: var(--space-6);
-        }
-        
-        .modal-title {
-            font-size: var(--text-2xl);
-            font-weight: 700;
-            color: var(--color-primary);
-            margin-bottom: var(--space-2);
-        }
-        
-        .modal-subtitle {
-            color: var(--color-gray-600);
-            font-size: var(--text-lg);
-        }
-        
-        .modal-features {
-            margin: var(--space-6) 0;
-        }
-        
-        .modal-feature {
-            display: flex;
-            align-items: start;
-            margin-bottom: var(--space-4);
-        }
-        
-        .modal-feature-icon {
-            width: 24px;
-            height: 24px;
-            margin-right: var(--space-3);
-            color: var(--color-secondary);
-            flex-shrink: 0;
-        }
-        
-        .modal-cta {
-            margin-top: var(--space-6);
-            display: flex;
-            gap: var(--space-3);
-            flex-wrap: wrap;
-        }
-    </style>
-    
     <script>
-        // Modal System
-        (function() {
-            const modal = document.getElementById('service-modal');
-            const modalBody = document.getElementById('modal-body');
-            const modalClose = modal.querySelector('.modal-close');
-            
-            // Service Details Data
-            const serviceDetails = {
-                'beratung': {
-                    title: 'Beratung für Betroffene',
-                    subtitle: 'Vertrauliche Unterstützung in Ihrem Tempo',
-                    content: `
-                        <div class="modal-features">
-                            <div class="modal-feature">
-                                <svg class="modal-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                                <div>
-                                    <strong>Kostenlos und vertraulich</strong>
-                                    <p>Alle Gespräche sind kostenfrei und unterliegen der Schweigepflicht</p>
-                                </div>
-                            </div>
-                            <div class="modal-feature">
-                                <svg class="modal-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                                <div>
-                                    <strong>Flexible Termine</strong>
-                                    <p>Beratung persönlich, telefonisch oder per Video - auch außerhalb der Bürozeiten möglich</p>
-                                </div>
-                            </div>
-                            <div class="modal-feature">
-                                <svg class="modal-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                                </svg>
-                                <div>
-                                    <strong>Für alle Menschen</strong>
-                                    <p>Unabhängig von Geschlecht, Alter, Herkunft oder sexueller Orientierung</p>
-                                </div>
-                            </div>
-                        </div>
-                        <p>In der Beratung können Sie über Ihre Erfahrungen sprechen, Fragen stellen und gemeinsam mit uns Wege finden, mit dem Erlebten umzugehen. Sie bestimmen das Tempo und die Themen.</p>
-                    `,
-                    cta: 'Erstgespräch vereinbaren'
-                },
-                'prozessbegleitung': {
-                    title: 'Psychosoziale Prozessbegleitung',
-                    subtitle: 'Unterstützung im Strafverfahren',
-                    content: `
-                        <div class="modal-features">
-                            <div class="modal-feature">
-                                <svg class="modal-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"></path>
-                                </svg>
-                                <div>
-                                    <strong>Kostenlose Begleitung</strong>
-                                    <p>Die Prozessbegleitung ist für Sie kostenfrei - die Kosten trägt das Land</p>
-                                </div>
-                            </div>
-                            <div class="modal-feature">
-                                <svg class="modal-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path>
-                                </svg>
-                                <div>
-                                    <strong>Umfassende Unterstützung</strong>
-                                    <p>Vor, während und nach dem Verfahren - wir sind an Ihrer Seite</p>
-                                </div>
-                            </div>
-                            <div class="modal-feature">
-                                <svg class="modal-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                                </svg>
-                                <div>
-                                    <strong>Information und Vorbereitung</strong>
-                                    <p>Wir erklären den Ablauf und bereiten Sie auf die Verhandlung vor</p>
-                                </div>
-                            </div>
-                        </div>
-                        <p>Die psychosoziale Prozessbegleitung hilft Ihnen, die Belastungen eines Strafverfahrens besser zu bewältigen. Wir begleiten Sie zu Terminen und stehen Ihnen emotional zur Seite.</p>
-                    `,
-                    cta: 'Mehr erfahren'
-                },
-                'antraege': {
-                    title: 'Hilfe bei Anträgen',
-                    subtitle: 'Unterstützung im Behördendschungel',
-                    content: `
-                        <div class="modal-features">
-                            <div class="modal-feature">
-                                <svg class="modal-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
-                                </svg>
-                                <div>
-                                    <strong>Opferentschädigungsgesetz (OEG)</strong>
-                                    <p>Unterstützung bei der Beantragung von Entschädigungsleistungen</p>
-                                </div>
-                            </div>
-                            <div class="modal-feature">
-                                <svg class="modal-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                                </svg>
-                                <div>
-                                    <strong>Finanzielle Hilfen</strong>
-                                    <p>Beratung zu möglichen finanziellen Unterstützungsleistungen</p>
-                                </div>
-                            </div>
-                            <div class="modal-feature">
-                                <svg class="modal-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
-                                </svg>
-                                <div>
-                                    <strong>Formularhilfe</strong>
-                                    <p>Gemeinsames Ausfüllen von Anträgen und Formularen</p>
-                                </div>
-                            </div>
-                        </div>
-                        <p>Wir helfen Ihnen dabei, sich im Behördendschungel zurechtzufinden und unterstützen Sie bei der Beantragung von Leistungen, die Ihnen zustehen.</p>
-                    `,
-                    cta: 'Termin vereinbaren'
-                },
-                'fortbildung': {
-                    title: 'Fortbildungen für Fachkräfte',
-                    subtitle: 'Kompetenz im Umgang mit Betroffenen',
-                    content: `
-                        <div class="modal-features">
-                            <div class="modal-feature">
-                                <svg class="modal-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-                                </svg>
-                                <div>
-                                    <strong>Praxisnahe Inhalte</strong>
-                                    <p>Vermittlung von Fachwissen und praktischen Handlungskompetenzen</p>
-                                </div>
-                            </div>
-                            <div class="modal-feature">
-                                <svg class="modal-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
-                                </svg>
-                                <div>
-                                    <strong>Zielgruppenspezifisch</strong>
-                                    <p>Angepasst an Ihre Einrichtung und Ihre Bedarfe</p>
-                                </div>
-                            </div>
-                            <div class="modal-feature">
-                                <svg class="modal-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
-                                </svg>
-                                <div>
-                                    <strong>Zertifiziert</strong>
-                                    <p>Teilnahmebescheinigung für alle Teilnehmenden</p>
-                                </div>
-                            </div>
-                        </div>
-                        <p>Unsere Fortbildungen sensibilisieren für das Thema sexualisierte Gewalt und vermitteln Handlungssicherheit im Umgang mit Betroffenen und Verdachtsfällen.</p>
-                    `,
-                    cta: 'Anfrage senden'
-                },
-                'praevention': {
-                    title: 'Präventionsarbeit',
-                    subtitle: 'Schutz durch Aufklärung',
-                    content: `
-                        <div class="modal-features">
-                            <div class="modal-feature">
-                                <svg class="modal-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                                <div>
-                                    <strong>Workshops für Schulen</strong>
-                                    <p>Altersgerechte Präventionsprogramme für verschiedene Klassenstufen</p>
-                                </div>
-                            </div>
-                            <div class="modal-feature">
-                                <svg class="modal-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                                </svg>
-                                <div>
-                                    <strong>Schutzkonzepte</strong>
-                                    <p>Unterstützung bei der Entwicklung institutioneller Schutzkonzepte</p>
-                                </div>
-                            </div>
-                            <div class="modal-feature">
-                                <svg class="modal-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path>
-                                </svg>
-                                <div>
-                                    <strong>Elternabende</strong>
-                                    <p>Information und Sensibilisierung für Eltern und Erziehungsberechtigte</p>
-                                </div>
-                            </div>
-                        </div>
-                        <p>Prävention ist der beste Schutz. Wir vermitteln Wissen, stärken Kinder und Jugendliche und schaffen sichere Räume in Institutionen.</p>
-                    `,
-                    cta: 'Präventionsanfrage'
-                },
-                'gruppe': {
-                    title: 'Gruppenangebote',
-                    subtitle: 'Gemeinsam stark',
-                    content: `
-                        <div class="modal-features">
-                            <div class="modal-feature">
-                                <svg class="modal-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                                </svg>
-                                <div>
-                                    <strong>Geschlossene Gruppen</strong>
-                                    <p>Feste Gruppen mit maximal 8 Teilnehmenden für vertrauensvollen Austausch</p>
-                                </div>
-                            </div>
-                            <div class="modal-feature">
-                                <svg class="modal-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                                <div>
-                                    <strong>Regelmäßige Treffen</strong>
-                                    <p>Wöchentliche oder 14-tägige Treffen über einen festen Zeitraum</p>
-                                </div>
-                            </div>
-                            <div class="modal-feature">
-                                <svg class="modal-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                                </svg>
-                                <div>
-                                    <strong>Professionelle Leitung</strong>
-                                    <p>Begleitung durch erfahrene Therapeut*innen</p>
-                                </div>
-                            </div>
-                        </div>
-                        <p>In unseren Gruppen finden Betroffene Verständnis und Unterstützung. Der Austausch mit anderen kann helfen, das Gefühl der Isolation zu überwinden.</p>
-                    `,
-                    cta: 'Gruppenplatz anfragen'
-                },
-                'notfall': {
-                    title: 'Notfall-Toolkit',
-                    subtitle: 'Sofort-Hilfe Übungen für akute Belastungen',
-                    content: `
-                        <div class="modal-features">
-                            <div class="modal-feature">
-                                <svg class="modal-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-                                </svg>
-                                <div>
-                                    <strong>5-4-3-2-1 Technik</strong>
-                                    <p>Nennen Sie: 5 Dinge die Sie sehen, 4 die Sie hören, 3 die Sie fühlen, 2 die Sie riechen, 1 die Sie schmecken</p>
-                                </div>
-                            </div>
-                            <div class="modal-feature">
-                                <svg class="modal-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                                </svg>
-                                <div>
-                                    <strong>4-7-8 Atemtechnik</strong>
-                                    <p>4 Sekunden einatmen, 7 Sekunden halten, 8 Sekunden ausatmen. 3-4 Mal wiederholen.</p>
-                                </div>
-                            </div>
-                            <div class="modal-feature">
-                                <svg class="modal-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
-                                </svg>
-                                <div>
-                                    <strong>Erdungsübung</strong>
-                                    <p>Füße fest auf den Boden. Spüren Sie: Stuhl unter Ihnen, Kleidung auf der Haut, Temperatur im Raum.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div style="margin-top: var(--space-6); padding: var(--space-4); background: rgba(232, 165, 165, 0.1); border-radius: var(--radius-lg);">
-                            <h4 class="text-primary mb-2">Progressive Muskelentspannung (Kurzform)</h4>
-                            <ol style="color: var(--color-gray-600); line-height: 1.8; margin-left: var(--space-4);">
-                                <li>Hände zu Fäusten ballen (5 Sek.) → entspannen</li>
-                                <li>Schultern zu den Ohren ziehen (5 Sek.) → entspannen</li>
-                                <li>Gesicht anspannen (5 Sek.) → entspannen</li>
-                                <li>Alle Muskeln kurz anspannen → komplett loslassen</li>
-                            </ol>
-                        </div>
-                        <div style="margin-top: var(--space-4); padding: var(--space-4); background: rgba(125, 221, 215, 0.1); border-radius: var(--radius-lg);">
-                            <h4 style="color: var(--color-secondary); margin-bottom: var(--space-2);">Notfall-Kontakte</h4>
-                            <ul class="text-gray-600 leading-8">
-                                <li><strong>Akute Krise:</strong> 110 (Polizei) oder 112 (Rettungsdienst)</li>
-                                <li><strong>Hilfetelefon:</strong> 08000 116 016 (24/7, kostenlos)</li>
-                                <li><strong>Rückhalt direkt:</strong> 0241 - 542220</li>
-                            </ul>
-                        </div>
-                    `,
-                    cta: 'Übungen schließen'
-                }
-            };
-            
-            // Add click handlers to service links
-            document.querySelectorAll('.service-link').forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    // Determine which service based on the card content
-                    const card = this.closest('.card--service');
-                    const title = card.querySelector('h3').textContent.toLowerCase();
-                    
-                    let serviceKey = '';
-                    if (title.includes('beratung')) serviceKey = 'beratung';
-                    else if (title.includes('prozessbegleitung')) serviceKey = 'prozessbegleitung';
-                    else if (title.includes('anträg')) serviceKey = 'antraege';
-                    else if (title.includes('fortbildung')) serviceKey = 'fortbildung';
-                    else if (title.includes('prävention')) serviceKey = 'praevention';
-                    else if (title.includes('gruppenangebot')) serviceKey = 'gruppe';
-                    
-                    if (serviceKey && serviceDetails[serviceKey]) {
-                        openModal(serviceDetails[serviceKey]);
-                    }
-                });
-            });
-            
-            // Handle Notfall-Toolkit button
-            const notfallButton = document.querySelector('a[href="#"].btn.btn--emergency');
-            if (notfallButton && notfallButton.textContent.includes('Sofort-Hilfe')) {
-                notfallButton.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    openModal(serviceDetails['notfall']);
-                });
-            }
-            
-            function openModal(details) {
-                modalBody.innerHTML = `
-                    <div class="modal-header">
-                        <h2 id="modal-title" class="modal-title">${details.title}</h2>
-                        <p id="modal-description" class="modal-subtitle">${details.subtitle}</p>
-                    </div>
-                    ${details.content}
-                    <div class="modal-cta">
-                        <a href="#kontakt" class="btn btn--modern" onclick="closeModal()">
-                            ${details.cta}
-                        </a>
-                        <button class="btn btn--secondary" onclick="closeModal()">
-                            Schließen
-                        </button>
-                    </div>
-                `;
-                
-                modal.classList.add('active');
-                modal.setAttribute('aria-hidden', 'false');
-                modalClose.focus();
-                
-                // Trap focus
-                document.body.style.overflow = 'hidden';
-            }
-            
-            window.closeModal = function() {
-                modal.classList.remove('active');
-                modal.setAttribute('aria-hidden', 'true');
-                document.body.style.overflow = '';
-                
-                // Return focus to trigger element
-                document.querySelector('.service-link').focus();
-            }
-            
-            // Close modal handlers
-            modalClose.addEventListener('click', closeModal);
-            
-            modal.addEventListener('click', function(e) {
-                if (e.target === modal) {
-                    closeModal();
-                }
-            });
-            
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && modal.classList.contains('active')) {
-                    closeModal();
-                }
-            });
-        })();
-        
         // FAQ System
         (function() {
             // FAQ Accordion functionality
