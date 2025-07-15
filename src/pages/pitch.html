@@ -29,18 +29,24 @@
             position: relative;
         }
         
+        /* Content-Wrapper für optimale Lesebreite */
+        .presentation-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
         .presentation-section:nth-child(even) {
             background: linear-gradient(135deg, rgba(232, 165, 165, 0.03) 0%, rgba(125, 221, 215, 0.03) 100%);
         }
         
         .section-number {
-            position: absolute;
-            top: var(--space-8);
-            right: var(--space-8);
+            display: block;
+            text-align: center;
             font-size: 4rem;
             font-weight: 700;
             color: rgba(232, 165, 165, 0.15);
             font-family: var(--font-heading);
+            margin-bottom: var(--space-8);
         }
         
         .highlight-box {
@@ -400,25 +406,6 @@
             will-change: transform;
         }
         
-        /* Floating CTA */
-        .floating-cta {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            z-index: 100;
-            animation: bounce 2s ease-in-out infinite;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-        
-        .floating-cta.show {
-            opacity: 1;
-        }
-        
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
         
         /* Mobile Optimizations */
         @media (max-width: 768px) {
@@ -427,11 +414,8 @@
             }
             
             .section-number {
-                position: static;
-                display: block;
-                text-align: center;
-                margin-bottom: var(--space-4);
                 font-size: 2.5rem;
+                margin-bottom: var(--space-4);
             }
             
             .feature-grid {
@@ -523,9 +507,10 @@
             <div class="floating-shape"></div>
             
             <div class="container">
-                <div class="text-center max-w-4xl mx-auto" data-parallax="0.5">
-                    <h1 class="text-5xl font-bold mb-6 typewriter-effect">Eure neue digitale Heimat</h1>
-                    <p class="text-2xl text-gray-700 mb-8 fade-in-up" style="animation-delay: 0.5s">Eine Website, die eure wichtige Arbeit würdigt</p>
+                <div class="text-center" data-parallax="0.5">
+                    <h1 class="text-5xl font-bold mb-6 typewriter-effect">Redesign-Konzept RückHalt</h1>
+                    <p class="text-2xl text-gray-700 mb-8 fade-in-up" style="animation-delay: 0.5s">Ein Vorschlag für eine moderne, trauma-informierte Website</p>
+                    <p class="text-lg text-gray-600 mt-4">Entwickelt im Rahmen einer Fortbildung zum Gestalter im Handwerk am Gut Rosenberg</p>
                 </div>
             </div>
         </section>
@@ -533,13 +518,13 @@
         <!-- Logo Präsentation -->
         <section class="presentation-section">
             <div class="container">
-                <div class="text-center max-w-4xl mx-auto">
+                <div class="text-center">
                     <h2 class="text-4xl font-bold mb-6">Das RückHalt Logo</h2>
                     <p class="text-xl text-gray-700 mb-8">
                         Euer Erkennungszeichen – ein Symbol, das Vertrauen schafft, bevor das erste Wort gesprochen wird.
                     </p>
                     
-                    <div class="bg-white p-8 rounded-xl shadow-lg max-w-md mx-auto mb-8">
+                    <div class="bg-white p-8 rounded-xl shadow-lg mx-auto mb-8" style="max-width: 450px;">
                         <img src="../assets/images/rueckhalt-logo.png" alt="RückHalt Logo" 
                              class="mx-auto" width="250" height="250"
                              style="mix-blend-mode: multiply; filter: contrast(1.1);">
@@ -562,11 +547,11 @@
         <section class="presentation-section">
             <div class="container">
                 <span class="section-number">01</span>
-                <div class="max-w-4xl">
-                    <h2 class="text-4xl font-bold mb-6">Die Website als eure verlängerte Hand</h2>
+                <div>
+                    <h2 class="text-4xl font-bold mb-6">Die Website als digitale Anlaufstelle</h2>
                     <p class="text-xl text-gray-700 mb-8">
-                        Ihr leistet jeden Tag unschätzbar wertvolle Arbeit. Diese Website macht eure Expertise 
-                        und euer Mitgefühl rund um die Uhr zugänglich – auch wenn ihr gerade nicht im Büro seid.
+                        Eine moderne Website kann die wichtige Arbeit einer Beratungsstelle rund um die Uhr 
+                        zugänglich machen und Menschen in Krisensituationen erste Orientierung bieten.
                     </p>
                     
                     <div class="feature-grid">
@@ -576,10 +561,10 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
                                 </svg>
                             </div>
-                            <h3 class="text-xl font-semibold mb-3">Euer Beratungsraum im Netz</h3>
+                            <h3 class="text-xl font-semibold mb-3">Ein sicherer digitaler Raum</h3>
                             <p class="text-gray-600">
-                                So wie ihr eure Räume gestaltet habt – warm, sicher, einladend – so empfängt 
-                                nun auch die Website die Menschen, die euch suchen.
+                                Die Website wurde nach Prinzipien trauma-informierten Designs gestaltet – 
+                                warm, sicher und einladend für Menschen in Krisensituationen.
                             </p>
                         </div>
                         <div class="feature-card">
@@ -588,10 +573,10 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
                                 </svg>
                             </div>
-                            <h3 class="text-xl font-semibold mb-3">Entlastung für euch</h3>
+                            <h3 class="text-xl font-semibold mb-3">Effiziente Informationsvermittlung</h3>
                             <p class="text-gray-600">
-                                Viele Fragen werden schon online beantwortet. So habt ihr mehr Zeit für die 
-                                intensive Beratungsarbeit, die nur ihr leisten könnt.
+                                Häufige Fragen werden online beantwortet, sodass mehr Zeit für die 
+                                intensive persönliche Beratungsarbeit bleibt.
                             </p>
                         </div>
                         <div class="feature-card">
@@ -600,10 +585,10 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
                                 </svg>
                             </div>
-                            <h3 class="text-xl font-semibold mb-3">Eure Arbeit wird sichtbar</h3>
+                            <h3 class="text-xl font-semibold mb-3">Sichtbarkeit schaffen</h3>
                             <p class="text-gray-600">
-                                Endlich zeigt eine Website, was ihr wirklich tut. Nicht nur für Betroffene, 
-                                sondern auch für Förderer, Politik und Gesellschaft.
+                                Die Website macht die wichtige Arbeit der Beratungsstelle transparent – 
+                                für Betroffene, Förderer, Politik und Gesellschaft.
                             </p>
                         </div>
                     </div>
@@ -615,11 +600,11 @@
         <section class="presentation-section">
             <div class="container">
                 <span class="section-number">02</span>
-                <div class="max-w-4xl">
-                    <h2 class="text-4xl font-bold mb-6">Eure Expertise in Code übersetzt</h2>
+                <div>
+                    <h2 class="text-4xl font-bold mb-6">Trauma-informiertes Design in der Praxis</h2>
                     <p class="text-xl text-gray-700 mb-8">
-                        All euer Wissen über Trauma und Heilung floss in das Design ein. Die Website 
-                        "spricht" jetzt eure Sprache – behutsam, achtsam, professionell.
+                        Basierend auf wissenschaftlichen Erkenntnissen über Trauma und Heilung wurde 
+                        ein Design entwickelt, das behutsam, achtsam und professionell kommuniziert.
                     </p>
 
                     <div class="timeline">
@@ -667,11 +652,11 @@
         <section class="presentation-section">
             <div class="container">
                 <span class="section-number">03</span>
-                <div class="max-w-4xl">
-                    <h2 class="text-4xl font-bold mb-6">Praktische Tools für euren Alltag</h2>
+                <div>
+                    <h2 class="text-4xl font-bold mb-6">Durchdachte Sicherheitsfeatures</h2>
                     <p class="text-xl text-gray-700 mb-8">
-                        Diese Features entstanden aus euren Erfahrungen und Bedürfnissen. 
-                        Sie machen eure Arbeit sicherer und zugänglicher.
+                        Diese Features basieren auf Best Practices für Beratungsstellen und 
+                        machen die digitale Hilfesuche sicherer und zugänglicher.
                     </p>
 
                     <div class="feature-grid">
@@ -725,18 +710,18 @@
         <section class="presentation-section">
             <div class="container">
                 <span class="section-number">04</span>
-                <div class="max-w-4xl">
-                    <h2 class="text-4xl font-bold mb-6">Endlich werdet ihr gefunden</h2>
+                <div>
+                    <h2 class="text-4xl font-bold mb-6">Optimale Auffindbarkeit für Hilfesuchende</h2>
                     <p class="text-xl text-gray-700 mb-8">
-                        Ihr habt so viel zu geben – jetzt können die Menschen, die euch brauchen, 
-                        euch auch finden. Google versteht endlich, wie wichtig eure Arbeit ist.
+                        Durch professionelle Suchmaschinenoptimierung können Menschen in Not 
+                        die Beratungsstelle schneller und einfacher finden.
                     </p>
 
                     <div class="highlight-box mb-8">
-                        <h3 class="text-xl font-semibold mb-3">Was bedeutet das für eure Arbeit?</h3>
+                        <h3 class="text-xl font-semibold mb-3">Der Mehrwert einer optimierten Website</h3>
                         <p class="text-gray-700">
-                            Mehr Menschen finden zu euch, bevor sie den Mut verlieren. Weniger "Ich wusste nicht, 
-                            dass es euch gibt" - mehr "Ich bin so froh, dass ich euch gefunden habe".
+                            Menschen in Krisensituationen finden schneller Hilfe. Die Hemmschwelle für 
+                            die erste Kontaktaufnahme wird durch gute Auffindbarkeit deutlich gesenkt.
                         </p>
                     </div>
 
@@ -759,7 +744,7 @@
                     </div>
 
                     <div class="bg-soft p-8 rounded-xl mb-12">
-                        <h3 class="text-2xl font-semibold mb-4">Was ist SEO überhaupt?</h3>
+                        <h3 class="text-2xl font-semibold mb-4">SEO - Search Engine Optimization</h3>
                         <p class="text-lg text-gray-700 mb-6">
                             SEO steht für "Suchmaschinenoptimierung". Stellt euch vor, Google ist wie eine riesige 
                             Bibliothek, und SEO sorgt dafür, dass euer Buch ganz vorne im Regal steht – genau dort, 
@@ -822,11 +807,11 @@
         <section class="presentation-section">
             <div class="container">
                 <span class="section-number">05</span>
-                <div class="max-w-4xl">
-                    <h2 class="text-4xl font-bold mb-6">Sicherheit, die ihr empfohlen habt</h2>
+                <div>
+                    <h2 class="text-4xl font-bold mb-6">Sicherheit für schutzbedürftige Menschen</h2>
                     <p class="text-xl text-gray-700 mb-8">
-                        Aus euren Erzählungen wissen wir: Viele Betroffene sind in Gefahr, wenn sie Hilfe suchen. 
-                        Diese Sicherheitsfeatures basieren auf euren Erfahrungen und retten Leben.
+                        Viele Betroffene befinden sich in gefährlichen Situationen. Die implementierten 
+                        Sicherheitsfeatures folgen internationalen Standards für Gewaltschutz-Websites.
                     </p>
 
                     <div class="feature-grid">
@@ -838,8 +823,8 @@
                             </div>
                             <h3 class="text-xl font-bold mb-2">Quick Exit</h3>
                             <p class="text-gray-700 mb-4">
-                                Die Funktion, die ihr euch gewünscht habt: <strong>3x ESC</strong> - 
-                                und die Person ist sicher. Ihr könnt das jetzt beruhigt empfehlen.
+                                Ein bewährtes Sicherheitsfeature: <strong>3x ESC</strong> - 
+                                für sofortiges Verlassen der Seite in Gefahrensituationen.
                             </p>
                             <ul class="text-sm text-gray-600 space-y-1">
                                 <li>• Sofortige Weiterleitung</li>
@@ -885,10 +870,10 @@
                     </div>
 
                     <div class="highlight-box mt-8">
-                        <h3 class="text-xl font-semibold mb-3">Zeigt es euren Klient*innen</h3>
+                        <h3 class="text-xl font-semibold mb-3">Demonstration der Sicherheitsfunktion</h3>
                         <p class="text-gray-700">
-                            Probiert es gerne aus: 3x ESC drücken. So könnt ihr es in der Beratung vorführen 
-                            und zeigt es euren Klient*innen, dass sie bei euch auch digital sicher sind.
+                            Die Quick-Exit-Funktion kann einfach getestet werden: 3x ESC drücken. 
+                            Dies vermittelt Betroffenen ein Gefühl digitaler Sicherheit.
                         </p>
                     </div>
                 </div>
@@ -899,11 +884,11 @@
         <section class="presentation-section" style="background: linear-gradient(135deg, rgba(232, 165, 165, 0.05) 0%, rgba(125, 221, 215, 0.05) 100%);">
             <div class="container">
                 <span class="section-number">06</span>
-                <div class="max-w-4xl">
-                    <h2 class="text-4xl font-bold mb-6">Eure Beratungsphilosophie in Pixeln</h2>
+                <div>
+                    <h2 class="text-4xl font-bold mb-6">Durchdachtes Design bis ins Detail</h2>
                     <p class="text-xl text-gray-700 mb-8">
-                        So wie ihr in euren Räumen jedes Detail bedenkt – von der Beleuchtung bis zur 
-                        Sitzordnung – so durchdacht ist jetzt auch eure digitale Präsenz.
+                        Analog zur sorgfältigen Gestaltung physischer Beratungsräume wurde auch 
+                        die digitale Präsenz mit Bedacht auf jedes Detail entwickelt.
                     </p>
 
                     <div class="bauhaus-grid gap-8">
@@ -977,20 +962,12 @@
         <!-- Abschluss -->
         <section class="hero-gradient presentation-section">
             <div class="container">
-                <div class="text-center max-w-4xl mx-auto">
-                    <h2 class="text-4xl font-bold mb-6">Danke für eure unermüdliche Arbeit</h2>
-                    <p class="text-xl text-gray-700 mb-8">
-                        Diese Website ist unser Dankeschön an euch. Sie macht sichtbar, was ihr täglich leistet: 
-                        Menschen in ihrer dunkelsten Stunde beizustehen, zuzuhören, zu stärken und Wege aus der 
-                        Gewalt zu zeigen.
-                    </p>
-                    <p class="text-3xl font-bold accent-primary">
-                        Ihr seid die wahren Held*innen. Diese Website ist eure Bühne.
-                    </p>
+                <div class="text-center">
+                    <h2 class="text-4xl font-bold mb-6">Danke für euren Einsatz und eure wichtige Arbeit!</h2>
                     
                     <div class="mt-12">
                         <a href="/" class="btn btn--modern">
-                            Eure neue Website erkunden
+                            Das Redesign-Konzept erkunden
                         </a>
                     </div>
                 </div>
@@ -1042,13 +1019,6 @@
             </div>
         </div>
     </footer>
-
-    <!-- Floating CTA -->
-    <div class="floating-cta" id="floating-cta">
-        <a href="#kontakt" class="btn btn--modern">
-            Jetzt Kontakt aufnehmen
-        </a>
-    </div>
 
     <!-- JavaScript -->
     <script>
@@ -1155,24 +1125,6 @@
             }
         }
 
-        // Floating CTA
-        class FloatingCTA {
-            constructor() {
-                this.cta = document.getElementById('floating-cta');
-                this.init();
-            }
-            
-            init() {
-                window.addEventListener('scroll', () => {
-                    if (window.pageYOffset > 1000) {
-                        this.cta.classList.add('show');
-                    } else {
-                        this.cta.classList.remove('show');
-                    }
-                });
-            }
-        }
-
         // Fade In Animation
         class FadeInAnimation {
             constructor() {
@@ -1204,7 +1156,6 @@
             new InteractiveTimeline();
             new MetricCounter();
             new ParallaxEffect();
-            new FloatingCTA();
             new FadeInAnimation();
         });
     </script>
