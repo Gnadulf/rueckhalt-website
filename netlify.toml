@@ -6,6 +6,37 @@
   NODE_VERSION = "18"
 
 [[redirects]]
+  from = "/datenschutz"
+  to = "/datenschutz.html"
+  status = 200
+
+[[redirects]]
+  from = "/impressum"
+  to = "/impressum.html"
+  status = 200
+
+[[redirects]]
+  from = "/leichte-sprache"
+  to = "/leichte-sprache.html"
+  status = 200
+
+[[redirects]]
+  from = "/pitch"
+  to = "/pitch.html"
+  status = 200
+
+[[redirects]]
+  from = "/spenden"
+  to = "/spenden.html"
+  status = 200
+
+[[redirects]]
+  from = "/newsletter"
+  to = "/newsletter.html"
+  status = 200
+
+# Catch-all rule for SPA routing - must be last!
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200

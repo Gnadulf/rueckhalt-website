@@ -152,8 +152,8 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background: currentColor;
-  transition: transform var(--transition-fast);
+  background: var(--color-gray-700);
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
 }
 
 .hamburger::before {
@@ -162,6 +162,19 @@
 
 .hamburger::after {
   transform: translateY(8px);
+}
+
+/* Active state for hamburger */
+.mobile-menu-toggle[aria-expanded="true"] .hamburger {
+  background: transparent;
+}
+
+.mobile-menu-toggle[aria-expanded="true"] .hamburger::before {
+  transform: translateY(0) rotate(45deg);
+}
+
+.mobile-menu-toggle[aria-expanded="true"] .hamburger::after {
+  transform: translateY(0) rotate(-45deg);
 }
 
 /* Language Switcher */

@@ -1,0 +1,37 @@
+/* FAQ Component Styles */
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.faq-answer.expanded {
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+}
+
+/* Ensure smooth animation */
+.faq-answer.expanding {
+  max-height: 1000px; /* Sufficiently high value */
+}
+
+/* Fix for visible content during animation */
+.faq-answer {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.faq-icon {
+  transition: transform 0.3s ease;
+}
+
+/* Override hidden attribute during animation */
+.faq-answer[hidden] {
+  display: block !important;
+  max-height: 0;
+  padding: 0 !important;
+  overflow: hidden;
+}

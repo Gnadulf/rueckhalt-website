@@ -674,27 +674,41 @@ class FAQSystem {
         const a = q.nextElementSibling;
         const i = q.querySelector('.faq-icon');
         q.setAttribute('aria-expanded', 'false');
-        a.hidden = true;
+        a.classList.remove('expanded', 'expanding');
+        a.style.maxHeight = '0';
         if (i) i.style.transform = 'rotate(0deg)';
       }
     });
     
     // Toggle clicked accordion
     question.setAttribute('aria-expanded', !isExpanded);
-    answer.hidden = isExpanded;
     
     // Animate icon
     if (icon) {
       icon.style.transform = isExpanded ? 'rotate(0deg)' : 'rotate(180deg)';
-      icon.style.transition = 'transform 0.3s ease';
     }
     
     // Smooth height animation
     if (!isExpanded) {
-      answer.style.maxHeight = answer.scrollHeight + 'px';
-      answer.style.transition = 'max-height 0.3s ease';
+      // Opening
+      answer.classList.add('expanding', 'expanded');
+      // Get the actual height
+      const scrollHeight = answer.scrollHeight;
+      answer.style.maxHeight = scrollHeight + 'px';
+      
+      // Remove expanding class after animation
+      setTimeout(() => {
+        answer.classList.remove('expanding');
+      }, 300);
     } else {
+      // Closing
+      answer.classList.remove('expanded');
       answer.style.maxHeight = '0';
+      
+      // Remove expanding class after animation
+      setTimeout(() => {
+        answer.classList.remove('expanding');
+      }, 300);
     }
   }
   
